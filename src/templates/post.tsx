@@ -1,23 +1,23 @@
 import * as React from 'react'
 import {graphql, HeadFC, Link, PageProps} from 'gatsby'
-import Layout from '../../components/layout'
-import Seo from '../../components/seo'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 import {GatsbyImage} from "gatsby-plugin-image";
-import {useSiteMetadata} from "../../hooks/use-site-metadata";
+import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {MDXProvider} from "@mdx-js/react"
-import {gaEvent} from "../../hooks/analytics";
+import {gaEvent} from "../hooks/analytics";
 import {OutboundLink} from "gatsby-plugin-google-gtag";
-import GoogleAdsense from "../../components/google-adsense";
+import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {faArrowLeftLong, faArrowRightLong, faBook, faPencil} from "@fortawesome/free-solid-svg-icons";
 import {faClock, faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
-import ccImage from '../../images/common/cc.svg'
-import byImage from '../../images/common/by.svg'
-import ndImage from '../../images/common/nd.svg'
-import Toc from "../../components/toc";
-import SideBySide from '../../components/side-by-side';
-import MdxLink from '../../components/mdx-link';
+import ccImage from '../images/common/cc.svg'
+import byImage from '../images/common/by.svg'
+import ndImage from '../images/common/nd.svg'
+import Toc from "../components/toc";
+import SideBySide from '../components/side-by-side';
+import MdxLink from '../components/mdx-link';
 import {BlogPosting, WithContext} from "schema-dts";
 
 const shortcodes = {

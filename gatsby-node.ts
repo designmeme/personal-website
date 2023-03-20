@@ -1,30 +1,70 @@
-import type { GatsbyNode } from "gatsby"
+import type {GatsbyNode} from "gatsby"
 
+const path = require(`path`)
 const readingTime = require(`reading-time`)
 
-export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, createNodeId, getNode }) => {
-    const { createNodeField, createNode, createParentChildLink } = actions
+export const createPages: GatsbyNode["createPages"] = async ({actions, graphql}) => {
+    const {createPage} = actions
+
+    // /src/posts/*.mdx 파일만 포스트 페이지를 생성한다.
+    // /src/pages/blog/{mdx.frontmatter__slug}.mdx 파일시스템 API 사용시
+    // /src/pages/design-guide.mdx 등 다른 경로의 파일도 모두 포스트 페이지로 생성하는 문제가 있음.
+    // 참고: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#create-pages-from-sourced-mdx-files
+    const result: any = await graphql(`
+        query CreatePostPages {
+          allMdx(filter: {fields: {sourceInstanceName: {eq: "posts"}}}) {
+            nodes {
+              id
+              frontmatter {
+                slug
+              }
+              internal {
+                contentFilePath
+              }
+            }
+          }
+        }
+    `)
+
+    const data: Queries.CreatePostPagesQuery = result.data
+
+    data.allMdx.nodes.forEach(node => {
+        createPage({
+            path: `/blog/${node.frontmatter.slug}`,
+            // __contentFilePath로 지정한 mdx 본문이 템플릿 페이지 안의 children으로 전달됨.
+            component: `${path.resolve(`src/templates/post.tsx`)}?__contentFilePath=${node.internal.contentFilePath}`,
+            context: {
+                id: node.id
+            },
+            // https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#optimizing-pages-for-content-sync
+            ownerNodeId: node.id,
+        })
+    })
+}
+
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({node, actions, createNodeId, getNode}) => {
+    const {createNodeField, createNode, createParentChildLink} = actions
     if (node.internal.type === `Mdx`) {
-        // MDX Subset 만들기 todo -> mdx transformr 를 거치기 전이라 tableOfContents 등 필드가 누락됨.
+        // MDX Subset 만들기
         // 참고: https://github.com/gatsbyjs/gatsby/discussions/34881
-        // const parent = getNode(node.parent);
-        // if (parent && parent.sourceInstanceName === "posts") {
-        //     console.log('tableOfContents', node.tableOfContents)
-        //     const nodeType = 'Mdx'
+        // const fileNode = getNode(node.parent!);
+        // if (fileNode && fileNode.sourceInstanceName === "posts") {
+        //     const nodeType = 'PostMdx'
         //     createNode({
         //         ...node,
         //         id: createNodeId(`${nodeType}${node.id}`),
-        //         // parent: node.id,
         //         internal: {
         //             type: nodeType,
+        //             // todo need createContentDigest ?
         //             contentDigest: node.internal.contentDigest,
         //         },
         //     })
         //     createParentChildLink({
-        //         parent: parent,
+        //         parent: fileNode,
         //         child: node,
         //     });
         // }
+
         createNodeField({
             node,
             name: `timeToRead`,
@@ -32,7 +72,9 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, create
         })
 
         // File 노드의 sourceInstanceName 정보를 Mdx 노드에 추가한다.
-        const { sourceInstanceName } = getNode(node.parent!)
+        // posts, pages 등 목적에 따른 Mdx를 구분하기 위해.
+        // @ts-ignore
+        const {sourceInstanceName} = getNode(node.parent!)
         createNodeField({
             node,
             name: `sourceInstanceName`,
@@ -78,7 +120,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
         MdxFrontmatter: {
             order: {
                 type: "Int",
-                resolve: async (source, args, context, info) => {
+                resolve: async (source: Queries.MdxFrontmatter, args, context, info) => {
                     // 주제별 포스트 순서값 지정 - SubjectJson 데이터를 기반으로 order 값을 반환한다.
                     if (!source.subject) {
                         return null
@@ -95,8 +137,8 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
             // type @link 지정만으로는 sort, limit 같은 쿼리를 사용할 수 없어서 추가함.
             posts: {
                 type: "[Mdx!]!",
-                resolve: async (source, args, context, info) => {
-                    const { entries } = await context.nodeModel.findAll({
+                resolve: async (source: Queries.SubjectJson, args, context, info) => {
+                    const {entries} = await context.nodeModel.findAll({
                         type: 'Mdx',
                         query: {
                             filter: {frontmatter: {subject: {slug: {eq: source.slug}}}},
