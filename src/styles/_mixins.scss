@@ -1,0 +1,72 @@
+// Mixins
+//
+//
+
+
+@mixin responsive-font-size() {
+  @each $breakpoint-name, $font-size in $font-sizes {
+    $breakpoint: map_get($breakpoints, $breakpoint-name);
+
+    @if $breakpoint == 0 {
+      font-size: $font-size;
+    } @else {
+      @media screen and (min-width: $breakpoint + 1) {
+        font-size: $font-size;
+      }
+    }
+  }
+}
+
+@mixin text-hierarchy() {
+  @each $map in $text-hierarchy {
+    #{map-get($map, selectors)} {
+      font-size: map-get($map, font-size);
+      line-height: map-get($map, line-height);
+    }
+  }
+}
+
+@mixin media-breakpoint-up($name) {
+  $min: map_get($breakpoints, $name);
+  @if $min {
+    @if $min == 0 {
+      @content
+    } @else {
+      @media screen and (min-width: $min + 1) {
+        @content;
+      }
+    }
+  } @else {
+    @error "Breakpoint $name is not valid, was #{$name}";
+  }
+}
+
+@mixin media-breakpoint-down($name) {
+  $max: map_get($breakpoints, $name);
+  @if $max {
+    @if $max == 0 {
+      @content
+    } @else {
+      @media screen and (max-width: $max) {
+        @content;
+      }
+    }
+  } @else {
+    @error "Breakpoint $name is not valid, was #{$name}";
+  }
+}
+
+@mixin aside {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: $min-aside-width;
+    margin-left: $min-aside-margin;
+    margin-top: .25em;
+  }
+  @include media-breakpoint-up(lg) {
+    width: $max-aside-width;
+    margin-left: $max-aside-margin;
+  }
+}

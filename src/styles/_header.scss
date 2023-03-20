@@ -1,0 +1,96 @@
+// Header
+//
+//
+
+
+.site-header {
+  position: relative;
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .site-title {
+    box-sizing: border-box;
+    width: 33.33%;
+    min-width: 80px;
+    max-width: 300px;
+    @include media-breakpoint-up(md) {
+      padding-right: 50px;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 300px;
+    }
+  }
+  .site-nav {
+    flex: 1 1 auto;
+    .menu-icon {
+      display: none;
+    }
+    .trigger {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-right: .75em;
+      @include media-breakpoint-up(md) {
+        align-items: flex-start;
+      }
+      .page-link {
+        margin-bottom: .5em;
+        text-decoration: none;
+        color: inherit;
+        font-weight: 300;
+        line-height: 1.111; // 20px
+        transition: color 400ms;
+        &:before, &:after {
+          content: '';
+          box-sizing: border-box;
+          position: relative;
+          //top: .17em;
+          display: inline-block;
+          width: 1.11rem; // 20px
+          height: 1.11rem;
+          border-radius: 50%;
+          border: 1px solid $text-color-gray;
+          vertical-align: top;
+          transition: border-color, background-color 400ms;
+        }
+        &:before {
+          margin-right: .75em;
+        }
+        &:after {
+          margin-left: .75em;
+        }
+        @include media-breakpoint-down(md) {
+          &:before {
+            display: none;
+          }
+        }
+        @include media-breakpoint-up(md) {
+          min-width: 10em;
+          &:after {
+            display: none;
+          }
+        }
+        &.active {
+          font-weight: 700;
+        }
+        &:hover,
+        &.active {
+          color: $brand-primary;
+          &:before, &:after {
+            border-color: $brand-primary;
+            background-color: $brand-primary;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      @at-root .has-image & {
+        z-index: 1;
+        position: absolute;
+        top: $max-margin * 3;
+        left: $max-margin;
+      }
+    }
+  }
+}

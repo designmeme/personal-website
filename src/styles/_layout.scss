@@ -1,0 +1,65 @@
+// Layout
+//
+//
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  // gatsby wrapper 에 동일하게 적용해야 site-header, site-main, site-footer 가 올바르게 보임.
+  > div, > div > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.wrapper {
+  margin: 12.5%; // width: 320px = margin: 40px
+  @include media-breakpoint-up(md) {
+    margin: $max-margin; // width: 800px = margin: 100px
+  }
+  @at-root .site-main & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.site-main {
+  position: relative;
+  flex: 1 1 auto;
+  padding-bottom: 5rem;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 10rem;
+  }
+  .inner-wrapper {
+    max-width: $main-max-width;
+    @include media-breakpoint-up(md) {
+      margin-right: $min-aside-outer-width;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-right: $max-aside-outer-width;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-left: $max-aside-outer-width;
+    }
+  }
+}
+
+.site-aside {
+  display: none;
+
+  @include media-breakpoint-up(xxl) {
+    display: block;
+    position: absolute;
+    //width: $kakao-aside-width;
+    //height: $kakao-aside-height;
+    //border: 1px solid gray;
+    top: 0;
+    right: 0;
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    right: $max-margin;
+  }
+}

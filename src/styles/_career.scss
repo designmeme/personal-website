@@ -1,0 +1,57 @@
+// Career List
+//
+//
+
+.career-list {
+  dd {
+    margin-left: 1rem;
+  }
+}
+
+.career-title {
+  font-weight: 400;
+  &:not(.first-child) {
+    margin-top: 1.5rem;
+  }
+  &.featured {
+    position: relative;
+    font-weight: 700;
+    &:before {
+      position: absolute;
+      right: 100%;
+      top: 0;
+      margin-right: .5em;
+      content: '\f005'; // star
+      font-family: FontAwesome;
+      font-size: .75em;
+      color: $brand-primary;
+    }
+  }
+}
+
+.career-meta,
+.career-url {
+  @extend .p-smaller;
+  .career-tags {
+    .icon {
+      margin-right: 0.2rem;
+    }
+  }
+}
+
+.career-description {
+  @extend .p-small;
+}
+
+// profile list
+.profile-list {
+  overflow: hidden;
+  dt {
+    min-width: 5em;
+    clear: both;
+    float: left;
+  }
+  dt, dd {
+    margin-bottom: 1.5em;
+  }
+}

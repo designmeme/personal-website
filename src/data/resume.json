@@ -1,0 +1,576 @@
+{
+  "career": [
+    {
+      "title": "프리랜서 프론트엔드 웹 개발자",
+      "date": [
+        "2021-01",
+        "present"
+      ],
+      "description": "3년의 띵스플로우 서비스 개발을 마무리하고 다시 프리랜서로 일하고 있습니다."
+    },
+    {
+      "title": "띵스플로우 프론트엔드 웹 개발자",
+      "date": [
+        "2017-12",
+        "2020-12"
+      ],
+      "description": "하우투메리에서 함께 일한 인연을 이어 띵스플로우에서 챗봇 빌더 및 챗봇 대화 서비스의 프론트엔드 웹 개발을 전담했습니다."
+    },
+    {
+      "title": "하우투메리 프론트엔드 웹 개발자",
+      "date": [
+        "2014-08",
+        "2017-01"
+      ],
+      "description": "웨딩 스타트업 하우투메리에서 프론트엔드 웹 개발을 담당하여 웨딩업체용 웹 ERP를 개발하였습니다."
+    },
+    {
+      "title": "프리랜서 프론트엔드 웹 개발자",
+      "date": [
+        "2011-08",
+        "2017-09"
+      ],
+      "description": "2011년, 프리랜서로서 시작하여 띵스플로우 입사 전까지 프리랜서로 일했습니다."
+    },
+    {
+      "title": "디자인하우스 월간디자인 편집부 기자 인턴",
+      "date": [
+        "2010-04",
+        "2010-09"
+      ],
+      "description": "디자인 잡지사에서 인턴 기자로서 5월호부터 10월호까지 참여했습니다."
+    }
+  ],
+  "education": [
+    {
+      "title": "홍익대학교 산업디자인과 학사",
+      "date": [
+        "2005-02",
+        "2010-08"
+      ],
+      "description": null
+    }
+  ],
+  "projects": [
+    {
+      "title": "엑심베이 반응형 전자결제 모듈",
+      "date": [
+        "2021-01",
+        "2021-02"
+      ],
+      "description": "엑심베이의 반응형 웹 전자결제 모듈입니다. 프론트엔드 중 웹 접근성을 갖춘 HTML 구조와 반응형 스타일, 사용자 인터렉션 위주의 자바스크립트를 담당했습니다 .<br> 모바일 우선 반응형 / 웹 접근성\n",
+      "client": "엑심베이",
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "엑심베이 반응형 웹사이트",
+      "date": [
+        "2020-03",
+        "2020-05"
+      ],
+      "description": "엑심베이의 전자결제 서비스를 소개하는 웹사이트의 프론트엔드를 개발했습니다.<br> 모바일 우선 반응형 / Sass 사용 / SEO\n",
+      "client": "엑심베이",
+      "urls": [
+        "https://eximbay.com"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "헬로우봇 스킬스토어 - 챗봇 대화 웹서비스",
+      "date": [
+        "2020-03",
+        "2020-12"
+      ],
+      "description": "기존 헬로우봇앱 서비스의 웹 전용 서비스로, 채팅방 등 채팅 인터페이스와 스킬 소비를 위한 다양한 기능을 제공합니다. 일본 서비스를 위해 다국어로 구조를 변경하는 등 지속적으로 기능을 추가하고 개선하였습니다. <br> Angular5-10, RxJS, TypeScript, Sass / Angular Universal(SSR), Serverless(AWS) / SEO, 다국어\n",
+      "client": "띵스플로우",
+      "urls": [
+        "https://hellobot.co"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "헬로우봇 스튜디오 - 챗봇 제작 및 관리용 웹사이트",
+      "date": [
+        "2017-12",
+        "2020-12"
+      ],
+      "description": "챗봇 생성하고 관리하며, 다양한 유형의 메세지를 작성하고 대화 흐름을 구성할 수 있는 UI를 구현하였습니다. <br> Angular7-10, RxJS, TypeScript, Sass / PWA(Service Worker)\n",
+      "client": "띵스플로우",
+      "urls": [
+        "https://hellobotstudio.com"
+      ],
+      "tags": [
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "띵스플로우 반응형 웹사이트, 헬로우봇 반응형 웹사이트",
+      "date": [
+        "2017-12",
+        "2020-12"
+      ],
+      "description": "<b>띵스플로우 반응형 웹사이트</b> - 회사 소개 웹사이트로 ngx-translate 라이브러리를 기반으로 한국어, 일본어를 지원하는 다국어 웹사이트를 구현하였습니다.<br> <b>헬로우봇 반응형 웹사이트</b> - 헬로우봇 서비스 소개 웹사이트입니다.<br> Angular7-10, RxJS, TypeScript, Sass / PWA(Service Worker) / Angular Universal(Prerendering 적용) / SEO, 다국어\n",
+      "client": "띵스플로우",
+      "urls": [
+        "https://thingsflow.com",
+        "https://thingsflow.kr"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "이노베이션랩 네이티브애드 웹사이트 및 모바일사이트",
+      "date": [
+        "2017-07",
+        "2017-09"
+      ],
+      "description": "청담러닝, 아모레퍼시픽의 두 개의 프로젝트를 전담하여 작업하였습니다. 윈도우 스크롤에 따른 비디오, DOM 제어와 SVG 및 DOM 애니메이션을 구현하는 것을 핵심으로 하는 프로젝트입니다.<br> JS Template Engine Nunjucks 및 HTML Beautify 사용 / Sass 및 Autoprefixer 사용 / 이미지 최적화 및 레이지 로딩 처리 / 폰트 서브셋 생성\n",
+      "client": "중앙일보",
+      "urls": [
+        "http://innovationlab.co.kr/project/amorepacific2017/",
+        "http://innovationlab.co.kr/project/chungdahm/"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "김메리 2.0 반응형 웹사이트",
+      "date": [
+        "2016-12",
+        "2017-01"
+      ],
+      "description": "웨딩 스드메 견적 비교 사이트로 오픈 이후에 개선 작업도 몇 주간 진행하였습니다.<br> 사용자 및 판매자 웹사이트 / 모바일 우선 반응형 / Sass 사용 / typeahead.js를 활용한 업체 검색 UI / 이미지 레이지 로딩 처리 / 사진 슬라이더 적용 / SEO\n",
+      "client": "김메리",
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "웨딩마루, 스튜디온, 웨딩북 - 웨딩 업체를 위한 웹 ERP",
+      "date": [
+        "2014-08",
+        "2017-01"
+      ],
+      "description": "드레스샵, 스튜디오 등 웨딩 업체를 위한 ERP 사이트로 오픈 이후에 계속하여 개선 작업도 매주 진행하였습니다. 프론트엔드 개발뿐만 아니라 기획도 함께 참여하였습니다.<br> <b>웨딩마루 2.0</b> - 드레스샵 예약 및 자원 관리 웹사이트 개편 / 캘린더 예약 및 드래그 앤 드롭 UI / 고객카드, 계약서, 드레스 입출고 관련 인쇄 페이지 CSS 작업 / 웨딩마루 BI 통계 사이트 / 고객용 예약 확정 및 안내 모바일 페이지 / 드레스샵 업체 소개 모바일 페이지 / 매주 기능개선 및 이슈처리 사항 업데이트<br> <b>스튜디온</b> - 기획 참여 / 스튜디오 예약 및 자원 관리 웹사이트 / 캘린더 예약 및 상품 관리 UI / 계약 통계를 위한 구글 차트 활용 / 고객카드, 계약서 인쇄 페이지 CSS 작업 / 고객용 예약 확정 및 안내 모바일 페이지 / 매주 기능개선 및 이슈처리 사항 업데이트<br> <b>웨딩북 비즈</b> - 웨딩 업체의 예약 및 계약 관리 반응형 웹사이트<br> <b>웨딩북</b> - 사용자를 위한 웨딩 업체 소개 반응형 웹사이트\n",
+      "client": "하우투메리",
+      "urls": [
+        "http://studion.co.kr",
+        "https://biz.wdgbook.com",
+        "http://www.wdgbook.com"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "이디움펀딩 반응형 웹사이트",
+      "date": [
+        "2016-04",
+        "2016-07"
+      ],
+      "description": "투자 목록 그리드, 이미지 슬라이더, 투자 상태 상태막대, 팝업 레이아웃 UI 등 / 서식 스타일과 게시판 페이지 등 / 반응형 이메일 페이지 / 관리자 사이트 부트스트랩 활용\n",
+      "client": "이디움펀딩",
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "C27 치즈케이크 & 커피 웹사이트",
+      "date": [
+        "2015-06",
+        "2015-07"
+      ],
+      "description": "D&G 컴퍼니",
+      "client": "더생각",
+      "urls": [
+        "http://www.c27.co.kr"
+      ],
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "성호그룹 웹사이트 및 모바일사이트",
+      "date": [
+        "2015-03",
+        "2015-04"
+      ],
+      "description": "상세 페이지 내용은 웹/모바일에서 동일하게 사용하고(반응형), 레이아웃만 웹/모바일에 따라 다르도록 HTML 및 CSS 작업을 진행하였습니다.\n",
+      "client": "아이야",
+      "urls": [
+        "http://www.isungho.com"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "D&G 컴퍼니 반응형 웹사이트",
+      "date": [
+        "2014-12",
+        "2014-12"
+      ],
+      "description": null,
+      "client": "더생각",
+      "urls": [
+        "http://dngcompany.co.kr"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "사진복덕방 반응형 웹사이트",
+      "date": [
+        "2014-10",
+        "2014-10"
+      ],
+      "description": "Less 사용 / 테마별 색상 CSS / 각종 컴포넌트 디자인 가이드 맞춰 작업 진행\n",
+      "client": "코자인",
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "LG Careers 웹 접근성 검수 및 개편",
+      "date": [
+        "2014-06",
+        "2014-07"
+      ],
+      "description": "LG그룹 채용을 위한 사이트로 웹 접근성 인증 마크 획득을 위해 기존 웹사이트를 검수하고 개선했습니다.",
+      "client": "빌리언달러컴퍼니",
+      "urls": [
+        "http://apply.lg.com"
+      ],
+      "tags": [
+        "universal-access"
+      ],
+      "featured": true
+    },
+    {
+      "title": "웨딩드레스샵 아비가일 반응형 웹사이트",
+      "date": [
+        "2014-05",
+        "2014-05"
+      ],
+      "description": "스냅사진 포트폴리오 슬라이드 페이지 및 스크립트 작업 / 디자인 폼 스타일 / 관리자 페이지",
+      "client": "하우투메리",
+      "urls": [
+        "http://avigail.co.kr"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Ubay 골동품 경매 웹사이트",
+      "date": [
+        "2014-04",
+        "2014-04"
+      ],
+      "description": "Isotope masonry 레이아웃 적용 / 이미지 슬라이더, 줌, 라이트박스 등 경매 사진을 보여주는 다양한 스크립트 적용\n",
+      "client": "호감",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "arTweet 예술품 경매 웹사이트",
+      "date": [
+        "2014-04",
+        "2014-04"
+      ],
+      "description": null,
+      "client": "호감",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "엑스타 슈퍼챌린지 웹사이트 (웹 접근성)",
+      "date": [
+        "2014-02",
+        "2014-03"
+      ],
+      "description": "웹 접근성 가이드를 100% 준수하여 작업하였습니다.",
+      "client": "플레이그라운드",
+      "urls": [
+        "http://superchallenge.co.kr"
+      ],
+      "tags": [
+        "desktop",
+        "universal-access"
+      ],
+      "featured": false
+    },
+    {
+      "title": "웨딩드레스샵 플로렌스 반응형 웹사이트",
+      "date": [
+        "2014-02",
+        "2014-02"
+      ],
+      "description": "스냅사진 포트폴리오 슬라이드 페이지 및 스크립트 작업 / 디자인 폼 스타일 / 관리자 페이지",
+      "client": "하우투메리",
+      "urls": [
+        "http://florence.co.kr"
+      ],
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "LG Artcool 웹사이트",
+      "date": [
+        "2014-01",
+        "2014-01"
+      ],
+      "description": null,
+      "client": "뉴디움",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "현대자동차 제네시스 이러닝 웹사이트",
+      "date": [
+        "2014-01",
+        "2014-01"
+      ],
+      "description": null,
+      "client": "뉴디움",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "투어팁스 하이브리드앱",
+      "date": [
+        "2013-12",
+        "2013-12"
+      ],
+      "description": "투어팁스 하이브리드앱을 위한 페이지 작업 / Swipe 슬라이더, 메뉴바 UI 등",
+      "client": "투어팁스",
+      "tags": [
+        "mobile"
+      ],
+      "featured": true
+    },
+    {
+      "title": "KB국민은행 희망별 웹사이트 및 모바일사이트 (웹 접근성)",
+      "date": [
+        "2013-08",
+        "2013-10"
+      ],
+      "description": "웹 접근성 가이드라인을 준수한 프로젝트로, 웹 접근성 컨설팅 업체 웹와치의 3회 자문과 검수를 거쳤습니다.<br> Canvas 상태막대, 슬라이드 메뉴, Swipe 사이드바 UI 등 / 이메일 페이지 / 관리자 사이트\n",
+      "client": "온라인파워스",
+      "urls": [
+        "https://withkb.kbstar.com"
+      ],
+      "tags": [
+        "desktop",
+        "universal-access"
+      ],
+      "featured": true
+    },
+    {
+      "title": "웨딩 스냅작가 예약 서비스 비하인드스토리 웹사이트",
+      "date": [
+        "2013-07",
+        "2013-07"
+      ],
+      "description": "포트폴리오 슬라이더 / 디자인 폼 스타일 / 커스텀 디자인 스크롤바 UI 등",
+      "client": "하우투메리",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "SK C&C 프로젝트 관리 시스템(PMS) 웹사이트 개편",
+      "date": [
+        "2013-06",
+        "2013-07"
+      ],
+      "description": "넓은 화면에 맞추어져 있고, 웹 표준을 지키지 않은 웹사이트를 개편하였습니다.<br> 웹 표준에 맞추어 구조 개편 / 모던 디자인으로 스타일 개편 / 1280px 고정 구조에서 가변형 레이아웃 페이지로 수정 / 그리드 및 차트 솔루션 수정 / 요소 스타일 규격화 / 테마 색상 및 아이콘 폰트 적용 /  Font Awesome 아이콘 폰트 적용 등\n",
+      "client": "SK C&C",
+      "tags": [
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "NH농협카드 채움진 웹사이트 웹 접근성 검수",
+      "date": [
+        "2013-05",
+        "2013-05"
+      ],
+      "description": "기존 웹사이트의 웹 접근성을 검수하였으며 이후 한국웹접근성인증평가원 WA인증마크를 획득하였습니다.",
+      "client": "아이에이커뮤니케이션즈",
+      "tags": [
+        "universal-access"
+      ],
+      "featured": false
+    },
+    {
+      "title": "현대카드뮤직 2.0 반응형 웹사이트",
+      "date": [
+        "2013-02",
+        "2013-03"
+      ],
+      "description": "메인 및 결재 페이지와 하이브리드 앱을 위한 페이지를 작업하였습니다.",
+      "client": "온라인파워스",
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "테크밸리주식회사 웹사이트",
+      "date": [
+        "2013-02",
+        "2013-03"
+      ],
+      "description": null,
+      "client": "코자인",
+      "urls": [
+        "http://www.techvalley.co.kr"
+      ],
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "광운대학교 산학협력단 웹사이트",
+      "date": [
+        "2013-01",
+        "2013-01"
+      ],
+      "description": null,
+      "client": "코자인",
+      "urls": [
+        "http://iacf.kw.ac.kr"
+      ],
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "현대자동차 일마일 웹사이트 및 모바일사이트",
+      "date": [
+        "2012-08",
+        "2012-12"
+      ],
+      "description": "3개월간 웹 & 모바일사이트와 관리자 사이트를 같은 분야 3명의 개발자와 함께 작업했습니다. 이후 2개월간 개선 작업을 전담하였습니다.<br> <b>웹 사이트</b> - 고수준의 자바스크립트 함수 작업을 제외한 페이지의 80% 작업 / 지도 기반 상점 목록 및 상세 페이지 / 지도내 상점 정보를 보여주는 UI<br> <b>모바일 사이트(하이브리드앱 포함)</b> - 페이지의 50% 작업<br> <b>가맹점 관리자 사이트</b> - 브라우저 및 기기 호환성 맞추기 및 버그 수정<br> 이메일 페이지 / 본 개발 이후 QA 이슈 처리 및 브라우저 호환성 개선 전담\n",
+      "client": "유아이랩",
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": true
+    },
+    {
+      "title": "네이든앤드류 잉글리쉬 에듀 웹사이트",
+      "date": [
+        "2012-07",
+        "2012-07"
+      ],
+      "description": null,
+      "client": "더생각",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
+    {
+      "title": "iOS 앱 썸네일스케치 소개용 반응형 웹사이트",
+      "date": [
+        "2011-08",
+        "2011-12"
+      ],
+      "description": null,
+      "client": null,
+      "tags": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "featured": false
+    }
+  ],
+  "skills": [
+    "웹 표준, 브라우저 호환성, 반응형 웹, 웹 접근성, SEO, PWA",
+    "SPA, Angular",
+    "JavaScript(ES6), TypeScript, RxJS, jQuery",
+    "HTML5, Jekyll, Liquid, Nunjucks",
+    "CSS3, Sass",
+    "Bootstrap, Material",
+    "Git, npm, Gulp, Browsersync, Chrome DevTools, VirtualBox, WebStorm",
+    "AWS(S3, Lambda), Firebase(Hosting, Functions), Travis CI",
+    "Google Analytics, Google Tag Manager, Google Optimize, Amplitude, Airbridge, Facebook Pixel, Kakao Pixel"
+  ],
+  "tools": [
+    "Slack, Email",
+    "프로젝트 및 이슈 관리: Google Drive, GitHub, GitLab, Bitbucket, JIRA, Redmine, Notion, Wrike, Trello",
+    "기획: Oven, AXURE, Balsamiq Mockups, PowerPoint",
+    "디자인: Zeplin, InVision, Sketch"
+  ]
+}

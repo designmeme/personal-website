@@ -1,0 +1,28 @@
+// Table
+//
+//
+
+
+.table {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  thead {
+    background-color: $gray-n0;
+  }
+  td, th {
+    border: 1px solid $gray-n3;
+    padding: .25em .5em;
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 2rem;
+  .table {
+    min-width: 100%;
+    width: auto;
+    margin-bottom: 0;
+  }
+}

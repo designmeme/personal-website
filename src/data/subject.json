@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "sass-awesome-docs",
+    "title": "친절한 Sass 설명서",
+    "sort": [
+      "sass-awesome-docs",
+      "make-awesome-stylesheets-with-sass",
+      "write-sass-with-scss",
+      "sass-css-output-style",
+      "sass-comments",
+      "sass-css-extensions",
+      "sass-sassscript",
+      "sass-interactive-shell",
+      "sass-identifiers",
+      "sass-variables",
+      "sass-variables-default-flag"
+    ]
+  }
+]

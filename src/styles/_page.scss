@@ -1,0 +1,43 @@
+// Page
+//
+// common layout of page and post
+
+.page-image {
+  margin: 0 -16.67% calc($section-margin / 2);
+  @include media-breakpoint-up(md) {
+    margin-left: 0;
+    margin-right: -($min-aside-outer-width);
+  }
+  @include media-breakpoint-up(lg) {
+    margin-right: -($max-aside-outer-width);
+    margin-bottom: $section-margin;
+  }
+  @include media-breakpoint-up(xl) {
+    margin-top: -$section-margin * 3;
+  }
+}
+
+.page-header {
+  position: relative;
+  margin-bottom: $section-margin;
+}
+
+.page-title {
+  margin: 0;
+  text-indent: -.02em;
+}
+
+.page-subtitle {
+  @extend h4;
+  margin: .5rem 0 0;
+}
+
+.page-content {
+  position: relative;
+  //word-break: break-all;
+  word-wrap: break-word;
+}
+
+.page-footer {
+
+}

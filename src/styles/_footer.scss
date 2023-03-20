@@ -1,0 +1,48 @@
+// Footer
+//
+//
+
+
+.site-footer {
+  background: $brand-primary;
+  color: #fff;
+  font-weight: 200;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-title {
+    order: 1;
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+  .site-contact {
+    order: 2;
+    white-space: nowrap;
+    .contact-link {
+      display: inline-block;
+      margin-left: 2rem;
+      font-size: 1.85rem;
+      line-height: 1;
+      color: #fff;
+      vertical-align: middle;
+      &.circle {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        background-color: #fff;
+        color: $brand-primary;
+        font-size: 1.15rem;
+        text-align: center;
+      }
+    }
+  }
+  .site-copyright {
+
+  }
+}

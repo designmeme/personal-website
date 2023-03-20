@@ -1,0 +1,124 @@
+---
+subject:  sass-awesome-docs
+slug:     sass-variables
+title:    Sass 변수 $
+subtitle: 변수를 정의하고 사용하기
+excerpt:  직접 값을 입력하는 대신 변수를 사용하면 같은 목적의 값을 하나의 변수로 관리하며 여러 곳에 할당할 수 있고, 실수로 값을 잘못 입력할 경우를 줄여주며, 값을 수정하기도 훨씬 쉬워집니다.
+tags:     [sass, scss, css, preprocessor, 전처리기, 글로벌 변수, 로컬 변수, 스코프]
+images:
+  - ../images/post/sass-docs.png
+created_at: 2017-07-20T16:42:00+09:00
+updated_at: 2017-07-28T16:33:00+09:00
+---
+
+<div className="lead">
+    SassScript를 사용하는 가장 직접적인 방법은 값을 변수에 담아 사용하는 것입니다. 직접 값을 입력하는 대신 변수를 사용하면 같은 목적의 값을 하나의 변수로 관리하며 여러 곳에 할당할 수 있고, 실수로 값을 잘못 입력할 경우를 줄여주며, 값을 수정하기도 훨씬 쉬워집니다.
+    <a className="original-link" target="_blank" href="https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Variables_____variables_">원문</a>
+</div>
+
+***
+
+#### 변수 `$`
+##### 변수 정의하기
+변수 이름은 반드시 `$` 달러 기호로 시작합니다. 그러므로 변수가 어디서 어떻게 사용되는지 한 눈에 알아볼 수 있습니다.   
+변수를 정의하는 문법은 CSS 속성 구문과 같이 `변수 이름: 값;` 형태를 띱니다.
+
+<p className="code-label code-label-scss">변수 정의 예시</p>
+
+```scss{numberLines: true}
+// 변수 이름: 값;
+$width: 5em;
+```
+
+***
+
+##### 변수 사용하기
+변수는 다양한 곳에서 사용할 수 있지만 가장 기본적인 사용법은 속성값으로 할당하는 것입니다. 
+
+<p className="code-label code-label-scss">변수 사용 예시</p>
+
+```scss{numberLines: true}
+$width: 5em;
+#main {
+  width: $width;
+}
+```
+
+<p className="code-label code-label-css">출력 결과 - 변수가 값으로 변경됩니다.</p>
+
+```css{numberLines: true}
+#main {
+  width: 5em; }
+```
+
+<div className="p-small">
+    [SassScript 사용 범위](/blog/sassscript/#sassscript-사용-범위)에서 정리한 것처럼 변수는 이외에도 다양한 용도로 쓰입니다. 이에 대한 예시는 각 부분에서 볼 수 있습니다.
+</div>
+
+***
+
+#### 변수 범위
+다른 언어에서 변수가 그렇듯이 Sass에서도 변수도 범위 <SideBySide>Scope</SideBySide>를 가지며, 전역과 지역의 두 가지로 나뉩니다.
+
+##### 전역 변수
+(1)**문서 최상위**에 바로 작성한 변수는 전역 변수입니다. 어떤 규칙에도 포함되지 않은 경우입니다.
+전역 변수는 문서 어디에서나 사용할 수 있습니다.
+전역 변수를 정의하는 또 다른 방법이 있는데, (2)지역 범위에서 변수를 정의할 때 `!global` 플래그를 함께 써넣으면 전역 변수가 됩니다.
+
+<p className="code-label code-label-scss">전역 변수 예시</p>
+
+```scss{numberLines: true}
+$width: 5em; // 문서 최상위에 작성한 전역 변수
+#main {
+  $height: 10em !global; // 규칙 내부에 작성했지만 전역 변수
+  width: $width;
+  height: $height;
+}
+
+#sidebar {
+  height: $height; // !global 플래그로 작성한 전역 변수를 사용했습니다.
+}
+```
+
+***
+
+##### 지역 변수
+문서 최상위가 아닌 규칙 내부에 변수를 정의했다면 이는 지역 변수입니다. 
+지역 변수는 규칙의 중첩 수준에 따라 사용할 수 있는 지역의 범위가 한정됩니다.
+지역 변수를 정의한 규칙보다 상위의 규칙에서는 사용할 수 없습니다.
+
+<p className="code-label code-label-scss">지역 변수 예시 - 규칙 중첩 수준에 따른 사용</p>
+
+```scss{numberLines: true}
+#main {
+  $padding: 2em; // 지역 변수 정의
+  paddiing: $padding;
+  .content {
+    paddiing: $padding; // 하위 규칙에도 사용 가능
+  }
+}
+
+#sidebar {
+  paddiing: $padding; // 지역 변수의 범위를 벗어났습니다. 해당 변수가 없으므로 에러가 발생합니다.
+}
+```
+
+위와 같이 지역 변수의 범위를 맞춰 사용하는 것은 어렵지 않습니다. 하지만 이름이 같은 전역 변수와 지역 변수를 사용하면 매우 골치 아파질 수 있습니다. 변수 범위와 이름을 잘 고려하여 코드를 이해하기 쉽게 작성하는 것이 중요합니다.
+
+<p className="code-label code-label-scss">전역 변수와 지역 변수가 같은 이름일 때 예시</p>
+
+```scss{numberLines: true}
+$font-size: 2em; // 전역 변수
+#main {
+  .content {
+    $font-size: 1.5em; // 지역 변수
+    font-size: $font-size; // 1.5em - 지역 변수값
+  }
+  .footer {
+    font-size: $font-size; // 2em - 전역 변수값
+  }
+}
+```
+
+
+

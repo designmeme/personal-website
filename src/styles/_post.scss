@@ -1,0 +1,127 @@
+// Post
+//
+//
+
+
+// post meta data
+//
+.post-meta {
+  @extend .p-smaller;
+  span {
+    display: block;
+    .svg-inline--fa {
+      margin-right: .25em;
+    }
+  }
+  .date {
+    color: $text-color-silver;
+  }
+  @include media-breakpoint-down(md) {
+    margin-top: 1em;
+  }
+  @include aside;
+}
+
+// post cc info
+//
+.cc-info {
+  margin: $section-margin 0;
+  padding: calc($section-margin / 4);
+  background-color: $gray-n0;
+  @extend .clearfix;
+  @extend .p-smaller;
+  .cc-icon {
+    margin-right: 4px;
+  }
+}
+
+// post sns links
+//
+$sns-link-width: 3.3rem;
+.sns-links {
+  display: flex;
+  justify-content: center;
+  margin: $section-margin 0;
+  text-align: center;
+  .sns-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $sns-link-width;
+    height: $sns-link-width;
+    border-radius: 50%;
+    background-color: $brand-primary;
+    font-size: 1.7rem;
+    color: #fff;
+    transition: all 400ms;
+    &:not(:first-child) {
+      margin-left: 1em;
+    }
+    @media (pointer: fine) {
+      &.facebook:hover {
+        background-color: $facebook-color;
+      }
+      &.twitter:hover {
+        background-color: $twitter-color;
+      }
+    }
+  }
+}
+
+// post next, prev links
+//
+.post-nav {
+  font-size: 1.11rem;
+  a {
+    display: block;
+  }
+  .icon {
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+  .post-next-link {
+    margin-left: 1em;
+    margin-bottom: 2rem;
+    text-align: right;
+    .svg-inline--fa {
+      margin-left: .5em;
+    }
+  }
+  .post-prev-link {
+    margin-right: 1em;
+    .svg-inline--fa {
+      margin-right: .5em;
+    }
+  }
+}
+
+// post header ad
+.post-top-ad {
+  margin-top: -(calc($section-margin / 2));
+  margin-bottom: $section-margin;
+}
+
+// markdown-toc
+//
+#markdown-toc {
+  margin-top: -(calc($section-margin / 2));
+  margin-bottom: calc($section-margin / 2);
+  @extend .p-small;
+  &:before {
+    content: 'Index';
+    display: block;
+    @extend .p-smaller;
+  }
+}
+
+// header original link
+//
+.original-link {
+  @extend .p-smaller;
+  font-weight: 400;
+  &:after {
+    content: ' \f08e';
+    font-family: FontAwesome;
+  }
+}
+

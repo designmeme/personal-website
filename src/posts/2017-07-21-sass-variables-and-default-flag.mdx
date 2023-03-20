@@ -1,0 +1,121 @@
+---
+subject:  sass-awesome-docs
+slug:     sass-variables-default-flag
+title:    Sass 변수와 !default 플래그
+subtitle: 조건부로 변수 정의하기
+excerpt:  변수를 정의할 때 !default 플래그를 함께 작성하면 조건부로 변수를 정의할 수 있습니다. 변수 사용자화를 제공하는 라이브러리를 작성할 때 많이 사용합니다.
+tags:     [sass, scss, css, preprocessor, 전처리기, 글로벌 변수, 로컬 변수, 스코프, bootstrap, re-assign, sass flag, 커스터마이징]
+images:
+  - ../images/post/sass-docs.png
+created_at: 2017-07-20T17:44:00+09:00
+updated_at: 2017-07-24T22:23:00+09:00
+---
+
+<div className="lead">
+    변수를 정의할 때 `!default` 플래그를 함께 작성하면 조건부로 변수를 정의할 수 있습니다. 변수 사용자화를 제공하는 라이브러리를 작성할 때 많이 사용합니다.
+    <a className="original-link" target="_blank" href="https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Variable_Defaults___default">원문</a>
+</div>
+
+`!default` 플래그를 알아보기 전에 변수를 재정의하는 기본 방식부터 알아보도록 하겠습니다.
+
+***
+
+##### 변수 재정의
+모든 프로그래밍 언어에서 변수가 그렇듯이 Sass에서도 변수에 값을 다시 정의[^reassign]할 수 있습니다. 즉 변수에 값을 재할당할 수 있는데, 변수를 참조하기 전 가장 나중에 작성한 값이 변수의 값입니다.
+
+<p className="code-label code-label-scss">변수 재정의 예시</p>
+
+```scss{numberLines: true}
+$content: "환영합니다";
+$content: "안녕하세요"; // 변수 재정의
+
+#main {
+  content: $content; // "안녕하세요"
+}
+
+$content: "또 봅시다"; // 다시 변수 재정의
+
+#footer {
+  content: $content; // "또 봅시다"
+}
+```
+
+***
+
+##### 변수 기본값 정의 `!default`
+이렇듯 변수를 재정의할 때 작성 순서가 아주 중요하다는 것을 알았습니다.
+그런데 Sass에는 이런 값 할당의 우선순위를 바꿀 방법이 있습니다. 바로 `!default` 플래그입니다.
+이 플래그는 변수값과 세미콜론 `;` 사이에 작성합니다. CSS에서 `!important` 플래그를 작성하는 것과 같은 문법입니다.
+
+
+<p className="code-label code-label-scss">변수 재정의 구문</p>
+
+```scss{numberLines: true}
+$content: "안녕하세요" !default;
+```
+
+`!default` 플래그를 더한 변수 정의문 예시가 있습니다. 
+이것은 `$content` 변수에 (a)**값이 이미 있다면 무시**하고, (b)**값이 없다면 작성한 값을 할당**하라는 의미입니다.
+뒤에 작성하는데도 정의의 우선순위가 가장 낮아지는 것입니다.
+
+<p className="code-label code-label-scss">변수 재정의 예시 - (a)값이 이미 있으므로 무시한 경우</p>
+
+```scss{numberLines: true}
+$content: "Hello World!";
+$content: "환영합니다";
+$content: "안녕하세요" !default; // 재할당 무시
+
+#main {
+  content: $content; // "환영합니다"
+}
+```
+
+(1)이전에 **변수를 정의하지 않았거나**, (2)변수를 정의했지만 **값이 `null`인 경우**, 이 변수의 값이 없다고 판단합니다.
+이렇듯 변수의 값의 사전정의 여부에 따라 조건부로 값을 할당할 수 있습니다.
+
+<p className="code-label code-label-scss">변수 재정의 예시 - (b)값이 없으므로 값을 할당한 경우</p>
+
+```scss{numberLines: true}
+$content: null;
+$content: "안녕하세요" !default; // 기본값 할당
+
+#main {
+  content: $content; // "안녕하세요"
+}
+```
+
+***
+
+##### `!default`의 활용 - 라이브러리 사용자화를 고려하라
+그럼 이 플래그를 사용해서 변수를 정의하면서 조건부로 값을 할당해야 하는 경우는 언제일까요? 
+사실 일반적으로 Sass를 사용하는 개발자는 이 플래그를 쓸 일이 거의 없을 겁니다. 
+변수를 포함해 작성한 Sass 내용을 모두 마음껏 통제하며 코드를 작성하는 경우이기 때문입니다.
+
+하지만 부트스트랩과 같은 **라이브러리 Sass**를 작성하는 경우라면 `!default` 사용은 거의 필수라 할 수 있습니다.
+예를 들어 부트스트랩[^bootstrap]은 아주 많은 변수를 갖고 있는데, [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)에 정의한 모든 변수는 `!default` 플래그를 가지고 있습니다.
+
+<p className="code-label code-label-scss">부트스트랩 _variables.scss 일부</p>
+
+```scss{numberLines: true}
+$white:  #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+...
+```
+
+이렇게 변수를 모두 기본값으로 작성해 놓으면, 이 라이브러리를 가져와 사용하는 사람은 원본을 망가트리지 않으면서 쉽게 **변수 값을 사용자화** 할 수 있습니다.
+
+다음 예시처럼 _custom.scss 파일에 값을 변경하고 싶은 변수를 정의하고, 부트스트랩을 이어서 불러오면 됩니다. 그러면 부트스트랩 내부의 조건부 변수 정의는 무시하므로, 사용자가 정의한 변수 값을 대신 사용하게 됩니다.
+
+<p className="code-label code-label-scss">변수 사용자화 예시</p>
+
+```scss{numberLines: true}
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+```
+
+[^reassign]: 변수를 재정의하려면 변수가 최초로 정의된 범위와 같은 범위에서 이루어져야 합니다. 즉 전역 변수는 전역 범위에서 재정의해야 값이 재할당 됩니다. 만약 전역 변수를 어떤 규칙 내부에서 다시 정의하면, 이는 같은 이름의 지역 변수를 새로 만든 것입니다. 자세한 내용은 [변수 범위](/blog/sass-variables/#변수-범위)에서 확인하세요.
+[^bootstrap]: 부트스트랩 3 버전은 Less를 사용했지만 4 버전부터는 Sass를 사용합니다.
+

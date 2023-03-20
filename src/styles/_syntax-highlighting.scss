@@ -1,0 +1,103 @@
+// Syntax highlighting styles
+//
+//
+
+$hl-lighter:#eceeed !default;
+$hl-light:  #dadbdd !default;
+$hl-muted:  #929292 !default;
+$hl-gray:   #545454 !default;
+$hl-error:  #C82829 !default;
+$hl-orange: #F5871F !default;
+$hl-yellow: #EAB700 !default;
+$hl-green:  #718C00 !default;
+$hl-aqua:   #3E999F !default;
+$hl-blue:   #4271AE !default;
+$hl-purple: #8959A8 !default;
+
+
+.highlight {
+
+  .hll   { background-color: $hl-lighter; }
+
+  .bp    { color: $hl-gray; } // Name.Builtin.Pseudo
+
+  .c     { color: $hl-muted; font-style: italic; } // Comment
+  .cm    { color: $hl-muted; font-style: italic; } // Comment.Multiline
+  .cp    { color: $hl-muted; font-weight: bold; } // Comment.Preproc
+  .c1    { color: $hl-muted; font-style: italic; } // Comment.Single
+  .cs    { color: $hl-muted; font-weight: bold; font-style: italic; } // Comment.Special
+
+  .err   { color: #fff; background-color: $hl-error; } // Error
+
+  .gd    { color: $hl-error; } // Generic.Deleted
+  .gd .x { color: #000; background-color: lighten($hl-error, 35%); } // Generic.Deleted.Specific
+  .ge    { font-style: italic; } // Generic.Emph
+  .gh    { color: $hl-gray; font-weight: bold; } // Generic.Heading
+  .gi    { color: $hl-green; background-color: lighten($hl-green, 65%); } // Generic.Inserted
+  .gi .x { color: $hl-green; background-color: lighten($hl-green, 50%); } // Generic.Inserted.Specific
+  .go    { color: #888; } // Generic.Output
+  .gp    { color: $hl-green; font-weight: bold; } // Generic.Prompt
+  .gr    { color: $hl-error; } // Generic.Error
+  .gs    { font-weight: bold; } // Generic.Strong
+  .gt    { color: $hl-error; } // Generic.Traceback
+  .gu    { color: $hl-aqua; font-weight: bold; } // Generic.Subheading
+
+  .il    { color: $hl-orange; } // Literal.Number.Integer.Long
+
+  .k     { color: $hl-purple; } // Keyword
+  .kc    { color: $hl-purple; } // Keyword.Constant
+  .kd    { color: $hl-purple; } // Keyword.Declaration
+  .kn    { color: $hl-aqua; }
+  .kp    { color: $hl-blue; } // Keyword.Pseudo
+  .kr    { color: $hl-purple; } // Keyword.Reserved
+  .kt    { color: $hl-yellow; } // Keyword.Type
+
+  .l     { color: $hl-orange; }
+  .ld    { color: $hl-green; }
+
+  .m     { color: $hl-orange; } // Literal.Number
+  .mf    { color: $hl-orange; } // Literal.Number.Float
+  .mh    { color: $hl-orange; } // Literal.Number.Hex
+  .mi    { color: $hl-orange; } // Literal.Number.Integer
+  .mo    { color: $hl-orange; } // Literal.Number.Oct
+
+  .n     { color: $hl-muted; } // Name
+  .na    { color: $hl-gray; } // Name.Attribute // SCSS - some property name
+  .nb    { color: $hl-blue; } // Name.Builtin
+  .nc    { color: $hl-yellow; font-weight: bold; } // Name.Class // CSS & SCSS - class selector
+  .nd    { color: $hl-aqua; }
+  .ne    { color: $hl-error; font-weight: bold; } // Name.Exception
+  .nf    { color: $hl-blue; font-weight: bold; } // Name.Function // CSS - id selector
+  .ni    { color: $hl-gray; } // Name.Entity
+  .nl    { color: $hl-gray; } // CSS & SCSS - property name
+  .nn    { color: $hl-blue;  font-weight: bold; } // Name.Namespace // SCSS - id selector
+  .no    { color: $hl-yellow; } // Name.Constant
+  .nt    { color: $hl-aqua; } // Name.Tag // CSS - tag selector
+  .nv    { color: $hl-error; } // Name.Variable // SCSS - placeholder selector
+  .nx    { color: $hl-blue; }
+
+  .o     { color: $hl-gray; } // Operator
+  .ow    { color: $hl-aqua; } // Operator.Word
+
+  .p     { color: $hl-muted; }
+  .py    { color: $hl-gray; }
+
+  .s     { color: $hl-green; } // Literal.String
+  .sb    { color: $hl-green; } // Literal.String.Backtick
+  .sc    { color: $hl-gray; } // Literal.String.Char
+  .sd    { color: $hl-muted; } // Literal.String.Doc
+  .s2    { color: $hl-green; } // Literal.String.Double
+  .se    { color: $hl-orange; } // Literal.String.Escape
+  .sh    { color: $hl-green; } // Literal.String.Heredoc
+  .si    { color: $hl-orange; } // Literal.String.Interpol
+  .sx    { color: $hl-green; } // Literal.String.Other
+  .sr    { color: $hl-green; } // Literal.String.Regex
+  .s1    { color: $hl-green; } // Literal.String.Single
+  .ss    { color: $hl-green; } // Literal.String.Symbol
+
+  .vc    { color: $hl-error; } // Name.Variable.Class
+  .vg    { color: $hl-error; } // Name.Variable.Global
+  .vi    { color: $hl-error; } // Name.Variable.Instance
+
+  .w     { color: $hl-gray; } // Text.Whitespace
+}

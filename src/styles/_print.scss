@@ -1,0 +1,43 @@
+// Print
+//
+//
+
+
+@page {
+  size: A4 portrait;
+  margin: 2.5cm;
+}
+
+@media print {
+  html {
+    font-size: 9pt;
+  }
+
+  .wrapper {
+    margin: 0;
+  }
+
+  .site-header,
+  .site-footer,
+  a[data-footnote-backref="true"] {
+    display: none;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  hr {
+    margin-bottom: 2rem;
+  }
+  .print-hr {
+    page-break-after: always;
+  }
+
+  .profile-list {
+    dt, dd {
+      margin-bottom: .5em;
+    }
+  }
+}
+

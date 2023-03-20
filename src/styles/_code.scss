@@ -1,0 +1,33 @@
+// Code
+//
+//
+
+.code-label {
+  margin: 0;
+  padding: 0 .5em;
+  border-radius: 3px 3px 0 0;
+  border: 1px solid $brand-primary-light;
+  border-bottom: 0;
+  background-color: $brand-primary-lighter;
+  color: $brand-primary-dark;
+  font-size: .72em;
+  &:before {
+    display: inline;
+    margin-right: 1em;
+    color: $brand-primary;
+    font-weight: 700;
+  }
+  @each $code in (HTML, CSS, SCSS, Sass, JavaScript, jQuery, Ruby) {
+    &.code-label-#{to-lower-case($code)}:before {
+      content: "#{$code}";
+    }
+  }
+}
+pre[class*="language-"] {
+  border-radius: 3px;
+  font-size: .84em;
+  @at-root .code-label + * > .gatsby-highlight > & {
+    border-radius: 0 0 3px 3px;
+  }
+}
+

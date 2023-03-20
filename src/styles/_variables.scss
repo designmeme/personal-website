@@ -1,0 +1,101 @@
+// Variables
+//
+//
+
+
+//
+// Color
+//
+$brand-primary:         #FC4A1A;
+$brand-primary-dark:    darken($brand-primary, 15%);
+$brand-primary-light:   #ffe0d8;
+$brand-primary-lighter: #ffeeea;
+
+$facebook-color:  #3B5998;
+$twitter-color:   #00ACED;
+
+// neutral gray from copic https://imaginationinternationalinc.com/copic/store/color-picker/
+$gray-n10:  #312f30;
+$gray-n9:   #4c4d4f;
+$gray-n8:   #636466;
+$gray-n7:   #77787c;
+$gray-n6:   #949599;
+$gray-n5:   #a8a9ad;
+$gray-n4:   #bcbdc1;
+$gray-n3:   #d1d2d4;
+$gray-n2:   #dadbdd;
+$gray-n1:   #e2e3e5;
+$gray-n0:   #eceeed;
+
+//
+// Typography
+//
+$text-color:        $gray-n10;
+$text-color-gray:   $gray-n8;
+$text-color-muted:  $gray-n6;
+$text-color-silver: $gray-n4;
+$body-color:        #ffffff;
+
+$text-color-selection:    #ffffff;
+$body-color-selection:    $brand-primary;
+
+$link-color:          $brand-primary;
+$link-color-hover:    $text-color;
+$link-color-visited:  $brand-primary-dark;
+
+// Spoqa Han Sans https://github.com/spoqa/spoqa-han-sans
+$font-family:  'Spoqa Han Sans Neo', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+//$font-size:    18px;
+$font-weight:  400;
+
+$text-hierarchy: (
+  (font-size:  2.00rem, line-height: 2.25rem, selectors: "h1, .h1"),
+  (font-size:  1.75rem, line-height: 2.25rem, selectors: "h2, .h2"),
+  (font-size:  1.50rem, line-height: 2.00rem, selectors: "h3, .h3"),
+  (font-size:  1.25rem, line-height: 2.00rem, selectors: "h4, .h4, .lead"),
+  (font-size:  1.00rem, line-height: 1.50rem, selectors: "h5, .h5, body"),
+  (font-size:  0.84rem, line-height: 1.50rem, selectors: "h6, .h6, .p-small"),
+  (font-size:  0.72rem, line-height: 1.25rem, selectors: ".p-smaller")
+);
+
+
+//
+// Responsive Design
+//
+$breakpoints: (
+  xs:     0,
+  sm:   425px,
+  md:   800px,
+  lg:  1024px,
+  xl:  1280px - 1px,
+  xxl: 1520px,
+  xxxl:1600px
+);
+$font-sizes: (
+  xs: 16px,
+  sm: 17px,
+  md: 18px
+);
+
+
+//
+// Code
+//
+$hl-lighter: $brand-primary-light;
+
+
+//
+// Etc
+//
+$section-margin: calc(100rem / 18);
+$max-margin: 100px;
+$main-max-width: 600px;
+$max-aside-width: 200px;
+$min-aside-width: 175px;
+$max-aside-margin: $max-margin;
+$min-aside-margin: 75px;
+$max-aside-outer-width: $max-aside-width + $max-aside-margin;
+$min-aside-outer-width: $min-aside-width + $min-aside-margin;
+
+$kakao-aside-width: 160px;
+$kakao-aside-height: 600px;

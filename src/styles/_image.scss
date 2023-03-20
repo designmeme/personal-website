@@ -1,0 +1,24 @@
+// Image
+//
+//
+
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  position: relative;
+  margin-bottom: 2rem;
+  img {
+    display: block;
+  }
+  figcaption {
+    @extend .p-smaller;
+    @include aside;
+    margin-top: 1em;
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,256 @@
+// Syntax highlighting styles
+//
+//
+
+
+$hl-lighter:#eceeed !default;
+$hl-light:  #dadbdd !default;
+$hl-muted:  #929292 !default;
+$hl-gray:   #545454 !default;
+$hl-error:  #C82829 !default;
+$hl-orange: #F5871F !default;
+$hl-yellow: #EAB700 !default;
+$hl-green:  #718C00 !default;
+$hl-aqua:   #3E999F !default;
+$hl-blue:   #4271AE !default;
+$hl-purple: #8959A8 !default;
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0 .2em;
+  position: relative;
+  top: -.1em;
+  border-radius: 2px;
+  background-color: $brand-primary-lighter;
+  font-size: .95em;
+  line-height: 1;
+  text-decoration: none;
+  color: $brand-primary;
+  @at-root a & {
+    position: static;
+  }
+}
+
+/* Code blocks */
+.gatsby-highlight {
+  margin-bottom: 1.5rem;
+}
+pre[class*="language-"] {
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  padding: 1em;
+  border: 1px solid $hl-lighter;
+  background: #fff;
+
+  tab-size: 4;
+  hyphens: none;
+
+  &.line-numbers {
+    position: relative;
+    padding-left: 3em;
+    counter-reset: linenumber;
+    > code {
+      position: relative;
+      white-space: inherit;
+    }
+
+    > .line-numbers-rows {
+      position: absolute;
+      pointer-events: none;
+      top: 1em;
+      text-align: right;
+      min-width: 2.5em;
+      user-select: none;
+      > span {
+        display: block;
+        counter-increment: linenumber;
+
+        &::before {
+          content: counter(linenumber);
+          color: $hl-light;
+          display: block;
+          padding-right: 0.5em;
+          text-align: right;
+          // 폰트 사이즈 줄이면서 줄높이 맞추기 위해 transform scale을 사용함.
+          // 예) font-size: 0.8em; -> transform: scale(0.85);
+          transform: scale(0.85);
+        }
+      }
+    }
+  }
+}
+
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  color: $hl-muted;
+}
+
+.token.delimiter,
+.token.boolean,
+.token.keyword,
+.token.selector,
+.token.important,
+.token.atrule {
+  color: #cc7832;
+}
+
+.token.operator,
+.token.punctuation,
+.token.attr-name {
+  color: $hl-muted;
+}
+
+.token.tag,
+.token.tag .punctuation,
+.token.doctype,
+.token.builtin {
+  color: #e8bf6a;
+}
+
+.token.entity,
+.token.number,
+.token.symbol {
+  color: #6897bb;
+}
+
+.token.property,
+.token.constant,
+.token.variable {
+  color: #9876aa;
+}
+
+.token.string,
+.token.char {
+  color: #6a8759;
+}
+
+.token.attr-value,
+.token.attr-value .punctuation {
+  color: #a5c261;
+}
+
+.token.attr-value .punctuation:first-child {
+  color: #a9b7c6;
+}
+
+.token.url {
+  color: #287bde;
+  text-decoration: underline;
+}
+
+.token.function {
+  color: #ffc66d;
+}
+
+.token.regex {
+  background: #364135;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.inserted {
+  background: #294436;
+}
+
+.token.deleted {
+  background: #484a4a;
+}
+
+code.language-css .token.property,
+code.language-css .token.property + .token.punctuation {
+  color: $hl-gray;
+}
+
+code.language-css .token.id {
+  color: #ffc66d;
+}
+
+code.language-css .token.selector > .token.class,
+code.language-css .token.selector > .token.attribute,
+code.language-css .token.selector > .token.pseudo-class,
+code.language-css .token.selector > .token.pseudo-element {
+  color: #ffc66d;
+}
+
+
+
+// gastby line highlighting styles
+//.gatsby-highlight-code-line {
+//  background-color: #feb;
+//  display: block;
+//  margin-right: -1em;
+//  margin-left: -1em;
+//  padding-right: 1em;
+//  padding-left: 0.75em;
+//  border-left: 0.25em solid #f99;
+//}
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+//.gatsby-highlight {
+//  background-color: #fdf6e3;
+//  border-radius: 0.3em;
+//  margin: 0.5em 0;
+//  padding: 1em;
+//  overflow: auto;
+//}
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+//.gatsby-highlight pre[class*="language-"] {
+//  background-color: transparent;
+//  margin: 0;
+//  padding: 0;
+//  overflow: initial;
+//  float: left; /* 1 */
+//  min-width: 100%; /* 2 */
+//}
+
+/**
+ * If you already use line highlighting
+ */
+
+/* Adjust the position of the line numbers */
+//.gatsby-highlight pre[class*="language-"].line-numbers {
+//  padding-left: 2.8em;
+//}
+
+/**
+ * If you only want to use line numbering
+ */
+
+//.gatsby-highlight {
+//  background-color: #fdf6e3;
+//  border-radius: 0.3em;
+//  margin: 0.5em 0;
+//  padding: 1em;
+//  overflow: auto;
+//}
+//
+//.gatsby-highlight pre[class*="language-"].line-numbers {
+//  padding: 0;
+//  padding-left: 2.8em;
+//  overflow: initial;
+//}

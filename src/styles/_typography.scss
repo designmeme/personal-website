@@ -1,0 +1,161 @@
+// Typography
+//
+//
+
+
+//
+// Text hierarchy
+//
+html {
+  @include responsive-font-size(); // enable for rem
+}
+
+@include text-hierarchy();
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin: 0 0 2rem;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6,
+p,
+ul, ol, dl,
+blockquote,
+figure {
+  margin: 0 0 1.5rem;
+}
+
+li, dd, td {
+  p, ol, ul, dl {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+//
+// Headings
+//
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  font-weight: 400;
+}
+
+h5, .h5,
+h6, .h6 {
+  font-weight: 700;
+}
+
+h3, .h3,
+h5, .h5 {
+  color: $brand-primary;
+}
+
+
+//
+// Body Text
+//
+body {
+  background: $body-color;
+  color: $text-color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+}
+
+.p-small {
+  color: $text-color-gray;
+}
+.p-smaller {
+  color: $text-color-muted;
+}
+
+
+//
+// Lists
+//
+ol, ul {
+  padding-left: 2em;
+}
+dt {
+  font-weight: 700;
+}
+dd {
+  margin-left: 2em;
+}
+
+
+//
+// Quotes
+//
+blockquote {
+  position: relative;
+  padding: 0 2em;
+  &:before,
+  &:after {
+    position: absolute;
+    width: 1em;
+    text-align: center;
+    font-size: 2em;
+    color: $text-color-silver;
+    line-height: 1;
+  }
+  &:before {
+    content: '“';
+    top: 0;
+    left: 0;
+  }
+  &:after {
+    content: '”';
+    bottom: -.5em;
+    right: 0;
+  }
+}
+
+//
+// Inline elements
+//
+a {
+  color: $link-color;
+  transition: all 400ms;
+  &:visited,
+  &.visited {
+    color: $link-color-visited;
+  }
+  @media (pointer: fine) {
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: none;
+    }
+  }
+}
+
+.side-by-side { // for english written side by side
+  @extend sup;
+  margin-left: -.25em;
+  font-style: normal;
+  color: $text-color-muted;
+  font-weight: 300;
+}
+
+//
+// Etc
+//
+hr { // simply used to separate section
+  margin-top: 0;
+  margin-bottom: $section-margin;
+  border: 0;
+}
+
+.align-right  { text-align: right; }
+.align-left   { text-align: left; }
+.align-center { text-align: center; }
+
+.monospace {
+  font-family: monospace;
+}

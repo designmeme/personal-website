@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, HeadFC, PageProps } from "gatsby"
+import Seo from "../components/seo";
 
 const pageStyles = {
   color: "#232129",
@@ -21,6 +22,11 @@ const codeStyles = {
   backgroundColor: "#FFF4DB",
   fontSize: "1.25rem",
   borderRadius: 4,
+}
+
+const meta = {
+  title: `Not found`,
+  description: `Not found`
 }
 
 const NotFoundPage: React.FC<PageProps> = () => {
@@ -46,4 +52,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head: HeadFC = ({location}) =>
+    <Seo title={meta.title}
+         description={meta.description}
+         pathname={location.pathname} />

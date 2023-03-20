@@ -1,0 +1,26 @@
+// Blog
+//
+//
+
+
+.blog {
+  margin-top: $section-margin;
+}
+
+.post-subject-title {
+  @extend h4;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: calc($section-margin / 2);
+  @extend .p-small;
+  color: $text-color-silver;
+  li {
+    margin-bottom: 1em;
+    &:hover {
+      color: $text-color-muted;
+    }
+  }
+}
