@@ -26,8 +26,16 @@ const shortcodes = {
     a: (props: any) => <MdxLink {...props} />
 }
 
+type PageContextType = {
+    id: String
+    previous: Queries.Mdx | null
+    next: Queries.Mdx | null
+}
 
-const PostPage: React.FC<PageProps<Queries.PostPageQuery>> = ({data, children, path, pageContext}) => {
+
+const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
+    = ({data, children, path, pageContext}) => {
+    const {previous, next} = pageContext
     const {author, siteUrl} = useSiteMetadata()
     const {
         subject,
@@ -141,25 +149,24 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery>> = ({data, children, p
                     </div>
 
                     <div className="post-nav">
-                        {/*todo if next link*/}
-                        <Link to="/blog"
-                              className="post-next-link"
-                              onClick={() => gaEvent('post-next-link', 'click', title!)}>
-                            {title}
+                        {next && <Link to={`/blog/${next.frontmatter.slug}`}
+                                       className="post-next-link"
+                                       onClick={() => gaEvent('post-next-link', 'click', next.frontmatter.title)}>
+                            {next.frontmatter.title}
                             <span className="icon">
-                                <FontAwesomeIcon icon={faFaceGrinWide} />
-                                <FontAwesomeIcon icon={faArrowRightLong} />
+                                <FontAwesomeIcon icon={faFaceGrinWide}/>
+                                <FontAwesomeIcon icon={faArrowRightLong}/>
                             </span>
-                        </Link>
-                        <Link to="/blog"
-                              className="post-prev-link"
-                              onClick={() => gaEvent('post-prev-link', 'click', title!)}>
+                        </Link>}
+                        {previous && <Link to={`/blog/${previous.frontmatter.slug}`}
+                                           className="post-prev-link"
+                                           onClick={() => gaEvent('post-prev-link', 'click', previous.frontmatter.title!)}>
                             <span className="icon">
-                                <FontAwesomeIcon icon={faArrowLeftLong} />
-                                <FontAwesomeIcon icon={faFaceGrinWide} />
+                                <FontAwesomeIcon icon={faArrowLeftLong}/>
+                                <FontAwesomeIcon icon={faFaceGrinWide}/>
                             </span>
-                            {title}
-                        </Link>
+                            {previous.frontmatter.title}
+                        </Link>}
                     </div>
                 </footer>
 

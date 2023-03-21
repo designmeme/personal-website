@@ -14,32 +14,55 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
     // 참고: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#create-pages-from-sourced-mdx-files
     const {data: {allMdx}}: any = await graphql(`
         query CreatePostPages {
-          allMdx(filter: {fields: {sourceInstanceName: {eq: "posts"}}}) {
-            nodes {
-              id
-              frontmatter {
-                slug
-              }
-              internal {
-                contentFilePath
+          allMdx(
+            filter: {fields: {sourceInstanceName: {eq: "posts"}}}
+            sort: {frontmatter: {order: ASC}}
+          ) {
+            group(field: {frontmatter: {subject: {slug: SELECT}}}) {
+              edges {
+                node {
+                  id
+                  frontmatter {
+                    slug
+                  }
+                  internal {
+                    contentFilePath
+                  }
+                }
+                next {
+                  frontmatter {
+                    slug
+                    title
+                  }
+                }
+                previous {
+                  frontmatter {
+                    slug
+                    title
+                  }
+                }
               }
             }
           }
         }
     `)
 
-    allMdx.nodes.forEach((node: Queries.Mdx) => {
+    allMdx.group.forEach((group: Queries.MdxGroupConnection) => group.edges.forEach((edge: Queries.MdxEdge) => {
+        const node = edge.node
+
         createPage({
             path: `/blog/${node.frontmatter.slug}`,
             // __contentFilePath로 지정한 mdx 본문이 템플릿 페이지 안의 children으로 전달됨.
             component: `${path.resolve(`src/templates/post.tsx`)}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
-                id: node.id
+                id: node.id,
+                next: edge.next,
+                previous: edge.previous,
             },
             // https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#optimizing-pages-for-content-sync
             ownerNodeId: node.id,
         })
-    })
+    }))
 
     // Redirects 설정
     redirectJson.forEach(redirect =>
