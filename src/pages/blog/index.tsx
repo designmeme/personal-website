@@ -32,23 +32,26 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                         <h2 className="post-subject-title">{subject.title} ({subject.posts?.length || 0})</h2>
                         {subject.posts?.length && <ul className="post-list">
                             {
-                                subject.posts.map(post => (
-                                    <li key={post.id}>
-                                        <Link to={`/blog/${post.frontmatter.slug}`}
-                                              className="post-link"
-                                              onClick={() => gaEvent('post-link-in-blog', 'click', post.frontmatter.title)}
-                                        >
-                                            {post.frontmatter.order}. {post.frontmatter.title}
-                                        </Link>
-                                        {/*todo move in Link*/}
-                                        {post.frontmatter.subtitle && (
-                                            <>
-                                                {' '}&mdash;{' '}
-                                                {post.frontmatter.subtitle}
-                                            </>
-                                        )}
-                                    </li>
-                                ))
+                                subject.posts
+                                    .filter(post => process.env.NODE_ENV != 'production' || !!post.frontmatter.created_at)
+                                    .map(post => (
+                                        <li key={post.id}>
+                                            <Link to={`/blog/${post.frontmatter.slug}`}
+                                                  className="post-link"
+                                                  onClick={() => gaEvent('post-link-in-blog', 'click', post.frontmatter.title)}
+                                            >
+                                                {process.env.NODE_ENV != 'production' && !post.frontmatter.created_at && '(미공개)'}
+                                                {post.frontmatter.title}
+                                            </Link>
+                                            {/*todo move in Link*/}
+                                            {post.frontmatter.subtitle && (
+                                                <>
+                                                    {' '}&mdash;{' '}
+                                                    {post.frontmatter.subtitle}
+                                                </>
+                                            )}
+                                        </li>
+                                    ))
                             }
                         </ul>}
                     </div>
@@ -71,6 +74,7 @@ export const query = graphql`
                         slug
                         title
                         subtitle
+                        created_at
                         order
                     }
                 }

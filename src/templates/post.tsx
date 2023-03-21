@@ -62,14 +62,17 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery>> = ({data, children, p
                 )}
 
                 <header className="page-header">
-                    <h1 className="page-title">{title}</h1>
+                    <h1 className="page-title">
+                        {process.env.NODE_ENV != 'production' && !created_at && '(미공개)'}
+                        {title}
+                    </h1>
                     {subtitle && (
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
                     <p className="post-meta">
                         <span className="date">
-                            <FontAwesomeIcon icon={faClock} />
+                            <FontAwesomeIcon icon={faClock}/>
                             최초 작성일:{' '}
                             <time dateTime={created_at!}>
                                 {created_at_str}
@@ -166,7 +169,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery>> = ({data, children, p
 }
 
 export const query = graphql`
-    query PostPage ($id: String) {
+    query PostPage ($id: String!) {
         mdx(id: {eq: $id}) {
             tableOfContents
             frontmatter {

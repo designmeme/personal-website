@@ -1,17 +1,18 @@
 import type {GatsbyNode} from "gatsby"
 import fs from "fs";
+import redirectJson from "./redirect.json"
 
 const path = require(`path`)
 const readingTime = require(`reading-time`)
 
 export const createPages: GatsbyNode["createPages"] = async ({actions, graphql}) => {
-    const {createPage} = actions
+    const {createPage, createRedirect} = actions
 
     // /src/posts/*.mdx 파일만 포스트 페이지를 생성한다.
     // /src/pages/blog/{mdx.frontmatter__slug}.mdx 파일시스템 API 사용시
     // /src/pages/design-guide.mdx 등 다른 경로의 파일도 모두 포스트 페이지로 생성하는 문제가 있음.
     // 참고: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#create-pages-from-sourced-mdx-files
-    const result: any = await graphql(`
+    const {data: {allMdx}}: any = await graphql(`
         query CreatePostPages {
           allMdx(filter: {fields: {sourceInstanceName: {eq: "posts"}}}) {
             nodes {
@@ -27,9 +28,7 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
         }
     `)
 
-    const data: Queries.CreatePostPagesQuery = result.data
-
-    data.allMdx.nodes.forEach(node => {
+    allMdx.nodes.forEach((node: Queries.Mdx) => {
         createPage({
             path: `/blog/${node.frontmatter.slug}`,
             // __contentFilePath로 지정한 mdx 본문이 템플릿 페이지 안의 children으로 전달됨.
@@ -41,6 +40,15 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
             ownerNodeId: node.id,
         })
     })
+
+    // Redirects 설정
+    redirectJson.forEach(redirect =>
+        createRedirect({
+            fromPath: redirect.fromPath,
+            toPath: redirect.toPath,
+            isPermanent: true,
+        })
+    )
 }
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({node, actions, createNodeId, getNode}) => {
