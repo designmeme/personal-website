@@ -42,10 +42,10 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
         subtitle,
         images,
         tags,
-        created_at,
-        created_at_str,
-        updated_at,
-        updated_at_str,
+        createdAt,
+        createdAtStr,
+        updatedAt,
+        updatedAtStr,
     } = data.mdx!.frontmatter!
 
     const readMinutes = Math.ceil(data.mdx?.fields?.timeToRead?.minutes!)
@@ -68,7 +68,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                 <header className="page-header">
                     <h1 className="page-title">
-                        {process.env.NODE_ENV != 'production' && !created_at && '(미공개)'}
+                        {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
                         {title}
                     </h1>
                     {subtitle && (
@@ -79,16 +79,16 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <span className="date">
                             <FontAwesomeIcon icon={faClock}/>
                             최초 작성일:{' '}
-                            <time dateTime={created_at!}>
-                                {created_at_str}
+                            <time dateTime={createdAt!}>
+                                {createdAtStr}
                             </time>
                         </span>
-                        {updated_at && (
+                        {updatedAt && (
                             <span className="modified">
-                                <FontAwesomeIcon icon={faPencil} />
+                                <FontAwesomeIcon icon={faPencil}/>
                                 최종 수정일:{' '}
-                                <time dateTime={updated_at}>
-                                    {updated_at_str}
+                                <time dateTime={updatedAt}>
+                                    {updatedAtStr}
                                 </time>
                             </span>
                         )}
@@ -191,10 +191,10 @@ export const query = graphql`
                 }
                 tags
                 slug
-                created_at
-                created_at_str: created_at(formatString: "LL", locale: "ko-KR")
-                updated_at
-                updated_at_str: updated_at(formatString: "LL", locale: "ko-KR")
+                createdAt
+                createdAtStr: createdAt(formatString: "LL", locale: "ko-KR")
+                updatedAt
+                updatedAtStr: updatedAt(formatString: "LL", locale: "ko-KR")
                 order
             }
             fields {
@@ -216,8 +216,8 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
         excerpt,
         images,
         tags,
-        created_at,
-        updated_at,
+        createdAt,
+        updatedAt,
     } = data.mdx!.frontmatter!
 
     let fullTitle = title
@@ -234,8 +234,8 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
         "@type": "BlogPosting",
         headline: fullTitle!,
         image: imageUrls,
-        datePublished: created_at!,
-        dateModified: updated_at!,
+        datePublished: createdAt!,
+        dateModified: updatedAt!,
         author: [
             {
                 "@type": "Person",

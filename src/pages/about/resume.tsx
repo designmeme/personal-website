@@ -11,8 +11,8 @@ const meta = {
     subtitle: `프론트엔드 웹 개발자 이지혜입니다`,
     description: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`
     // todo 화면에 표시하기
-    // created_at: 2017-07-07 13:00:00 +0900
-// updated_at: 2020-01-31 00:00:00 +0900
+    // createdAt: 2017-07-07 13:00:00 +0900
+// updatedAt: 2020-01-31 00:00:00 +0900
 }
 
 const ResumePage: React.FC<PageProps> = () => {

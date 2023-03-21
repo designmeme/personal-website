@@ -33,14 +33,14 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                         {subject.posts?.length && <ul className="post-list">
                             {
                                 subject.posts
-                                    .filter(post => process.env.NODE_ENV != 'production' || !!post.frontmatter.created_at)
+                                    .filter(post => process.env.NODE_ENV != 'production' || !!post.frontmatter.createdAt)
                                     .map(post => (
                                         <li key={post.id}>
                                             <Link to={`/blog/${post.frontmatter.slug}`}
                                                   className="post-link"
                                                   onClick={() => gaEvent('post-link-in-blog', 'click', post.frontmatter.title)}
                                             >
-                                                {process.env.NODE_ENV != 'production' && !post.frontmatter.created_at && '(미공개)'}
+                                                {process.env.NODE_ENV != 'production' && !post.frontmatter.createdAt && '(미공개)'}
                                                 {post.frontmatter.title}
                                             </Link>
                                             {/*todo move in Link*/}
@@ -74,7 +74,7 @@ export const query = graphql`
                         slug
                         title
                         subtitle
-                        created_at
+                        createdAt
                         order
                     }
                 }

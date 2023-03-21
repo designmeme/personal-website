@@ -31,8 +31,8 @@ const BlogSideNav: React.FC<BlogSideNavProps> = ({subject}) => {
                                 title
                                 subtitle
                                 slug
-                                created_at
-                                updated_at
+                                createdAt
+                                updatedAt
                                 order
                             }
                         }

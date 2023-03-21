@@ -9,8 +9,8 @@ type MdxFrontmatter @dontInfer {
     excerpt: String
     tags: [String!]
     images: [File!] @fileByRelativePath
-    created_at: Date @dateformat
-    updated_at: Date @dateformat
+    createdAt: Date @dateformat
+    updatedAt: Date @dateformat
     order: Int
 }
 type SubjectJson implements Node @dontInfer {
