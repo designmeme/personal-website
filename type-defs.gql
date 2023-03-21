@@ -1,0 +1,21 @@
+type Mdx implements Node {
+    frontmatter: MdxFrontmatter!
+}
+type MdxFrontmatter @dontInfer {
+    subject: SubjectJson! @link(by: "slug")
+    slug: String!
+    title: String!
+    subtitle: String
+    excerpt: String
+    tags: [String!]
+    images: [File!] @fileByRelativePath
+    created_at: Date @dateformat
+    updated_at: Date @dateformat
+    order: Int
+}
+type SubjectJson implements Node @dontInfer {
+    slug: String!
+    title: String!
+    sort: [String!]!
+    posts: [Mdx!]! @link(by: "frontmatter.subject.slug", from: "slug")
+}

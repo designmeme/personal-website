@@ -1,4 +1,5 @@
 import type {GatsbyNode} from "gatsby"
+import fs from "fs";
 
 const path = require(`path`)
 const readingTime = require(`reading-time`)
@@ -85,42 +86,24 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({node, actions, createN
 
 // 스키마 명확히 정의하기
 // 참고: https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/#fixing-field-types
+// createSchemaCustomization+createResolvers 예시 https://github.com/gatsbyjs/gatsby/blob/master/examples/using-type-definitions/gatsby-node.js
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions, schema }) => {
-    const { createTypes } = actions
-    // todo posts 에 sort 기능 넣을수 없나?
-    const typeDefs = [`
-        type Mdx implements Node {
-            frontmatter: MdxFrontmatter!
-        }
-        type MdxFrontmatter @dontInfer {
-            subject: SubjectJson! @link(by: "slug")
-            slug: String!
-            title: String!
-            subtitle: String
-            excerpt: String
-            tags: [String!]
-            images: [File!] @fileByRelativePath
-            created_at: Date @dateformat
-            updated_at: Date @dateformat
-            order: Int
-        }
-        type SubjectJson implements Node @dontInfer {
-            slug: String!
-            title: String!
-            sort: [String!]!
-            posts: [Mdx!]! @link(by: "frontmatter.subject.slug", from: "slug")
-        }
-        `,
-    ]
+    const {createTypes} = actions
+
+    // 노트: 문법 도움 및 작성 편의를 위해 SDL 이 아닌 .gql 파일에 작성함.
+    const typeDefs = fs.readFileSync(`type-defs.gql`, {
+        encoding: `utf-8`,
+    })
     createTypes(typeDefs)
 }
 
+// 참고: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createResolvers
 export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers }) => {
     const resolvers = {
         MdxFrontmatter: {
             order: {
                 type: "Int",
-                resolve: async (source: Queries.MdxFrontmatter, args, context, info) => {
+                resolve: async (source: Queries.MdxFrontmatter, args: object, context, info) => {
                     // 주제별 포스트 순서값 지정 - SubjectJson 데이터를 기반으로 order 값을 반환한다.
                     if (!source.subject) {
                         return null
@@ -135,17 +118,19 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
         },
         SubjectJson: {
             // type @link 지정만으로는 sort, limit 같은 쿼리를 사용할 수 없어서 추가함.
+            // todo posts 에 sort 기능 넣을수 없나?
             posts: {
                 type: "[Mdx!]!",
-                resolve: async (source: Queries.SubjectJson, args, context, info) => {
+                resolve: async (source: Queries.SubjectJson, args: object, context, info) => {
                     const {entries} = await context.nodeModel.findAll({
                         type: 'Mdx',
                         query: {
                             filter: {frontmatter: {subject: {slug: {eq: source.slug}}}},
+                            // sort: {frontmatter: {order: ASC}},
                             sort: {
                                 fields: ["frontmatter.order"],
                                 order: ["ASC"]
-                            }
+                            },
                         }
                     })
                     return entries
