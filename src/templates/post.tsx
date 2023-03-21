@@ -200,6 +200,7 @@ export const query = graphql`
             fields {
                 timeToRead {
                     minutes
+                    words
                 }
             }
         }
@@ -214,6 +215,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
         subject,
         excerpt,
         images,
+        tags,
         created_at,
         updated_at,
     } = data.mdx!.frontmatter!
@@ -241,11 +243,10 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
                 url: meta.siteUrl + '/about'
             },
         ],
-        // todo
-        // wordCount: 10,
-        // keywords: [],
+        wordCount: data.mdx?.fields?.timeToRead?.words,
+        keywords: tags || undefined,
         isPartOf: {
-            "@type" : "Blog",
+            "@type": "Blog",
             name: meta.title + ' 블로그',
             url: meta.siteUrl + '/blog'
         },
