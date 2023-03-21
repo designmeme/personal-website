@@ -36,15 +36,12 @@ type PageContextType = {
 const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     = ({data, children, path, pageContext}) => {
     const {previous, next} = pageContext
-    const {author, siteUrl} = useSiteMetadata()
+    const {siteUrl} = useSiteMetadata()
     const {
-        subject,
         title,
         subtitle,
-        excerpt,
         images,
         tags,
-        slug,
         created_at,
         created_at_str,
         updated_at,
