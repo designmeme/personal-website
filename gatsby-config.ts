@@ -81,7 +81,8 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                query: `{
+                // TypeGen 적용 안됨.
+                query: `query Sitemap {
                   site {
                     siteMetadata {
                       siteUrl
@@ -121,27 +122,30 @@ const config: GatsbyConfig = {
                     }
                   }
                 }`,
+                // @ts-ignore
                 resolvePages: ({allSitePage, allPostMdx, allPageMdx, allJavascriptFrontmatter}) => {
-                    return allSitePage.nodes.map(page => {
+                    return allSitePage.nodes.map((page: Queries.SitePage) => {
                         const path = page.path
                         let lastmod
 
                         if (path.match(/\/blog\/.+/)) {
                             // blog post: path ex) /blog/sass-data-types/
                             const slug = path.slice(6, -1)
-                            const post = allPostMdx.nodes.find(node => node.frontmatter.slug == slug)
+                            const post = allPostMdx.nodes.find((node: Queries.Mdx) => node.frontmatter.slug == slug)
                             lastmod = post?.frontmatter.updatedAt || undefined
                         } else {
                             const re = /\/src\/pages(\/.*)\.\w*$/
                             // pages - mdx
-                            const pageMdx = allPageMdx.nodes.find(node => {
-                                return path == node.parent.absolutePath.match(re)[1].replace(/\/index$/, "") + '/'
+                            const pageMdx = allPageMdx.nodes.find((node: Queries.Mdx) => {
+                                // @ts-ignore
+                                return path == node.parent?.absolutePath.match(re)[1].replace(/\/index$/, "") + '/'
                             })
                             lastmod = pageMdx?.frontmatter.updatedAt || undefined
 
                             // pages - jsx, tsx
                             if (!pageMdx) {
-                                const page = allJavascriptFrontmatter.nodes.find(node => {
+                                const page = allJavascriptFrontmatter.nodes.find((node: Queries.JavascriptFrontmatter) => {
+                                    // @ts-ignore
                                     return path == node.fileAbsolutePath.match(re)[1].replace(/\/index$/, "") + '/'
                                 })
                                 lastmod = page?.frontmatter.updatedAt || undefined

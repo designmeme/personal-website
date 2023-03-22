@@ -1,6 +1,7 @@
 import type {GatsbyNode} from "gatsby"
 import fs from "fs";
 import redirectJson from "./redirect.json"
+import {IGatsbyResolverContext} from "gatsby/dist/schema/type-definitions";
 
 const path = require(`path`)
 const readingTime = require(`reading-time`)
@@ -134,7 +135,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
         MdxFrontmatter: {
             order: {
                 type: "Int",
-                resolve: async (source: Queries.MdxFrontmatter, args: object, context, info) => {
+                resolve: async (source: Queries.MdxFrontmatter, args: object, context: IGatsbyResolverContext<Queries.MdxFrontmatter, undefined>) => {
                     // 주제별 포스트 순서값 지정 - SubjectJson 데이터를 기반으로 order 값을 반환한다.
                     if (!source.subject) {
                         return null
@@ -152,7 +153,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
             // todo posts 에 sort 기능 넣을수 없나?
             posts: {
                 type: "[Mdx!]!",
-                resolve: async (source: Queries.SubjectJson, args: object, context, info) => {
+                resolve: async (source: Queries.SubjectJson, args: object, context: IGatsbyResolverContext<Queries.MdxFrontmatter, undefined>) => {
                     const {entries} = await context.nodeModel.findAll({
                         type: 'Mdx',
                         query: {
