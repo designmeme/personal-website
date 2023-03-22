@@ -3,7 +3,7 @@ export function gaEvent(category: string, action: string, label?: string) {
     process.env.NODE_ENV === "development" && console.log('(dev) gaEvent called', category, action, label)
 
     // guard against SSR
-    if (typeof window !== "undefined") {
+    if (typeof window === "undefined") {
         return
     }
 
