@@ -171,6 +171,7 @@ const config: GatsbyConfig = {
                 "icon": "src/images/icon.png"
             }
         },
+        `gatsby-transformer-javascript-frontmatter`,
         {
             resolve: `gatsby-plugin-mdx`,
             options: {

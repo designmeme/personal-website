@@ -220,12 +220,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
         updatedAt,
     } = data.mdx!.frontmatter!
 
-    let fullTitle = title
-    if (subtitle) {
-        fullTitle += ` — ${subtitle}`
-    }
-    fullTitle += ` | ${subject.title}`
-
+    const fullTitle = title + (subtitle && ` — ${subtitle}`) + ` | ${subject.title}`
     const imageUrls = (images || []).map(i => i?.publicURL!)
 
     // https://developers.google.com/search/docs/appearance/structured-data/article?hl=ko
@@ -243,7 +238,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
                 url: meta.siteUrl + '/about'
             },
         ],
-        wordCount: data.mdx?.fields?.timeToRead?.words,
+        wordCount: data.mdx?.fields?.timeToRead?.words!,
         keywords: tags || undefined,
         isPartOf: {
             "@type": "Blog",

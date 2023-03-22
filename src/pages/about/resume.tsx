@@ -6,18 +6,17 @@ import resumeData from '../../data/resume.json'
 import CareerList from "../../components/career-list";
 
 
-const meta = {
+export const frontmatter = {
     title: `이력서 및 경력기술서`,
     subtitle: `프론트엔드 웹 개발자 이지혜입니다`,
-    description: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`
-    // todo 화면에 표시하기
-    // createdAt: 2017-07-07 13:00:00 +0900
-// updatedAt: 2020-01-31 00:00:00 +0900
+    description: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`,
+    createdAt: `2017-07-07T00:00:00+09:00`,
+    updatedAt: `2020-01-31T00:00:00+09:00`,
 }
 
 const ResumePage: React.FC<PageProps> = () => {
     return (
-        <PageLayout title={meta.title}>
+        <PageLayout title={frontmatter.title} subtitle={frontmatter.subtitle}>
             <h5>프로필</h5>
             <dl className="profile-list">
                 <dt className="profile-title">이름</dt>
@@ -98,9 +97,9 @@ const ResumePage: React.FC<PageProps> = () => {
     )
 }
 
-export default ResumePage
-
 export const Head: HeadFC = ({location}) =>
-    <Seo title={meta.title + ' — ' + meta.subtitle}
-         description={meta.description}
-         pathname={location.pathname} />
+    <Seo title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+         description={frontmatter.description}
+         pathname={location.pathname}/>
+
+export default ResumePage
