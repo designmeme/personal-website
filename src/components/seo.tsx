@@ -9,6 +9,7 @@ type SeoProps = {
     description?: string | null
     image?: string | null
     pathname?: string | null
+    noindex?: boolean
     schema?: WithContext<any> | Array<WithContext<any>>
     children?: React.ReactNode
 }
@@ -19,6 +20,7 @@ const Seo: React.FC<SeoProps> = (
         description,
         image,
         pathname,
+        noindex = false,
         schema = [],
         children,
     }) => {
@@ -58,21 +60,24 @@ const Seo: React.FC<SeoProps> = (
 
     return (
         <>
-            <html lang={lang} />
+            <html lang={lang}/>
+
+            {/*검색엔진에서 페이지를 수집하지 않도록 설정: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag?hl=ko#robotsmeta*/}
+            {noindex && <meta name="robots" content="noindex, nofollow"/>}
 
             <title>{seo.title}</title>
-            <meta property="og:title" content={seo.title} />
-            <meta name="twitter:title" content={seo.title} />
+            <meta property="og:title" content={seo.title}/>
+            <meta name="twitter:title" content={seo.title}/>
 
-            <meta property="og:site_name" content={siteTitle} />
+            <meta property="og:site_name" content={siteTitle}/>
 
             {!articleSchema ? (
-                <meta property="og:type" content="website" />
+                <meta property="og:type" content="website"/>
             ) : (
                 <>
-                    <meta property="og:type" content="article" />
-                    <meta property="article:published_time" content={articleSchema.datePublished} />
-                    <meta property="article:modified_time" content={articleSchema.dateModified} />
+                    <meta property="og:type" content="article"/>
+                    <meta property="article:published_time" content={articleSchema.datePublished}/>
+                    <meta property="article:modified_time" content={articleSchema.dateModified}/>
                     {articleSchema.author && articleSchema.author.length && <meta property="article:author" content={articleSchema.author[0].name}/>}
                 </>
             )}
