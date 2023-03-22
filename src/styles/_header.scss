@@ -84,13 +84,5 @@
         }
       }
     }
-    @include media-breakpoint-up(xl) {
-      @at-root .has-image & {
-        z-index: 1;
-        position: absolute;
-        top: $max-margin * 3;
-        left: $max-margin;
-      }
-    }
   }
 }

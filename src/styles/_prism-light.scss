@@ -33,7 +33,16 @@ $hl-purple: #8959A8 !default;
 
 /* Code blocks */
 .gatsby-highlight {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
+  border: 1px solid $hl-lighter;
+  border-radius: 3px;
+  font-size: .84em;
+  @at-root .code-label + * > .gatsby-highlight {
+    border-radius: 0 0 3px 3px;
+  }
 }
 pre[class*="language-"] {
   direction: ltr;
@@ -42,12 +51,8 @@ pre[class*="language-"] {
   word-spacing: normal;
   word-break: normal;
   line-height: 1.5;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
   margin: 0;
   padding: 1em;
-  border: 1px solid $hl-lighter;
   background: #fff;
 
   tab-size: 4;

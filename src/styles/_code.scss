@@ -23,11 +23,5 @@
     }
   }
 }
-pre[class*="language-"] {
-  border-radius: 3px;
-  font-size: .84em;
-  @at-root .code-label + * > .gatsby-highlight > & {
-    border-radius: 0 0 3px 3px;
-  }
-}
+
 

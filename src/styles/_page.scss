@@ -3,17 +3,15 @@
 // common layout of page and post
 
 .page-image {
-  margin: 0 -16.67% calc($section-margin / 2);
+  display: none;
+  max-width: 100%;
+
+  > div {
+    //margin: 0 -12.5% 1rem; // width: 320px = margin: 40px
+  }
+
   @include media-breakpoint-up(md) {
-    margin-left: 0;
-    margin-right: -($min-aside-outer-width);
-  }
-  @include media-breakpoint-up(lg) {
-    margin-right: -($max-aside-outer-width);
-    margin-bottom: $section-margin;
-  }
-  @include media-breakpoint-up(xl) {
-    margin-top: -$section-margin * 3;
+    //margin: $max-margin; // width: 800px = margin: 100px
   }
 }
 

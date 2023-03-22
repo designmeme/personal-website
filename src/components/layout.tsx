@@ -19,9 +19,7 @@ const Layout: React.FC<Props> = ({children}) => {
             <Header/>
             <main className="site-main" aria-label="Content">
                 <div className="wrapper">
-                    <div className="inner-wrapper">
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </main>
             <Footer/>

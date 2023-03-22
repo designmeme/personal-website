@@ -13,6 +13,7 @@ export const query = graphql`
 `
 
 const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) => {
+
     const {allSubjectJson} = useStaticQuery<Queries.SubjectNavQuery>(graphql`
         query SubjectNav {
             allSubjectJson {

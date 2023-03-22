@@ -44,6 +44,40 @@ body {
       margin-left: $max-aside-outer-width;
     }
   }
+
+  // temp todo fix
+  .post-wrapper {
+    > .post {
+      max-width: $main-max-width;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+      align-items: flex-start;
+      > .sub-nav, > .post-right {
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      > .sub-nav {
+        flex-basis: 250px;
+      }
+      > .post-right {
+        flex-basis: 250px;
+        // to test
+        //height: 100px;
+        //background: yellow;
+        @include media-breakpoint-up(lg) {
+          flex-basis: 300px;
+        }
+      }
+      > .post {
+        min-width: 0; // pre 태그 때문에 줄어들지 않는 문제 수정용.
+        flex-shrink: 2;
+        flex-grow: 0;
+      }
+    }
+
+  }
 }
 
 .site-aside {
