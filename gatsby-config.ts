@@ -112,15 +112,16 @@ const config: GatsbyConfig = {
                       }
                     }
                   }
-                  allFile(filter: {sourceInstanceName: {eq: "pages"}}) {
+                  allJavascriptFrontmatter {
                     nodes {
-                      absolutePath
-                      modifiedTime
-                      name
+                      frontmatter {
+                        updatedAt
+                      }
+                      fileAbsolutePath
                     }
                   }
                 }`,
-                resolvePages: ({allSitePage, allPostMdx, allPageMdx, allFile}) => {
+                resolvePages: ({allSitePage, allPostMdx, allPageMdx, allJavascriptFrontmatter}) => {
                     return allSitePage.nodes.map(page => {
                         const path = page.path
                         let lastmod
@@ -140,10 +141,10 @@ const config: GatsbyConfig = {
 
                             // pages - jsx, tsx
                             if (!pageMdx) {
-                                const page = allFile.nodes.find(node => {
-                                    return path == node.absolutePath.match(re)[1].replace(/\/index$/, "") + '/'
+                                const page = allJavascriptFrontmatter.nodes.find(node => {
+                                    return path == node.fileAbsolutePath.match(re)[1].replace(/\/index$/, "") + '/'
                                 })
-                                lastmod = page?.modifiedTime || undefined
+                                lastmod = page?.frontmatter.updatedAt || undefined
                             }
                         }
 
