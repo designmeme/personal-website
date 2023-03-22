@@ -17,6 +17,7 @@
 
 import React from 'react';
 import {Link} from 'gatsby'
+import {OutboundLink} from "gatsby-plugin-google-gtag";
 
 interface Props {
     href: string
@@ -33,7 +34,10 @@ const MdxLink: React.FC<Props> = ({ href, ...rest }: Props) => {
 
     // 외부 프로토콜 경로
     if (externalProtocols.includes(protocol)) {
-        return <a data-link={`external`} href={href} rel="nofollow" target={'_blank'} {...rest} />
+        // OutboundLink 자동으로 이벤트 트리거됨.
+        // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/index.js
+        return <OutboundLink data-link={`external`} href={href} rel="nofollow" target={'_blank'} {...rest} />
+        // return <a data-link={`external`} href={href} rel="nofollow" target={'_blank'} {...rest} />
     }
 
     // 기타 경로
