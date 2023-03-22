@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface SideBySideProps {
+type Props = {
     children: React.ReactNode
 }
 
-const SideBySide: React.FC<SideBySideProps> = ({children}) => {
+const SideBySide: React.FC<Props> = ({children}) => {
     return (
         <em className="side-by-side">{children}</em>
     );

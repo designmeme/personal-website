@@ -1,14 +1,13 @@
 import * as React from 'react'
-import PropTypes from "prop-types";
 import Layout from "./layout";
 
 
-interface pageLayoutProps {
+type Props = {
     title: string
     subtitle?: string
     children: React.ReactNode
 }
-const PageLayout: React.FC<pageLayoutProps> = ({children, title, subtitle}) => {
+const PageLayout: React.FC<Props> = ({children, title, subtitle}) => {
     return (
         <Layout>
             <div className="page">

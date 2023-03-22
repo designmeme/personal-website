@@ -17,7 +17,7 @@ interface Career {
     featured?: boolean
 }
 
-interface CareerListProps {
+type Props = {
     data: (Career | any)[]
 }
 
@@ -29,7 +29,7 @@ const dateToText = (date: string): string => {
     return `${year}년 ${month}월`
 }
 
-const CareerList: React.FC<CareerListProps> = ({data}) => {
+const CareerList: React.FC<Props> = ({data}) => {
     return (
         <dl className="career-list">
             {data.map(career => (

@@ -3,11 +3,11 @@ import {graphql, Link, useStaticQuery} from "gatsby";
 import {gaEvent} from "../hooks/analytics";
 
 
-interface BlogSideNavProps {
+type Props = {
     subject: string
 }
 
-const BlogSideNav: React.FC<BlogSideNavProps> = ({subject}) => {
+const BlogSideNav: React.FC<Props> = ({subject}) => {
     const {allPostMdx: {group: data}} = useStaticQuery(graphql`
         query {
             allMdx(sort: {frontmatter: {order: ASC}}) {

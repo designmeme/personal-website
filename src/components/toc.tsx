@@ -11,12 +11,12 @@ interface TocProps {
     toc?: Item
 }
 
-interface TocUiProps {
+type Props = {
     toc: Item
     depth?: number
 }
 
-const TocList: React.FC<TocUiProps> = ({toc, depth = 0}) => {
+const TocList: React.FC<Props> = ({toc, depth = 0}) => {
     depth++
 
     return (
@@ -38,7 +38,7 @@ const TocList: React.FC<TocUiProps> = ({toc, depth = 0}) => {
     );
 };
 
-const Toc: React.FC<TocProps> = ({toc}) => {
+const Toc: React.FC<Props> = ({toc}) => {
     return (
         <>
             {toc?.items && <div id={`markdown-toc`}>

@@ -5,13 +5,14 @@ import Statcounter from "./statcounter";
 
 import moment from 'moment'
 import 'moment/locale/ko'
+
 moment.locale('ko')
 
-interface layoutProps {
+type Props = {
     children: React.ReactNode
 }
 
-const Layout: React.FC<layoutProps> = ({children}) => {
+const Layout: React.FC<Props> = ({children}) => {
 
     return (
         <>
