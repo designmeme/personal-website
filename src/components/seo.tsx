@@ -139,8 +139,8 @@ const Seo: React.FC<SeoProps> = (
             {schema.length && <Script type="application/ld+json">{JSON.stringify(schema)}</Script>}
 
             {/*todo etc*/}
-            <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan" />
-            <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+            <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FC4A1A"/>
+            <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black"/>
 
             {children}
         </>
