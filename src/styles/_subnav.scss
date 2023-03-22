@@ -6,7 +6,7 @@
 .sub-nav {
   display: none;
   @extend .p-smaller;
-  opacity: 0;
+  //opacity: 0;
   position: fixed;
   left: $max-margin;
   top: $max-margin;
@@ -45,10 +45,11 @@
     .sub-link {
       display: block;
       color: $text-color-gray;
-    }
-    .active .sub-link {
-      font-weight: 700;
-      color: $text-color;
+
+      &.active {
+        font-weight: 700;
+        color: $text-color;
+      }
     }
   }
 }

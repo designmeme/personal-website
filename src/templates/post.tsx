@@ -19,6 +19,7 @@ import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
 import {BlogPosting, WithContext} from "schema-dts";
+import BlogSideNav from "../components/blog-side-nav";
 
 const shortcodes = {
     Link,
@@ -38,6 +39,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     const {previous, next} = pageContext
     const {siteUrl} = useSiteMetadata()
     const {
+        subject,
         title,
         subtitle,
         images,
@@ -54,7 +56,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     return (
         <Layout>
             {/*todo layout column or grid*/}
-            {/*<BlogSideNav subject={subject!}></BlogSideNav>*/}
+            <BlogSideNav subject={subject}></BlogSideNav>
 
             <article className="post">
                 {images && images[0] && (
@@ -177,9 +179,7 @@ export const query = graphql`
         mdx(id: {eq: $id}) {
             tableOfContents
             frontmatter {
-                subject {
-                    title
-                }
+                ...BlogSideNavSubject
                 title
                 subtitle
                 excerpt

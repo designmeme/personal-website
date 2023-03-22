@@ -3,44 +3,28 @@ import {graphql, Link, useStaticQuery} from "gatsby";
 import {gaEvent} from "../hooks/analytics";
 
 
-type Props = {
-    subject: string
-}
+export const query = graphql`
+    fragment BlogSideNavSubject on MdxFrontmatter {
+        subject {
+            id
+            title
+        }
+    }
+`
 
-const BlogSideNav: React.FC<Props> = ({subject}) => {
-    const {allPostMdx: {group: data}} = useStaticQuery(graphql`
-        query {
-            allMdx(sort: {frontmatter: {order: ASC}}) {
-                group(field: {frontmatter: {subject: {slug: SELECT}}}) {
-                    totalCount
-                    fieldValue
-                    edges {
-                        next {
-                            frontmatter {
-                                slug
-                            }
-                            id
-                        }
-                        node {
-                            id
-                            frontmatter {
-                                subject {
-                                    slug
-                                    title
-                                }
-                                title
-                                subtitle
-                                slug
-                                createdAt
-                                updatedAt
-                                order
-                            }
-                        }
-                        previous {
-                            frontmatter {
-                                slug
-                            }
-                            id
+const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) => {
+    const {allSubjectJson} = useStaticQuery<Queries.SubjectNavQuery>(graphql`
+        query SubjectNav {
+            allSubjectJson {
+                nodes {
+                    id
+                    slug
+                    title
+                    posts {
+                        id
+                        frontmatter {
+                            title
+                            slug
                         }
                     }
                 }
@@ -50,20 +34,20 @@ const BlogSideNav: React.FC<Props> = ({subject}) => {
 
     return (
         <nav className="sub-nav">
-            {data.map((group, index) => (
-                <div key={`sub-nav-${index}`}>
-                    <h6 className={"sub-nav-title" + (subject == group.fieldValue && " active")}>
-                        {group.fieldValue!} ({group.totalCount})
+            {allSubjectJson.nodes.map(node => (
+                <div key={node.id}>
+                    <h6 className={"sub-nav-title" + (subject.id == node.id && " active")}>
+                        {node.title!} ({node.posts.length})
                     </h6>
 
                     <ul className="sub-link-list">
-                        {group.edges.map(edge => (
-                            <li key={edge.node.id}>
-                                <Link to={`/blog/` + edge.node.frontmatter?.slug}
+                        {node.posts.map(post => (
+                            <li key={post.id}>
+                                <Link to={`/blog/` + post.frontmatter.slug}
                                       className="sub-link"
                                       activeClassName="active"
-                                      onClick={() => gaEvent('post-nav-link', 'click', edge.node.frontmatter?.title!)}
-                                >{edge.node.frontmatter?.title}</Link>
+                                      onClick={() => gaEvent('post-nav-link', 'click', post.frontmatter.title)}
+                                >{post.frontmatter.title}</Link>
                             </li>
                         ))}
                     </ul>

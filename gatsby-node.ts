@@ -12,7 +12,7 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
     // /src/pages/blog/{mdx.frontmatter__slug}.mdx 파일시스템 API 사용시
     // /src/pages/design-guide.mdx 등 다른 경로의 파일도 모두 포스트 페이지로 생성하는 문제가 있음.
     // 참고: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#create-pages-from-sourced-mdx-files
-    const {data: {allMdx}}: any = await graphql(`
+    const {data} = await graphql<Queries.CreatePostPagesQuery>(`
         query CreatePostPages {
           allMdx(
             filter: {fields: {sourceInstanceName: {eq: "posts"}}}
@@ -47,7 +47,7 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
         }
     `)
 
-    allMdx.group.forEach((group: Queries.MdxGroupConnection) => group.edges.forEach((edge: Queries.MdxEdge) => {
+    data?.allMdx.group.forEach(group => group.edges.forEach(edge => {
         const node = edge.node
 
         createPage({
