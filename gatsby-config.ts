@@ -78,7 +78,87 @@ const config: GatsbyConfig = {
                 trackingIds: [`G-FNDEZBX8ME`]
             }
         },
-        "gatsby-plugin-sitemap",
+        {
+            resolve: 'gatsby-plugin-sitemap',
+            options: {
+                query: `{
+                  site {
+                    siteMetadata {
+                      siteUrl
+                    }
+                  }
+                  allSitePage {
+                    nodes {
+                      path
+                    }
+                  }
+                  allPostMdx: allMdx(filter: {fields: {sourceInstanceName: {eq: "posts"}}}) {
+                    nodes {
+                      frontmatter {
+                        updatedAt
+                        slug
+                      }
+                    }
+                  }
+                  allPageMdx: allMdx(filter: {fields: {sourceInstanceName: {eq: "pages"}}}) {
+                    nodes {
+                      frontmatter {
+                        updatedAt
+                      }
+                      parent {
+                        ... on File {
+                          absolutePath
+                        }
+                      }
+                    }
+                  }
+                  allFile(filter: {sourceInstanceName: {eq: "pages"}}) {
+                    nodes {
+                      absolutePath
+                      modifiedTime
+                      name
+                    }
+                  }
+                }`,
+                resolvePages: ({allSitePage, allPostMdx, allPageMdx, allFile}) => {
+                    return allSitePage.nodes.map(page => {
+                        const path = page.path
+                        let lastmod
+
+                        if (path.match(/\/blog\/.+/)) {
+                            // blog post: path ex) /blog/sass-data-types/
+                            const slug = path.slice(6, -1)
+                            const post = allPostMdx.nodes.find(node => node.frontmatter.slug == slug)
+                            lastmod = post?.frontmatter.updatedAt || undefined
+                        } else {
+                            const re = /\/src\/pages(\/.*)\.\w*$/
+                            // pages - mdx
+                            const pageMdx = allPageMdx.nodes.find(node => {
+                                return path == node.parent.absolutePath.match(re)[1].replace(/\/index$/, "") + '/'
+                            })
+                            lastmod = pageMdx?.frontmatter.updatedAt || undefined
+
+                            // pages - jsx, tsx
+                            if (!pageMdx) {
+                                const page = allFile.nodes.find(node => {
+                                    return path == node.absolutePath.match(re)[1].replace(/\/index$/, "") + '/'
+                                })
+                                lastmod = page?.modifiedTime || undefined
+                            }
+                        }
+
+                        return {path, lastmod}
+                    })
+                },
+                serialize: (props: { path: string, lastmod: string | undefined }) => {
+                    return {
+                        url: props.path,
+                        lastmod: props.lastmod
+                    }
+                },
+                createLinkInHead: true,
+            }
+        },
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
