@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {graphql, HeadFC, Link, PageProps} from 'gatsby'
 import Layout from '../components/layout'
-import Seo from '../components/seo'
+import SeoHead from '../components/seo-head'
 import {GatsbyImage} from "gatsby-plugin-image";
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {MDXProvider} from "@mdx-js/react"
@@ -247,14 +247,14 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
         },
     };
 
-    return <Seo title={fullTitle}
-                description={excerpt}
-                image={imageUrls && imageUrls[0]}
-                pathname={location.pathname}
-                schema={schema}
+    return <SeoHead title={fullTitle}
+                    description={excerpt}
+                    image={imageUrls && imageUrls[0]}
+                    pathname={location.pathname}
+                    schema={schema}
     >
         {images && images[0] && <html className={`has-image`}/>}
-    </Seo>
+    </SeoHead>
 }
 
 export default PostPage

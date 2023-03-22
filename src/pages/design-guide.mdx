@@ -6,9 +6,10 @@ createdAt: 2017-07-07T13:00:00+09:00
 updatedAt: 2023-03-22T00:00:00+09:00
 ---
 
+
 import SideBySide from "../components/side-by-side"
 import PageLayout from "../components/page-layout"
-import Seo from "../components/seo"
+import SeoHead from "../components/seo-head"
 
 export default function Layout({children, pageContext}) {
     return (
@@ -19,8 +20,8 @@ export default function Layout({children, pageContext}) {
 }
 
 export const Head = ({location}) =>
-    <Seo title={'UI Design Guide — 기본 요소별 디자인 가이드'}
-         pathname={location.pathname} />
+    <SeoHead title={'UI Design Guide — 기본 요소별 디자인 가이드'}
+             pathname={location.pathname}/>
 
 
 # GFM

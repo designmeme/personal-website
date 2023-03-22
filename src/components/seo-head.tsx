@@ -4,7 +4,7 @@ import {Script} from "gatsby";
 import {gaEvent} from "../hooks/analytics";
 import type {WithContext} from 'schema-dts';
 
-type SeoProps = {
+type Props = {
     title?: string | null
     description?: string | null
     image?: string | null
@@ -14,7 +14,7 @@ type SeoProps = {
     children?: React.ReactNode
 }
 
-const Seo: React.FC<SeoProps> = (
+const SeoHead: React.FC<Props> = (
     {
         title,
         description,
@@ -147,4 +147,4 @@ const Seo: React.FC<SeoProps> = (
     )
 }
 
-export default Seo
+export default SeoHead

@@ -1,6 +1,6 @@
 import React from 'react';
 import {graphql, HeadFC, Link, PageProps} from "gatsby";
-import Seo from '../../components/seo'
+import SeoHead from '../../components/seo-head'
 import PageLayout from "../../components/page-layout";
 import {gaEvent} from "../../hooks/analytics";
 import GoogleAdsense from "../../components/google-adsense";
@@ -88,8 +88,8 @@ export const query = graphql`
 
 // todo blog scheme.org
 export const Head: HeadFC = ({location}) =>
-    <Seo title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
-         description={frontmatter.description}
-         pathname={location.pathname}></Seo>
+    <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+             description={frontmatter.description}
+             pathname={location.pathname}></SeoHead>
 
 export default BlogPage;

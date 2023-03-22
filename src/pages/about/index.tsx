@@ -1,7 +1,7 @@
 import * as React from 'react'
 import type {HeadFC, PageProps} from "gatsby"
 import {Link} from "gatsby";
-import Seo from "../../components/seo";
+import SeoHead from "../../components/seo-head";
 import PageLayout from "../../components/page-layout";
 import {useSiteMetadata} from "../../hooks/use-site-metadata";
 import resumeData from '../../data/resume.json'
@@ -52,8 +52,8 @@ const AboutPage: React.FC<PageProps> = () => {
 }
 
 export const Head: HeadFC = ({location}) =>
-    <Seo title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
-         description={frontmatter.description}
-         pathname={location.pathname}/>
+    <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+             description={frontmatter.description}
+             pathname={location.pathname}/>
 
 export default AboutPage
