@@ -1,13 +1,12 @@
 import type {GatsbyNode} from "gatsby"
 import fs from "fs";
-import redirectJson from "./redirect.json"
 import {IGatsbyResolverContext} from "gatsby/dist/schema/type-definitions";
 
 const path = require(`path`)
 const readingTime = require(`reading-time`)
 
 export const createPages: GatsbyNode["createPages"] = async ({actions, graphql}) => {
-    const {createPage, createRedirect} = actions
+    const {createPage} = actions
 
     // /src/posts/*.mdx 파일만 포스트 페이지를 생성한다.
     // /src/pages/blog/{mdx.frontmatter__slug}.mdx 파일시스템 API 사용시
@@ -64,15 +63,6 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
             ownerNodeId: node.id,
         })
     }))
-
-    // Redirects 설정
-    redirectJson.forEach(redirect =>
-        createRedirect({
-            fromPath: redirect.fromPath,
-            toPath: redirect.toPath,
-            isPermanent: true,
-        })
-    )
 }
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({node, actions, createNodeId, getNode}) => {

@@ -244,7 +244,6 @@ const config: GatsbyConfig = {
         },
         "gatsby-transformer-sharp",
         `gatsby-transformer-json`,
-        `gatsby-plugin-meta-redirect` // make sure to put last in the array
     ]
 };
 
