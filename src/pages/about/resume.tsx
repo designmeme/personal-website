@@ -26,7 +26,7 @@ const ResumePage: React.FC<PageProps> = () => {
                 <dt className="profile-title">이메일</dt>
                 <dd className="profile-description">ghe.lee19@gmail.com</dd>
                 <dt className="profile-title">홈페이지</dt>
-                <dd className="profile-description">https://designmeme.github.io</dd>
+                <dd className="profile-description">https://heyjihye.com</dd>
             </dl>
 
             <hr/>

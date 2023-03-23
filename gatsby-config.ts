@@ -9,7 +9,7 @@ const config: GatsbyConfig = {
         title: `이지혜, 프론트엔드 웹 개발자`,
         description: `Freelance Front-end Web Developer`,
         image: `/images/common/feature.png`,
-        siteUrl: `https://designmeme.github.io`,
+        siteUrl: `https://heyjihye.com`,
         author: `이지혜 Lee Jihye`,
         email: `ghe.lee19@gmail.com`,
         lang: `ko`,
