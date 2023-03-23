@@ -21,8 +21,6 @@ const ResumePage: React.FC<PageProps> = () => {
             <dl className="profile-list">
                 <dt className="profile-title">이름</dt>
                 <dd className="profile-description">이지혜</dd>
-                <dt className="profile-title">연락처</dt>
-                <dd className="profile-description">010-9130-4868</dd>
                 <dt className="profile-title">이메일</dt>
                 <dd className="profile-description">ghe.lee19@gmail.com</dd>
                 <dt className="profile-title">홈페이지</dt>
