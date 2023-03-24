@@ -1,7 +1,6 @@
 import React from "react"
 import {useSiteMetadata} from "../hooks/use-site-metadata"
 import {Script} from "gatsby";
-import {gaEvent} from "../hooks/analytics";
 import type {WithContext} from 'schema-dts';
 
 type Props = {
@@ -121,17 +120,6 @@ const SeoHead: React.FC<Props> = (
 
             {webmaster_verifications?.google && (
                 <meta name="google-site-verification" content={webmaster_verifications.google} />
-            )}
-
-            {/*구글 애드센스에서 지정한 URL이 아니면 사용할 수 없기 때문에 운영 환경에서만 포함한다. */}
-            {process.env.NODE_ENV === 'production' && googleAdsense && (
-                <Script
-                    key={`google-adsense`}
-                    data-ad-client={`${googleAdsense}`}
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-                    onLoad={() => gaEvent('Blocking Ads', 'No')}
-                    onError={() => gaEvent('Blocking Ads', 'Yes')}
-                />
             )}
 
             {/*https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-seo-component/#rich-snippets */}
