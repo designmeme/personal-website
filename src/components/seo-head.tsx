@@ -38,9 +38,9 @@ const SeoHead: React.FC<Props> = (
     } = useSiteMetadata()
 
     const seo = {
-        title: `${title == siteTitle ? title : title + " | " + siteTitle }`,
+        title: (title == siteTitle) ? title! : `${title} | ${siteTitle}`,
         description: description || siteDescription,
-        image: siteUrl + (image || siteImage),
+        image: siteUrl! + (image || siteImage),
         url: siteUrl + (pathname || ''),
     }
 
@@ -59,7 +59,7 @@ const SeoHead: React.FC<Props> = (
 
     return (
         <>
-            <html lang={lang}/>
+            <html lang={lang || undefined}/>
 
             {/*검색엔진에서 페이지를 수집하지 않도록 설정: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag?hl=ko#robotsmeta*/}
             {noindex && <meta name="robots" content="noindex, nofollow"/>}
@@ -68,7 +68,7 @@ const SeoHead: React.FC<Props> = (
             <meta property="og:title" content={seo.title}/>
             <meta name="twitter:title" content={seo.title}/>
 
-            <meta property="og:site_name" content={siteTitle}/>
+            <meta property="og:site_name" content={siteTitle!}/>
 
             {!articleSchema ? (
                 <meta property="og:type" content="website"/>
