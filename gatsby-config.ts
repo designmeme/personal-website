@@ -4,6 +4,8 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
+const googleAdsenseId = `ca-pub-3088246349891349`
+
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `이지혜, 프론트엔드 웹 개발자`,
@@ -23,7 +25,7 @@ const config: GatsbyConfig = {
         facebook: {
             app_id: `127116027879734`
         },
-        googleAdsense: `ca-pub-3088246349891349`,
+        googleAdsense: googleAdsenseId,
         webmaster_verifications: {
             google: `google2bfa19f4f3a8a8ee`,
         }
@@ -79,6 +81,13 @@ const config: GatsbyConfig = {
             resolve: "gatsby-plugin-google-gtag",
             options: {
                 trackingIds: [`G-FNDEZBX8ME`]
+            }
+        },
+        {
+            resolve: `@isamrish/gatsby-plugin-google-adsense`,
+            options: {
+                googleAdClientId: googleAdsenseId,
+                head: true,
             }
         },
         {
