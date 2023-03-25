@@ -36,7 +36,7 @@ npm run develop
 ## 🚀 Hosting
 
 [Gatsby Cloud Hosting](https://www.gatsbyjs.com/dashboard) 서비스를
-이용하며, [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `main` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
+이용하며, [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
 
 ### 도메인 연결 및 관리
 
