@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/designmeme/personal-website/compare/v1.0.0...v1.1.0) (2023-03-26)
+
+
+### Features
+
+* **contents:** 목차 섹션 삭제 ([e91dd6a](https://github.com/designmeme/personal-website/commit/e91dd6a3b12771d21ce593bb279caf8fb3001c54))
+
 ## 1.0.0 (2023-03-24)
 
 
