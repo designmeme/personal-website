@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/designmeme/personal-website/compare/v1.1.0...v1.2.0) (2023-03-27)
+
+
+### Features
+
+* **contents:** About 소개글 수정 ([34dab92](https://github.com/designmeme/personal-website/commit/34dab920af3efecffd92425b494d4bfba9d59374))
+* **contents:** 블로그 소개글 수정 ([05a2990](https://github.com/designmeme/personal-website/commit/05a29906c9621f1edcf8ffd607347fbfedd2e749))
+* 페이지에 메타정보 표시 ([37bdf92](https://github.com/designmeme/personal-website/commit/37bdf9213e99b35d28bb8a5abc41100adede951e))
+
 ## [1.1.0](https://github.com/designmeme/personal-website/compare/v1.0.0...v1.1.0) (2023-03-26)
 
 
