@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/designmeme/personal-website/compare/v1.2.0...v1.2.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* 디자인 가이드 페이지의 레이아웃 에러 수정 ([d6d5d36](https://github.com/designmeme/personal-website/commit/d6d5d364c86f4daf6c4f316bc9883e5e5993e785))
+
 ## [1.2.0](https://github.com/designmeme/personal-website/compare/v1.1.0...v1.2.0) (2023-03-27)
 
 
