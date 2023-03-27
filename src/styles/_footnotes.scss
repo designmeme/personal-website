@@ -9,13 +9,6 @@ a[data-footnote-ref="true"] {
     content: ')';
     font-weight: 700;
   }
-  //@include media-breakpoint-up(md) {
-  //}
-  @at-root .footnotes-lifted & {
-    text-decoration: none;
-    cursor: text;
-    color: $brand-primary;
-  }
 }
 
 .footnotes {
@@ -42,40 +35,32 @@ a[data-footnote-ref="true"] {
       }
     }
   }
-  @at-root html:not(.footnotes-lifted) & {
-    position: relative;
-    margin-top: $section-margin;
-    padding-top: calc($section-margin / 2);
-    @extend .p-small;
-    // 영역 위에 선 긋기
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 25%;
-      right: 25%;
-      border-top: 1px solid $gray-n3;
-    }
-    // 주석표시 영역으로 되돌아가기 링크
-    .reversefootnote,
-    a[data-footnote-backref="true"] {
-      font-size: 0;
-      &:after {
-        content: '\f112';
-        font-family: FontAwesome;
-        font-size: .84rem;
-        padding: 0 .5em;
-      }
-    }
+
+  margin-top: $section-margin;
+  padding-top: calc($section-margin / 2);
+  @extend .p-small;
+  // 영역 위에 선 긋기
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    border-top: 1px solid $gray-n3;
   }
-  @at-root html.footnotes-lifted & {
-    margin-top: 0;
-    @extend .p-smaller;
-    li {
-      @include aside;
-    }
-    .reversefootnote {
-      display: none;
+
+  // 주석표시 영역으로 되돌아가기 링크
+  .reversefootnote,
+  a[data-footnote-backref="true"] {
+    font-size: 0;
+
+    &:after {
+      content: '\f112';
+      font-family: FontAwesome;
+      font-size: .84rem;
+      padding: 0 .5em;
     }
   }
 }
