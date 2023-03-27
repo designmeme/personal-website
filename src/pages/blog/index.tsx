@@ -1,14 +1,14 @@
 import React from 'react';
 import {graphql, HeadFC, Link, PageProps} from "gatsby";
 import SeoHead from '../../components/seo-head'
-import PageLayout from "../../components/page-layout";
+import PageLayout, {PageFrontmatter} from "../../components/page-layout";
 import {gaEvent} from "../../hooks/analytics";
 import GoogleAdsense from "../../components/google-adsense";
 
-export const frontmatter = {
+export const frontmatter: PageFrontmatter = {
     title: `블로그`,
     subtitle: `👩‍💻 🎮 🚴 ️🚀 `,
-    description: `프론트엔드 웹 개발, 게임, 자전거, 여행, 투자`,
+    excerpt: `프론트엔드 웹 개발, 게임, 자전거, 여행, 투자`,
     createdAt: `2017-07-07T00:00:00+09:00`,
     updatedAt: `2023-03-26T00:00:00+09:00`,
 }
@@ -93,7 +93,7 @@ export const query = graphql`
 // todo blog scheme.org
 export const Head: HeadFC = ({location}) =>
     <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
-             description={frontmatter.description}
+             description={frontmatter.excerpt}
              pathname={location.pathname}></SeoHead>
 
 export default BlogPage;

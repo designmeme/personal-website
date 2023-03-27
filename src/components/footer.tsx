@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
             <div className="wrapper">
 
                 <div className="footer-title">
-                    <img src={logoImage} alt={title} className="logo"/>
+                    <img src={logoImage} alt={title || ''} className="logo"/>
                 </div>
 
                 <div className="site-contact">

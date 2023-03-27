@@ -4,9 +4,9 @@ import {faBook} from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 
 type Props = {
-    createdAt: string | null
-    updatedAt: string | null
-    readMinutes?: number
+    createdAt?: string | null
+    updatedAt?: string | null
+    readMinutes?: number | null
 }
 
 const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes}) => {

@@ -2,15 +2,15 @@ import * as React from 'react'
 import type {HeadFC, PageProps} from "gatsby"
 import {Link} from "gatsby";
 import SeoHead from "../../components/seo-head";
-import PageLayout from "../../components/page-layout";
+import PageLayout, {PageFrontmatter} from "../../components/page-layout";
 import {useSiteMetadata} from "../../hooks/use-site-metadata";
 import resumeData from '../../data/resume.json'
 
 
-export const frontmatter = {
+export const frontmatter: PageFrontmatter = {
     title: `안녕하세요, 이지혜입니다`,
     subtitle: `👩‍🎨 👩‍💻 🚀 📈`,
-    description: `시니어 프론트엔드 웹 개발자이며 주체적으로 개발 기술을 사용하며 재밌게 살고 있어요`,
+    excerpt: `시니어 프론트엔드 웹 개발자이며 주체적으로 개발 기술을 사용하며 재밌게 살고 있어요`,
     createdAt: `2017-07-07T00:00:00+09:00`,
     updatedAt: `2023-03-27T14:00:00+09:00`,
 }
@@ -65,7 +65,7 @@ const AboutPage: React.FC<PageProps> = () => {
 
 export const Head: HeadFC = ({location}) =>
     <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
-             description={frontmatter.description}
+             description={frontmatter.excerpt}
              pathname={location.pathname}/>
 
 export default AboutPage
