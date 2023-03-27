@@ -89,13 +89,10 @@ $hl-lighter: $brand-primary-light;
 //
 $section-margin: calc(100rem / 18);
 $max-margin: 100px;
-$main-max-width: 600px;
 $max-aside-width: 200px;
 $min-aside-width: 175px;
 $max-aside-margin: $max-margin;
 $min-aside-margin: 75px;
-$max-aside-outer-width: $max-aside-width + $max-aside-margin;
-$min-aside-outer-width: $min-aside-width + $min-aside-margin;
 
 $kakao-aside-width: 160px;
 $kakao-aside-height: 600px;
