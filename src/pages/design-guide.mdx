@@ -7,13 +7,14 @@ updatedAt: 2023-03-22T00:00:00+09:00
 ---
 
 
+
 import SideBySide from "../components/side-by-side"
 import PageLayout from "../components/page-layout"
 import SeoHead from "../components/seo-head"
 
 export default function Layout({children, pageContext}) {
     return (
-        <PageLayout title={pageContext.frontmatter.title} subtitle={pageContext.frontmatter.subtitle}>
+        <PageLayout frontmatter={pageContext.frontmatter}>
             {children}
         </PageLayout>
     );
