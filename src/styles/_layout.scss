@@ -8,10 +8,12 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  // gatsby wrapper 에 동일하게 적용해야 site-header, site-main, site-footer 가 올바르게 보임.
-  > div, > div > div {
-    display: flex;
-    flex-direction: column;
+
+  // gatsby 생성 래퍼
+  > div#___gatsby {
+    &, > div#gatsby-focus-wrapper {
+      display: contents;
+    }
   }
 }
 .wrapper {
@@ -26,74 +28,38 @@ body {
 }
 
 .site-main {
-  position: relative;
-  flex: 1 1 auto;
   padding-bottom: 5rem;
+  flex-grow: 1;
   @include media-breakpoint-up(lg) {
     padding-bottom: 10rem;
   }
-  .inner-wrapper {
-    max-width: $main-max-width;
+
+  > .wrapper {
     @include media-breakpoint-up(md) {
-      margin-right: $min-aside-outer-width;
-    }
-    @include media-breakpoint-up(lg) {
-      margin-right: $max-aside-outer-width;
+      display: grid;
+      column-gap: 50px;
+      grid-template-columns: auto 250px;
+      max-width: calc((250px * 1) + (50px * 1) + 600px); // page 최대너비 지정용
     }
     @include media-breakpoint-up(xl) {
-      margin-left: $max-aside-outer-width;
-    }
-  }
-
-  // temp todo fix
-  .post-wrapper {
-    > .post {
-      max-width: $main-max-width;
+      grid-template-columns: 250px auto 250px;
+      max-width: calc((250px * 2) + (50px * 2) + 600px); // page 최대너비 지정용
     }
 
-    @include media-breakpoint-up(md) {
-      display: flex;
-      align-items: flex-start;
-      > .sub-nav, > .post-right {
-        flex-shrink: 0;
-        flex-grow: 0;
-      }
-      > .sub-nav {
-        flex-basis: 250px;
-      }
-      > .post-right {
-        flex-basis: 250px;
-        // to test
-        //height: 100px;
-        //background: yellow;
-        @include media-breakpoint-up(lg) {
-          flex-basis: 300px;
-        }
-      }
-      > .post {
-        min-width: 0; // pre 태그 때문에 줄어들지 않는 문제 수정용.
-        flex-shrink: 2;
-        flex-grow: 0;
+    > .sidebar-left {
+      @include media-breakpoint-down(xl) {
+        display: none;
       }
     }
 
-  }
-}
+    > .page {
+      min-width: 0; // 내부 pre 요소 때문에 영역이 늘어나는 문제 해결용.
+    }
 
-.site-aside {
-  display: none;
-
-  @include media-breakpoint-up(xxl) {
-    display: block;
-    position: absolute;
-    //width: $kakao-aside-width;
-    //height: $kakao-aside-height;
-    //border: 1px solid gray;
-    top: 0;
-    right: 0;
-  }
-
-  @include media-breakpoint-up(xxxl) {
-    right: $max-margin;
+    > .sidebar-right {
+      // to test
+      //height: 100px;
+      //background: red;
+    }
   }
 }

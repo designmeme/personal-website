@@ -17,7 +17,7 @@ const Layout: React.FC<Props> = ({children}) => {
     return (
         <>
             <Header/>
-            <main className="site-main" aria-label="Content">
+            <main className="site-main">
                 <div className="wrapper">
                     {children}
                 </div>

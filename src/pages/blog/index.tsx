@@ -7,25 +7,29 @@ import GoogleAdsense from "../../components/google-adsense";
 
 export const frontmatter = {
     title: `블로그`,
-    subtitle: `공부노트이자 성장노트`,
-    description: `말그대로 기술이 범람하고 있는 것 같습니다. 요즘엔 Angular를 시작으로 자바스크립트 프레임워크에 관심이 있어 공부 중입니다.`,
+    subtitle: `👩‍💻 🎮 🚴 ️🚀 `,
+    description: `프론트엔드 웹 개발, 게임, 자전거, 여행, 투자`,
     createdAt: `2017-07-07T00:00:00+09:00`,
-    updatedAt: `2020-02-04T00:00:00+09:00`,
+    updatedAt: `2023-03-26T00:00:00+09:00`,
 }
 
 const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
     let {allSubjectJson: {nodes: blogSubjects}} = data
 
     return (
-        <PageLayout title={frontmatter.title} subtitle={frontmatter.subtitle}>
+        <PageLayout frontmatter={frontmatter}>
             <p>
-                말그대로 기술이 범람하고 있는 것 같습니다. 요즘엔 Angular를 시작으로 자바스크립트 프레임워크에 관심이 있어 공부 중입니다.
-                세상엔 고수가 많고 내 능력은 저만치 떨어져 있어 보입니다. 하지만 계속 그래왔듯이 차근차근 앞으로 나아가야겠죠.
-                더불어 관련 내용을 글로 남기면서 깊이 있게 살펴보려합니다.
+                이 블로그는 👩‍💻 프론트엔드 웹 개발자인 제가 꾹꾹 눌러 담아 정리한 글 모음집이에요.
+                개발 경험 일지보다는 시행착오를 바탕으로 만든 지름길 안내서를 지향해요.
             </p>
-
-            <p className="p-small">글은 주제에 따라 묶여 있으며, 의도한 순서로 표시됩니다. 작성 시간 순이 아님을 유념해주세요. 글 내용은 시간이 지남에 따라 추가·삭제·수정될 수
-                있습니다.</p>
+            <p>
+                빠르게 변하고 넘쳐나는 개발 지식을 배우고 다양한 기능을 구현하다 보면 전에 뚝딱 처리했던 내용을 까먹고 😅 또다시 실수하고 배우기를 반복하잖아요?
+                그래서 며칠, 몇 개월, 길면 1년이 넘어서 내가 다시 봐도 가장 빠른 시간에 다시 목적지에 도착할 수 있게 개인 노트에 정리하곤 했는데요.
+                그 내용에 조금 더 친절함을 더해서 초보 개발자가 봐도 찰떡같이 이해하도록 쓰고, 누구나 볼 수 있게 세상에 내놓으려고 해요.
+            </p>
+            <p>
+                그럼, 시-작 🤓
+            </p>
 
             <GoogleAdsense layoutKey="-gu-3+1f-3d+2z" slot="6555927968"/>
 
