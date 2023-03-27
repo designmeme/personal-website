@@ -19,7 +19,7 @@ const AboutPage: React.FC<PageProps> = () => {
     const {email} = useSiteMetadata()
 
     return (
-        <PageLayout title={frontmatter.title} subtitle={frontmatter.subtitle}>
+        <PageLayout frontmatter={frontmatter}>
             <p>
                 홍익대학교에서 산업디자인과를 졸업 후 만들고 싶은 웹사이트가 있어 독학으로 개발을 배웠어요.
                 좀 더 성장하기 위해 프리랜서 시장에 뛰어들었는데 의도하지 않게 10년 넘게 프론트엔드 웹 개발자로 일했지 뭐예요.

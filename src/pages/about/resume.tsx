@@ -16,7 +16,7 @@ export const frontmatter = {
 
 const ResumePage: React.FC<PageProps> = () => {
     return (
-        <PageLayout title={frontmatter.title} subtitle={frontmatter.subtitle}>
+        <PageLayout frontmatter={frontmatter}>
             <h5>프로필</h5>
             <dl className="profile-list">
                 <dt className="profile-title">이름</dt>

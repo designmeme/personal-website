@@ -6,20 +6,25 @@
 // post meta data
 //
 .post-meta {
+  text-align: right;
   @extend .p-smaller;
+  @at-root .page-header & {
+    margin-top: 1em;
+  }
+  @at-root .sidebar-right & {
+    margin-top: 0.5em;
+  }
   span {
     display: block;
+
     .svg-inline--fa {
       margin-right: .25em;
     }
   }
+
   .date {
     color: $text-color-silver;
   }
-  @include media-breakpoint-down(md) {
-    margin-top: 1em;
-  }
-  @include aside;
 }
 
 // post cc info

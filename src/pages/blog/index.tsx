@@ -17,7 +17,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
     let {allSubjectJson: {nodes: blogSubjects}} = data
 
     return (
-        <PageLayout title={frontmatter.title} subtitle={frontmatter.subtitle}>
+        <PageLayout frontmatter={frontmatter}>
             <p>
                 이 블로그는 👩‍💻 프론트엔드 웹 개발자인 제가 꾹꾹 눌러 담아 정리한 글 모음집이에요.
                 개발 경험 일지보다는 시행착오를 바탕으로 만든 지름길 안내서를 지향해요.
