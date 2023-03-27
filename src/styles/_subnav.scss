@@ -4,19 +4,13 @@
 
 
 .sub-nav {
-  display: none;
   @extend .p-smaller;
-  width: 250px;
-  margin-right: 50px;
   height: calc(100vh - 100px);
   padding-top: .75em;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: sticky;
   top: 50px;
-  @include media-breakpoint-up(xl) {
-    display: block;
-  }
 
   a {
     text-decoration: none;

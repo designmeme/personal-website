@@ -11,22 +11,23 @@ type Props = {
 const PageLayout: React.FC<Props> = ({children, title, subtitle}) => {
     return (
         <Layout>
-            <div className="inner-wrapper">
-                <div className="page">
+            <aside className="sidebar-left"></aside>
+            <article className="page">
 
-                    <header className="page-header">
-                        <h1 className="page-title">{title}</h1>
-                        {
-                            subtitle && <p className="page-subtitle"> {subtitle}</p>
-                        }
-                    </header>
+                <header className="page-header">
+                    <h1 className="page-title">{title}</h1>
+                    {
+                        subtitle && <p className="page-subtitle"> {subtitle}</p>
+                    }
+                </header>
 
-                    <div className="page-content">
-                        {children}
-                    </div>
-
+                <div className="page-content">
+                    {children}
                 </div>
-            </div>
+
+            </article>
+
+            <aside className="sidebar-right"></aside>
         </Layout>
     )
 }

@@ -55,30 +55,31 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
     return (
         <Layout>
-            <div className="post-wrapper">
 
+            <aside className="sidebar-left">
                 <BlogSideNav subject={subject}></BlogSideNav>
+            </aside>
 
-                <article className="post">
-                    {images && images[0] && (
-                        <div className="page-image">
-                            {/*todo alt*/}
-                            <GatsbyImage
-                                image={images[0]?.childImageSharp?.gatsbyImageData!}
-                                alt={``}/>
-                        </div>
+            <article className="page">
+                {images && images[0] && (
+                    <div className="page-image">
+                        {/*todo alt*/}
+                        <GatsbyImage
+                            image={images[0]?.childImageSharp?.gatsbyImageData!}
+                            alt={``}/>
+                    </div>
+                )}
+
+                <header className="page-header">
+                    <h1 className="page-title">
+                        {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
+                        {title}
+                    </h1>
+                    {subtitle && (
+                        <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <header className="page-header">
-                        <h1 className="page-title">
-                            {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
-                            {title}
-                        </h1>
-                        {subtitle && (
-                            <p className="page-subtitle"> {subtitle}</p>
-                        )}
-
-                        <p className="post-meta">
+                    <p className="post-meta">
                         <span className="date">
                             <FontAwesomeIcon icon={faClock}/>
                             최초 작성일:{' '}
@@ -86,96 +87,95 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                 {createdAtStr}
                             </time>
                         </span>
-                            {updatedAt && (
-                                <span className="modified">
+                        {updatedAt && (
+                            <span className="modified">
                                 <FontAwesomeIcon icon={faPencil}/>
                                 최종 수정일:{' '}
-                                    <time dateTime={updatedAt}>
+                                <time dateTime={updatedAt}>
                                     {updatedAtStr}
                                 </time>
                             </span>
-                            )}
-
-                            <span className="reading-time" title="{{ page.content | number_of_words }} words">
-                            <FontAwesomeIcon icon={faBook}/>
-                                {readMinutes}분
-                        </span>
-                        </p>
-
-                        {tags && (
-                            <p className="tags sr-only">
-                                {/*<p className="tags">*/}
-                                Tags:
-                                {
-                                    // todo Link to Tag page
-                                    tags.map((tag, index) => <a key={`tag-${index}`}>{tag}</a>)
-                                }
-                            </p>
                         )}
-                    </header>
 
-                    <div className="post-top-ad">
-                        <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
+                        <span className="reading-time" title="{{ page.content | number_of_words }} words">
+                            <FontAwesomeIcon icon={faBook}/>
+                            {readMinutes}분
+                        </span>
+                    </p>
+
+                    {tags && (
+                        <p className="tags sr-only">
+                            {/*<p className="tags">*/}
+                            Tags:
+                            {
+                                // todo Link to Tag page
+                                tags.map((tag, index) => <a key={`tag-${index}`}>{tag}</a>)
+                            }
+                        </p>
+                    )}
+                </header>
+
+                <div className="post-top-ad">
+                    <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
+                </div>
+
+                <div className="page-content">
+                    <Toc toc={data.mdx?.tableOfContents!}/>
+
+                    <MDXProvider components={shortcodes}>{children}</MDXProvider>
+                </div>
+
+                <footer className="page-footer">
+                    <div className="sns-links">
+                        <OutboundLink href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
+                                      className="sns-link facebook" target="_blank" aria-label="facebook"
+                                      onClick={() => gaEvent('sns-link-fb', 'click', canonical)}
+                        >
+                            <FontAwesomeIcon icon={faFacebookF}/><span className="sr-only">facebook</span>
+                        </OutboundLink>
+                        <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
+                                      className="sns-link twitter"
+                                      target="_blank" aria-label="twitter"
+                                      onClick={() => gaEvent('sns-link-tw', 'click', canonical)}
+                        >
+                            <FontAwesomeIcon icon={faTwitter}/><span className="sr-only">twitter</span>
+                        </OutboundLink>
                     </div>
 
-                    <div className="page-content">
-                        <Toc toc={data.mdx?.tableOfContents!}/>
-
-                        <MDXProvider components={shortcodes}>{children}</MDXProvider>
+                    <div className="cc-info">
+                        <img src={ccImage} alt="CC" className="cc-icon" width={20}/>
+                        <img src={byImage} alt="BY" className="cc-icon" width={20}/>
+                        <img src={ndImage} alt="ND" className="cc-icon" width={20}/>
+                        <br/>
+                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank">크리에이티브
+                        커먼즈 저작자표시-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
                     </div>
 
-                    <footer className="page-footer">
-                        <div className="sns-links">
-                            <OutboundLink href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
-                                          className="sns-link facebook" target="_blank" aria-label="facebook"
-                                          onClick={() => gaEvent('sns-link-fb', 'click', canonical)}
-                            >
-                                <FontAwesomeIcon icon={faFacebookF}/><span className="sr-only">facebook</span>
-                            </OutboundLink>
-                            <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
-                                          className="sns-link twitter"
-                                          target="_blank" aria-label="twitter"
-                                          onClick={() => gaEvent('sns-link-tw', 'click', canonical)}
-                            >
-                                <FontAwesomeIcon icon={faTwitter}/><span className="sr-only">twitter</span>
-                            </OutboundLink>
-                        </div>
-
-                        <div className="cc-info">
-                            <img src={ccImage} alt="CC" className="cc-icon" width={20}/>
-                            <img src={byImage} alt="BY" className="cc-icon" width={20}/>
-                            <img src={ndImage} alt="ND" className="cc-icon" width={20}/>
-                            <br/>
-                            블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank">크리에이티브
-                            커먼즈 저작자표시-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
-                        </div>
-
-                        <div className="post-nav">
-                            {next && <Link to={`/blog/${next.frontmatter.slug}`}
-                                           className="post-next-link"
-                                           onClick={() => gaEvent('post-next-link', 'click', next.frontmatter.title)}>
-                                {next.frontmatter.title}
-                                <span className="icon">
+                    <div className="post-nav">
+                        {next && <Link to={`/blog/${next.frontmatter.slug}`}
+                                       className="post-next-link"
+                                       onClick={() => gaEvent('post-next-link', 'click', next.frontmatter.title)}>
+                            {next.frontmatter.title}
+                            <span className="icon">
                                 <FontAwesomeIcon icon={faFaceGrinWide}/>
                                 <FontAwesomeIcon icon={faArrowRightLong}/>
                             </span>
-                            </Link>}
-                            {previous && <Link to={`/blog/${previous.frontmatter.slug}`}
-                                               className="post-prev-link"
-                                               onClick={() => gaEvent('post-prev-link', 'click', previous.frontmatter.title!)}>
+                        </Link>}
+                        {previous && <Link to={`/blog/${previous.frontmatter.slug}`}
+                                           className="post-prev-link"
+                                           onClick={() => gaEvent('post-prev-link', 'click', previous.frontmatter.title!)}>
                             <span className="icon">
                                 <FontAwesomeIcon icon={faArrowLeftLong}/>
                                 <FontAwesomeIcon icon={faFaceGrinWide}/>
                             </span>
-                                {previous.frontmatter.title}
-                            </Link>}
-                        </div>
-                    </footer>
+                            {previous.frontmatter.title}
+                        </Link>}
+                    </div>
+                </footer>
 
-                </article>
+            </article>
 
-                <div className="post-right"></div>
-            </div>
+            <aside className="sidebar-right"></aside>
         </Layout>
     )
 }
