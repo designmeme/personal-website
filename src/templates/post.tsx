@@ -10,8 +10,8 @@ import {OutboundLink} from "gatsby-plugin-google-gtag";
 import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faTwitter} from "@fortawesome/free-brands-svg-icons";
-import {faArrowLeftLong, faArrowRightLong, faBook, faPencil} from "@fortawesome/free-solid-svg-icons";
-import {faClock, faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
+import {faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
+import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import ccImage from '../images/common/cc.svg'
 import byImage from '../images/common/by.svg'
 import ndImage from '../images/common/nd.svg'
@@ -20,6 +20,9 @@ import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
 import {BlogPosting, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
+import MediaQuery from 'react-responsive'
+import PageMeta from "../components/page-meta";
+
 
 const shortcodes = {
     Link,
@@ -38,6 +41,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     = ({data, children, path, pageContext}) => {
     const {previous, next} = pageContext
     const {siteUrl} = useSiteMetadata()
+    const {frontmatter} = data.mdx!
     const {
         subject,
         title,
@@ -45,10 +49,8 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
         images,
         tags,
         createdAt,
-        createdAtStr,
         updatedAt,
-        updatedAtStr,
-    } = data.mdx!.frontmatter!
+    } = frontmatter!
 
     const readMinutes = Math.ceil(data.mdx?.fields?.timeToRead?.minutes!)
     const canonical = siteUrl + path
@@ -79,29 +81,9 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <p className="post-meta">
-                        <span className="date">
-                            <FontAwesomeIcon icon={faClock}/>
-                            최초 작성일:{' '}
-                            <time dateTime={createdAt!}>
-                                {createdAtStr}
-                            </time>
-                        </span>
-                        {updatedAt && (
-                            <span className="modified">
-                                <FontAwesomeIcon icon={faPencil}/>
-                                최종 수정일:{' '}
-                                <time dateTime={updatedAt}>
-                                    {updatedAtStr}
-                                </time>
-                            </span>
-                        )}
-
-                        <span className="reading-time" title="{{ page.content | number_of_words }} words">
-                            <FontAwesomeIcon icon={faBook}/>
-                            {readMinutes}분
-                        </span>
-                    </p>
+                    <MediaQuery maxWidth={800}>
+                        <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                    </MediaQuery>
 
                     {tags && (
                         <p className="tags sr-only">
@@ -175,7 +157,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
             </article>
 
-            <aside className="sidebar-right"></aside>
+            <aside className="sidebar-right">
+                <MediaQuery minWidth={801}>
+                    <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                </MediaQuery>
+            </aside>
         </Layout>
     )
 }
@@ -198,9 +184,7 @@ export const query = graphql`
                 tags
                 slug
                 createdAt
-                createdAtStr: createdAt(formatString: "LL", locale: "ko-KR")
                 updatedAt
-                updatedAtStr: updatedAt(formatString: "LL", locale: "ko-KR")
                 order
             }
             fields {
