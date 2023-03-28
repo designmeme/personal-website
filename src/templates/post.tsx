@@ -63,13 +63,12 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             </aside>
 
             <article className="page">
+                {/*todo alt*/}
                 {images && images[0] && (
-                    <div className="page-image">
-                        {/*todo alt*/}
-                        <GatsbyImage
-                            image={images[0]?.childImageSharp?.gatsbyImageData!}
-                            alt={``}/>
-                    </div>
+                    <GatsbyImage
+                        class={'page-image hero-image'}
+                        image={images[0]?.childImageSharp?.gatsbyImageData!}
+                        alt={``}/>
                 )}
 
                 <header className="page-header">
