@@ -28,11 +28,7 @@ body {
 }
 
 .site-main {
-  padding-bottom: 5rem;
   flex-grow: 1;
-  @include media-breakpoint-up(lg) {
-    padding-bottom: 10rem;
-  }
 
   > .wrapper {
     @include media-breakpoint-up(md) {
@@ -44,6 +40,10 @@ body {
     @include media-breakpoint-up(xl) {
       grid-template-columns: 250px auto 250px;
       max-width: calc((250px * 2) + (50px * 2) + 600px); // page 최대너비 지정용
+    }
+
+    > * {
+      margin-bottom: 100px;
     }
 
     > .sidebar-left {
