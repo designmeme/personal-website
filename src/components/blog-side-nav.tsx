@@ -37,7 +37,7 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
         <nav className="sub-nav">
             {allSubjectJson.nodes.map(node => (
                 <div key={node.id}>
-                    <h6 className={"sub-nav-title" + (subject.id == node.id && " active")}>
+                    <h6 className={"sub-nav-title" + (subject.id == node.id ? " active" : "")}>
                         {node.title!} ({node.posts.length})
                     </h6>
 
