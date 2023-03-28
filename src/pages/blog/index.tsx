@@ -8,9 +8,9 @@ import GoogleAdsense from "../../components/google-adsense";
 export const frontmatter: PageFrontmatter = {
     title: `블로그`,
     subtitle: `👩‍💻 🎮 🚴 ️🚀 `,
-    excerpt: `프론트엔드 웹 개발, 게임, 자전거, 여행, 투자`,
+    excerpt: `이 블로그는 👩‍💻 프론트엔드 웹 개발자인 제가 꾹꾹 눌러 담아 정리한 글 모음집이에요. 개발 경험 일지보다는 시행착오를 바탕으로 만든 지름길 안내서를 지향해요.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
-    updatedAt: `2023-03-26T00:00:00+09:00`,
+    updatedAt: `2023-03-28T00:00:00+09:00`,
 }
 
 const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
