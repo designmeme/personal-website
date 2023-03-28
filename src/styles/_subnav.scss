@@ -2,6 +2,8 @@
 //
 //
 
+$li-margin: 1rem;
+$div-margin: 1.5rem;
 
 .sub-nav {
   @extend .p-smaller;
@@ -11,9 +13,11 @@
   -webkit-overflow-scrolling: touch;
   position: sticky;
   top: 50px;
+  margin-bottom: -$div-margin;
 
-  $li-margin: 1.11rem;
-  margin-bottom: -$li-margin;
+  > div {
+    margin-bottom: $div-margin;
+  }
 
   a {
     text-decoration: none;
@@ -22,9 +26,14 @@
   .sub-nav-title {
     margin-bottom: 1.11rem;
     color: $text-color-muted;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1em;
     line-height: 1;
+
+    &.active {
+      color: $text-color;
+    }
+
     a {
       color: inherit;
     }
