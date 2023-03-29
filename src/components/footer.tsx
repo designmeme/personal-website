@@ -27,15 +27,15 @@ const Footer: React.FC = () => {
 
                     <a href={"https://github.com/" + github_username}
                        className="contact-link"
-                       aria-label="Visit github"
+                       title="GitHub 방문하기(새창)"
                        target="_blank"
-                    ><FontAwesomeIcon icon={faGithub}/><span className="sr-only">Visit github</span></a>
+                    ><FontAwesomeIcon icon={faGithub}/><span className="sr-only">GitHub 방문하기</span></a>
 
                     <a href={"mailto:" + email}
                        className="contact-link circle"
-                       aria-label="Send email"
+                       title="이메일 보내기(새창)"
                        target="_blank"
-                    ><FontAwesomeIcon icon={faEnvelope} /><span className="sr-only">Send email</span></a>
+                    ><FontAwesomeIcon icon={faEnvelope}/><span className="sr-only">이메일 보내기</span></a>
                 </div>
 
                 <div className="site-copyright">{copyright}</div>
