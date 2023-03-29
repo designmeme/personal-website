@@ -18,7 +18,7 @@
 
 .page-header {
   position: relative;
-  margin-bottom: $section-margin;
+  margin-bottom: calc($section-margin / 2);
 }
 
 .page-title {
@@ -32,7 +32,6 @@
 }
 
 .page-content {
-  position: relative;
   //word-break: break-all;
   word-wrap: break-word;
 }

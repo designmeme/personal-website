@@ -63,14 +63,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             </aside>
 
             <article className="page">
-                {/*todo alt*/}
-                {images && images[0] && (
-                    <GatsbyImage
-                        class={'page-image hero-image'}
-                        image={images[0]?.childImageSharp?.gatsbyImageData!}
-                        alt={``}/>
-                )}
-
                 <header className="page-header">
                     <h1 className="page-title">
                         {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
@@ -96,12 +88,21 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     )}
                 </header>
 
+                {/*todo alt*/}
+                {images && images[0] && (
+                    <GatsbyImage
+                        class={'page-image hero-image'}
+                        image={images[0]?.childImageSharp?.gatsbyImageData!}
+                        alt={``}/>
+                )}
+
+                <Toc toc={data.mdx?.tableOfContents!}/>
+
                 <div className="post-top-ad">
                     <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                 </div>
 
                 <div className="page-content">
-                    <Toc toc={data.mdx?.tableOfContents!}/>
 
                     <MDXProvider components={shortcodes}>{children}</MDXProvider>
                 </div>

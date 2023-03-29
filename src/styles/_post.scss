@@ -35,6 +35,7 @@
   background-color: $gray-n0;
   @extend .clearfix;
   @extend .p-smaller;
+
   .cc-icon {
     margin-right: 4px;
   }
@@ -48,6 +49,7 @@ $sns-link-width: 3.3rem;
   justify-content: center;
   margin: $section-margin 0;
   text-align: center;
+
   .sns-link {
     display: flex;
     justify-content: center;
@@ -102,15 +104,13 @@ $sns-link-width: 3.3rem;
 
 // post header ad
 .post-top-ad {
-  margin-top: -(calc($section-margin / 2));
   margin-bottom: $section-margin;
 }
 
 // markdown-toc
 //
 #markdown-toc {
-  margin-top: -(calc($section-margin / 2));
-  margin-bottom: calc($section-margin / 2);
+  margin: calc($section-margin / 2) 0 $section-margin;
   @extend .p-small;
   &:before {
     content: 'Index';
