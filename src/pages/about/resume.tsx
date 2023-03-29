@@ -1,15 +1,15 @@
 import * as React from 'react'
 import type {HeadFC, PageProps} from "gatsby"
 import SeoHead from "../../components/seo-head";
-import PageLayout from "../../components/page-layout";
+import PageLayout, {PageFrontmatter} from "../../components/page-layout";
 import resumeData from '../../data/resume.json'
 import CareerList from "../../components/career-list";
 
 
-export const frontmatter = {
+export const frontmatter: PageFrontmatter = {
     title: `이력서 및 경력기술서`,
     subtitle: `프론트엔드 웹 개발자 이지혜입니다`,
-    description: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`,
+    excerpt: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
     updatedAt: `2020-01-31T00:00:00+09:00`,
 }
@@ -97,7 +97,7 @@ const ResumePage: React.FC<PageProps> = () => {
 
 export const Head: HeadFC = ({location}) =>
     <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
-             description={frontmatter.description}
+             description={frontmatter.excerpt}
              pathname={location.pathname}/>
 
 export default ResumePage

@@ -22,6 +22,7 @@ import {BlogPosting, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
 import MediaQuery from 'react-responsive'
 import PageMeta from "../components/page-meta";
+import RssFeedInfo from "../components/rss-feed-info";
 
 
 const shortcodes = {
@@ -63,15 +64,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             </aside>
 
             <article className="page">
-                {images && images[0] && (
-                    <div className="page-image">
-                        {/*todo alt*/}
-                        <GatsbyImage
-                            image={images[0]?.childImageSharp?.gatsbyImageData!}
-                            alt={``}/>
-                    </div>
-                )}
-
                 <header className="page-header">
                     <h1 className="page-title">
                         {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
@@ -97,12 +89,21 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     )}
                 </header>
 
+                {/*todo alt*/}
+                {images && images[0] && (
+                    <GatsbyImage
+                        class={'page-image hero-image'}
+                        image={images[0]?.childImageSharp?.gatsbyImageData!}
+                        alt={``}/>
+                )}
+
+                <Toc toc={data.mdx?.tableOfContents!}/>
+
                 <div className="post-top-ad">
                     <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                 </div>
 
                 <div className="page-content">
-                    <Toc toc={data.mdx?.tableOfContents!}/>
 
                     <MDXProvider components={shortcodes}>{children}</MDXProvider>
                 </div>
@@ -153,6 +154,10 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                             {previous.frontmatter.title}
                         </Link>}
                     </div>
+
+                    <MediaQuery maxWidth={800}>
+                        <RssFeedInfo/>
+                    </MediaQuery>
                 </footer>
 
             </article>
@@ -160,6 +165,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             <aside className="sidebar-right">
                 <MediaQuery minWidth={801}>
                     <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                    <RssFeedInfo/>
                 </MediaQuery>
             </aside>
         </Layout>

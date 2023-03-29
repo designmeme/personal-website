@@ -3,9 +3,16 @@ import Layout from "./layout";
 import PageMeta from "./page-meta";
 import MediaQuery from "react-responsive";
 
+export type PageFrontmatter = {
+    title: string
+    subtitle?: string
+    excerpt?: string
+    updatedAt?: string
+    createdAt?: string
+}
 
 type Props = {
-    frontmatter: Queries.JavascriptFrontmatterFrontmatter
+    frontmatter: PageFrontmatter
     children: React.ReactNode
 }
 

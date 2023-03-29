@@ -2,15 +2,22 @@
 //
 //
 
+$li-margin: 1rem;
+$div-margin: 1.5rem;
 
 .sub-nav {
   @extend .p-smaller;
-  height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
   padding-top: .75em;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   position: sticky;
   top: 50px;
+  margin-bottom: -$div-margin;
+
+  > div {
+    margin-bottom: $div-margin;
+  }
 
   a {
     text-decoration: none;
@@ -19,9 +26,14 @@
   .sub-nav-title {
     margin-bottom: 1.11rem;
     color: $text-color-muted;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1em;
     line-height: 1;
+
+    &.active {
+      color: $text-color;
+    }
+
     a {
       color: inherit;
     }
@@ -31,7 +43,7 @@
     padding: 0 0 0 1em;
     margin: 0;
     li {
-      margin-bottom: 1.11rem;
+      margin-bottom: $li-margin;
     }
     .sub-link {
       display: block;

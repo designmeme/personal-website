@@ -3,21 +3,22 @@
 // common layout of page and post
 
 .page-image {
-  display: none;
-  max-width: 100%;
-
-  > div {
-    //margin: 0 -12.5% 1rem; // width: 320px = margin: 40px
-  }
-
+  // 양옆 .wrapper 마진 만큼 확장
+  margin: 0 -12.5vw 1rem;
   @include media-breakpoint-up(md) {
-    //margin: $max-margin; // width: 800px = margin: 100px
+    // gap 만큼 확장
+    margin-left: -50px;
+    margin-right: -50px;
   }
+}
+
+.hero-image {
+
 }
 
 .page-header {
   position: relative;
-  margin-bottom: $section-margin;
+  margin-bottom: calc($section-margin / 2);
 }
 
 .page-title {
@@ -31,7 +32,6 @@
 }
 
 .page-content {
-  position: relative;
   //word-break: break-all;
   word-wrap: break-word;
 }
