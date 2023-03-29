@@ -5,15 +5,18 @@ require('dotenv').config({
 })
 
 const googleAdsenseId = `ca-pub-3088246349891349`
+const title = `이지혜, 프론트엔드 웹 개발자`
+const author = `이지혜 Lee Jihye`
+const email = `ghe.lee19@gmail.com`
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: `이지혜, 프론트엔드 웹 개발자`,
+        title,
         description: `Freelance Front-end Web Developer`,
         image: `/images/common/feature.png`,
         siteUrl: `https://heyjihye.com`,
-        author: `이지혜 Lee Jihye`,
-        email: `ghe.lee19@gmail.com`,
+        author,
+        email,
         lang: `ko`,
         locale: `ko_KR`,
         github_username: `designmeme`,
@@ -186,6 +189,63 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-plugin-manifest',
             options: {
                 "icon": "src/images/favicon/favicon.png"
+            }
+        },
+        // https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/
+        {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+                query: `
+                  {
+                    site {
+                      siteMetadata {
+                        description
+                        siteUrl
+                        site_url: siteUrl
+                        copyright
+                        language: lang
+                      }
+                    }
+                  }
+                `,
+                feeds: [
+                    {
+                        output: "/rss.xml",
+                        title,
+                        // 권장형식: username@hostname.tld (Real Name)
+                        managingEditor: `${email} (${author})`,
+                        webMaster: `${email} (${author})`,
+                        query: `
+                          {
+                            allPostMdx: allMdx(
+                              sort: {frontmatter: {createdAt: DESC}},
+                              filter: {fields: {sourceInstanceName: {eq: "posts"}}},
+                            ) {
+                              nodes {
+                                excerpt(pruneLength: 400)
+                                frontmatter {
+                                  slug
+                                  title
+                                  subtitle
+                                  createdAt
+                                }
+                              }
+                            }
+                          }
+                        `,
+                        serialize: (
+                            {query: {site, allPostMdx}}
+                                : { query: { site: Queries.Site, allPostMdx: Queries.MdxConnection } }
+                        ) => allPostMdx.nodes.map(node => {
+                            return Object.assign({}, node.frontmatter, {
+                                title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
+                                description: node.excerpt,
+                                date: node.frontmatter.createdAt,
+                                url: site.siteMetadata!.siteUrl + "/blog/" + node.frontmatter.slug,
+                            });
+                        }),
+                    }
+                ]
             }
         },
         `gatsby-transformer-javascript-frontmatter`,
