@@ -41,6 +41,35 @@
   }
 }
 
+.rss-feed-info {
+  margin: $section-margin 0;
+  padding: calc($section-margin / 2) 0;
+  border-top: 1px solid $gray-n0;
+  @extend .p-smaller;
+
+  @at-root .page-footer & {
+  }
+  @at-root .sidebar-right & {
+    margin: 1rem 0 1rem 50px;
+    padding: 1rem 0;
+    text-align: right;
+    > span {
+      display: block;
+      margin-top: .2em;
+    }
+  }
+  a {
+    display: inline-block;
+    @at-root .page-footer & {
+      margin-right: 1em;
+    }
+  }
+
+  a, img {
+    vertical-align: bottom;
+  }
+}
+
 // post sns links
 //
 $sns-link-width: 3.3rem;
@@ -112,6 +141,7 @@ $sns-link-width: 3.3rem;
 #markdown-toc {
   margin: calc($section-margin / 2) 0 $section-margin;
   @extend .p-small;
+
   &:before {
     content: 'Index';
     display: block;

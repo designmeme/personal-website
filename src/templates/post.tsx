@@ -22,6 +22,7 @@ import {BlogPosting, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
 import MediaQuery from 'react-responsive'
 import PageMeta from "../components/page-meta";
+import RssFeedInfo from "../components/rss-feed-info";
 
 
 const shortcodes = {
@@ -153,6 +154,10 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                             {previous.frontmatter.title}
                         </Link>}
                     </div>
+
+                    <MediaQuery maxWidth={800}>
+                        <RssFeedInfo/>
+                    </MediaQuery>
                 </footer>
 
             </article>
@@ -160,6 +165,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             <aside className="sidebar-right">
                 <MediaQuery minWidth={801}>
                     <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                    <RssFeedInfo/>
                 </MediaQuery>
             </aside>
         </Layout>
