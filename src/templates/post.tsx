@@ -66,7 +66,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             <article className="page">
                 <header className="page-header">
                     <h1 className="page-title">
-                        {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
                         {title}
                     </h1>
                     {subtitle && (
@@ -203,7 +202,7 @@ export const query = graphql`
     }
 `
 
-export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
+export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
     const meta = useSiteMetadata()
     const {
         title,

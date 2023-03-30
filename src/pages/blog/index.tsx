@@ -47,7 +47,6 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                                                   className="post-link"
                                                   onClick={() => gaEvent('post-link-in-blog', 'click', post.frontmatter.title)}
                                             >
-                                                {process.env.NODE_ENV != 'production' && !post.frontmatter.createdAt && '(미공개)'}
                                                 {post.frontmatter.title}
                                             </Link>
                                             {/*todo move in Link*/}
