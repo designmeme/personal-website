@@ -1,15 +1,16 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBook} from "@fortawesome/free-solid-svg-icons";
+import {faBook, faTags} from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 
 type Props = {
     createdAt?: string | null
     updatedAt?: string | null
     readMinutes?: number | null
+    tags: readonly string[] | null
 }
 
-const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes}) => {
+const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes, tags}) => {
     return (
         <>
             <p className="post-meta">
@@ -32,6 +33,21 @@ const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes}) => {
                     {readMinutes}-{Math.ceil(readMinutes * 1.3)}분 읽기
                 </span>}
             </p>
+
+            {tags && (
+                <p className="post-tags">
+                    <FontAwesomeIcon icon={faTags}/>{' '}
+                    Tags:{' '}
+                    {
+                        // todo Link to Tag page
+                        tags.map((tag, index) =>
+                            <>
+                                <span className={"tag"} key={`tag-${index}`}>{tag}</span>
+                                {index + 1 != tags.length && ", "}
+                            </>)
+                    }
+                </p>
+            )}
         </>
     );
 };

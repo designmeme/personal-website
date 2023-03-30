@@ -73,19 +73,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     )}
 
                     <MediaQuery maxWidth={800}>
-                        <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                        <PageMeta createdAt={createdAt}
+                                  updatedAt={updatedAt}
+                                  readMinutes={readMinutes}
+                                  tags={tags}
+                        />
                     </MediaQuery>
 
-                    {tags && (
-                        <p className="tags sr-only">
-                            {/*<p className="tags">*/}
-                            Tags:
-                            {
-                                // todo Link to Tag page
-                                tags.map((tag, index) => <a key={`tag-${index}`}>{tag}</a>)
-                            }
-                        </p>
-                    )}
+
                 </header>
 
                 {/*todo alt*/}
@@ -163,7 +158,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
             <aside className="sidebar-right">
                 <MediaQuery minWidth={801}>
-                    <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                    <PageMeta createdAt={createdAt}
+                              updatedAt={updatedAt}
+                              readMinutes={readMinutes}
+                              tags={tags}
+                    />
                     <RssFeedInfo/>
                 </MediaQuery>
             </aside>
