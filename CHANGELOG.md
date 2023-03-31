@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.4.0](https://github.com/designmeme/personal-website/compare/v1.3.0...v1.4.0) (2023-03-31)
+
+
+### Features
+
+* **contents:** Sass 관련 포스트의 태그 정보 개선 ([eadf656](https://github.com/designmeme/personal-website/commit/eadf6567676dbf53f70bdaf97c09eefa50d2f461))
+* **contents:** 새 주제 '초보 개발자를 위한 핵심정리' 추가 ([b0edd54](https://github.com/designmeme/personal-website/commit/b0edd5498de04993ad2476405a39cc91fd6c78a9))
+* **ui:** 포스트 태그 정보를 화면에 표시 [#24](https://github.com/designmeme/personal-website/issues/24) ([112b7bc](https://github.com/designmeme/personal-website/commit/112b7bc0731aabab321227cb7f9457034640bac6))
+* **ui:** 포스트가 없는 주제에 작성 중임을 알려주기 ([0750f2a](https://github.com/designmeme/personal-website/commit/0750f2a3124e4c770ccf9d5b347e531855580801))
+
+
+### Bug Fixes
+
+* **contents:** 이력서 페이지의 title 값 수정(중복 내용 삭제) ([1fe200b](https://github.com/designmeme/personal-website/commit/1fe200b85419650b4b5d709e8fa96bc1d8c62013))
+* react key 에러 수정 ([069b597](https://github.com/designmeme/personal-website/commit/069b597966213177f3ec3b08228f0c60ae84423a))
+
 ## [1.3.0](https://github.com/designmeme/personal-website/compare/v1.2.1...v1.3.0) (2023-03-29)
 
 
