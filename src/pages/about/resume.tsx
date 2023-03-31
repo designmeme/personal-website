@@ -96,7 +96,9 @@ const ResumePage: React.FC<PageProps> = () => {
 }
 
 export const Head: HeadFC = ({location}) =>
-    <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+    // 사이트 제목과 페이지 부제목이 중복되어 페이지 제목만 설정함.
+    // <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+    <SeoHead title={frontmatter.title}
              description={frontmatter.excerpt}
              pathname={location.pathname}/>
 
