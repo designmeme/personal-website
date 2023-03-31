@@ -7,6 +7,7 @@
 //
 .post-meta {
   text-align: right;
+  margin-bottom: 1em;
   @extend .p-smaller;
   @at-root .page-header & {
     margin-top: 1em;
@@ -24,6 +25,18 @@
 
   .date {
     color: $text-color-silver;
+  }
+}
+
+.post-tags {
+  text-align: right;
+  @extend .p-smaller;
+  @at-root .sidebar-right & {
+    margin-left: 50px;
+  }
+
+  .tag {
+    display: inline-block;
   }
 }
 
@@ -90,9 +103,11 @@ $sns-link-width: 3.3rem;
     font-size: 1.7rem;
     color: #fff;
     transition: all 400ms;
+
     &:not(:first-child) {
       margin-left: 1em;
     }
+
     @media (pointer: fine) {
       &.facebook:hover {
         background-color: $facebook-color;
@@ -108,23 +123,29 @@ $sns-link-width: 3.3rem;
 //
 .post-nav {
   font-size: 1.11rem;
+
   a {
     display: block;
   }
+
   .icon {
     white-space: nowrap;
     font-size: 1.2rem;
   }
+
   .post-next-link {
     margin-left: 1em;
     margin-bottom: 2rem;
     text-align: right;
+
     .svg-inline--fa {
       margin-left: .5em;
     }
   }
+
   .post-prev-link {
     margin-right: 1em;
+
     .svg-inline--fa {
       margin-right: .5em;
     }
@@ -154,6 +175,7 @@ $sns-link-width: 3.3rem;
 .original-link {
   @extend .p-smaller;
   font-weight: 400;
+
   &:after {
     content: ' \f08e';
     font-family: FontAwesome;

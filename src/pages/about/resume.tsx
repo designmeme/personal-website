@@ -11,7 +11,7 @@ export const frontmatter: PageFrontmatter = {
     subtitle: `프론트엔드 웹 개발자 이지혜입니다`,
     excerpt: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
-    updatedAt: `2020-01-31T00:00:00+09:00`,
+    updatedAt: `2023-03-31T13:00:00+09:00`,
 }
 
 const ResumePage: React.FC<PageProps> = () => {
@@ -43,8 +43,8 @@ const ResumePage: React.FC<PageProps> = () => {
             <p>전문 분야와 기술, 개발할 때 사용하는 도구입니다.</p>
 
             <ul>
-                {resumeData.skills.map(skill => (
-                    <li>{skill}</li>
+                {resumeData.skills.map((skill, index) => (
+                    <li key={index.toString()}>{skill}</li>
                 ))}
             </ul>
 
@@ -58,8 +58,8 @@ const ResumePage: React.FC<PageProps> = () => {
             </p>
 
             <ul>
-                {resumeData.tools.map(tool => (
-                    <li>{tool}</li>
+                {resumeData.tools.map((tool, index) => (
+                    <li key={index.toString()}>{tool}</li>
                 ))}
             </ul>
 
@@ -96,7 +96,9 @@ const ResumePage: React.FC<PageProps> = () => {
 }
 
 export const Head: HeadFC = ({location}) =>
-    <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+    // 사이트 제목과 페이지 부제목이 중복되어 페이지 제목만 설정함.
+    // <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+    <SeoHead title={frontmatter.title}
              description={frontmatter.excerpt}
              pathname={location.pathname}/>
 

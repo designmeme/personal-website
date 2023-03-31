@@ -1,5 +1,11 @@
 [
   {
+    "slug": "dev-101",
+    "title": "초보 개발자를 위한 핵심정리",
+    "sort": [
+    ]
+  },
+  {
     "slug": "sass-awesome-docs",
     "title": "친절한 Sass 설명서",
     "sort": [

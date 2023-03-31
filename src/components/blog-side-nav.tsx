@@ -41,8 +41,8 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
                         {node.title!} ({node.posts.length})
                     </h6>
 
-                    <ul className="sub-link-list">
-                        {node.posts.map(post => (
+                    <ul className={`sub-link-list ${!node.posts.length ? 'empty' : ''}`}>
+                        {node.posts.length ? node.posts.map(post => (
                             <li key={post.id}>
                                 <Link to={`/blog/` + post.frontmatter.slug}
                                       className="sub-link"
@@ -50,7 +50,7 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
                                       onClick={() => gaEvent('post-nav-link', 'click', post.frontmatter.title)}
                                 >{post.frontmatter.title}</Link>
                             </li>
-                        ))}
+                        )) : <li>작성 중 ✍️</li>}
                     </ul>
                 </div>
             ))}

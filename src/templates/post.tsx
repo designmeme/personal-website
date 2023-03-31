@@ -66,7 +66,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             <article className="page">
                 <header className="page-header">
                     <h1 className="page-title">
-                        {process.env.NODE_ENV != 'production' && !createdAt && '(미공개)'}
                         {title}
                     </h1>
                     {subtitle && (
@@ -74,19 +73,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     )}
 
                     <MediaQuery maxWidth={800}>
-                        <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                        <PageMeta createdAt={createdAt}
+                                  updatedAt={updatedAt}
+                                  readMinutes={readMinutes}
+                                  tags={tags}
+                        />
                     </MediaQuery>
 
-                    {tags && (
-                        <p className="tags sr-only">
-                            {/*<p className="tags">*/}
-                            Tags:
-                            {
-                                // todo Link to Tag page
-                                tags.map((tag, index) => <a key={`tag-${index}`}>{tag}</a>)
-                            }
-                        </p>
-                    )}
+
                 </header>
 
                 {/*todo alt*/}
@@ -164,7 +158,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
             <aside className="sidebar-right">
                 <MediaQuery minWidth={801}>
-                    <PageMeta createdAt={createdAt} updatedAt={updatedAt} readMinutes={readMinutes}></PageMeta>
+                    <PageMeta createdAt={createdAt}
+                              updatedAt={updatedAt}
+                              readMinutes={readMinutes}
+                              tags={tags}
+                    />
                     <RssFeedInfo/>
                 </MediaQuery>
             </aside>
@@ -203,7 +201,7 @@ export const query = graphql`
     }
 `
 
-export const Head: HeadFC<Queries.PostPageQuery> = ({ data, location }) => {
+export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
     const meta = useSiteMetadata()
     const {
         title,

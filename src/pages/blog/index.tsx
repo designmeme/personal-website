@@ -37,8 +37,8 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                 {blogSubjects.map(subject => (
                     <div key={subject.id}>
                         <h2 className="post-subject-title">{subject.title} ({subject.posts?.length || 0})</h2>
-                        {subject.posts?.length && <ul className="post-list">
-                            {
+                        <ul className={`post-list ${!subject.posts?.length ? 'empty' : ''}`}>
+                            {subject.posts.length ?
                                 subject.posts
                                     .filter(post => process.env.NODE_ENV != 'production' || !!post.frontmatter.createdAt)
                                     .map(post => (
@@ -47,7 +47,6 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                                                   className="post-link"
                                                   onClick={() => gaEvent('post-link-in-blog', 'click', post.frontmatter.title)}
                                             >
-                                                {process.env.NODE_ENV != 'production' && !post.frontmatter.createdAt && '(미공개)'}
                                                 {post.frontmatter.title}
                                             </Link>
                                             {/*todo move in Link*/}
@@ -59,8 +58,8 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                                             )}
                                         </li>
                                     ))
-                            }
-                        </ul>}
+                                : <li>아직 작성 중이에요. 조금만 기다려 주세요 ✍️</li>}
+                        </ul>
                     </div>
                 ))}
             </div>
