@@ -43,8 +43,8 @@ const ResumePage: React.FC<PageProps> = () => {
             <p>전문 분야와 기술, 개발할 때 사용하는 도구입니다.</p>
 
             <ul>
-                {resumeData.skills.map(skill => (
-                    <li>{skill}</li>
+                {resumeData.skills.map((skill, index) => (
+                    <li key={index.toString()}>{skill}</li>
                 ))}
             </ul>
 
@@ -58,8 +58,8 @@ const ResumePage: React.FC<PageProps> = () => {
             </p>
 
             <ul>
-                {resumeData.tools.map(tool => (
-                    <li>{tool}</li>
+                {resumeData.tools.map((tool, index) => (
+                    <li key={index.toString()}>{tool}</li>
                 ))}
             </ul>
 

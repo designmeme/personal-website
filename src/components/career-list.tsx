@@ -32,9 +32,11 @@ const dateToText = (date: string): string => {
 const CareerList: React.FC<Props> = ({data}) => {
     return (
         <dl className="career-list">
-            {data.map(career => (
-                <>
-                    <dt className={`career-title ${career.featured && 'featured'}`}>{career.title}</dt>
+            {data.map((career, index) => (
+                <React.Fragment key={index.toString()}>
+                    <dt className={`career-title ${career.featured && 'featured'}`}>
+                        {career.title}
+                    </dt>
                     <dd className="career-meta">
                         <span className="career-date">
                             <time dateTime={career.date[0] + '-01'}>{dateToText(career.date[0])}</time>
@@ -51,14 +53,18 @@ const CareerList: React.FC<Props> = ({data}) => {
                         {career.tags && (
                             <>
                                 &middot; <span className="career-tags">
-                                {career.tags.map((tag: string) => (
-                                    <>
-                                        {tag === 'mobile' && <FontAwesomeIcon className="icon" icon={faMobileScreenButton} />}
-                                        {tag === 'tablet' && <FontAwesomeIcon className="icon" icon={faTabletScreenButton} />}
-                                        {tag === 'desktop' && <FontAwesomeIcon className="icon" icon={faDisplay} />}
-                                        {tag === 'universal-access' && <FontAwesomeIcon className="icon" icon={faUniversalAccess} />}
-                                        <span className="sr-only">{tag == "universal-access" ? 'web accessibility' : tag}</span>
-                                    </>
+                                {career.tags.map((tag: string, j: number) => (
+                                    <React.Fragment key={j.toString()}>
+                                        {tag === 'mobile' &&
+                                            <FontAwesomeIcon className="icon" icon={faMobileScreenButton}/>}
+                                        {tag === 'tablet' &&
+                                            <FontAwesomeIcon className="icon" icon={faTabletScreenButton}/>}
+                                        {tag === 'desktop' && <FontAwesomeIcon className="icon" icon={faDisplay}/>}
+                                        {tag === 'universal-access' &&
+                                            <FontAwesomeIcon className="icon" icon={faUniversalAccess}/>}
+                                        <span
+                                            className="sr-only">{tag == "universal-access" ? 'web accessibility' : tag}</span>
+                                    </React.Fragment>
                                 ))}
                                 </span>
                             </>
@@ -68,8 +74,10 @@ const CareerList: React.FC<Props> = ({data}) => {
                     {career.description && <dd className="career-description">{career.description}</dd>}
 
                     {career.urls?.map((url: string) =>
-                        <dd className="career-url"><a href={url} target="_blank" title="새창">{url}</a></dd>)}
-                </>
+                        <dd className="career-url" key={url}>
+                            <a href={url} target="_blank" title="새창">{url}</a>
+                        </dd>)}
+                </React.Fragment>
             ))}
         </dl>
     );
