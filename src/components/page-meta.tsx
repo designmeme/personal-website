@@ -41,10 +41,10 @@ const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes, tags}) =>
                     {
                         // todo Link to Tag page
                         tags.map((tag, index) =>
-                            <>
-                                <span className={"tag"} key={`tag-${index}`}>{tag}</span>
+                            <span key={`tag-${index}`}>
+                                <span className={"tag"}>{tag}</span>
                                 {index + 1 != tags.length && ", "}
-                            </>)
+                            </span>)
                     }
                 </p>
             )}
