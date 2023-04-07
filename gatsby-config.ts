@@ -19,6 +19,8 @@ const config: GatsbyConfig = {
         email,
         lang: `ko`,
         locale: `ko_KR`,
+        // rss feed 카테고리로 사용됨.
+        categories: ['Tech', 'Web Dev', '웹개발', 'Programming', '개발블로그'],
         github_username: `designmeme`,
         copyright: `© Lee Jihye`,
         twitter: {
@@ -202,6 +204,7 @@ const config: GatsbyConfig = {
                         description
                         siteUrl
                         site_url: siteUrl
+                        categories
                         copyright
                         language: lang
                       }
