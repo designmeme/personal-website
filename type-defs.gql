@@ -7,6 +7,7 @@ type MdxFrontmatter @dontInfer {
     title: String!
     subtitle: String
     excerpt: String
+    categories: [String!]
     tags: [String!]
     images: [File!] @fileByRelativePath
     createdAt: Date @dateformat
