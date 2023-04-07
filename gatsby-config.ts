@@ -4,21 +4,24 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
-const googleAdsenseId = `ca-pub-3088246349891349`
-const title = `이지혜, 프론트엔드 웹 개발자`
-const author = `이지혜 Lee Jihye`
-const email = `ghe.lee19@gmail.com`
+const googleAdsenseId: string = `ca-pub-3088246349891349`
+const siteUrl: string = `https://heyjihye.com`
+const title: string = `이지혜, 프론트엔드 웹 개발자`
+const author: string = `이지혜 Lee Jihye`
+const email: string = `ghe.lee19@gmail.com`
 
 const config: GatsbyConfig = {
     siteMetadata: {
         title,
         description: `Freelance Front-end Web Developer`,
         image: `/images/common/feature.png`,
-        siteUrl: `https://heyjihye.com`,
+        siteUrl,
         author,
         email,
         lang: `ko`,
         locale: `ko_KR`,
+        // rss feed 카테고리로 사용됨.
+        categories: ['Tech', 'Web Dev', '웹개발', 'Programming', '개발블로그'],
         github_username: `designmeme`,
         copyright: `© Lee Jihye`,
         twitter: {
@@ -202,6 +205,7 @@ const config: GatsbyConfig = {
                         description
                         siteUrl
                         site_url: siteUrl
+                        categories
                         copyright
                         language: lang
                       }
@@ -211,10 +215,16 @@ const config: GatsbyConfig = {
                 feeds: [
                     {
                         output: "/rss.xml",
+                        // 항목참고: https://www.npmjs.com/package/rss#feedoptions
                         title,
                         // 권장형식: username@hostname.tld (Real Name)
                         managingEditor: `${email} (${author})`,
                         webMaster: `${email} (${author})`,
+                        feed_url: siteUrl + "/rss.xml",  // atom:link 생성용
+                        // 기본 네임스페이스(atom, content, dc) 외 추가할 네임스페이스
+                        custom_namespaces: {
+                            'creativeCommons': 'http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html',
+                        },
                         query: `
                           {
                             allPostMdx: allMdx(
@@ -227,7 +237,8 @@ const config: GatsbyConfig = {
                                   slug
                                   title
                                   subtitle
-                                  createdAt
+                                  categories
+                                  date: createdAt
                                 }
                               }
                             }
@@ -237,11 +248,15 @@ const config: GatsbyConfig = {
                             {query: {site, allPostMdx}}
                                 : { query: { site: Queries.Site, allPostMdx: Queries.MdxConnection } }
                         ) => allPostMdx.nodes.map(node => {
+                            // 블로그 포스트만 RSS 피드 아이템으로 생성한다.
                             return Object.assign({}, node.frontmatter, {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
-                                date: node.frontmatter.createdAt,
+                                // url 만 작성하면 guid 가 동일한 값으로 추가됨(isPermaLink="true")
                                 url: site.siteMetadata!.siteUrl + "/blog/" + node.frontmatter.slug,
+                                custom_elements: [
+                                    {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nd/4.0/'},
+                                ],
                             });
                         }),
                     }
