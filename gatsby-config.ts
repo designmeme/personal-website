@@ -238,7 +238,7 @@ const config: GatsbyConfig = {
                                   title
                                   subtitle
                                   categories
-                                  createdAt
+                                  date: createdAt
                                 }
                               }
                             }
@@ -252,7 +252,6 @@ const config: GatsbyConfig = {
                             return Object.assign({}, node.frontmatter, {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
-                                date: node.frontmatter.createdAt,
                                 // url 만 작성하면 guid 가 동일한 값으로 추가됨(isPermaLink="true")
                                 url: site.siteMetadata!.siteUrl + "/blog/" + node.frontmatter.slug,
                                 custom_elements: [
