@@ -223,7 +223,7 @@ const config: GatsbyConfig = {
                         feed_url: siteUrl + "/rss.xml",  // atom:link 생성용
                         // 기본 네임스페이스(atom, content, dc) 외 추가할 네임스페이스
                         custom_namespaces: {
-                            'creativeCommons': 'http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html',
+                            'creativeCommons': 'http://backend.userland.com/creativeCommonsRssModule',
                         },
                         query: `
                           {
