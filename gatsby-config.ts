@@ -221,6 +221,10 @@ const config: GatsbyConfig = {
                         managingEditor: `${email} (${author})`,
                         webMaster: `${email} (${author})`,
                         feed_url: siteUrl + "/rss.xml",  // atom:link 생성용
+                        // 기본 네임스페이스(atom, content, dc) 외 추가할 네임스페이스
+                        custom_namespaces: {
+                            'creativeCommons': 'http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html',
+                        },
                         query: `
                           {
                             allPostMdx: allMdx(
@@ -248,8 +252,11 @@ const config: GatsbyConfig = {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
                                 date: node.frontmatter.createdAt,
-                                // url 만 작성하면 guid 가 동일한 값으로 추가됨(isPermaLink="false")
+                                // url 만 작성하면 guid 가 동일한 값으로 추가됨(isPermaLink="true")
                                 url: site.siteMetadata!.siteUrl + "/blog/" + node.frontmatter.slug,
+                                custom_elements: [
+                                    {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nd/4.0/'},
+                                ],
                             });
                         }),
                     }
