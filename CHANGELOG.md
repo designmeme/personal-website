@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.5.0](https://github.com/designmeme/personal-website/compare/v1.4.0...v1.5.0) (2023-04-07)
+
+
+### Features
+
+* RSS 아이템에 category 항목 추가 ([a88321d](https://github.com/designmeme/personal-website/commit/a88321dd620fa92fdbf1b2660b5f803e1f69c23c))
+* RSS 아이템에 creativeCommons:license 항목 추가 ([13dd401](https://github.com/designmeme/personal-website/commit/13dd4015378c9f8758165d6e2ae5b1d2fa82541c))
+* RSS 채널에 atom:link 항목 추가 ([b9c493c](https://github.com/designmeme/personal-website/commit/b9c493ce91b3573e82284812ad1db3fb6a68648d))
+* RSS 채널에 카테고리 항목 추가 ([fc05e95](https://github.com/designmeme/personal-website/commit/fc05e95d3cd5738c29b7a512509e751763640040))
+
 ## [1.4.0](https://github.com/designmeme/personal-website/compare/v1.3.0...v1.4.0) (2023-03-31)
 
 
