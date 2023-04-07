@@ -4,10 +4,10 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
-const googleAdsenseId = `ca-pub-3088246349891349`
-const title = `이지혜, 프론트엔드 웹 개발자`
-const author = `이지혜 Lee Jihye`
-const email = `ghe.lee19@gmail.com`
+const googleAdsenseId: string = `ca-pub-3088246349891349`
+const title: string = `이지혜, 프론트엔드 웹 개발자`
+const author: string = `이지혜 Lee Jihye`
+const email: string = `ghe.lee19@gmail.com`
 
 const config: GatsbyConfig = {
     siteMetadata: {
