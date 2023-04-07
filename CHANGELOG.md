@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/designmeme/personal-website/compare/v1.5.0...v1.5.1) (2023-04-07)
+
+
+### Bug Fixes
+
+* RSS creativeCommons 네임스페이스의 주소 수정 ([84c4c52](https://github.com/designmeme/personal-website/commit/84c4c52bcbf1c659439a3defa1378bcd51c53440))
+
 ## [1.5.0](https://github.com/designmeme/personal-website/compare/v1.4.0...v1.5.0) (2023-04-07)
 
 
