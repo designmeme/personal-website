@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Header from './header'
 import Footer from './footer'
-import Statcounter from "./statcounter";
 
 import moment from 'moment'
 import 'moment/locale/ko'
@@ -23,8 +22,6 @@ const Layout: React.FC<Props> = ({children}) => {
                 </div>
             </main>
             <Footer/>
-
-            {process.env.NODE_ENV === 'production' && <Statcounter/>}
         </>
     )
 }
