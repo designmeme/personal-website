@@ -237,6 +237,7 @@ const config: GatsbyConfig = {
                                   slug
                                   title
                                   subtitle
+                                  categories
                                   createdAt
                                 }
                               }
