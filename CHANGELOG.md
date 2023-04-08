@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/designmeme/personal-website/compare/v1.5.1...v1.6.0) (2023-04-08)
+
+
+### Features
+
+* 분석도구 Statcounter 관련 코드 삭제(불필요) ([3244746](https://github.com/designmeme/personal-website/commit/3244746c36477423866a4045f21a01c59894e960)), closes [#31](https://github.com/designmeme/personal-website/issues/31)
+
 ## [1.5.1](https://github.com/designmeme/personal-website/compare/v1.5.0...v1.5.1) (2023-04-07)
 
 
