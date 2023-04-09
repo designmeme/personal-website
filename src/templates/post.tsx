@@ -229,7 +229,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
             {
                 "@type": "Person",
                 name: meta.author!,
-                url: meta.siteUrl + '/about'
+                url: meta.siteUrl + '/about/'
             },
         ],
         wordCount: data.mdx?.fields?.timeToRead?.words!,
@@ -237,7 +237,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
         isPartOf: {
             "@type": "Blog",
             name: meta.title + ' 블로그',
-            url: meta.siteUrl + '/blog'
+            url: meta.siteUrl + '/blog/'
         },
     };
 
