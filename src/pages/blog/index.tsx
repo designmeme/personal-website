@@ -47,15 +47,14 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                                                   className="post-link"
                                                   onClick={() => gaEvent('post-link-in-blog', 'click', post.frontmatter.title)}
                                             >
-                                                {post.frontmatter.title}
+                                                <span className={'link-title'}>{post.frontmatter.title}</span>
+                                                {post.frontmatter.subtitle && (
+                                                    <span className={'link-subtitle'}>
+                                                        {' '}&mdash;{' '}
+                                                        {post.frontmatter.subtitle}
+                                                    </span>
+                                                )}
                                             </Link>
-                                            {/*todo move in Link*/}
-                                            {post.frontmatter.subtitle && (
-                                                <>
-                                                    {' '}&mdash;{' '}
-                                                    {post.frontmatter.subtitle}
-                                                </>
-                                            )}
                                         </li>
                                     ))
                                 : <li>아직 작성 중이에요. 조금만 기다려 주세요 ✍️</li>}
