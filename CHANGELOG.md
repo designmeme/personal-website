@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.0](https://github.com/designmeme/personal-website/compare/v1.6.0...v1.7.0) (2023-04-09)
+
+
+### Features
+
+* **ui:** 포스트 네비게이션에서 부제목도 클릭 가능하도록 개선 ([9539b26](https://github.com/designmeme/personal-website/commit/9539b26340ab3e77b91e78a8a21930c797a46fd1)), closes [#30](https://github.com/designmeme/personal-website/issues/30)
+* 포스트 페이지에 구조화된 탐색경로(BreadcrumbList) 데이터 추가 ([23cadeb](https://github.com/designmeme/personal-website/commit/23cadebe18a5a1b0f2d459f9e87a3071f99ba949)), closes [#7](https://github.com/designmeme/personal-website/issues/7)
+
+
+### Bug Fixes
+
+* canonical 주소와 동일하게 url 마지막에 / 추가함 ([8f70e30](https://github.com/designmeme/personal-website/commit/8f70e30d08a86379d220ba171744ce2fa5bda74f))
+
 ## [1.6.0](https://github.com/designmeme/personal-website/compare/v1.5.1...v1.6.0) (2023-04-08)
 
 
