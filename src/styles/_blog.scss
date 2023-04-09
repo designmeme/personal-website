@@ -17,15 +17,29 @@
   margin-bottom: calc($section-margin / 2);
   @extend .p-small;
 
-  &:not(.empty) {
-    color: $text-color-silver;
-  }
-
   li {
     margin-bottom: 1em;
 
-    &:hover {
-      color: $text-color-muted;
+    a.post-link {
+      text-decoration: none;
+
+      .link-title {
+        text-decoration: underline;
+      }
+
+      .link-subtitle {
+        color: $text-color-silver;
+      }
+
+      &:hover {
+        .link-title {
+          text-decoration: none;
+        }
+
+        .link-subtitle {
+          color: $text-color-muted;
+        }
+      }
     }
   }
 }

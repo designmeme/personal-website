@@ -18,7 +18,7 @@ import ndImage from '../images/common/nd.svg'
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
-import {BlogPosting, WithContext} from "schema-dts";
+import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
 import MediaQuery from 'react-responsive'
 import PageMeta from "../components/page-meta";
@@ -217,29 +217,53 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
     const fullTitle = title + (subtitle && ` — ${subtitle}`) + ` | ${subject.title}`
     const imageUrls = (images || []).map(i => i?.publicURL!)
 
-    // https://developers.google.com/search/docs/appearance/structured-data/article?hl=ko
-    const schema: WithContext<BlogPosting> = {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: fullTitle!,
-        image: imageUrls,
-        datePublished: createdAt!,
-        dateModified: updatedAt!,
-        author: [
-            {
-                "@type": "Person",
-                name: meta.author!,
-                url: meta.siteUrl + '/about'
+    const schema: Array<WithContext<BlogPosting | BreadcrumbList>> = [
+        // 구조화된 기사(Article, NewsArticle, BlogPosting) 데이터
+        // https://developers.google.com/search/docs/appearance/structured-data/article?hl=ko
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: fullTitle!,
+            image: imageUrls,
+            datePublished: createdAt!,
+            dateModified: updatedAt!,
+            author: [
+                {
+                    "@type": "Person",
+                    name: meta.author!,
+                    url: meta.siteUrl + '/about/'
+                },
+            ],
+            wordCount: data.mdx?.fields?.timeToRead?.words!,
+            keywords: tags || undefined,
+            isPartOf: {
+                "@type": "Blog",
+                name: meta.title + ' 블로그',
+                url: meta.siteUrl + '/blog/'
             },
-        ],
-        wordCount: data.mdx?.fields?.timeToRead?.words!,
-        keywords: tags || undefined,
-        isPartOf: {
-            "@type": "Blog",
-            name: meta.title + ' 블로그',
-            url: meta.siteUrl + '/blog'
         },
-    };
+        // 구조화된 탐색경로(BreadcrumbList) 데이터
+        // https://developers.google.com/search/docs/appearance/structured-data/breadcrumb?hl=ko
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [{
+                "@type": "ListItem",
+                position: 1,
+                name: "블로그",
+                item: `${meta.siteUrl}/blog/`,
+            }, {
+                "@type": "ListItem",
+                position: 2,
+                name: subject.title,
+                item: `${meta.siteUrl}/blog/#${subject.slug}`,
+            }, {
+                "@type": "ListItem",
+                position: 3,
+                name: title
+            }]
+        },
+    ];
 
     return <SeoHead title={fullTitle}
                     description={excerpt}
