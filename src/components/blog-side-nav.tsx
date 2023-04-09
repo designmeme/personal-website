@@ -6,6 +6,7 @@ import {gaEvent} from "../hooks/analytics";
 export const query = graphql`
     fragment BlogSideNavSubject on MdxFrontmatter {
         subject {
+            slug
             id
             title
         }
