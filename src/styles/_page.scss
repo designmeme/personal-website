@@ -34,6 +34,32 @@
 .page-content {
   //word-break: break-all;
   word-wrap: break-word;
+  counter-reset: h2 h3 h4 h5 h6;
+
+  h2 {
+    counter-reset: h3 h4 h5 h6;
+
+    &::before {
+      counter-increment: h2;
+      content: counter(h2) " ";
+    }
+  }
+
+  h3 {
+    counter-reset: h4 h5 h6;
+    &::before {
+      counter-increment: h3;
+      content: counter(h2) "." counter(h3) " ";
+    }
+  }
+
+  h4 {
+    counter-reset: h5 h6;
+    &::before {
+      counter-increment: h4;
+      content: counter(h2) "." counter(h3) "." counter(h4) " ";
+    }
+  }
 }
 
 .page-footer {
