@@ -267,7 +267,7 @@ const config: GatsbyConfig = {
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
-                extensions: [`.mdx`, `.md`],
+                extensions: [`.mdx`],
                 gatsbyRemarkPlugins: [
                     // https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
                     {
