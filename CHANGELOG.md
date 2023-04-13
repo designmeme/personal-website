@@ -1,22 +1,5 @@
 # Changelog
 
-## [1.8.0](https://github.com/designmeme/personal-website/compare/v1.7.0...v1.8.0) (2023-04-13)
-
-
-### Features
-
-* **contents:** 저작권 라이센스를 BY-NC-ND 4.0로 변경 ([f7c2189](https://github.com/designmeme/personal-website/commit/f7c218907939edf9bff5a24b6acc186c279bfda6))
-* **contents:** 테스트를 위한 피드 파일 추가 ([fde4b2b](https://github.com/designmeme/personal-website/commit/fde4b2b3a62c8c1de1c71d2700fa67dd035b2469))
-* **ui:** CC 아이콘 이미지를 FontAwesome 폰트로 변경 ([3a2fcc4](https://github.com/designmeme/personal-website/commit/3a2fcc4d3df9b107d12cd93a864987cde1d9e277))
-
-
-### Bug Fixes
-
-* **contents:** 저작권 라이센스를 BY-NC-ND 4.0로 변경 누락 추가 ([bd21667](https://github.com/designmeme/personal-website/commit/bd21667b0a2ed97ce1ccb8d0b0e9e4a528b70654))
-* gatsby-plugin-mdx 지원 확장자에서 .md 삭제 ([72b52f8](https://github.com/designmeme/personal-website/commit/72b52f88a38dec54ed01db24fee3b6ad568540e3))
-* update packages ([31aacaf](https://github.com/designmeme/personal-website/commit/31aacafc435a7c0d093b84915a7252b0cf22c94e)), closes [#46](https://github.com/designmeme/personal-website/issues/46)
-* 저작권 표기법에 따라 문구 수정 ([76e4ca3](https://github.com/designmeme/personal-website/commit/76e4ca3615405f32d6ea82ce2e40e296c301f2c6))
-
 ## [1.7.0](https://github.com/designmeme/personal-website/compare/v1.6.0...v1.7.0) (2023-04-09)
 
 
