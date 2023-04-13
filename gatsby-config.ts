@@ -23,7 +23,7 @@ const config: GatsbyConfig = {
         // rss feed 카테고리로 사용됨.
         categories: ['Tech', 'Web Dev', '웹개발', 'Programming', '개발블로그'],
         github_username: `designmeme`,
-        copyright: `© 2017. 이지혜 All rights reserved.`,
+        copyright: `© Lee Jihye`,
         twitter: {
             card: `summary`,
             username: ``,
