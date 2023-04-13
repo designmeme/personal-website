@@ -252,9 +252,8 @@ const config: GatsbyConfig = {
                             return Object.assign({}, node.frontmatter, {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
+                                // url 만 작성하면 guid 가 동일한 값으로 추가됨(isPermaLink="true")
                                 url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
-                                // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
-                                guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
                                 custom_elements: [
                                     {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nd/4.0/'},
                                 ],
