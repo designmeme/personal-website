@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     version="2.0">
+    <channel>
+        <title><![CDATA[나를 구독하지 말아요 👻]]></title>
+        <description><![CDATA[왜냐하면 이건 피드 리더 테스트용이거든요]]></description>
+        <link>https://heyjihye.com</link>
+        <generator>GatsbyJS</generator>
+        <lastBuildDate>Thu, 13 Apr 2023 09:10:23 GMT</lastBuildDate>
+        <atom:link href="https://heyjihye.com/rss-ghost.xml" rel="self" type="application/rss+xml"/>
+        <copyright><![CDATA[© 2017. 이지혜 All rights reserved.]]></copyright>
+        <language><![CDATA[ko]]></language>
+        <category><![CDATA[Tech]]></category>
+        <category><![CDATA[Web Dev]]></category>
+        <category><![CDATA[웹개발]]></category>
+        <category><![CDATA[Programming]]></category>
+        <category><![CDATA[개발블로그]]></category>
+        <item>
+            <title><![CDATA[제목]]></title>
+            <description><![CDATA[내용]]></description>
+            <link>https://heyjihye.com/blog/rss-feed/</link>
+            <guid isPermaLink="false">https://heyjihye.com/blog/rss-feed/</guid>
+        </item>
+    </channel>
+</rss>

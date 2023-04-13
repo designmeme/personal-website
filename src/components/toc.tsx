@@ -24,8 +24,7 @@ const TocList: React.FC<Props> = ({toc, depth = 0}) => {
             {toc.items?.length && toc.items[0].url ? (
                 <ul>
                     {toc.items?.map((item, index) => (
-                        <li key={`toc-${depth}-${index}`}>
-                            {/*toc-{depth}-{index}*/}
+                        <li key={index}>
                             {item.url && <Link to={item.url}>{item.title}</Link>}
                             {item.items && <TocList toc={item} depth={depth}/>}
                         </li>

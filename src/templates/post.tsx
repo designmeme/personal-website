@@ -9,12 +9,16 @@ import {gaEvent} from "../hooks/analytics";
 import {OutboundLink} from "gatsby-plugin-google-gtag";
 import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFacebookF, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {
+    faCreativeCommons,
+    faCreativeCommonsBy,
+    faCreativeCommonsNc,
+    faCreativeCommonsNd,
+    faFacebookF,
+    faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import {faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
 import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
-import ccImage from '../images/common/cc.svg'
-import byImage from '../images/common/by.svg'
-import ndImage from '../images/common/nd.svg'
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
@@ -120,12 +124,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     </div>
 
                     <div className="cc-info">
-                        <img src={ccImage} alt="CC" className="cc-icon" width={20}/>
-                        <img src={byImage} alt="BY" className="cc-icon" width={20}/>
-                        <img src={ndImage} alt="ND" className="cc-icon" width={20}/>
-                        <br/>
-                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank">크리에이티브
-                        커먼즈 저작자표시-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
+                        <div className="cc-icons">
+                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommons}/>
+                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsBy}/>
+                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNc}/>
+                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNd}/>
+                        </div>
+                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank">크리에이티브
+                        커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
                     </div>
 
                     <div className="post-nav">
