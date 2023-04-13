@@ -130,8 +130,8 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNc}/>
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNd}/>
                         </div>
-                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank">크리에이티브
-                        커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
+                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank">크리에이티브
+                        커먼즈 저작자표시-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
                     </div>
 
                     <div className="post-nav">
