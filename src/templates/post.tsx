@@ -12,6 +12,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faCreativeCommons,
     faCreativeCommonsBy,
+    faCreativeCommonsNc,
     faCreativeCommonsNd,
     faFacebookF,
     faTwitter,
@@ -126,6 +127,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <div className="cc-icons">
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommons}/>
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsBy}/>
+                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNc}/>
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNd}/>
                         </div>
                         블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank">크리에이티브
