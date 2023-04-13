@@ -33,7 +33,6 @@ const SeoHead: React.FC<Props> = (
         locale,
         twitter,
         facebook,
-        googleAdsense,
         webmaster_verifications,
     } = useSiteMetadata()
 
