@@ -69,4 +69,4 @@ npm run develop
 
 Code released under [MIT License](./LICENSE.md)
 
-모든 콘텐츠는 [Creative Commons BY-NC-ND 4.0 License](https://creativecommons.org/licenses/by-nc-nd/4.0/) 규정에 따라 이용할 수 있어요.
+Contents released under [Creative Commons BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
