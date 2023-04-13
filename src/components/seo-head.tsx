@@ -130,7 +130,7 @@ const SeoHead: React.FC<Props> = (
             <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FC4A1A"/>
             <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black"/>
 
-            <link rel="alternate" type="application/rss+xml" title="나를 구독하지 말아요 👻" href="/rss-ghost.xml">
+            <link rel="alternate" type="application/rss+xml" title="나를 구독하지 말아요 👻" href="/rss-ghost.xml"/>
 
             {children}
         </>
