@@ -49,14 +49,8 @@
   @extend .clearfix;
   @extend .p-smaller;
 
-  .cc-icons {
-    color: $text-color;
-    font-size: 20px;
-    margin-bottom: 4px;
-
-    .cc-icon {
-      margin-right: 4px;
-    }
+  .cc-icon {
+    margin-right: 4px;
   }
 }
 
