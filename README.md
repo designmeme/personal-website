@@ -28,7 +28,8 @@ npm run develop
 
 ### 구현 기능
 
-- RSS Feed: [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) 플러그인 사용
+- RSS Feed: [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) 플러그인 사용. 
+  - 플러그인 설정 참고: [gatsby-config.ts](./gatsby-config.ts)
 
 ## 🤖 Release
 
