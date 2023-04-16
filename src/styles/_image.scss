@@ -8,17 +8,13 @@ img {
 }
 
 figure {
-  position: relative;
   margin-bottom: 2rem;
   img {
-    display: block;
+    //display: block;
   }
   figcaption {
     @extend .p-smaller;
-    @include aside;
+    text-align: center;
     margin-top: 1em;
-    @include media-breakpoint-up(md) {
-      margin-top: 0;
-    }
   }
 }
