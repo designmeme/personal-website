@@ -76,7 +76,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <MediaQuery maxWidth={1024}>
+                    <MediaQuery maxWidth={1023}>
                         <PageMeta createdAt={createdAt}
                                   updatedAt={updatedAt}
                                   readMinutes={readMinutes}
@@ -95,7 +95,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         alt={``}/>
                 )}
 
-                <MediaQuery maxWidth={1024}>
+                <MediaQuery maxWidth={1023}>
                     <Toc toc={data.mdx?.tableOfContents!}/>
                 </MediaQuery>
 
@@ -156,7 +156,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    <MediaQuery maxWidth={1024}>
+                    <MediaQuery maxWidth={1023}>
                         <RssFeedInfo/>
                     </MediaQuery>
                 </footer>

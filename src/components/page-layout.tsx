@@ -28,7 +28,7 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
                         frontmatter.subtitle && <p className="page-subtitle"> {frontmatter.subtitle}</p>
                     }
 
-                    <MediaQuery maxWidth={1024}>
+                    <MediaQuery maxWidth={1023}>
                         <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
                     </MediaQuery>
                 </header>
