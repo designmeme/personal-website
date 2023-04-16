@@ -225,6 +225,9 @@ const config: GatsbyConfig = {
                         custom_namespaces: {
                             'creativeCommons': 'http://backend.userland.com/creativeCommonsRssModule',
                         },
+                        custom_elements: [
+                            {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nc-nd/4.0/'},
+                        ],
                         query: `
                           {
                             allPostMdx: allMdx(
@@ -255,9 +258,6 @@ const config: GatsbyConfig = {
                                 url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
-                                custom_elements: [
-                                    {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nd/4.0/'},
-                                ],
                             });
                         }),
                     }

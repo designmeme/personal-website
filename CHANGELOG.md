@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.9.0](https://github.com/designmeme/personal-website/compare/v1.8.0...v1.9.0) (2023-04-16)
+
+
+### Features
+
+* **contents:** 새 포스트 'RSS 피드' 추가 ([b10bbee](https://github.com/designmeme/personal-website/commit/b10bbee340ac2ae25d11920587368d8f1a7c3c10))
+* **ui:** 포스트 페이지의 이미지 캡션 위치를 이미지 아래로 변경 ([acf1ac8](https://github.com/designmeme/personal-website/commit/acf1ac8e6f066b6e3c7cd3f6cc2b69c20b7a198f))
+
+
+### Bug Fixes
+
+* **contents:** 테스트를 위한 피드 파일 의 link 요소 추가 ([0fb79af](https://github.com/designmeme/personal-website/commit/0fb79af9d2bf2f5a32a43ad09889644d455d7b88))
+* creativeCommons:license 요소를 채널 하위로 이동 ([612d7a7](https://github.com/designmeme/personal-website/commit/612d7a752259b683f6e58ded0ee34825b924afd2))
+* link 태그 닫기 ([3e691a7](https://github.com/designmeme/personal-website/commit/3e691a7010312cfcd5b13e4cc33a4f19f4f654e6))
+
 ## [1.8.0](https://github.com/designmeme/personal-website/compare/v1.7.0...v1.8.0) (2023-04-13)
 
 
