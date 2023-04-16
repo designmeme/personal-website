@@ -169,10 +169,8 @@ $sns-link-width: 3.3rem;
   @extend .p-small;
   word-break: break-all;
 
-  &:before {
-    content: 'Index';
-    display: block;
-    @extend .p-smaller;
+  .toc-title {
+    margin-bottom: 1em;
   }
 
   ol {

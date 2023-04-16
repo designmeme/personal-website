@@ -96,7 +96,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 )}
 
                 <MediaQuery maxWidth={1023}>
-                    <Toc toc={data.mdx?.tableOfContents!}/>
+                    <Toc toc={data.mdx?.tableOfContents!} title={title}/>
                 </MediaQuery>
 
                 <div className="post-top-ad">
@@ -171,7 +171,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                   tags={tags}
                         />
                         <RssFeedInfo/>
-                        <Toc toc={data.mdx?.tableOfContents!}/>
+                        <Toc toc={data.mdx?.tableOfContents!} title={title}/>
                     </MediaQuery>
                 </aside>
         </Layout>

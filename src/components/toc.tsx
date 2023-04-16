@@ -7,16 +7,17 @@ interface Item {
     items?: Item[]
 }
 
-interface TocProps {
-    toc?: Item
-}
-
-type Props = {
+type TocListProps = {
     toc: Item
     depth?: number
 }
 
-const TocList: React.FC<Props> = ({toc, depth = 0}) => {
+type Props = {
+    toc: Item
+    title: string
+}
+
+const TocList: React.FC<TocListProps> = ({toc, depth = 0}) => {
     depth++
 
     return (
@@ -37,12 +38,15 @@ const TocList: React.FC<Props> = ({toc, depth = 0}) => {
     );
 };
 
-const Toc: React.FC<Props> = ({toc}) => {
+const Toc: React.FC<Props> = ({toc, title}) => {
     return (
         <>
-            {toc?.items && <div className={`markdown-toc`}>
-                <TocList toc={toc}/>
-            </div>}
+            {toc.items && (
+                <div className={`markdown-toc`}>
+                    <div className="toc-title">목차: {title}</div>
+                    <TocList toc={toc}/>
+                </div>
+            )}
         </>
     );
 };
