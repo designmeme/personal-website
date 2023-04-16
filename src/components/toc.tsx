@@ -40,7 +40,7 @@ const TocList: React.FC<Props> = ({toc, depth = 0}) => {
 const Toc: React.FC<Props> = ({toc}) => {
     return (
         <>
-            {toc?.items && <div id={`markdown-toc`}>
+            {toc?.items && <div className={`markdown-toc`}>
                 <TocList toc={toc}/>
             </div>}
         </>

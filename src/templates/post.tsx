@@ -76,7 +76,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <MediaQuery maxWidth={800}>
+                    <MediaQuery maxWidth={1024}>
                         <PageMeta createdAt={createdAt}
                                   updatedAt={updatedAt}
                                   readMinutes={readMinutes}
@@ -95,7 +95,9 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         alt={``}/>
                 )}
 
-                <Toc toc={data.mdx?.tableOfContents!}/>
+                <MediaQuery maxWidth={1024}>
+                    <Toc toc={data.mdx?.tableOfContents!}/>
+                </MediaQuery>
 
                 <div className="post-top-ad">
                     <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
@@ -155,23 +157,24 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    <MediaQuery maxWidth={800}>
+                    <MediaQuery maxWidth={1024}>
                         <RssFeedInfo/>
                     </MediaQuery>
                 </footer>
 
             </article>
 
-            <aside className="sidebar-right">
-                <MediaQuery minWidth={801}>
-                    <PageMeta createdAt={createdAt}
-                              updatedAt={updatedAt}
-                              readMinutes={readMinutes}
-                              tags={tags}
-                    />
-                    <RssFeedInfo/>
-                </MediaQuery>
-            </aside>
+                <aside className="sidebar-right">
+                    <MediaQuery minWidth={1024}>
+                        <PageMeta createdAt={createdAt}
+                                  updatedAt={updatedAt}
+                                  readMinutes={readMinutes}
+                                  tags={tags}
+                        />
+                        <RssFeedInfo/>
+                        <Toc toc={data.mdx?.tableOfContents!}/>
+                    </MediaQuery>
+                </aside>
         </Layout>
     )
 }

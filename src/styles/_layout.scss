@@ -21,25 +21,29 @@ body {
   @include media-breakpoint-up(md) {
     margin: $max-margin; // width: 800px = margin: 100px
   }
-  @at-root .site-main & {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
 }
 
 .site-main {
   flex-grow: 1;
 
-  > .wrapper {
-    @include media-breakpoint-up(md) {
+  .wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+    $page-max-width: 600px;
+    $aside-width: 300px;
+    $gap: 100px;
+    @include media-breakpoint-up(lg) {
       display: grid;
-      column-gap: 50px;
-      grid-template-columns: auto 250px;
-      max-width: calc((250px * 1) + (50px * 1) + 600px); // page 최대너비 지정용
+      column-gap: $gap;
+      grid-template-columns: auto $aside-width;
     }
     @include media-breakpoint-up(xl) {
-      grid-template-columns: 250px auto 250px;
-      max-width: calc((250px * 2) + (50px * 2) + 600px); // page 최대너비 지정용
+      margin: 0 auto;
+      max-width: calc($page-max-width + $gap + $aside-width); // page 최대너비 지정용
+    }
+    @include media-breakpoint-up(xxl) {
+      grid-template-columns: $aside-width auto $aside-width;
+      max-width: calc($aside-width + $gap + $page-max-width + $gap + $aside-width); // page 최대너비 지정용
     }
 
     > * {
@@ -47,16 +51,24 @@ body {
     }
 
     > .sidebar-left {
-      @include media-breakpoint-down(xl) {
+      padding-left: 50px;
+      @include media-breakpoint-down(xxl) {
         display: none;
       }
     }
 
     > .page {
       min-width: 0; // 내부 pre 요소 때문에 영역이 늘어나는 문제 해결용.
+      @include media-breakpoint-down(lg) {
+        margin: 0 auto;
+        max-width: $page-max-width;
+      }
     }
 
     > .sidebar-right {
+      @include media-breakpoint-down(lg) {
+        display: none;
+      }
       // to test
       //height: 100px;
       //background: red;

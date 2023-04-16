@@ -28,7 +28,7 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
                         frontmatter.subtitle && <p className="page-subtitle"> {frontmatter.subtitle}</p>
                     }
 
-                    <MediaQuery maxWidth={800}>
+                    <MediaQuery maxWidth={1024}>
                         <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
                     </MediaQuery>
                 </header>
@@ -39,11 +39,11 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
 
             </article>
 
-            <aside className="sidebar-right">
-                <MediaQuery minWidth={801}>
-                    <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
-                </MediaQuery>
-            </aside>
+                <aside className="sidebar-right">
+                    <MediaQuery minWidth={1024}>
+                        <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
+                    </MediaQuery>
+                </aside>
         </Layout>
     )
 }
