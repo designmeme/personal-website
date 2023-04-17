@@ -30,6 +30,10 @@ const MdxFixSpan: React.FC<Props> = (props) => {
         if (html.startsWith('<figure class="gatsby-resp-image-figure"')) {
             return <div style={{'display': 'flex'}} {...props}/>
         }
+        // gatsby-remark-prismjs 사용시 해당 div 요소를 span 으로 감싸는 문제 해결용.
+        else if (html.startsWith('<div class="gatsby-highlight"')) {
+            return <div {...props}/>
+        }
     }
     return <span {...props}/>
 }
