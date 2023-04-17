@@ -315,20 +315,15 @@ const config: GatsbyConfig = {
         "gatsby-plugin-image",
         {
             resolve: `gatsby-plugin-sharp`,
-            // options: {
-            //     defaults: {
-            //         formats: [`auto`, `webp`],
-            //         placeholder: `dominantColor`,
-            //         quality: 50,
-            //         breakpoints: [750, 1080, 1366, 1920],
-            //         backgroundColor: `transparent`,
-            //         blurredOptions: {},
-            //         jpgOptions: {},
-            //         pngOptions: {},
-            //         webpOptions: {},
-            //         avifOptions: {},
-            //     },
-            // },
+            // https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#image-options
+            options: {
+                defaults: {
+                    placeholder: 'none',  // 대신 css로 처리
+                    formats: [`auto`, `webp`],
+                    quality: 100,
+                    breakpoints: [800, 1024, 1280],
+                },
+            },
         },
         "gatsby-transformer-sharp",
         `gatsby-transformer-json`,
