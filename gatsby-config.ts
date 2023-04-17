@@ -296,7 +296,7 @@ const config: GatsbyConfig = {
                             quality: 100,
                             withWebp: {quality: 100},
                             srcSetBreakpoints: [600],
-                            // not working todo fix - 이미지 비율대로 박스 만들어서 로딩시 점프 없애기
+                            // 이미지 비율대로 박스 만들어서 로딩시 점프 없애기 - MdxFixSpan 컴포넌트 필수.
                             // @ts-ignore
                             wrapperStyle: fluidResult => `flex:${Math.round(fluidResult.aspectRatio * 100) / 100};`,
                         },

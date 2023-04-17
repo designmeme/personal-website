@@ -22,6 +22,7 @@ import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
+import MdxFixSpan from '../components/mdx-fix-span';
 import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
 import MediaQuery from 'react-responsive'
@@ -32,7 +33,8 @@ import RssFeedInfo from "../components/rss-feed-info";
 const shortcodes = {
     Link,
     SideBySide,
-    a: (props: any) => <MdxLink {...props} />
+    a: (props: any) => <MdxLink {...props} />,
+    span: (props: any) => <MdxFixSpan {...props} />,
 }
 
 type PageContextType = {
