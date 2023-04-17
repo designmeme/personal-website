@@ -283,6 +283,7 @@ const config: GatsbyConfig = {
                     {
                         resolve: `gatsby-remark-autolink-headers`,
                         options: {
+                            // 로딩시에만 적용됨. ToC에서 링크 클릭시에는 offset 없음.
                             offsetY: `50`,
                         }
                     },
@@ -290,12 +291,13 @@ const config: GatsbyConfig = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            // maxWidth: 900,
+                            maxWidth: 600,  // 포스트 본문 최대 너비
                             showCaptions: true,
-                            backgroundColor: false,
-                            quality: 80,
-                            tracedSVG: true,
-                            // not working todo fix - 이미지 비율대로 박스 만들어서 로딩시 점프 없애기
+                            backgroundColor: 'none',
+                            quality: 100,
+                            withWebp: {quality: 100},
+                            srcSetBreakpoints: [600],
+                            // 이미지 비율대로 박스 만들어서 로딩시 점프 없애기 - MdxFixSpan 컴포넌트 필수.
                             // @ts-ignore
                             wrapperStyle: fluidResult => `flex:${Math.round(fluidResult.aspectRatio * 100) / 100};`,
                         },
@@ -315,20 +317,15 @@ const config: GatsbyConfig = {
         "gatsby-plugin-image",
         {
             resolve: `gatsby-plugin-sharp`,
-            // options: {
-            //     defaults: {
-            //         formats: [`auto`, `webp`],
-            //         placeholder: `dominantColor`,
-            //         quality: 50,
-            //         breakpoints: [750, 1080, 1366, 1920],
-            //         backgroundColor: `transparent`,
-            //         blurredOptions: {},
-            //         jpgOptions: {},
-            //         pngOptions: {},
-            //         webpOptions: {},
-            //         avifOptions: {},
-            //     },
-            // },
+            // https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#image-options
+            options: {
+                defaults: {
+                    placeholder: 'none',  // 대신 css로 처리
+                    formats: [`auto`, `webp`],
+                    quality: 100,
+                    breakpoints: [800, 1024, 1280],
+                },
+            },
         },
         "gatsby-transformer-sharp",
         `gatsby-transformer-json`,

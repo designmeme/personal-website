@@ -18,3 +18,11 @@ figure {
     margin-top: 1em;
   }
 }
+
+.gatsby-image-wrapper {
+  div[data-placeholder-image] {
+    position: absolute;
+    inset: 0;
+    background-color: transparentize($brand-primary, 0.1);
+  }
+}

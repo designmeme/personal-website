@@ -22,6 +22,7 @@ import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
+import MdxFixSpan from '../components/mdx-fix-span';
 import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
 import MediaQuery from 'react-responsive'
@@ -32,7 +33,8 @@ import RssFeedInfo from "../components/rss-feed-info";
 const shortcodes = {
     Link,
     SideBySide,
-    a: (props: any) => <MdxLink {...props} />
+    a: (props: any) => <MdxLink {...props} />,
+    span: (props: any) => <MdxFixSpan {...props} />,
 }
 
 type PageContextType = {
@@ -76,7 +78,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <MediaQuery maxWidth={800}>
+                    <MediaQuery maxWidth={1023}>
                         <PageMeta createdAt={createdAt}
                                   updatedAt={updatedAt}
                                   readMinutes={readMinutes}
@@ -87,22 +89,22 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                 </header>
 
-                {/*todo alt*/}
                 {images && images[0] && (
                     <GatsbyImage
                         class={'page-image hero-image'}
                         image={images[0]?.childImageSharp?.gatsbyImageData!}
-                        alt={``}/>
+                        alt={`${title} — ${subtitle}`}/>
                 )}
 
-                <Toc toc={data.mdx?.tableOfContents!}/>
+                <MediaQuery maxWidth={1023}>
+                    <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>
+                </MediaQuery>
 
                 <div className="post-top-ad">
                     <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                 </div>
 
-                <div className="page-content">
-
+                <div className="page-content heading-number">
                     <MDXProvider components={shortcodes}>{children}</MDXProvider>
                 </div>
 
@@ -155,23 +157,24 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    <MediaQuery maxWidth={800}>
+                    <MediaQuery maxWidth={1023}>
                         <RssFeedInfo/>
                     </MediaQuery>
                 </footer>
 
             </article>
 
-            <aside className="sidebar-right">
-                <MediaQuery minWidth={801}>
-                    <PageMeta createdAt={createdAt}
-                              updatedAt={updatedAt}
-                              readMinutes={readMinutes}
-                              tags={tags}
-                    />
-                    <RssFeedInfo/>
-                </MediaQuery>
-            </aside>
+                <aside className="sidebar-right">
+                    <MediaQuery minWidth={1024}>
+                        <PageMeta createdAt={createdAt}
+                                  updatedAt={updatedAt}
+                                  readMinutes={readMinutes}
+                                  tags={tags}
+                        />
+                        <RssFeedInfo/>
+                        <Toc toc={data.mdx?.tableOfContents!} title={title}/>
+                    </MediaQuery>
+                </aside>
         </Layout>
     )
 }

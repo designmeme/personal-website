@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.10.0](https://github.com/designmeme/personal-website/compare/v1.9.0...v1.10.0) (2023-04-17)
+
+
+### Features
+
+* **ui:** 넓은 화면에서 오른쪽 사이드바에 ToC 표시 ([67fb5ec](https://github.com/designmeme/personal-website/commit/67fb5ec12842593adf9fa79aaf96c66df49d35ca))
+* **ui:** 목차 영역에 제목 표기 ([d1eae99](https://github.com/designmeme/personal-website/commit/d1eae9960b7b57d61feed5edc54aa9dd339f6e1d))
+* **ui:** 스크롤에 따라 목차 아이템에 활성 스타일 표시하기 ([e359c67](https://github.com/designmeme/personal-website/commit/e359c678649b7fea135b1afa582b9ecc8d8fde68)), closes [#60](https://github.com/designmeme/personal-website/issues/60)
+* **ui:** 포스트 목차 및 제목에 섹션 번호 붙이기 ([974f6ea](https://github.com/designmeme/personal-website/commit/974f6eafca359a2539b4757d1cc2ec4c22945e86))
+
+
+### Bug Fixes
+
+* gatsby-remark-images 이미지의 높이 설정 안되는 문제 해결 ([f055622](https://github.com/designmeme/personal-website/commit/f055622f0a8857c0b1e65512e3a49eb034ce4a90))
+* gatsby-remark-prismjs 사용시 해당 div 요소를 span 으로 감싸는 문제 해결 ([8981e0b](https://github.com/designmeme/personal-website/commit/8981e0b32a68e726a9f6e8d13790a6e3c6263951))
+* **ui:** 포스트에서 헤딩을 순서대로 사용하도록 수정 ([6c00d26](https://github.com/designmeme/personal-website/commit/6c00d26e283fe344694ff663a43920da29b8c238))
+* 포스트 대표 이미지에 alt 속성 추가 ([b800de4](https://github.com/designmeme/personal-website/commit/b800de4797a598a8c060bf1bfb724b04f35bf5a3))
+
 ## [1.9.0](https://github.com/designmeme/personal-website/compare/v1.8.0...v1.9.0) (2023-04-16)
 
 
