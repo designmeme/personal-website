@@ -5,6 +5,7 @@ import type {WithContext} from 'schema-dts';
 
 type Props = {
     title?: string | null
+    useSiteTitle?: boolean | null
     description?: string | null
     image?: string | null
     pathname?: string | null
@@ -16,6 +17,7 @@ type Props = {
 const SeoHead: React.FC<Props> = (
     {
         title,
+        useSiteTitle = true,
         description,
         image,
         pathname,
@@ -37,7 +39,7 @@ const SeoHead: React.FC<Props> = (
     } = useSiteMetadata()
 
     const seo = {
-        title: (title == siteTitle) ? title! : `${title} | ${siteTitle}`,
+        title: (title == siteTitle || !useSiteTitle) ? title! : `${title} | ${siteTitle}`,
         description: description || siteDescription,
         image: siteUrl! + (image || siteImage),
         url: siteUrl + (pathname || ''),

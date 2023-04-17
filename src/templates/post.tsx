@@ -275,6 +275,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
     ];
 
     return <SeoHead title={fullTitle}
+                    useSiteTitle={false}
                     description={excerpt}
                     image={imageUrls && imageUrls[0]}
                     pathname={location.pathname}
