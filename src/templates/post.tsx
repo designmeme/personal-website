@@ -87,12 +87,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                 </header>
 
-                {/*todo alt*/}
                 {images && images[0] && (
                     <GatsbyImage
                         class={'page-image hero-image'}
                         image={images[0]?.childImageSharp?.gatsbyImageData!}
-                        alt={``}/>
+                        alt={`${title} — ${subtitle}`}/>
                 )}
 
                 <MediaQuery maxWidth={1023}>
