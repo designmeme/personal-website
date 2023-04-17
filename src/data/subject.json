@@ -7,6 +7,12 @@
     ]
   },
   {
+    "slug": "gatsby-website",
+    "title": "Gatsby 웹사이트 개발",
+    "sort": [
+    ]
+  },
+  {
     "slug": "sass-awesome-docs",
     "title": "친절한 Sass 설명서",
     "sort": [
