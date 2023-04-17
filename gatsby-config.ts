@@ -290,11 +290,12 @@ const config: GatsbyConfig = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            // maxWidth: 900,
+                            maxWidth: 600,  // 포스트 본문 최대 너비
                             showCaptions: true,
-                            backgroundColor: false,
-                            quality: 80,
-                            tracedSVG: true,
+                            backgroundColor: 'none',
+                            quality: 100,
+                            withWebp: {quality: 100},
+                            srcSetBreakpoints: [600],
                             // not working todo fix - 이미지 비율대로 박스 만들어서 로딩시 점프 없애기
                             // @ts-ignore
                             wrapperStyle: fluidResult => `flex:${Math.round(fluidResult.aspectRatio * 100) / 100};`,
