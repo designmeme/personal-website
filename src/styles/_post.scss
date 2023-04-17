@@ -170,7 +170,14 @@ $sns-link-width: 3.3rem;
   word-break: break-all;
 
   .toc-title {
+    display: block;
     margin-bottom: 1em;
+    color: inherit;
+    text-decoration: none;
+    &.active {
+      font-weight: 700;
+      color: $text-color;
+    }
   }
 
   ol {
@@ -217,37 +224,37 @@ $sns-link-width: 3.3rem;
     }
     li {
       margin-bottom: .25em;
+      a {
+        position: relative;
+        text-decoration: none;
+        display: block;
+        color: inherit;
+        transition: color 400ms;
+        &::before {
+          color: $text-color-silver;
+        }
+
+        &:hover {
+          &:before {
+            right: calc(100% + 0.2em);
+            font-size: 1.5em;
+            content: '🤓';
+          }
+          color: $text-color;
+        }
+
+        &.active {
+          &:before {
+            right: calc(100% + 0.2em);
+            font-size: 1.5em;
+            content: '😎';
+          }
+          font-weight: 700;
+          color: $text-color;
+        }
+      }
     }
 
-    a {
-      position: relative;
-      text-decoration: none;
-      display: block;
-      color: inherit;
-      transition: color 400ms;
-      &::before {
-        color: $text-color-silver;
-      }
-
-      &:hover {
-        &:before {
-          right: calc(100% + 0.2em);
-          content: '🤓';
-          font-size: 1.5em;
-        }
-        color: $text-color;
-      }
-
-      &.active {
-        &:before {
-          position: absolute;
-          left: -1.5em;
-          content: '😎';
-        }
-        font-weight: 700;
-        color: $text-color;
-      }
-    }
   }
 }
 

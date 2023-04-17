@@ -97,7 +97,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 )}
 
                 <MediaQuery maxWidth={1023}>
-                    <Toc toc={data.mdx?.tableOfContents!} title={title}/>
+                    <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>
                 </MediaQuery>
 
                 <div className="post-top-ad">

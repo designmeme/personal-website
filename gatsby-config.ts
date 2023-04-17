@@ -283,6 +283,7 @@ const config: GatsbyConfig = {
                     {
                         resolve: `gatsby-remark-autolink-headers`,
                         options: {
+                            // 로딩시에만 적용됨. ToC에서 링크 클릭시에는 offset 없음.
                             offsetY: `50`,
                         }
                     },
