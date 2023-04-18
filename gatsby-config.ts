@@ -1,4 +1,5 @@
 import type {GatsbyConfig} from "gatsby";
+import {getImage} from "gatsby-plugin-image";
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`
@@ -224,6 +225,7 @@ const config: GatsbyConfig = {
                         // 기본 네임스페이스(atom, content, dc) 외 추가할 네임스페이스
                         custom_namespaces: {
                             'creativeCommons': 'http://backend.userland.com/creativeCommonsRssModule',
+                            'media': 'http://search.yahoo.com/mrss/',
                         },
                         custom_elements: [
                             {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nc-nd/4.0/'},
@@ -242,6 +244,11 @@ const config: GatsbyConfig = {
                                   subtitle
                                   categories
                                   date: createdAt
+                                  image {
+                                    childImageSharp {
+                                        gatsbyImageData(layout: FIXED, width: 1200, formats: [WEBP])
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -251,6 +258,9 @@ const config: GatsbyConfig = {
                             {query: {site, allPostMdx}}
                                 : { query: { site: Queries.Site, allPostMdx: Queries.MdxConnection } }
                         ) => allPostMdx.nodes.map(node => {
+                            const image = getImage(node.frontmatter.image)
+                            const imageSrc = image?.images.fallback?.src
+
                             // 블로그 포스트만 RSS 피드 아이템으로 생성한다.
                             return Object.assign({}, node.frontmatter, {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
@@ -258,6 +268,16 @@ const config: GatsbyConfig = {
                                 url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
+                                custom_elements: [
+                                    image && {'media:content': {
+                                        _attr: {
+                                            url: site.siteMetadata!.siteUrl! + imageSrc,
+                                            type: `image/webp`,
+                                            width: image.width,
+                                            height: image.height,
+                                        }
+                                    }},
+                                ],
                             });
                         }),
                     }
