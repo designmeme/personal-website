@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.11.0](https://github.com/designmeme/personal-website/compare/v1.10.0...v1.11.0) (2023-04-18)
+
+
+### Features
+
+* **contents:** Media RSS 네임스페이스 정보 추가 ([0f55224](https://github.com/designmeme/personal-website/commit/0f552249921264c7206f5c1b4a85fed08096d213))
+* **contents:** 새 블로그 주제 "Gatsby 웹사이트 개발" 추가 ([13c0141](https://github.com/designmeme/personal-website/commit/13c0141b3dacf0ee33bc354f49c1e9ad77ffc04c))
+* feed 문서 링크에 utm 정보 추가 ([8e958af](https://github.com/designmeme/personal-website/commit/8e958af905c6288fc88ffad012ee423c7c6fae87))
+* MdxFrontmatter 속성 images 를 image 로 변경 ([3961074](https://github.com/designmeme/personal-website/commit/3961074481a77b05af1d2634f224e9e52468e902))
+* **ui:** SeoHead 컴포넌트에 useSiteTitle 프로퍼티 추가 ([9cc0019](https://github.com/designmeme/personal-website/commit/9cc0019e9e90594b9184608e4c83935341a8c057))
+* 저작권 년도를 기간으로 표기 ([14c480e](https://github.com/designmeme/personal-website/commit/14c480ed61bf38ab3e3ab8738de8d281522eb1d2))
+* 피드 리더에서 대표 이미지 안보이는 문제 수정 ([26bc7c4](https://github.com/designmeme/personal-website/commit/26bc7c48025b6785c9a27c493c5143500f5d2b77)), closes [#64](https://github.com/designmeme/personal-website/issues/64)
+* 피드에 media:title 요소 추가 ([c70cbbf](https://github.com/designmeme/personal-website/commit/c70cbbf5f822c60e5f84216a07212a0eca047d23))
+
+
+### Bug Fixes
+
+* **contents:** author 값으로 한글 이름만 표기 ([e1f83da](https://github.com/designmeme/personal-website/commit/e1f83dae621425989cc4243c1ab754e58e0a0779))
+* subtitle 없을 때 이미지 alt 값 잘못 설정되는 문제 해결 ([232b834](https://github.com/designmeme/personal-website/commit/232b8346b756805e1b2aad6e8f6ba9349f5204a0))
+* 소개, 블로그 페이지의 title 값 수정 ([db1bd6c](https://github.com/designmeme/personal-website/commit/db1bd6c08992c6ae6022050bbbbdfb3b0b6ed08c))
+
 ## [1.10.0](https://github.com/designmeme/personal-website/compare/v1.9.0...v1.10.0) (2023-04-17)
 
 
