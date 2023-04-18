@@ -10,6 +10,7 @@ const siteUrl: string = `https://heyjihye.com`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
 const author: string = `이지혜 Lee Jihye`
 const email: string = `ghe.lee19@gmail.com`
+const copyright: string = `© 2017-${(new Date()).getFullYear()} 이지혜 All rights reserved.`
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -24,7 +25,7 @@ const config: GatsbyConfig = {
         // rss feed 카테고리로 사용됨.
         categories: ['Tech', 'Web Dev', '웹개발', 'Programming', '개발블로그'],
         github_username: `designmeme`,
-        copyright: `© 2017. 이지혜 All rights reserved.`,
+        copyright,
         twitter: {
             card: `summary`,
             username: ``,
