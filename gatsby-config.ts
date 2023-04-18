@@ -280,7 +280,7 @@ const config: GatsbyConfig = {
                                                     height: image.height,
                                                 }
                                             }, {
-                                                'media:title': [{_attr: {type: 'plain'}}, 'RSS 피드']
+                                                'media:title': [{_attr: {type: 'plain'}}, `<![CDATA[ ${node.frontmatter.title} ]]>`]
                                             }
                                         ]
                                     },
