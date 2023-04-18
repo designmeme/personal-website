@@ -8,7 +8,7 @@ categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, RSS, Atom, 웹 피드, 방문자 늘리기, README.md 쓰기]
 image: ../images/post/rss-feed.png
 createdAt: 2023-04-16T00:00:00+09:00
-updatedAt: 2023-04-16T00:00:00+09:00
+updatedAt: 2023-04-18T14:00:00+09:00
 ---
 
 <div className="lead">
@@ -267,7 +267,7 @@ PICS는 아이들이 인터넷 콘텐츠를 선택할 때 도움이 되려고 �
         <description>Freelance Front-end Web Developer</description>
         <link>https://heyjihye.com</link>
         <language>ko-KR</language>
-        <copyright>© 2017. 이지혜 All rights reserved.</copyright>
+        <copyright>© 2017-2023 이지혜 All rights reserved.</copyright>
         <managingEditor>ghe.lee19@gmail.com (이지혜)</managingEditor>
         <webMaster>ghe.lee19@gmail.com (이지혜)</webMaster>
         <pubDate>Sun, 09 Apr 2023 12:00:00 GMT</pubDate>
@@ -359,6 +359,12 @@ PICS는 아이들이 인터넷 콘텐츠를 선택할 때 도움이 되려고 �
         볼 수 있게 해요.
         파일 주소는 `url`, 파일 용량(bytes)은 `length`, 파일 유형(MIME 타입)은 `type`의 속성값으로 작성해요.
         한 아이템에 여러 인클로저를 작성하는 경우 피드 리더마다 다르게 처리하기 때문에 한 개만 포함하기를 추천해요.
+    </dd>
+    <dd>
+        이미지 파일 정보를 작성할 경우 **피드 리더에서 대표 이미지**로 보여줄 수 있어요.
+    </dd>
+    <dd className={'p-small'}>
+        💪 [**Media RSS 네임스페이스**](#media-rss-네임스페이스)를 사용해서 더 나은 정보를 표시할 수 있어요.
     </dd>
     <dt>`comments`</dt>
     <dd>콘텐츠의 댓글이 담긴 웹페이지 주소를 입력해요. 피드 리더에서 지원한다면 콘텐츠와 댓글을 같이 볼 수 있어요.</dd>
@@ -518,11 +524,42 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 <rss version="2.0" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
     <channel>
         ...
-        <copyright>© 2017. 이지혜 All rights reserved.</copyright>
+        <copyright>© 2017-2023 이지혜 All rights reserved.</copyright>
         <creativeCommons:license>https://creativecommons.org/licenses/by-nc-sa/2.5/</creativeCommons:license>
         <item>
             ...
             <creativeCommons:license>https://creativecommons.org/licenses/by-sa/4.0/</creativeCommons:license>
+        </item>
+    </channel>
+</rss>
+```
+
+---
+
+### Media RSS 네임스페이스
+[Media RSS 네임스페이스](https://www.rssboard.org/media-rss)를 추가하면
+미디어 제목, 설명, 썸네일 이미지, 언어 등 **다양한 미디어 정보**를 추가할 수 있어요.
+
+아이템의 `enclosure` 요소는 이미지, 동영상, 오디오 파일에 대한 정보를 쓸 수 있죠.
+하지만 여러 개를 사용할 수 없고 작성할 수 있는 메타데이터도 별로 없기 때문에 Media RSS 요소를 대신 사용하면 좋아요.
+
+아이템에 **대표 이미지**가 있는 경우 `media:content` 요소에 이미지 파일 정보를 작성하길 추천해요.
+**피드 리더**에서 대표 이미지가 제목과 함께 보여지거든요.
+
+
+자세한 문법과 예시는 [공식 문서](https://www.rssboard.org/media-rss)를 참고해 주세요.
+
+<p className="code-label code-label-xml">rss.xml Media RSS 네임스페이스 활용 예시</p>
+
+```xml
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        ...
+        <item>
+            ...
+            <media:content url="https://heyjihye.com/images/rss-feed.webp" type="image/webp" width="1200" height="630">
+                <media:title type="plain">RSS 피드</media:title>
+            </media:content>
         </item>
     </channel>
 </rss>
@@ -593,6 +630,7 @@ itunes 네임스페이스를 추가하면
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule"
+     xmlns:media="http://search.yahoo.com/mrss/"
      version="2.0">
     <channel>
         <title><![CDATA[ 이지혜, 프론트엔드 웹 개발자 ]]></title>
@@ -601,7 +639,7 @@ itunes 네임스페이스를 추가하면
         <generator>GatsbyJS</generator>
         <lastBuildDate>Sun, 09 Apr 2023 11:18:14 GMT</lastBuildDate>
         <atom:link href="https://heyjihye.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <copyright><![CDATA[ © 2017. 이지혜 All rights reserved. ]]></copyright>
+        <copyright><![CDATA[ © 2017-2023 이지혜 All rights reserved. ]]></copyright>
         <language><![CDATA[ ko ]]></language>
         <managingEditor><![CDATA[ ghe.lee19@gmail.com (이지혜) ]]></managingEditor>
         <webMaster><![CDATA[ ghe.lee19@gmail.com (이지혜) ]]></webMaster>
@@ -619,6 +657,9 @@ itunes 네임스페이스를 추가하면
             <category><![CDATA[ 웹개발 ]]></category>
             <category><![CDATA[ Programming ]]></category>
             <pubDate>Fri, 28 Jul 2017 07:33:00 GMT</pubDate>
+            <media:content url="https://heyjihye.com/images/sass-docs.webp" type="image/webp" width="1200" height="630">
+                <media:title type="plain">Sass 식별자 이름</media:title>
+            </media:content>
             <creativeCommons:license>https://creativecommons.org/licenses/by-nc-nd/4.0/</creativeCommons:license>
         </item>
         <item>...</item>
@@ -713,7 +754,7 @@ itunes 네임스페이스를 추가하면
 
 ## RSS 피드 리더로 웹사이트 구독하기
 
-![피들리에서 heyjihye.com 피드 검색 결과](../images/post/rss-feed-feedly-subscribe.png)
+![피들리에서 heyjihye.com 피드 검색 결과 (2023.4.12 기준)](../images/post/rss-feed-feedly-subscribe.png)
 
 RSS 피드가 잘 동작하는지 확인하기 위해 직접 피드 리더로 구독해봐요.
 인기 많은 무료 피드 리더는 아래와 같아요.
@@ -730,13 +771,14 @@ RSS 피드가 잘 동작하는지 확인하기 위해 직접 피드 리더로 �
 * **개선하기**: 채널 이미지를 설정하지 않았더니 기본 이미지가 보입니다. 이미지를 추가해야겠어요.
 * **구독하기**: 검색 결과에 나온 피드의 *follow* 버튼을 눌러서 첫 구독자가 되었어요.
 
-![피들리에서 heyjihye.com 피드 목록 화면](../images/post/rss-feed-feedly-channel.png)
+![피들리에서 heyjihye.com 피드 목록 화면 (2023.4.12 기준)](../images/post/rss-feed-feedly-channel.png)
 
 구독한 채널을 클릭하면 채널 페이지로 이동하고 콘텐츠 목록이 표시됩니다.
 
 * 채널/아이템 카테고리는 아쉽게도 표시되지 않아요.
 * 콘텐츠가 최근 발행 순으로 보이네요. 제목, 설명, 발행날짜가 표시됩니다.
 * 콘텐츠를 클릭하거나 키보드 좌우 화살표를 눌러서 콘텐츠 상세 화면을 볼 수 있어요.
+* **개선하기**: 아이템 대표 이미지가 제대로 보이지 않네요. `media:content` 요소를 추가해야겠어요.
 
 직접 확인해 보니 개선사항이 보이고 어떤 요소가 중요한지 확인할 수 있었어요.
 
