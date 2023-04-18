@@ -223,7 +223,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
         updatedAt,
     } = data.mdx!.frontmatter!
 
-    const fullTitle = title + (subtitle && ` — ${subtitle}`) + ` | ${subject.title}`
+    const fullTitle = `${title}${(subtitle ? ` — ${subtitle}` : '')} | ${subject.title}`
     const imageUrls = (images || []).map(i => i?.publicURL!)
 
     const schema: Array<WithContext<BlogPosting | BreadcrumbList>> = [
