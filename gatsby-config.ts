@@ -1,4 +1,5 @@
 import type {GatsbyConfig} from "gatsby";
+import {getImage} from "gatsby-plugin-image";
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`
@@ -7,8 +8,9 @@ require('dotenv').config({
 const googleAdsenseId: string = `ca-pub-3088246349891349`
 const siteUrl: string = `https://heyjihye.com`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
-const author: string = `이지혜 Lee Jihye`
+const author: string = `이지혜`
 const email: string = `ghe.lee19@gmail.com`
+const copyright: string = `© 2017-${(new Date()).getFullYear()} 이지혜 All rights reserved.`
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -23,7 +25,7 @@ const config: GatsbyConfig = {
         // rss feed 카테고리로 사용됨.
         categories: ['Tech', 'Web Dev', '웹개발', 'Programming', '개발블로그'],
         github_username: `designmeme`,
-        copyright: `© 2017. 이지혜 All rights reserved.`,
+        copyright,
         twitter: {
             card: `summary`,
             username: ``,
@@ -204,7 +206,6 @@ const config: GatsbyConfig = {
                       siteMetadata {
                         description
                         siteUrl
-                        site_url: siteUrl
                         categories
                         copyright
                         language: lang
@@ -217,6 +218,7 @@ const config: GatsbyConfig = {
                         output: "/rss.xml",
                         // 항목참고: https://www.npmjs.com/package/rss#feedoptions
                         title,
+                        site_url: `${siteUrl}/blog/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                         // 권장형식: username@hostname.tld (Real Name)
                         managingEditor: `${email} (${author})`,
                         webMaster: `${email} (${author})`,
@@ -224,6 +226,7 @@ const config: GatsbyConfig = {
                         // 기본 네임스페이스(atom, content, dc) 외 추가할 네임스페이스
                         custom_namespaces: {
                             'creativeCommons': 'http://backend.userland.com/creativeCommonsRssModule',
+                            'media': 'http://search.yahoo.com/mrss/',
                         },
                         custom_elements: [
                             {'creativeCommons:license': 'https://creativecommons.org/licenses/by-nc-nd/4.0/'},
@@ -242,6 +245,11 @@ const config: GatsbyConfig = {
                                   subtitle
                                   categories
                                   date: createdAt
+                                  image {
+                                    childImageSharp {
+                                        gatsbyImageData(layout: FIXED, width: 1200, formats: [WEBP])
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -251,13 +259,32 @@ const config: GatsbyConfig = {
                             {query: {site, allPostMdx}}
                                 : { query: { site: Queries.Site, allPostMdx: Queries.MdxConnection } }
                         ) => allPostMdx.nodes.map(node => {
+                            const image = getImage(node.frontmatter.image)
+                            const imageSrc = image?.images.fallback?.src
+
                             // 블로그 포스트만 RSS 피드 아이템으로 생성한다.
                             return Object.assign({}, node.frontmatter, {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
-                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
+                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
+                                custom_elements: [
+                                    image && {
+                                        'media:content': [
+                                            {
+                                                _attr: {
+                                                    url: site.siteMetadata!.siteUrl! + imageSrc,
+                                                    type: `image/webp`,
+                                                    width: image.width,
+                                                    height: image.height,
+                                                }
+                                            }, {
+                                                'media:title': [{_attr: {type: 'plain'}}, `<![CDATA[ ${node.frontmatter.title} ]]>`]
+                                            }
+                                        ]
+                                    },
+                                ],
                             });
                         }),
                     }

@@ -64,7 +64,7 @@ const AboutPage: React.FC<PageProps> = () => {
 }
 
 export const Head: HeadFC = ({location}) =>
-    <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+    <SeoHead title={'소개'}
              description={frontmatter.excerpt}
              pathname={location.pathname}/>
 

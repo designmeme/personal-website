@@ -92,7 +92,7 @@ export const query = graphql`
 
 // todo blog scheme.org
 export const Head: HeadFC = ({location}) =>
-    <SeoHead title={frontmatter.title + (frontmatter.subtitle && ` — ${frontmatter.subtitle}`)}
+    <SeoHead title={frontmatter.title}
              description={frontmatter.excerpt}
              pathname={location.pathname}></SeoHead>
 

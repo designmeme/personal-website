@@ -9,7 +9,7 @@ type MdxFrontmatter @dontInfer {
     excerpt: String
     categories: [String!]
     tags: [String!]
-    images: [File!] @fileByRelativePath
+    image: File @fileByRelativePath
     createdAt: Date @dateformat
     updatedAt: Date @dateformat
     order: Int
