@@ -53,7 +53,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
         subject,
         title,
         subtitle,
-        images,
+        image,
         tags,
         createdAt,
         updatedAt,
@@ -89,10 +89,10 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                 </header>
 
-                {images && images[0] && (
+                {image && (
                     <GatsbyImage
                         class={'page-image hero-image'}
-                        image={images[0]?.childImageSharp?.gatsbyImageData!}
+                        image={image.childImageSharp?.gatsbyImageData!}
                         alt={`${title} — ${subtitle}`}/>
                 )}
 
@@ -188,7 +188,7 @@ export const query = graphql`
                 title
                 subtitle
                 excerpt
-                images {
+                image {
                     publicURL
                     childImageSharp {
                         gatsbyImageData
@@ -217,14 +217,13 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
         subtitle,
         subject,
         excerpt,
-        images,
+        image,
         tags,
         createdAt,
         updatedAt,
     } = data.mdx!.frontmatter!
 
     const fullTitle = `${title}${(subtitle ? ` — ${subtitle}` : '')} | ${subject.title}`
-    const imageUrls = (images || []).map(i => i?.publicURL!)
 
     const schema: Array<WithContext<BlogPosting | BreadcrumbList>> = [
         // 구조화된 기사(Article, NewsArticle, BlogPosting) 데이터
@@ -233,7 +232,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: fullTitle!,
-            image: imageUrls,
+            image: image ? [image.publicURL] : undefined,
             datePublished: createdAt!,
             dateModified: updatedAt!,
             author: [
@@ -277,7 +276,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
     return <SeoHead title={fullTitle}
                     useSiteTitle={false}
                     description={excerpt}
-                    image={imageUrls && imageUrls[0]}
+                    image={image?.publicURL}
                     pathname={location.pathname}
                     schema={schema}
     >
