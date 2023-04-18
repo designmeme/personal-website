@@ -232,7 +232,7 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: fullTitle!,
-            image: image ? [image.publicURL] : undefined,
+            image: image ? [image.publicURL!] : undefined,
             datePublished: createdAt!,
             dateModified: updatedAt!,
             author: [
