@@ -204,7 +204,6 @@ const config: GatsbyConfig = {
                       siteMetadata {
                         description
                         siteUrl
-                        site_url: siteUrl
                         categories
                         copyright
                         language: lang
@@ -217,6 +216,7 @@ const config: GatsbyConfig = {
                         output: "/rss.xml",
                         // 항목참고: https://www.npmjs.com/package/rss#feedoptions
                         title,
+                        site_url: `${siteUrl}/blog/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                         // 권장형식: username@hostname.tld (Real Name)
                         managingEditor: `${email} (${author})`,
                         webMaster: `${email} (${author})`,
@@ -255,7 +255,7 @@ const config: GatsbyConfig = {
                             return Object.assign({}, node.frontmatter, {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
-                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
+                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
                             });
