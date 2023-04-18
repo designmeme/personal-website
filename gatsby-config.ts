@@ -8,7 +8,7 @@ require('dotenv').config({
 const googleAdsenseId: string = `ca-pub-3088246349891349`
 const siteUrl: string = `https://heyjihye.com`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
-const author: string = `이지혜 Lee Jihye`
+const author: string = `이지혜`
 const email: string = `ghe.lee19@gmail.com`
 const copyright: string = `© 2017-${(new Date()).getFullYear()} 이지혜 All rights reserved.`
 
