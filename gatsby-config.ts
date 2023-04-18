@@ -270,14 +270,20 @@ const config: GatsbyConfig = {
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
                                 custom_elements: [
-                                    image && {'media:content': {
-                                        _attr: {
-                                            url: site.siteMetadata!.siteUrl! + imageSrc,
-                                            type: `image/webp`,
-                                            width: image.width,
-                                            height: image.height,
-                                        }
-                                    }},
+                                    image && {
+                                        'media:content': [
+                                            {
+                                                _attr: {
+                                                    url: site.siteMetadata!.siteUrl! + imageSrc,
+                                                    type: `image/webp`,
+                                                    width: image.width,
+                                                    height: image.height,
+                                                }
+                                            }, {
+                                                'media:title': [{_attr: {type: 'plain'}}, 'RSS 피드']
+                                            }
+                                        ]
+                                    },
                                 ],
                             });
                         }),
