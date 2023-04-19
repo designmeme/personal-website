@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/designmeme/personal-website/compare/v1.11.0...v1.12.0) (2023-04-19)
+
+
+### Features
+
+* 피드의 guid 형식 변경 ([adf9580](https://github.com/designmeme/personal-website/commit/adf9580762dae9d3ee1b6ac6abad1dccb7b2f090))
+
 ## [1.11.0](https://github.com/designmeme/personal-website/compare/v1.10.0...v1.11.0) (2023-04-18)
 
 

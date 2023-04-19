@@ -268,7 +268,8 @@ const config: GatsbyConfig = {
                                 description: node.excerpt,
                                 url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
-                                guid: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/`,
+                                // - node.id 를 사용할 수 없음. 참고) https://github.com/gatsbyjs/gatsby/issues/19323
+                                guid: `blog-${node.frontmatter.slug}`,
                                 custom_elements: [
                                     image && {
                                         'media:content': [
