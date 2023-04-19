@@ -36,6 +36,7 @@ const SeoHead: React.FC<Props> = (
         twitter,
         facebook,
         webmaster_verifications,
+        googleAdsense,
     } = useSiteMetadata()
 
     const seo = {
@@ -125,7 +126,17 @@ const SeoHead: React.FC<Props> = (
 
             {/*https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-seo-component/#rich-snippets */}
             {/*https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=ko*/}
-            {schema.length && <Script type="application/ld+json">{JSON.stringify(schema)}</Script>}
+            {schema.length && <Script type="application/ld+json" key={`ld-json`}>{JSON.stringify(schema)}</Script>}
+
+            {/*구글 애드센스에서 지정한 URL이 아니면 사용할 수 없기 때문에 운영 환경에서만 포함한다. */}
+            {(process.env.NODE_ENV === 'production' && googleAdsense) && (
+                <Script
+                    key={`google-adsense`}
+                    data-ad-client={`${googleAdsense}`}
+                    src={"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+                    async
+                />
+            )}
 
             {/*todo etc*/}
             <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FC4A1A"/>
