@@ -102,12 +102,8 @@ $sns-link-width: 3.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: $sns-link-width;
-    height: $sns-link-width;
-    border-radius: 50%;
-    background-color: $brand-primary;
-    font-size: 1.7rem;
-    color: #fff;
+    font-size: 3.3rem;
+    color: $brand-primary;
     transition: all 400ms;
 
     &:not(:first-child) {
@@ -116,10 +112,10 @@ $sns-link-width: 3.3rem;
 
     @media (pointer: fine) {
       &.facebook:hover {
-        background-color: $facebook-color;
+        color: $facebook-color;
       }
       &.twitter:hover {
-        background-color: $twitter-color;
+        color: $twitter-color;
       }
     }
   }
