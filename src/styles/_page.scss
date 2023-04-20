@@ -4,7 +4,7 @@
 
 .page-image {
   // 양옆 .wrapper 마진 만큼 확장
-  margin: 0 -12.5vw 1rem;
+  margin: 0 -12.5vw calc($section-margin / 2);
   @include media-breakpoint-up(md) {
     // gap 만큼 확장
     margin-left: -50px;
