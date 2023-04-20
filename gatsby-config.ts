@@ -81,9 +81,6 @@ const config: GatsbyConfig = {
                 },
             },
         },
-        // production build 에서 첫 사이트 진입시 fontawesome 아이콘이 매우 크게 표시된 후 작아지는 문제 해결용.
-        // https://www.gatsbyjs.com/plugins/gatsby-plugin-fontawesome-css/
-        `gatsby-plugin-fontawesome-css`,
         {
             resolve: "gatsby-plugin-google-gtag",
             options: {
