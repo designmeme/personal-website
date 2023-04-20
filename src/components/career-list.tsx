@@ -71,7 +71,7 @@ const CareerList: React.FC<Props> = ({data}) => {
                         )}
                     </dd>
 
-                    {career.description && <dd className="career-description">{career.description}</dd>}
+                    {career.description && <dd className="career-description" dangerouslySetInnerHTML={{__html: career.description}}></dd>}
 
                     {career.urls?.map((url: string) =>
                         <dd className="career-url" key={url}>
