@@ -247,10 +247,8 @@ const config: GatsbyConfig = {
                             }
                           }
                         `,
-                        serialize: (
-                            {query: {site, allPostMdx}}
-                                : { query: { site: Queries.Site, allPostMdx: Queries.MdxConnection } }
-                        ) => allPostMdx.nodes.map(node => {
+                        // @ts-ignore
+                        serialize: ({query: {site, allPostMdx}}) => allPostMdx.nodes.map(node => {
                             const image = getImage(node.frontmatter.image)
                             const imageSrc = image?.images.fallback?.src
 

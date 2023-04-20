@@ -7,7 +7,7 @@ type Props = {
     createdAt?: string | null
     updatedAt?: string | null
     readMinutes?: number | null
-    tags: readonly string[] | null
+    tags?: readonly string[] | null
 }
 
 const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes, tags}) => {
