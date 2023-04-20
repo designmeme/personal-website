@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.13.0](https://github.com/designmeme/personal-website/compare/v1.12.0...v1.13.0) (2023-04-20)
+
+
+### Features
+
+* 구글 애드센스 설정 프로퍼티 추가 ([44f303b](https://github.com/designmeme/personal-website/commit/44f303b6c9f0c6a15fdeb3d378637a05710757c0))
+
+
+### Bug Fixes
+
+* **ui:** 헤딩 숫자가 너무 눈에 띄지 않게 스타일 추가 ([a2fd57b](https://github.com/designmeme/personal-website/commit/a2fd57bb3653f73e8aa566c121dfbb14a18caeeb))
+* 이력서 내용의 태그가 그대로 텍스트로 노출되는 오류 수정 ([32762c7](https://github.com/designmeme/personal-website/commit/32762c729151fb042589ccb69fe41c453a937fa5))
+* 포스트 페이지의 광고 주변 마진 수정 ([a78888e](https://github.com/designmeme/personal-website/commit/a78888e32c34aa98d5478c2aba435c110f3c223a))
+
 ## [1.12.0](https://github.com/designmeme/personal-website/compare/v1.11.0...v1.12.0) (2023-04-19)
 
 

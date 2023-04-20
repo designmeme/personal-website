@@ -4,7 +4,7 @@
 
 .page-image {
   // 양옆 .wrapper 마진 만큼 확장
-  margin: 0 -12.5vw 1rem;
+  margin: 0 -12.5vw calc($section-margin / 2);
   @include media-breakpoint-up(md) {
     // gap 만큼 확장
     margin-left: -50px;
@@ -37,6 +37,15 @@
 
   &.heading-number {
     counter-reset: h2 h3 h4 h5 h6;
+
+    h2, h3, h4, h5, h6 {
+      &::before {
+        font-size: .8em;
+        line-height: 1;
+        opacity: .6;
+        margin-right: .2em;
+      }
+    }
 
     h2 {
       counter-reset: h3 h4 h5 h6;

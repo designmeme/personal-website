@@ -17,7 +17,7 @@ import {
     faFacebookF,
     faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import {faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeftLong, faArrowRightLong, faCircle} from "@fortawesome/free-solid-svg-icons";
 import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
@@ -114,14 +114,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                       className="sns-link facebook" target="_blank" aria-label="facebook"
                                       onClick={() => gaEvent('sns-link-fb', 'click', canonical)}
                         >
-                            <FontAwesomeIcon icon={faFacebookF}/><span className="sr-only">facebook</span>
+                            <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/><span className="sr-only">facebook</span>
                         </OutboundLink>
                         <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
                                       className="sns-link twitter"
                                       target="_blank" aria-label="twitter"
                                       onClick={() => gaEvent('sns-link-tw', 'click', canonical)}
                         >
-                            <FontAwesomeIcon icon={faTwitter}/><span className="sr-only">twitter</span>
+                            <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/><span className="sr-only">twitter</span>
                         </OutboundLink>
                     </div>
 

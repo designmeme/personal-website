@@ -41,6 +41,7 @@
 
 .career-description {
   @extend .p-small;
+  white-space: pre-wrap;
 }
 
 // profile list

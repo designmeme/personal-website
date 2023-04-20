@@ -5,7 +5,6 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
-const googleAdsenseId: string = `ca-pub-3088246349891349`
 const siteUrl: string = `https://heyjihye.com`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
 const author: string = `이지혜`
@@ -33,7 +32,7 @@ const config: GatsbyConfig = {
         facebook: {
             app_id: `127116027879734`
         },
-        googleAdsense: googleAdsenseId,
+        googleAdsense: `ca-pub-3088246349891349`,
         webmaster_verifications: {
             google: `google2bfa19f4f3a8a8ee`,
         }
@@ -82,20 +81,10 @@ const config: GatsbyConfig = {
                 },
             },
         },
-        // production build 에서 첫 사이트 진입시 fontawesome 아이콘이 매우 크게 표시된 후 작아지는 문제 해결용.
-        // https://www.gatsbyjs.com/plugins/gatsby-plugin-fontawesome-css/
-        `gatsby-plugin-fontawesome-css`,
         {
             resolve: "gatsby-plugin-google-gtag",
             options: {
                 trackingIds: [`G-FNDEZBX8ME`]
-            }
-        },
-        {
-            resolve: `@isamrish/gatsby-plugin-google-adsense`,
-            options: {
-                googleAdClientId: googleAdsenseId,
-                head: true,
             }
         },
         {
@@ -255,10 +244,8 @@ const config: GatsbyConfig = {
                             }
                           }
                         `,
-                        serialize: (
-                            {query: {site, allPostMdx}}
-                                : { query: { site: Queries.Site, allPostMdx: Queries.MdxConnection } }
-                        ) => allPostMdx.nodes.map(node => {
+                        // @ts-ignore
+                        serialize: ({query: {site, allPostMdx}}) => allPostMdx.nodes.map(node => {
                             const image = getImage(node.frontmatter.image)
                             const imageSrc = image?.images.fallback?.src
 

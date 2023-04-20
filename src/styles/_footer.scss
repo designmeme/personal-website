@@ -35,19 +35,6 @@
       line-height: 1;
       color: #fff;
       vertical-align: middle;
-
-      &.circle {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 50%;
-        background-color: #fff;
-        color: $brand-primary;
-        font-size: 1.15rem;
-        text-align: center;
-      }
     }
   }
   .site-copyright {
