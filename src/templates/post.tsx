@@ -120,14 +120,16 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                       className="sns-link facebook" target="_blank" aria-label="facebook"
                                       onClick={() => gaEvent('sns-link-fb', 'click', canonical)}
                         >
-                            <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/><span className="sr-only">facebook</span>
+                            <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
+                            <span className="sr-only">facebook</span>
                         </OutboundLink>
                         <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
                                       className="sns-link twitter"
                                       target="_blank" aria-label="twitter"
                                       onClick={() => gaEvent('sns-link-tw', 'click', canonical)}
                         >
-                            <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/><span className="sr-only">twitter</span>
+                            <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/>
+                            <span className="sr-only">twitter</span>
                         </OutboundLink>
                     </div>
 
