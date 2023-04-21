@@ -10,7 +10,7 @@
   .wrapper {
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
     @include media-breakpoint-up(md) {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -30,14 +30,18 @@
 
     .contact-link {
       display: inline-block;
-      margin-left: 2rem;
-      font-size: 1.85rem;
+      margin-left: 1em;
+      font-size: 1.75rem;
       line-height: 1;
       color: #fff;
       vertical-align: middle;
+      @include media-breakpoint-up(md) {
+        font-size: 1.85rem;
+      }
     }
   }
   .site-copyright {
-
+    @extend .p-small;
+    color: inherit;
   }
 }
