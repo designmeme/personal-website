@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.15.0](https://github.com/designmeme/personal-website/compare/v1.14.0...v1.15.0) (2023-04-21)
+
+
+### Features
+
+* **contents:** Gatsby RSS 피드 링크 추가 ([74a1b52](https://github.com/designmeme/personal-website/commit/74a1b524028f27062d0d2396a2aeb483054709a0))
+* **contents:** 새 포스트 "RSS 피드 추가하기" 추가 ([b95d14e](https://github.com/designmeme/personal-website/commit/b95d14e30ea617515ef94182348a4bec9f35ee0d))
+
+
+### Bug Fixes
+
+* SSR 결과물에 글 메타 정보, ToC 등 미디어쿼리 조건부 내용이 들어가지 않는 문제 해결 ([2638659](https://github.com/designmeme/personal-website/commit/26386593d40465ad63aa2b1dcea08362f5e607b7))
+
 ## [1.14.0](https://github.com/designmeme/personal-website/compare/v1.13.0...v1.14.0) (2023-04-21)
 
 

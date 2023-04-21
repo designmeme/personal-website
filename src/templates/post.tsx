@@ -25,7 +25,7 @@ import MdxLink from '../components/mdx-link';
 import MdxFixSpan from '../components/mdx-fix-span';
 import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
-import MediaQuery from 'react-responsive'
+import {useMediaQuery} from 'react-responsive'
 import PageMeta from "../components/page-meta";
 import RssFeedInfo from "../components/rss-feed-info";
 
@@ -62,6 +62,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     const readMinutes = Math.ceil(data.mdx?.fields?.timeToRead?.minutes!)
     const canonical = siteUrl + path
 
+    // SSR 결과에 isDesktop이 아닌 경우 포함됨.
+    const isDesktop = useMediaQuery({
+        query: '(min-width: 1024px)'
+    })
+
     return (
         <Layout>
 
@@ -78,14 +83,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <MediaQuery maxWidth={1023}>
-                        <PageMeta createdAt={createdAt}
-                                  updatedAt={updatedAt}
-                                  readMinutes={readMinutes}
-                                  tags={tags}
-                        />
-                    </MediaQuery>
-
+                    {!isDesktop && <PageMeta createdAt={createdAt}
+                                             updatedAt={updatedAt}
+                                             readMinutes={readMinutes}
+                                             tags={tags}
+                    />}
 
                 </header>
 
@@ -96,9 +98,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         alt={`${title}${subtitle ? ` — ${subtitle}` : ''}`}/>
                 )}
 
-                <MediaQuery maxWidth={1023}>
-                    <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>
-                </MediaQuery>
+                {!isDesktop && <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>}
 
                 <div className="post-top-ad">
                     {/*포스트 상단용(인피드)*/}
@@ -120,14 +120,16 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                       className="sns-link facebook" target="_blank" aria-label="facebook"
                                       onClick={() => gaEvent('sns-link-fb', 'click', canonical)}
                         >
-                            <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/><span className="sr-only">facebook</span>
+                            <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
+                            <span className="sr-only">facebook</span>
                         </OutboundLink>
                         <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
                                       className="sns-link twitter"
                                       target="_blank" aria-label="twitter"
                                       onClick={() => gaEvent('sns-link-tw', 'click', canonical)}
                         >
-                            <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/><span className="sr-only">twitter</span>
+                            <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/>
+                            <span className="sr-only">twitter</span>
                         </OutboundLink>
                     </div>
 
@@ -163,15 +165,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    <MediaQuery maxWidth={1023}>
-                        <RssFeedInfo/>
-                    </MediaQuery>
+                    {!isDesktop && <RssFeedInfo/>}
                 </footer>
 
             </article>
 
-                <aside className="sidebar-right">
-                    <MediaQuery minWidth={1024}>
+            <aside className="sidebar-right">
+                {isDesktop && (
+                    <>
                         <PageMeta createdAt={createdAt}
                                   updatedAt={updatedAt}
                                   readMinutes={readMinutes}
@@ -179,8 +180,9 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         />
                         <RssFeedInfo/>
                         <Toc toc={data.mdx?.tableOfContents!} title={title}/>
-                    </MediaQuery>
-                </aside>
+                    </>
+                )}
+            </aside>
         </Layout>
     )
 }

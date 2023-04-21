@@ -7,9 +7,6 @@ require('dotenv').config({
 
 const siteUrl: string = `https://heyjihye.com`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
-const author: string = `이지혜`
-const email: string = `ghe.lee19@gmail.com`
-const copyright: string = `© 2017-${(new Date()).getFullYear()} 이지혜 All rights reserved.`
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -17,14 +14,14 @@ const config: GatsbyConfig = {
         description: `Freelance Front-end Web Developer`,
         image: `/images/common/feature.png`,
         siteUrl,
-        author,
-        email,
+        author: `이지혜`,
+        email: `ghe.lee19@gmail.com`,
         lang: `ko`,
         locale: `ko_KR`,
         // rss feed 카테고리로 사용됨.
         categories: ['Tech', 'Web Dev', '웹개발', 'Programming', '개발블로그'],
         github_username: `designmeme`,
-        copyright,
+        copyright: `© 2017-${(new Date()).getFullYear()} 이지혜 All rights reserved.`,
         twitter: {
             card: `summary`,
             username: ``,
@@ -197,21 +194,31 @@ const config: GatsbyConfig = {
                         siteUrl
                         categories
                         copyright
+                        email
+                        author
                         language: lang
                       }
                     }
                   }
                 `,
+                // @ts-ignore
+                setup: ({query: {site: {siteMetadata}}, output, ...rest}) => ({
+                    // 권장형식: username@hostname.tld (Real Name)
+                    managingEditor: `${siteMetadata.email} (${siteMetadata.author})`,
+                    webMaster: `${siteMetadata.email} (${siteMetadata.author})`,
+                    feed_url: siteMetadata.siteUrl + output,  // atom:link 생성용
+                    // todo icon image
+                    // image_url: '',
+                    ...rest,
+                }),
                 feeds: [
                     {
                         output: "/rss.xml",
-                        // 항목참고: https://www.npmjs.com/package/rss#feedoptions
                         title,
+                        // link: "https://feeds.feedburner.com/heyjihye/feed",
+
+                        // feed options: https://www.npmjs.com/package/rss#feedoptions
                         site_url: `${siteUrl}/blog/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
-                        // 권장형식: username@hostname.tld (Real Name)
-                        managingEditor: `${email} (${author})`,
-                        webMaster: `${email} (${author})`,
-                        feed_url: siteUrl + "/rss.xml",  // atom:link 생성용
                         // 기본 네임스페이스(atom, content, dc) 외 추가할 네임스페이스
                         custom_namespaces: {
                             'creativeCommons': 'http://backend.userland.com/creativeCommonsRssModule',
@@ -225,6 +232,7 @@ const config: GatsbyConfig = {
                             allPostMdx: allMdx(
                               sort: {frontmatter: {createdAt: DESC}},
                               filter: {fields: {sourceInstanceName: {eq: "posts"}}},
+                              limit: 1000,
                             ) {
                               nodes {
                                 excerpt(pruneLength: 400)
@@ -251,6 +259,7 @@ const config: GatsbyConfig = {
 
                             // 블로그 포스트만 RSS 피드 아이템으로 생성한다.
                             return Object.assign({}, node.frontmatter, {
+                                // item options: https://www.npmjs.com/package/rss#itemoptions
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
                                 url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,

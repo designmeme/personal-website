@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Layout from "./layout";
 import PageMeta from "./page-meta";
-import MediaQuery from "react-responsive";
+import {useMediaQuery} from "react-responsive";
 
 export type PageFrontmatter = {
     title: string
@@ -17,6 +17,11 @@ type Props = {
 }
 
 const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
+    // SSR 결과에 isDesktop이 아닌 경우 포함됨.
+    const isDesktop = useMediaQuery({
+        query: '(min-width: 1024px)'
+    })
+
     return (
         <Layout>
             <aside className="sidebar-left"></aside>
@@ -28,9 +33,8 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
                         frontmatter.subtitle && <p className="page-subtitle"> {frontmatter.subtitle}</p>
                     }
 
-                    <MediaQuery maxWidth={1023}>
-                        <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
-                    </MediaQuery>
+                    {!isDesktop &&
+                        <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>}
                 </header>
 
                 <div className="page-content">
@@ -39,11 +43,9 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
 
             </article>
 
-                <aside className="sidebar-right">
-                    <MediaQuery minWidth={1024}>
-                        <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
-                    </MediaQuery>
-                </aside>
+            <aside className="sidebar-right">
+                {isDesktop && <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>}
+            </aside>
         </Layout>
     )
 }
