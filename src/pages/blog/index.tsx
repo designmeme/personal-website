@@ -31,7 +31,10 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                 그럼, 시-작 🤓
             </p>
 
-            <GoogleAdsense layoutKey="-gu-3+1f-3d+2z" slot="6555927968"/>
+            {/*블로그 상단용(인피드)*/}
+            <div className="blog-top-ad">
+                <GoogleAdsense layoutKey="-gu-3+1f-3d+2z" slot="6555927968"/>
+            </div>
 
             <div className="blog">
                 {blogSubjects.map(subject => (
@@ -63,6 +66,11 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                         </ul>
                     </div>
                 ))}
+            </div>
+
+            <div className="blog-bottom-ad">
+                {/*블로그 하단용(디스플레이)*/}
+                <GoogleAdsense format="auto" slot="2345060685" responsive={true}/>
             </div>
         </PageLayout>
     )

@@ -43,3 +43,8 @@
     }
   }
 }
+
+.blog-top-ad,
+.blog-bottom-ad {
+  margin: calc($section-margin / 2) 0;
+}
