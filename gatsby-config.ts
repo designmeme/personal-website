@@ -209,6 +209,7 @@ const config: GatsbyConfig = {
                     feed_url: siteMetadata.siteUrl + output,  // atom:link 생성용
                     // todo icon image
                     // image_url: '',
+                    ...siteMetadata,
                     ...rest,
                 }),
                 feeds: [
