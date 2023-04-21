@@ -101,11 +101,17 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 </MediaQuery>
 
                 <div className="post-top-ad">
+                    {/*포스트 상단용(인피드)*/}
                     <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                 </div>
 
                 <div className="page-content heading-number">
                     <MDXProvider components={shortcodes}>{children}</MDXProvider>
+                </div>
+
+                <div className="post-bottom-ad">
+                    {/*포스트 하단용(디스플레이)*/}
+                    <GoogleAdsense format="auto" slot="6926754782" responsive={true}/>
                 </div>
 
                 <footer className="page-footer">
