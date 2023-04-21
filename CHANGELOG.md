@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.14.0](https://github.com/designmeme/personal-website/compare/v1.13.0...v1.14.0) (2023-04-21)
+
+
+### Features
+
+* **ui:** 구글 애드센스 광고 차단 회복 기능 추가 ([20263df](https://github.com/designmeme/personal-website/commit/20263df58597950c07740ea807e7b75266b71f0b)), closes [#49](https://github.com/designmeme/personal-website/issues/49)
+* **ui:** 블로그 하단에 구글 애드센스 광고 추가 ([165348c](https://github.com/designmeme/personal-website/commit/165348cd3b3a6dd7f626caea738f6232effce8fe)), closes [#56](https://github.com/designmeme/personal-website/issues/56)
+* **ui:** 포스트 하단에 구글 애드센스 광고 추가 ([18f775a](https://github.com/designmeme/personal-website/commit/18f775a668556224a41d69eaa3358fefa5588f0f)), closes [#56](https://github.com/designmeme/personal-website/issues/56)
+
 ## [1.13.0](https://github.com/designmeme/personal-website/compare/v1.12.0...v1.13.0) (2023-04-20)
 
 
