@@ -8,7 +8,7 @@ categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, Gatsby, RSS, 웹 피드, 방문자 늘리기, Gatsby Plugins]
 image: ../images/post/gatsby-rss.png
 createdAt: 2023-04-21T19:00:00+09:00
-updatedAt: 2023-04-22T12:00:00+09:00
+updatedAt: 2023-04-23T12:00:00+09:00
 ---
 
 <div className="lead">
@@ -49,6 +49,7 @@ Gatsby 웹사이트에 블로그 페이지가 있나요? 그렇다면 RSS 피드
 💁‍♀️ 만약 Atom/JSON 피드 형식이 필요하다면 플러그인 검색 결과에 나온 다른 플러그인을 살펴보세요.
 
 * RSS 피드 파일을 생성해요.
+    * 이를 위해 노트 패키지 [rss](https://www.npmjs.com/package/rss)를 사용해요.
 * 모든 웹페이지의 `head` 요소에 피드 파일을 가리키는 `link` 요소를 추가해요.
 * production 모드에서만 실행돼요.
 
@@ -140,9 +141,9 @@ Gatsby 웹사이트에 블로그를 아래와 같은 스펙으로 개발했을 �
     ---
     ```
 
-4. 블로그 포스트 **주소**는 frontmatter 정보의 slug 값을 사용해요.
+4. 블로그 포스트 웹페이지 **주소**는 frontmatter 정보의 slug 값을 사용해요.
 
-    블로그 주소: `/blog/{post.frontmatter.slug}`
+    웹페이지 주소: `/blog/{post.frontmatter.slug}`
 
 ---
 
@@ -188,8 +189,15 @@ const config: GatsbyConfig = {
                     }
                   }
                 `,
-                setup: (options: {}) => ({}),
-                feeds: [{...}, ]
+                // defaultOptions.setup 과 동일한 내용
+                // defaultOptions https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-feed/src/internals.js
+                setup: ({ query: { site: { siteMetadata }}, ...feed }) => ({
+                    ...siteMetadata,
+                    ...feed,
+                }),
+                feeds: [{
+                    serialize: ({ query: { site: { siteMetadata } }}) => []
+                }, ]
             }
         },
     ]
@@ -209,7 +217,8 @@ export default config;
 #### 옵션 setup 설정하기
 
 쿼리 데이터와 설정값을 받아서 **RSS 피드 객체를 반환**하는 함수를 작성해요.
-여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.
+여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.<br/>
+[defaultOptions](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-feed/src/internals.js)으로 지정된 함수를 사용하지 않는 경우만 작성하면 돼요.
 
 <p className="code-label code-label-typescript">gatsby-config.ts setup 설정 예시</p>
 
@@ -222,16 +231,17 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-plugin-feed',
             options: {
                 query: `...`,
-                setup: ({query: {site: {siteMetadata}}, output, ...rest}) => ({
+                // setup 함수 재설정
+                setup: ({query: {site: {siteMetadata}}, ...feed}) => ({
                     // 권장형식: username@hostname.tld (Real Name)
                     managingEditor: `${siteMetadata.email} (${siteMetadata.author})`,
                     webMaster: `${siteMetadata.email} (${siteMetadata.author})`,
-                    feed_url: siteMetadata.siteUrl + output,  // atom:link 생성용
+                    feed_url: siteMetadata.siteUrl + feed.output,  // atom:link 생성용
                     ...siteMetadata,
-                    ...rest,
+                    ...feed,
                 }),
                 feeds: [{
-                    output: 'rss.xml',
+                    output: '/rss.xml',
                     managingEditor: 'setup에서 설정한 managingEditor를 덮어쓸 정보',
                     ...
                 }, ]
@@ -243,10 +253,12 @@ const config: GatsbyConfig = {
 export default config;
 ```
 
+`feeds` 배열을 순환하며 `feed`를 인자로 넣어 `setup` 함수를 호출해요.
+리턴 받은 피드 객체는 노드 패키지 `rss`의 `RSS` 인스턴스를 만드는데 사용해요.
+
 * 옵션 `query`에 작성한 기본 쿼리 데이터를 사용할 수 있어요.
 * 옵션 `feeds`의 각 피드에 동일하게 작성할 채널 하위 요소를 설정하면 유용해요.
-  * 예시의 `output` 등 피드의 모든 객체 데이터를 사용할 수 있어요.
-  * `setup`에서 설정한 값을 각 피드 객체에 재설정할 수 있어요.
+  * 예시의 `feed.output` 등 피드의 모든 객체 데이터를 사용할 수 있어요.
 
 ---
 
@@ -320,7 +332,7 @@ const config: GatsbyConfig = {
                         `,
                         // 필수
                         // @ts-ignore
-                        serialize: ({query: {site, allPostMdx}}) => allPostMdx.nodes.map(node => {
+                        serialize: ({query: {site: {siteMetadata}, allPostMdx}}) => allPostMdx.nodes.map(node => {
                             const image = getImage(node.frontmatter.image)
                             const imageSrc = image?.images.fallback?.src
 
@@ -329,14 +341,14 @@ const config: GatsbyConfig = {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
                                 // utm 정보 추가
-                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
+                                url: `${siteMetadata.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 guid: `blog-${node.frontmatter.slug}`,
                                 custom_elements: [
                                     image && {
                                         'media:content': [
                                             {
                                                 _attr: {
-                                                    url: site.siteMetadata!.siteUrl! + imageSrc,
+                                                    url: siteMetadata.siteUrl! + imageSrc,
                                                     type: `image/webp`,
                                                     width: image.width,
                                                     height: image.height,
@@ -402,14 +414,21 @@ gatsby build && gatsby serve
 >
     <channel>
         <title><![CDATA[이지혜, 프론트엔드 웹 개발자]]></title>
-        <description><![CDATA[이지혜, 프론트엔드 웹 개발자]]></description>
+        <description><![CDATA[Freelance Front-end Web Developer]]></description>
         <link>https://heyjihye.com/blog/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
         <generator>GatsbyJS</generator>
-        <lastBuildDate>Fri, 21 Apr 2023 07:51:57 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 21 Apr 2023 12:26:22 GMT</lastBuildDate>
         <atom:link href="https://heyjihye.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[이지혜]]></author>
+        <copyright><![CDATA[© 2017-2023 이지혜 All rights reserved.]]></copyright>
+        <language><![CDATA[ko]]></language>
         <managingEditor><![CDATA[ghe.lee19@gmail.com (이지혜)]]></managingEditor>
         <webMaster><![CDATA[ghe.lee19@gmail.com (이지혜)]]></webMaster>
-        <creativeCommons:license>https://creativecommons.org/licenses/by-nc-nd/4.0/</creativeCommons:license>
+        <category><![CDATA[Tech]]></category>
+        <category><![CDATA[Web Dev]]></category>
+        <category><![CDATA[웹개발]]></category>
+        <category><![CDATA[Programming]]></category>
+        <category><![CDATA[개발블로그]]></category>
         <item>
             <title><![CDATA[RSS 피드 추가하기 — gatsby-plugin-feed 사용법]]></title>
             <description><![CDATA[준비물 👩‍🎓 RSS 개념 및 명세에 대한 지식: RSS가 무엇인지 혹은 피드에 어떤 내용을 써야 할지 모르겠다면? 이 글을 먼저 읽어보세요. → RSS 피드 💜 Gatsby 웹사이트: Gatsby로 만든 웹사이트가 필요해요. 없다면 먼저 Gatsby 웹사이트를 만들어 보세요. → Gatsby Quick Start 📰 시리즈 콘텐츠: 블로그 포스트나 기사, 팟캐스트 등 계속 발행하는 콘텐츠가 있어야 해요.
@@ -434,6 +453,21 @@ Gatsby 웹사이트에 RSS 피드 추가하기
         <item>...</item>
     </channel>
 </rss>
+```
+
+모든 HTML 파일의 `head` 요소에 피드 파일을 가리키는 `link` 요소가 추가된 걸 확인할 수 있어요.
+
+<p className="code-label code-label-html">index.html</p>
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        ...
+        <link rel="alternate" type="application/rss+xml" title="이지혜, 프론트엔드 웹 개발자" href="/rss.xml"/>
+    </head>
+    <body>...</body>
+</html>
 ```
 
 ---
