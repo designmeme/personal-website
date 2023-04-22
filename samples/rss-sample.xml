@@ -8,13 +8,21 @@
 >
     <channel>
         <title><![CDATA[이지혜, 프론트엔드 웹 개발자]]></title>
-        <description><![CDATA[이지혜, 프론트엔드 웹 개발자]]></description>
+        <description><![CDATA[Freelance Front-end Web Developer]]></description>
         <link>https://heyjihye.com/blog/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
         <generator>GatsbyJS</generator>
-        <lastBuildDate>Fri, 21 Apr 2023 07:51:57 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 21 Apr 2023 12:26:22 GMT</lastBuildDate>
         <atom:link href="https://heyjihye.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[이지혜]]></author>
+        <copyright><![CDATA[© 2017-2023 이지혜 All rights reserved.]]></copyright>
+        <language><![CDATA[ko]]></language>
         <managingEditor><![CDATA[ghe.lee19@gmail.com (이지혜)]]></managingEditor>
         <webMaster><![CDATA[ghe.lee19@gmail.com (이지혜)]]></webMaster>
+        <category><![CDATA[Tech]]></category>
+        <category><![CDATA[Web Dev]]></category>
+        <category><![CDATA[웹개발]]></category>
+        <category><![CDATA[Programming]]></category>
+        <category><![CDATA[개발블로그]]></category>
         <creativeCommons:license>https://creativecommons.org/licenses/by-nc-nd/4.0/</creativeCommons:license>
         <item>
             <title><![CDATA[RSS 피드 추가하기 — gatsby-plugin-feed 사용법]]></title>

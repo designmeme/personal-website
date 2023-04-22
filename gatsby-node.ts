@@ -14,40 +14,36 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
     // 참고: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#create-pages-from-sourced-mdx-files
     const {data} = await graphql<Queries.CreatePostPagesQuery>(`
         query CreatePostPages {
-          allMdx(
-            filter: {fields: {sourceInstanceName: {eq: "posts"}}}
-            sort: {frontmatter: {order: ASC}}
-          ) {
-            group(field: {frontmatter: {subject: {slug: SELECT}}}) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    slug
-                  }
-                  internal {
-                    contentFilePath
-                  }
+            allMdx(
+                filter: {fields: {sourceInstanceName: {eq: "posts"}}}
+                sort: {frontmatter: {order: ASC}}
+            ) {
+                group(field: {frontmatter: {subject: {slug: SELECT}}}) {
+                    edges {
+                        node {
+                            id
+                            # 그룹 경계를 넘은 포스트 내부 네비게이션을 위해 next/previous용 정보도 필요
+                            frontmatter {
+                                subject {
+                                    slug
+                                    title
+                                }
+                                slug
+                                title
+                            }
+                            internal {
+                                contentFilePath
+                            }
+                        }
+                    }
                 }
-                next {
-                  frontmatter {
-                    slug
-                    title
-                  }
-                }
-                previous {
-                  frontmatter {
-                    slug
-                    title
-                  }
-                }
-              }
             }
-          }
         }
     `)
 
-    data?.allMdx.group.forEach(group => group.edges.forEach(edge => {
+    const edges = data?.allMdx.group.flatMap(group => group.edges) || []
+
+    edges.forEach((edge, i) => {
         const node = edge.node
 
         createPage({
@@ -56,13 +52,13 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
             component: `${path.resolve(`src/templates/post.tsx`)}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
-                next: edge.next,
-                previous: edge.previous,
+                previous: i > 0 ? edges[i - 1].node : undefined,
+                next: i < edges.length - 1 ? edges[i + 1].node : undefined,
             },
             // https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#optimizing-pages-for-content-sync
             ownerNodeId: node.id,
         })
-    }))
+    })
 
     // Redirects 설정
     createRedirect({

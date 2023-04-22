@@ -8,7 +8,7 @@ categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, Gatsby, RSS, 웹 피드, 방문자 늘리기, Gatsby Plugins]
 image: ../images/post/gatsby-rss.png
 createdAt: 2023-04-21T19:00:00+09:00
-updatedAt: 2023-04-21T19:00:00+09:00
+updatedAt: 2023-04-22T12:00:00+09:00
 ---
 
 <div className="lead">
@@ -21,7 +21,7 @@ Gatsby 웹사이트에 블로그 페이지가 있나요? 그렇다면 RSS 피드
 
 * 👩‍🎓 **RSS 개념 및 명세에 대한 지식**: RSS가 무엇인지 혹은 피드에 어떤 내용을 써야 할지 모르겠다면? 이 글을 먼저 읽어보세요. → [RSS 피드](/blog/rss-feed)
 * 💜 **Gatsby 웹사이트**: Gatsby로 만든 웹사이트가 필요해요. 없다면 먼저 Gatsby 웹사이트를 만들어 보세요. → [Gatsby Quick Start](https://www.gatsbyjs.com/docs/quick-start/)
-* 📰 **시리즈 콘텐츠**: 블로그 포스트나 기사, 팟캐스트 등 계속 발행하는 콘텐츠가 있어야 해요.
+* 📰 **콘텐츠**: 블로그 포스트나 기사, 팟캐스트 등 계속 발행하는 콘텐츠가 있어야 해요.
 
 💁‍♀️ 예시는 **타입스크립트**로 작성했어요.
 타입스크립트가 아닌 자바스크립트를 사용하나요? 예시에서 타입 정보를 빼고 봐주세요.
@@ -93,7 +93,7 @@ export default config;
 
 옵션은 3개에요. 간단하게 설명하면
 * **query**: 기본 쿼리문을 작성해요. 각 피드에서 공통으로 사용할 데이터를 얻기 위해 사용할 수 있어요.
-* **setup**: 기본 RSS 피드 객체를 설정해요. 여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.
+* **setup**: 쿼리 데이터와 설정값을 받아서 RSS 피드 객체를 반환하는 함수를 작성해요. 여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.
 * **feeds**: 한 개 혹은 그 이상의 피드 객체를 배열에 담아요. 피드는 각각 RSS XML 파일로 만들어져요.
 
 ---
@@ -199,16 +199,17 @@ export default config;
 ```
 
 * 채널과 아이템 정보로 쓸 `siteMetadata` 쿼리문을 작성해요.
+* 쿼리 데이터는 옵션 `setup`과 각 피드의 `serialize` 함수에서 인자로 받아 사용할 수 있어요.
 * 키 이름은 [rss](https://www.npmjs.com/package/rss) 패키지의 [feedOptions](https://www.npmjs.com/package/rss#feedoptions) 요소와 동일하다면 그대로 채널 하위 요소로 사용됩니다.
   * 예시에서  `description`, `categories` 등은 자동으로 피드의 채널 하위 요소 `description`, `category`로 만들어져요.
-* 쿼리 데이터는 옵션 `setup`과 각 피드의 `serialize` 함수에서 인자로 받아 사용할 수 있어요.
 
 ---
 
 
 #### 옵션 setup 설정하기
 
-**기본 RSS 피드 객체**를 설정해요. 여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.
+쿼리 데이터와 설정값을 받아서 **RSS 피드 객체를 반환**하는 함수를 작성해요.
+여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.
 
 <p className="code-label code-label-typescript">gatsby-config.ts setup 설정 예시</p>
 
@@ -226,6 +227,7 @@ const config: GatsbyConfig = {
                     managingEditor: `${siteMetadata.email} (${siteMetadata.author})`,
                     webMaster: `${siteMetadata.email} (${siteMetadata.author})`,
                     feed_url: siteMetadata.siteUrl + output,  // atom:link 생성용
+                    ...siteMetadata,
                     ...rest,
                 }),
                 feeds: [{

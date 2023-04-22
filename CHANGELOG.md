@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.16.0](https://github.com/designmeme/personal-website/compare/v1.15.0...v1.16.0) (2023-04-22)
+
+
+### Features
+
+* **ui:** 포스트 페이지의 제목 위에 주제 보여주기(breadcrumb 추가) ([71d22c3](https://github.com/designmeme/personal-website/commit/71d22c3190ff55889b5c2ab3bef7e3c2dbe020cc)), closes [#71](https://github.com/designmeme/personal-website/issues/71)
+* **ui:** 포스트 하단 이전/다음 글에 다른 주제 그룹 글도 표기 ([d78e265](https://github.com/designmeme/personal-website/commit/d78e265d9a5a81b8ebd03fabcbd7fca675eee95a)), closes [#74](https://github.com/designmeme/personal-website/issues/74)
+
+
+### Bug Fixes
+
+* **contents:** siteMetadata 누락 정보 추가 및 setup 설명문 수정 ([1ff5ff4](https://github.com/designmeme/personal-website/commit/1ff5ff4d29254cba5667bd3b9b0e458e7fc46be4))
+* **ui:** 푸터 저작권 글자 너무 큰 문제 수정 ([986d753](https://github.com/designmeme/personal-website/commit/986d753d412627189baf848cde44a3724f7ba5d1))
+* 업데이트 일시 수정 ([b9744b9](https://github.com/designmeme/personal-website/commit/b9744b9068d73894c97969d3aeb99286d3b5f973))
+* 피드에 일부 채널 하위 요소 사라진 문제 해결(siteMetadata 누락 정보 추가) ([d5d89d0](https://github.com/designmeme/personal-website/commit/d5d89d07e46f67129c480099403ecd5451c0f234))
+
 ## [1.15.0](https://github.com/designmeme/personal-website/compare/v1.14.0...v1.15.0) (2023-04-21)
 
 

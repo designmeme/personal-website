@@ -21,6 +21,34 @@
   margin-bottom: calc($section-margin / 2);
 }
 
+.breadcrumb {
+  @extend .p-small;
+  margin-bottom: 2.5rem;
+  margin-left: 0.25em;
+  ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+      &::after {
+        display: inline-block;
+        content: '>';
+        color: $text-color-silver;
+        margin: 0 0.5em;
+      }
+      a {
+        text-decoration: none;
+        color: $text-color-muted;
+        &:hover {
+          color: $brand-primary;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
 .page-title {
   margin: 0;
   text-indent: -.02em;

@@ -76,6 +76,13 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
             <article className="page">
                 <header className="page-header">
+                    <nav aria-label="breadcrumb" className="breadcrumb">
+                        <ol>
+                            <li><Link to={'/blog'}>블로그</Link></li>
+                            <li><Link to={`/blog/#${subject.slug}`}>{subject.title}</Link></li>
+                        </ol>
+                    </nav>
+
                     <h1 className="page-title">
                         {title}
                     </h1>
