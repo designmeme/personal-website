@@ -185,6 +185,7 @@ const config: GatsbyConfig = {
         // https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/
         {
             resolve: `gatsby-plugin-feed`,
+            // defaultOptions https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-feed/src/internals.js
             options: {
                 query: `
                   {
@@ -202,15 +203,15 @@ const config: GatsbyConfig = {
                   }
                 `,
                 // @ts-ignore
-                setup: ({query: {site: {siteMetadata}}, output, ...rest}) => ({
+                setup: ({query: {site: {siteMetadata}}, ...feed}) => ({
                     // 권장형식: username@hostname.tld (Real Name)
                     managingEditor: `${siteMetadata.email} (${siteMetadata.author})`,
                     webMaster: `${siteMetadata.email} (${siteMetadata.author})`,
-                    feed_url: siteMetadata.siteUrl + output,  // atom:link 생성용
+                    feed_url: siteMetadata.siteUrl + feed.output,  // atom:link 생성용
                     // todo icon image
                     // image_url: '',
                     ...siteMetadata,
-                    ...rest,
+                    ...feed,
                 }),
                 feeds: [
                     {
@@ -254,7 +255,7 @@ const config: GatsbyConfig = {
                           }
                         `,
                         // @ts-ignore
-                        serialize: ({query: {site, allPostMdx}}) => allPostMdx.nodes.map(node => {
+                        serialize: ({query: {site: {siteMetadata}, allPostMdx}}) => allPostMdx.nodes.map(node => {
                             const image = getImage(node.frontmatter.image)
                             const imageSrc = image?.images.fallback?.src
 
@@ -263,7 +264,7 @@ const config: GatsbyConfig = {
                                 // item options: https://www.npmjs.com/package/rss#itemoptions
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
-                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
+                                url: `${siteMetadata.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 // - node.id 를 사용할 수 없음. 참고) https://github.com/gatsbyjs/gatsby/issues/19323
                                 guid: `blog-${node.frontmatter.slug}`,
@@ -272,7 +273,7 @@ const config: GatsbyConfig = {
                                         'media:content': [
                                             {
                                                 _attr: {
-                                                    url: site.siteMetadata!.siteUrl! + imageSrc,
+                                                    url: siteMetadata.siteUrl! + imageSrc,
                                                     type: `image/webp`,
                                                     width: image.width,
                                                     height: image.height,
