@@ -43,15 +43,15 @@ const config: GatsbyConfig = {
                   }
                 `,
                 // @ts-ignore
-                setup: ({query: {site: {siteMetadata}}, output, ...rest}) => ({
+                setup: ({query: {site: {siteMetadata}}, ...feed}) => ({
                     // 권장형식: username@hostname.tld (Real Name)
                     managingEditor: `${siteMetadata.email} (${siteMetadata.author})`,
                     webMaster: `${siteMetadata.email} (${siteMetadata.author})`,
-                    feed_url: siteMetadata.siteUrl + output,  // atom:link 생성용
+                    feed_url: siteMetadata.siteUrl + feed.output,  // atom:link 생성용
                     // todo icon image
                     // image_url: '',
                     ...siteMetadata,
-                    ...rest,
+                    ...feed,
                 }),
                 feeds: [
                     {
@@ -106,7 +106,7 @@ const config: GatsbyConfig = {
                           }
                         `,
                         // @ts-ignore
-                        serialize: ({query: {site, allPostMdx}}) => allPostMdx.nodes.map(node => {
+                        serialize: ({query: {site: {siteMetadata}, allPostMdx}}) => allPostMdx.nodes.map(node => {
                             const image = getImage(node.frontmatter.image)
                             const imageSrc = image?.images.fallback?.src
 
@@ -116,14 +116,14 @@ const config: GatsbyConfig = {
                                 title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
                                 description: node.excerpt,
                                 // utm 정보 추가
-                                url: `${site.siteMetadata!.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
+                                url: `${siteMetadata.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 guid: `blog-${node.frontmatter.slug}`,
                                 custom_elements: [
                                     image && {
                                         'media:content': [
                                             {
                                                 _attr: {
-                                                    url: site.siteMetadata!.siteUrl! + imageSrc,
+                                                    url: siteMetadata.siteUrl! + imageSrc,
                                                     type: `image/webp`,
                                                     width: image.width,
                                                     height: image.height,

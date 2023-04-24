@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.17.0](https://github.com/designmeme/personal-website/compare/v1.16.0...v1.17.0) (2023-04-24)
+
+
+### Features
+
+* **contents:** gatsby-rss 내용 보완 및 누락 내용 추가 ([9937a97](https://github.com/designmeme/personal-website/commit/9937a97ee6a58cc5d2c3111f6b3ca648d8afc8c8))
+* 구글 애드센스 광고 차단 회복의 오류 방지 메세지 스크립트 추가 ([4dd0ff4](https://github.com/designmeme/personal-website/commit/4dd0ff439dd042672857e85514b87ab3af5d29d1))
+
 ## [1.16.0](https://github.com/designmeme/personal-website/compare/v1.15.0...v1.16.0) (2023-04-22)
 
 
