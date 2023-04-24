@@ -4,6 +4,7 @@ import SeoHead from "../../components/seo-head";
 import PageLayout, {PageFrontmatter} from "../../components/page-layout";
 import resumeData from '../../data/resume.json'
 import CareerList from "../../components/career-list";
+import {Link} from "gatsby";
 
 
 export const frontmatter: PageFrontmatter = {
@@ -17,6 +18,8 @@ export const frontmatter: PageFrontmatter = {
 const ResumePage: React.FC<PageProps> = () => {
     return (
         <PageLayout frontmatter={frontmatter}>
+            <h3>이력서</h3>
+
             <h5>프로필</h5>
             <dl className="profile-list">
                 <dt className="profile-title">이름</dt>
@@ -24,7 +27,7 @@ const ResumePage: React.FC<PageProps> = () => {
                 <dt className="profile-title">이메일</dt>
                 <dd className="profile-description">ghe.lee19@gmail.com</dd>
                 <dt className="profile-title">홈페이지</dt>
-                <dd className="profile-description">https://heyjihye.com</dd>
+                <dd className="profile-description"><Link to={'/'}>https://heyjihye.com</Link></dd>
             </dl>
 
             <hr/>
