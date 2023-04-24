@@ -9,7 +9,7 @@ import {Link} from "gatsby";
 
 export const frontmatter: PageFrontmatter = {
     title: `이력서 및 경력기술서`,
-    subtitle: `프론트엔드 웹 개발자 이지혜입니다`,
+    subtitle: `프론트엔드 웹 개발자 이지혜`,
     excerpt: `다양한 형태의 웹사이트와 모바일 웹, 반응형 웹 그리고 웹 접근성 프로젝트까지 풍부한 개발 경험을 가지고 있습니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
     updatedAt: `2023-03-31T13:00:00+09:00`,
@@ -18,7 +18,10 @@ export const frontmatter: PageFrontmatter = {
 const ResumePage: React.FC<PageProps> = () => {
     return (
         <PageLayout frontmatter={frontmatter}>
-            <h3>이력서</h3>
+            <h3 style={{marginTop: '5rem'}}>이력서</h3>
+            <p>{frontmatter.excerpt}</p>
+
+            <hr/>
 
             <h5>프로필</h5>
             <dl className="profile-list">
