@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.17.1](https://github.com/designmeme/personal-website/compare/v1.17.0...v1.17.1) (2023-04-25)
+
+
+### Bug Fixes
+
+* **contents:** 이력서 제목 추가 ([28a0663](https://github.com/designmeme/personal-website/commit/28a066387bfbf6ff39599a545cd7f377077dfff3))
+* **print:** 첫 페이지 상단에 마진 생기는 문제 수정 ([f0469b5](https://github.com/designmeme/personal-website/commit/f0469b5b7ca468186250a670b4ac75a63c1da429))
+* **resume:** 구글 검색결과에 페이지 설명 표시되도록 수정 ([acc3863](https://github.com/designmeme/personal-website/commit/acc386302213f444938962abcb944dd8b7907271))
+* 구글 애드 센스 광고 차단 회복 기능 동작 안하는 문제 해결 ([22280a9](https://github.com/designmeme/personal-website/commit/22280a9b31c12f156e5c647bb100d6c9991f4da1))
+
 ## [1.17.0](https://github.com/designmeme/personal-website/compare/v1.16.0...v1.17.0) (2023-04-24)
 
 

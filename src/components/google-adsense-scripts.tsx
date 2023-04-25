@@ -1,5 +1,4 @@
 import React from 'react';
-import {Script} from "gatsby";
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 
 const GoogleAdsenseScripts = () => {
@@ -12,7 +11,8 @@ const GoogleAdsenseScripts = () => {
 
     return (
         <>
-            <Script
+            {/*Script API 사용시 SSR 문서에 포함되지 않아 작동하지 않음. HTML script 태그를 사용 해야함.*/}
+            <script
                 key={`google-adsense`}
                 data-ad-client={`${googleAdsense}`}
                 src={"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
@@ -20,20 +20,20 @@ const GoogleAdsenseScripts = () => {
             />
 
             {/*광고 차단 회복 - 사이트에 광고 차단 태그를 배포하여 광고 차단 회복 메시지를 사용*/}
-            <Script
+            <script
                 key={`google-adsense-allow-ads`}
                 src="https://fundingchoicesmessages.google.com/i/pub-3088246349891349?ers=1"
                 nonce="Q7HdKeR1a3ZW-wWmFpiNzg"
                 async
             />
-            <Script
+            <script
                 key={`google-adsense-allow-ads2`}
                 nonce="Q7HdKeR1a3ZW-wWmFpiNzg">{`
                         (function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();
-                    `}</Script>
+                    `}</script>
 
             {/*광고 차단 회복 > 오류 방지 메세지*/}
-            <Script
+            <script
                 key={`google-adsense-allow-ads3`}>{`(function(){
                         /*
                          Copyright The Closure Library Authors.
@@ -52,7 +52,7 @@ const GoogleAdsenseScripts = () => {
                         var sa=function(a){ta(a);S(a.m,a.o,3,!1,function(){a:{var b=a.i;var c=r.btoa(b);if(c=r[c]){try{var d=O(P,r.atob(c))}catch(e){b=!1;break a}b=b===K(d,1)}else b=!1}b?Z(a,K(a.g,14)):(Z(a,K(a.g,8)),V(a.j))},function(){pa(function(){Z(a,K(a.g,7));V(a.j)},function(){return Z(a,K(a.g,6))},K(a.g,9),K(a.g,10),K(a.g,11))})},Z=function(a,b){a.h||(a.h=!0,a=new a.l.XMLHttpRequest,a.open("GET",b,!0),a.send())},ta=function(a){var b=r.btoa(a.i);a.l[b]&&Z(a,K(a.g,5))};(function(a,b){r[a]=function(c){for(var d=[],e=0;e<arguments.length;++e)d[e-0]=arguments[e];r[a]=da;b.apply(null,d)}})("__h82AlnkH6D91__",function(a){"function"===typeof window.atob&&(new ra(window,O(qa,window.atob(a)))).start()});}).call(this);
 
                         window.__h82AlnkH6D91__("WyJwdWItMzA4ODI0NjM0OTg5MTM0OSIsW251bGwsbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9iL3B1Yi0zMDg4MjQ2MzQ5ODkxMzQ5Il0sbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9lbC9BR1NLV3hXMTRkT3NtQUNQTUo4RndrR21RWmhqOFVRSVYyS0ItcmRfNW9KVzJLWV9OTFpWeG14aERTa1RHS3piSGRrd0p3Rk0wNHV2UkoydDAzV0NOTEdaX0lsM1FBXHUwMDNkXHUwMDNkP3RlXHUwMDNkVE9LRU5fRVhQT1NFRCIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFZFR2NHU3NjbGZiZGswb0FJdDVLRUhxRWtmT3M4a3F3UlI3c0VqOExrU2J3V3Y0R2RKQjE4alJxYmd6eWpWeTlxLVFYbWVZVXR6TzQySml3YU5ENkg3TVFcdTAwM2RcdTAwM2Q/YWJcdTAwM2QxXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFYyWkx1bGlsX2xyRUpQcW52bmVSeXBGdUFjM0FfeDZrMjVEQlpObzF6MmVZZlIwcXRGNzBWTkNoS1VHdzdGX0hNSXJJNkRmczBRaFJIeDRUUU1pSG9oZXdcdTAwM2RcdTAwM2Q/YWJcdTAwM2QyXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFhVaU9Hd0RNUUFvOHRMVU9zZWZ0SGg4ZkFnV1gxdmRDcjMtUVZQR2pwRVktSTJmV21yWFdTalBiZW51UlZEQU5qSzBpd0c0YzNwOXJtdXZMMWJwMGJadWdcdTAwM2RcdTAwM2Q/c2JmXHUwMDNkMiIsImRpdi1ncHQtYWQiLDIwLDEwMCwiY0hWaUxUTXdPRGd5TkRZek5EazRPVEV6TkRrXHUwMDNkIixbbnVsbCxudWxsLG51bGwsImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tLzBlbW4vZi9wL3B1Yi0zMDg4MjQ2MzQ5ODkxMzQ5LmpzP3VzcXBcdTAwM2RDQTQiXSwiaHR0cHM6Ly9mdW5kaW5nY2hvaWNlc21lc3NhZ2VzLmdvb2dsZS5jb20vZWwvQUdTS1d4V3MxZkl6TlBqMURNeXJpMnUxdzRvUzVvOGVOc1ZGdEdFbWJRSW1aUzlNTmNiT2ZHSnVTano1MUNhWUdqWlR5M084aGhhMzFjSWpBLUVfbmc0ZlZJd25kd1x1MDAzZFx1MDAzZCJd");
-                    `}</Script>
+                    `}</script>
         </>
     );
 };
