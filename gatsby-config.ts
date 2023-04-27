@@ -303,6 +303,11 @@ const config: GatsbyConfig = {
                             // bug: showLineNumbers: true 설정후 mdx 에서 개별적으로 numberLines: false 설정해도 계속 숫자가 생김.
                             // {numberLines: true} or {numberLines: 10}
                             showLineNumbers: false,
+                            aliases: {
+                                // mdx 지정시 아래 경고 문구 발생 방지용.
+                                // warn unable to find prism language 'mdx' for highlighting. applying generic code block
+                                mdx: 'md',
+                            }
                         }
                     },
                     // https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers
