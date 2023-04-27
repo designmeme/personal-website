@@ -10,7 +10,8 @@
     "slug": "gatsby-website",
     "title": "Gatsby 웹사이트 개발",
     "sort": [
-      "gatsby-rss"
+      "gatsby-rss",
+      "gatsby-fontawesome-fix-huge-icons"
     ]
   },
   {

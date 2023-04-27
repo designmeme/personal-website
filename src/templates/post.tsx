@@ -33,6 +33,8 @@ import RssFeedInfo from "../components/rss-feed-info";
 const shortcodes = {
     Link,
     SideBySide,
+    FontAwesomeIcon,
+    GoogleAdsense,
     a: (props: any) => <MdxLink {...props} />,
     span: (props: any) => <MdxFixSpan {...props} />,
 }
