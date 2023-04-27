@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.18.0](https://github.com/designmeme/personal-website/compare/v1.17.1...v1.18.0) (2023-04-27)
+
+
+### Features
+
+* **contents:** 새 포스트 "Font Awesome 아이콘 크기 버그 해결" 추가 ([1619e90](https://github.com/designmeme/personal-website/commit/1619e90c5e71472429412960a432d263b6e28f19))
+* MDXProvider 컴포넌트에 FontAwesomeIcon 추가 ([0ce594c](https://github.com/designmeme/personal-website/commit/0ce594c12386899a66d44e2607430db2ee4499e0))
+* 포스트 대표 이미지 변경 ([f09b613](https://github.com/designmeme/personal-website/commit/f09b613f81f109870d23af407bd053eee10a5388))
+* 포스트 페이지 중간에 광고 넣기 ([8886f20](https://github.com/designmeme/personal-website/commit/8886f204b91d5682efca0e1bfb6a824a80b9dc1f)), closes [#85](https://github.com/designmeme/personal-website/issues/85)
+
+
+### Bug Fixes
+
+* 구글 애드 센스 광고 차단 회복 기능 동작 안하는 문제 해결2 - nonce 수정 ([709c2f8](https://github.com/designmeme/personal-website/commit/709c2f81b9fff00aff9b41f208473bad0b17ac97))
+
 ## [1.17.1](https://github.com/designmeme/personal-website/compare/v1.17.0...v1.17.1) (2023-04-25)
 
 
