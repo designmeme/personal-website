@@ -2,7 +2,7 @@ import React from 'react';
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
-import {faCircle, faEnvelope, faSquareRss} from "@fortawesome/free-solid-svg-icons";
+import {faCircle, faEnvelope, faRss} from "@fortawesome/free-solid-svg-icons";
 import logoImage from "../images/common/logo-footer.svg";
 import {Link} from "gatsby";
 
@@ -23,19 +23,28 @@ const Footer: React.FC = () => {
                     <Link to={`/rss.xml`}
                           className="contact-link"
                           title="RSS 피드로 웹사이트 구독하기 📮"
-                    ><FontAwesomeIcon icon={faSquareRss}/><span className="sr-only">RSS 피드로 웹사이트 구독하기 📮</span></Link>
+                    >
+                        <FontAwesomeIcon icon={faRss} transform={'shrink-6 right-0.7 up-0.5'} mask={faCircle}/>
+                        <span className="sr-only">RSS 피드로 웹사이트 구독하기 📮</span>
+                    </Link>
 
                     <a href={"https://github.com/" + github_username}
                        className="contact-link"
                        title="GitHub 방문하기(새창)"
                        target="_blank"
-                    ><FontAwesomeIcon icon={faGithub}/><span className="sr-only">GitHub 방문하기</span></a>
+                    >
+                        <FontAwesomeIcon icon={faGithub}/>
+                        <span className="sr-only">GitHub 방문하기</span>
+                    </a>
 
                     <a href={"mailto:" + email}
                        className="contact-link"
                        title="이메일 보내기(새창)"
                        target="_blank"
-                    ><FontAwesomeIcon icon={faEnvelope} transform={'shrink-6'} mask={faCircle}/><span className="sr-only">이메일 보내기</span></a>
+                    >
+                        <FontAwesomeIcon icon={faEnvelope} transform={'shrink-6'} mask={faCircle}/>
+                        <span className="sr-only">이메일 보내기</span>
+                    </a>
                 </div>
 
                 <div className="site-copyright">{copyright}</div>
