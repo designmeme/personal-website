@@ -73,12 +73,15 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
     만약 다른 페이지에 아이콘이 있다면 그 페이지로 이동 후 **새로고침** 해요.
     <p className={'p-small'}>💁‍♀️ 웹페이지가 로딩된 후 내부에서 링크로 이동하면 현상을 확인할 수 없어요.</p>
 
----
+
+<div className={'post-middle-ad'}><GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="2288186528"/></div>
+
 
 ## 해결: 아이콘을 정상 크기로 만들자
 
 ![웹사이트 로딩시 Font Awesome 아이콘이 커지는 현상이 사라졌어요](/images/post/gatsby-fontawesome-fix-huge-icons-after.gif)
 
+---
 
 ### Next.js 웹사이트에 적용하기
 
@@ -125,6 +128,8 @@ Next.js도 Gatsby와 같은 React 프레임워크이고요.
 둘 다 서버 측 랜더링(이하 SSR) <SideBySide>Server-side Rendering</SideBySide>과 정적 사이트 생성(이하 SSG) <SideBySide>Static Site Generation</SideBySide> 기능을 제공하는데 이것 때문에 문제가 발생해요.
 하나씩 알아볼게요.
 
+---
+
 ### react-fontawesome 패키지가 아이콘 크기를 조정하는 방식
 
 1. Font Awesome CSS 코드는 동적으로 웹사이트에 추가돼요. 여기에는 아이콘 크기를 조정하는 스타일도 포함돼요.
@@ -149,7 +154,7 @@ Next.js도 Gatsby와 같은 React 프레임워크이고요.
 4. `height: 1em;` 스타일이 없다면 `svg`아이콘이 원본 크기로 보이는 것을 확인할 수 있어요.
     ![높이 스타일을 비활성화하면 아이콘이 원본 크기로 보여요](../images/post/fontawesome-disable-height-css.png)
 
----
+<div className={'post-middle-ad'}><GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="2288186528"/></div>
 
 ### 정상: React 프로젝트 + SSR/SSG 미설정
 React 웹사이트인데 SSR이나 SSG를 설정하지 **않았다면** 문제 되지 않아요.
