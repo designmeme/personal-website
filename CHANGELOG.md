@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.19.0](https://github.com/designmeme/personal-website/compare/v1.18.0...v1.19.0) (2023-04-28)
+
+
+### Features
+
+* **ui:** 포스트 페이지의 헤딩 앵커 스타일 추가 ([518265a](https://github.com/designmeme/personal-website/commit/518265a3bdf5ae639e49e838447bda9327390e47))
+
+
+### Bug Fixes
+
+* **contents:** 코드 언어 잘못 표기된 문제 수정 ([13fc668](https://github.com/designmeme/personal-website/commit/13fc6683554d98baab2e7a67c5ea9b94e62d9ad7))
+* **ui:** 하단 RSS 버튼 스타일 통일 ([0c65382](https://github.com/designmeme/personal-website/commit/0c6538224b2d9c570f16d7fba735635c9569ef84))
+* 구글 애드센스 관련 스크립트를 gatsby-ssr.tsx 파일에서 구현하도록 수정 ([dab2d9b](https://github.com/designmeme/personal-website/commit/dab2d9bcf4a20619005b604960f47a72b6fdc827))
+* 포스트 대표 이미지 변경 주소 반영 ([5a6ba01](https://github.com/designmeme/personal-website/commit/5a6ba01e7b743fc04843611eb48538b3ee30a0a2))
+
 ## [1.18.0](https://github.com/designmeme/personal-website/compare/v1.17.1...v1.18.0) (2023-04-27)
 
 
