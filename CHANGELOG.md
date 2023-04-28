@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.1](https://github.com/designmeme/personal-website/compare/v1.19.0...v1.19.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* 구글 애드센스 스크립트 중 인라인 내용을 dangerouslySetInnerHTML 속성으로 작성 ([2793c40](https://github.com/designmeme/personal-website/commit/2793c40f71b6b5429249f8102cdaaa56124e2dce))
+
 ## [1.19.0](https://github.com/designmeme/personal-website/compare/v1.18.0...v1.19.0) (2023-04-28)
 
 
