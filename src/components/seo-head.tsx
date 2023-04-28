@@ -2,7 +2,6 @@ import React from "react"
 import {useSiteMetadata} from "../hooks/use-site-metadata"
 import {Script} from "gatsby";
 import type {WithContext} from 'schema-dts';
-import GoogleAdsenseScripts from "./google-adsense-scripts";
 
 type Props = {
     title?: string | null
@@ -127,8 +126,6 @@ const SeoHead: React.FC<Props> = (
             {/*https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-seo-component/#rich-snippets */}
             {/*https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=ko*/}
             {schema.length && <Script type="application/ld+json" key={`ld-json`}>{JSON.stringify(schema)}</Script>}
-
-            <GoogleAdsenseScripts/>
 
             {/*todo etc*/}
             <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FC4A1A"/>

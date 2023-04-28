@@ -270,3 +270,13 @@ $sns-link-width: 3.3rem;
   }
 }
 
+// header anchor
+.anchor.before {
+  font-size: 22px;
+  padding-right: 10px;
+  svg {
+    path {
+      fill: $brand-primary;
+    }
+  }
+}

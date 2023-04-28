@@ -28,13 +28,14 @@ import BlogSideNav from "../components/blog-side-nav";
 import {useMediaQuery} from 'react-responsive'
 import PageMeta from "../components/page-meta";
 import RssFeedInfo from "../components/rss-feed-info";
+import GoogleAdPostMiddle from "../components/google-ad-post-middle";
 
 
 const shortcodes = {
     Link,
     SideBySide,
     FontAwesomeIcon,
-    GoogleAdsense,
+    GoogleAdPostMiddle,
     a: (props: any) => <MdxLink {...props} />,
     span: (props: any) => <MdxFixSpan {...props} />,
 }

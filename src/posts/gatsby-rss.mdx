@@ -6,7 +6,7 @@ subtitle: gatsby-plugin-feed 사용법
 excerpt:  Gatsby 웹사이트에 블로그 페이지가 있나요? 그렇다면 RSS 피드를 추가하세요!
 categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, Gatsby, RSS, 웹 피드, 방문자 늘리기, Gatsby Plugins]
-image: ../images/post/gatsby-rss.png
+image: ../images/post/gatsby-feed-v2.png
 createdAt: 2023-04-21T19:00:00+09:00
 updatedAt: 2023-04-23T12:00:00+09:00
 ---
@@ -41,7 +41,7 @@ Gatsby 웹사이트에 블로그 페이지가 있나요? 그렇다면 RSS 피드
     가장 위 **gatsby-plugin-feed** 플러그인이 가장 많이 사용하는 공식 플러그인이에요. 이 플러그인을 사용할게요.
     !["feed" 키워드로 검색하니 55개 Gatsby 플러그인이 있어요 (2023.4.20 기준)](../images/post/gatsby-feed-plugin-search-result.png)
 
-<div className={'post-middle-ad'}><GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="2288186528"/></div>
+<GoogleAdPostMiddle/>
 
 ## gatsby-plugin-feed 활용
 
@@ -129,8 +129,9 @@ Gatsby 웹사이트에 블로그를 아래와 같은 스펙으로 개발했을 �
 
 3. 블로그 포스트는 아래와 같은 **frontmatter** 정보를 가져요.
 
-    <p className="code-label code-label-typescript">각 포스트의 MDX 파일의 frontmatter 예시</p>
-    ```MDX
+    <p className="code-label code-label-mdx">각 포스트의 MDX 파일의 frontmatter 예시</p>
+
+    ```mdx
     ---
     slug: gatsby-rss
     title: RSS 피드 추가하기
@@ -260,7 +261,7 @@ export default config;
 * 옵션 `feeds`의 각 피드에 동일하게 작성할 채널 하위 요소를 설정하면 유용해요.
   * 예시의 `feed.output` 등 피드의 모든 객체 데이터를 사용할 수 있어요.
 
-<div className={'post-middle-ad'}><GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="2288186528"/></div>
+<GoogleAdPostMiddle/>
 
 #### 옵션 feeds 설정하기
 

@@ -303,6 +303,11 @@ const config: GatsbyConfig = {
                             // bug: showLineNumbers: true 설정후 mdx 에서 개별적으로 numberLines: false 설정해도 계속 숫자가 생김.
                             // {numberLines: true} or {numberLines: 10}
                             showLineNumbers: false,
+                            aliases: {
+                                // mdx 지정시 아래 경고 문구 발생 방지용.
+                                // warn unable to find prism language 'mdx' for highlighting. applying generic code block
+                                mdx: 'md',
+                            }
                         }
                     },
                     // https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers
@@ -311,6 +316,8 @@ const config: GatsbyConfig = {
                         options: {
                             // 로딩시에만 적용됨. ToC에서 링크 클릭시에는 offset 없음.
                             offsetY: `50`,
+                            // https://fontawesome.com/icons/hashtag?f=classic&s=solid
+                            icon: '<svg aria-hidden="true" focusable="false" class="svg-inline--fa" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128h95.1l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H347.1L325.8 320H384c17.7 0 32 14.3 32 32s-14.3 32-32 32H315.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7H155.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l21.3-128H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320h95.1l21.3-128H187.1z"/></svg>',
                         }
                     },
                     // https://www.gatsbyjs.com/plugins/gatsby-remark-images/?=gatsby-remark-images
