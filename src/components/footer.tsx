@@ -21,14 +21,14 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className="site-contact">
-                    <Link to={`/rss.xml`}
-                          className="contact-link"
-                          title="RSS 피드로 웹사이트 구독하기 📮"
-                          onClick={() => gaEvent('navigation', 'click_rss', 'site_footer')}
+                    <a href="/rss.xml"
+                       className="contact-link"
+                       title="RSS 피드로 웹사이트 구독하기 📮"
+                       onClick={() => gaEvent('navigation', 'click_rss', 'site_footer')}
                     >
                         <FontAwesomeIcon icon={faRss} transform={'shrink-6 right-0.7 up-0.5'} mask={faCircle}/>
                         <span className="sr-only">RSS 피드로 웹사이트 구독하기 📮</span>
-                    </Link>
+                    </a>
 
                     <a href={"https://github.com/" + github_username}
                        className="contact-link"
