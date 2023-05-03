@@ -1,5 +1,6 @@
 import React, {useEffect, useInsertionEffect, useState} from 'react';
 import {Link} from "gatsby";
+import {gaEvent} from "../hooks/analytics";
 
 interface Item {
     url?: string
@@ -33,7 +34,11 @@ const TocList: React.FC<TocListProps> = ({toc, activeId, depth = 0}) => {
 
                         return (
                             <li key={index}>
-                                {item.url && <Link to={item.url} className={activeClass}>{item.title}</Link>}
+                                {item.url && <Link
+                                    to={item.url}
+                                    className={activeClass}
+                                    onClick={() => gaEvent('navigation', 'click_toc', item.title)}
+                                >{item.title}</Link>}
                                 {item.items && <TocList toc={item} activeId={activeId} depth={depth}/>}
                             </li>
                         )
@@ -92,7 +97,11 @@ const Toc: React.FC<Props> = ({toc, title, useScrollActive = true}) => {
         <>
             {toc.items && (
                 <div className={`markdown-toc`}>
-                    <Link to={'.'} className={`toc-title ${activeId == '' ? 'active': ''}`}>목차: {title}</Link>
+                    <Link
+                        to={'.'}
+                        className={`toc-title ${activeId == '' ? 'active': ''}`}
+                        onClick={() => gaEvent('navigation', 'click_toc', title)}
+                    >목차: {title}</Link>
                     <TocList toc={toc} activeId={activeId}/>
                 </div>
             )}
