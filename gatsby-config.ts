@@ -78,6 +78,7 @@ const config: GatsbyConfig = {
                 },
             },
         },
+        // https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/
         {
             resolve: "gatsby-plugin-google-gtag",
             options: {
