@@ -24,7 +24,7 @@ const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes, tags}) =>
                     <span className="modified">
                         <time dateTime={updatedAt}>
                             {moment(updatedAt).format('LL')}
-                        </time> 수정함
+                        </time> 수정
                     </span>
                 )}
 

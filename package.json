@@ -1,6 +1,6 @@
 {
   "name": "personal-site",
-  "version": "1.19.1",
+  "version": "1.20.0",
   "private": true,
   "description": "personal-site",
   "author": "jihye",
@@ -46,13 +46,13 @@
     "reading-time": "^1.5.0",
     "remark-footnotes": "^3.0.0",
     "remark-gfm": "^1.0.0",
-    "sass": "^1.62.0",
+    "sass": "^1.62.1",
     "schema-dts": "^1.1.2"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
+    "@types/node": "^18.16.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "typescript": "^5.0.4"
   }
 }

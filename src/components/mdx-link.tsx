@@ -18,6 +18,7 @@
 import React from 'react';
 import {Link} from 'gatsby'
 import {OutboundLink} from "gatsby-plugin-google-gtag";
+import {gaEvent} from "../hooks/analytics";
 
 interface Props {
     href: string
@@ -29,7 +30,12 @@ const MdxLink: React.FC<Props> = ({ href, ...rest }: Props) => {
 
     // 내부 경로
     if (href.startsWith('/')) {
-        return <Link data-link={`internal`} to={href} {...rest} />
+        return <Link
+            data-link={`internal`}
+            to={href}
+            onClick={() => gaEvent('navigation', 'click_link_in_post', href)}
+            {...rest}
+            />
     }
 
     // 외부 프로토콜 경로
