@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
             <div className="wrapper">
                 <Link
-                    to="/"
+                    to="/blog"
                     className="site-title"
                     onClick={() => gaEvent('navigation', 'click_home', 'site_header')}
                 >
