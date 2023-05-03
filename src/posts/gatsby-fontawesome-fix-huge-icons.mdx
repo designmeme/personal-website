@@ -36,6 +36,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 이 문제는 아래와 같은 환경에서 확인할 수 있어요.
 
 1. **`FontAwesomeIcon`** 컴포넌트를 페이지에 포함하고 있어야 해요.
+
     <p className={'p-small'}>💁‍♀️ CSS `content`로 구현한 아이콘에는 발생하지 않는 버그에요.</p>
 
     <p className="code-label code-label-tsx">src/pages/example.tsx</p>
@@ -56,6 +57,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
     ```
 
 2. **production 모드**로 빌드 후 서버를 실행해요.
+
     <p className={'p-small'}>💁‍♀️ develop 모드에서는 확인할 수 없어요.</p>
 
     <p className="code-label code-label-shell"></p>
@@ -71,6 +73,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 
 4.  첫 페이지에 Font Awesome 아이콘이 있다면 현상을 바로 확인할 수 있어요. (=**첫 방문** 시 확인 가능)<br/>
     만약 다른 페이지에 아이콘이 있다면 그 페이지로 이동 후 **새로고침** 해요.
+
     <p className={'p-small'}>💁‍♀️ 웹페이지가 로딩된 후 내부에서 링크로 이동하면 현상을 확인할 수 없어요.</p>
 
 
@@ -86,6 +89,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 ### Next.js 웹사이트에 적용하기
 
 ![Font Awesome 공식 홈페이지의 "Use React with..." 페이지 화면 (2023.4.26 기준)](../images/post/gatsby-fontawesome-fix-huge-icons-docs.png)
+
 이 문제의 해결법은 Font Awesome 공식 홈페이지의 [Use React with...페이지의 **Next.js** 섹션](https://fontawesome.com/v6/docs/web/use-with/react/use-with#next-js)에서 찾을 수 있어요.
 
 React로 개발하고 Next.js 프레임워크를 사용한 경우 생기는 문제이며 이 경우에 아래의 간단한 설정으로 해결된다고 안내하고 있네요.
@@ -133,9 +137,11 @@ Next.js도 Gatsby와 같은 React 프레임워크이고요.
 ### react-fontawesome 패키지가 아이콘 크기를 조정하는 방식
 
 1. Font Awesome CSS 코드는 동적으로 웹사이트에 추가돼요. 여기에는 아이콘 크기를 조정하는 스타일도 포함돼요.
+
     ![브라우저에서 개발자 도구를 열면 Font Awesome 관련 스타일이 추가된 것을 확인할 수 있어요](../images/post/fontawesome-add-css-true-browser.png)
 
 2. `FontAwesomeIcon` 컴포넌트는 `svg` 태그로 변환됐고 `svg-inline--fa` 클래스를 갖고 있어요. `width`, `height` 같은 크기 속성은 없네요.
+
     ![FontAwesomeIcon 컴포넌트는 svg 태그로 변환돼요](../images/post/fontawesome-svg-tag-browser.png)
 
 3. 아이콘의 크기는 `svg-inline--fa` 클래스 스타일에서 `height: 1em;`를 적용받아 부모 요소의 폰트 크기와 동일한 크기로 보여요.
@@ -152,6 +158,7 @@ Next.js도 Gatsby와 같은 React 프레임워크이고요.
     ```
 
 4. `height: 1em;` 스타일이 없다면 `svg`아이콘이 원본 크기로 보이는 것을 확인할 수 있어요.
+
     ![높이 스타일을 비활성화하면 아이콘이 원본 크기로 보여요](../images/post/fontawesome-disable-height-css.png)
 
 <GoogleAdPostMiddle/>
