@@ -1,10 +1,19 @@
 import React from 'react';
 import {Link} from "gatsby";
+import {gaEvent} from "../hooks/analytics";
 
-const RssFeedInfo = () => {
+type Props = {
+    postTitle: string
+}
+
+const RssFeedInfo: React.FC<Props> = ({postTitle}) => {
     return (
         <div className={`rss-feed-info`}>
-            <Link to={`/rss.xml`} title={`RSS 피드로 웹사이트 구독하기 📮`}>
+            <Link
+                to={`/rss.xml`}
+                title={`RSS 피드로 웹사이트 구독하기 📮`}
+                onClick={() => gaEvent('navigation', 'click_rss', postTitle)}
+            >
                 <img src="https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white"
                      height={22}
                      alt="RSS"/>

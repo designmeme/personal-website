@@ -126,21 +126,21 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                 <footer className="page-footer">
                     <div className="sns-links">
-                        <OutboundLink href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
-                                      className="sns-link facebook" target="_blank" aria-label="facebook"
-                                      onClick={() => gaEvent('share', 'click_facebook', frontmatter.title)}
+                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
+                           className="sns-link facebook" target="_blank" aria-label="facebook"
+                           onClick={() => gaEvent('share', 'click_facebook', frontmatter.title)}
                         >
                             <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">facebook</span>
-                        </OutboundLink>
-                        <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
-                                      className="sns-link twitter"
-                                      target="_blank" aria-label="twitter"
-                                      onClick={() => gaEvent('share', 'click_twitter', frontmatter.title)}
+                        </a>
+                        <a href={`https://twitter.com/home?status=${canonical}`}
+                           className="sns-link twitter"
+                           target="_blank" aria-label="twitter"
+                           onClick={() => gaEvent('share', 'click_twitter', frontmatter.title)}
                         >
                             <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">twitter</span>
-                        </OutboundLink>
+                        </a>
                     </div>
 
                     <div className="cc-info">
@@ -175,7 +175,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    {!isDesktop && <RssFeedInfo/>}
+                    {!isDesktop && <RssFeedInfo postTitle={title}/>}
                 </footer>
 
             </article>
@@ -188,7 +188,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                   readMinutes={readMinutes}
                                   tags={tags}
                         />
-                        <RssFeedInfo/>
+                        <RssFeedInfo postTitle={title}/>
                         <Toc toc={data.mdx?.tableOfContents!} title={title}/>
                     </>
                 )}
