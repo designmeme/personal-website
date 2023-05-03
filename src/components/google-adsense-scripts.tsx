@@ -4,12 +4,40 @@ import config from "../../gatsby-config";
 // 구글 애드센스 관련 스크립트
 // note: Head API 내부에 사용할 경우 페이지가 변경될 때 마다 다시 스크립트를 불러와서 gatsby-ssr.tsx 에서 설정함.
 export const googleAdsenseScripts = !config.siteMetadata?.googleAdsense ? [] : [
+    // onLoad 작동하지 않음. React.createElement 방식도 마찬가지.
+    // js 파일이 로딩 되었는지 확인하기 위해 스크립트 요소를 동적으로 생성해서 추가하도록 작성함.
     <script
         key={`google-adsense`}
         data-ad-client={config.siteMetadata.googleAdsense}
         src={"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+        onLoad={() => console.log('ad load')}  // not working!
+        onError={() => console.log('ad blocked')}  // not working!
         async
     />,
+    <script
+        key='google-adsense-detect'
+        dangerouslySetInnerHTML={{ __html: `
+            window.addEventListener("load", () => {
+                const test = new Request(
+                    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+                    { method: "HEAD", mode: "no-cors" }
+                )
+                
+                fetch(test)
+                    .then(res => {
+                        if (window.gtag) {
+                            window.gtag('event', {'event_category': 'ad', 'event_label': 'load_adsense_js'});
+                          }
+                      })
+                    .catch(err => {
+                        if (window.gtag) {
+                            window.gtag('event', {'event_category': 'ad', 'event_label': 'error_adsense_js'})
+                        }
+                    })
+                });
+        `}}
+    />,
+
     // 광고 차단 회복 - 사이트에 광고 차단 태그를 배포하여 광고 차단 회복 메시지를 사용
     <script
         key={`google-adsense-allow-ads`}
