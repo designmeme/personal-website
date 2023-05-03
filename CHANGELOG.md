@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.20.0](https://github.com/designmeme/personal-website/compare/v1.19.1...v1.20.0) (2023-05-03)
+
+
+### Features
+
+* Google Analytics 이벤트로 애드센스 광고차단 트래킹 ([82f68b3](https://github.com/designmeme/personal-website/commit/82f68b36c1dd40a06b5ffbc54144c95cb0accc0e)), closes [#94](https://github.com/designmeme/personal-website/issues/94)
+* gtag 이벤트 속성 중 value 추가 ([bb4010d](https://github.com/designmeme/personal-website/commit/bb4010d099d3599af1336662da31087012689602))
+* ToC 링크 클릭시 GA 이벤트 발생시키기 ([73592a2](https://github.com/designmeme/personal-website/commit/73592a2b8c07392c23b14757482fc94eb75783e6))
+* 기존 GA 이벤트 내용 변경 ([78983d3](https://github.com/designmeme/personal-website/commit/78983d3597af5ca92578962c8a5e83daf819e89d))
+* 내부 네비게이션용 링크 클릭시 GA 이벤트 발생시키기 ([472e53c](https://github.com/designmeme/personal-website/commit/472e53cace83de664b4fe37f094509e7944bf5bd))
+* 외부 링크 클릭시 GA 이벤트 발생을 위해 OutboundLink 컴포넌트 사용 ([71c24a3](https://github.com/designmeme/personal-website/commit/71c24a33dd314a92e266e984f1516f5dc92fab78))
+
+
+### Bug Fixes
+
+* **ui:** 페이지 메타 정보에서 글자 '수정함' 을 '수정' 으로 변경 ([3cb38aa](https://github.com/designmeme/personal-website/commit/3cb38aa8833d82562edf50c4ae60a03d0c22f5c9))
+* 루트 페이지의 page-data.json 404 오류 방지를 위해 컴포넌트 추가 ([55bbe8c](https://github.com/designmeme/personal-website/commit/55bbe8c4d99f0eb72c075ec6e47458e07cdfd69c))
+
 ## [1.19.1](https://github.com/designmeme/personal-website/compare/v1.19.0...v1.19.1) (2023-04-28)
 
 
