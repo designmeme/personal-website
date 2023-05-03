@@ -8,7 +8,7 @@ categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, Gatsby, Gatsby Plugins, SSR, SSG, Font Awesome, Icon Fonts]
 image: ../images/post/gatsby-fontawesome-fix-huge-icons.png
 createdAt: 2023-04-27T19:00:00+09:00
-updatedAt: 2023-04-27T19:00:00+09:00
+updatedAt: 2023-05-04T12:00:00+09:00
 ---
 import {faFontAwesomeFlag} from "@fortawesome/free-solid-svg-icons";
 
@@ -134,7 +134,7 @@ Next.js도 Gatsby와 같은 React 프레임워크이고요.
 
 ---
 
-### react-fontawesome 패키지가 아이콘 크기를 조정하는 방식
+### @fortawesome/react-fontawesome 패키지가 아이콘 크기를 조정하는 방식
 
 1. Font Awesome CSS 코드는 동적으로 웹사이트에 추가돼요. 여기에는 아이콘 크기를 조정하는 스타일도 포함돼요.
 
@@ -169,7 +169,7 @@ Gatsby나 Next.js는 SSR/SSG를 지원하지만, **develop 모드**에서 서버
 
 이 경우에는 **Font Awesome 스타일이 `head` 내부에 추가되는 시점과 `svg` 아이콘이 `body` 내부에 추가되는 시점이 동일**해요.
 
-![일반 React 웹사이트에서 Font Awesome 아이콘이 작동하는 방식](../images/post/spa-without-ssr-ssg-fontawesome.png)
+![일반 React 웹사이트에서 @fortawesome/react-fontawesome 패키지가 아이콘 크기를 조정하는 방식](../images/post/react-without-ssr-ssg-fontawesome.png)
 
 ---
 
@@ -180,7 +180,7 @@ React 웹사이트에서 **SSR, SSG를 설정하면 production 모드로 빌드*
 그런데 **이 HTML 문서에는 Font Awesome 스타일은 포함되지 않아요.**
 그래서 웹사이트 첫 로딩 때 크기 설정이 되지 않은 아이콘이 보였다가 스타일이 나중에 추가되어서 정상 크기로 변경되는 것이 눈에 보이게 돼요.
 
-![SSR, SSG 지원 React 웹사이트에서 Font Awesome 아이콘이 작동하는 방식](../images/post/spa-with-ssr-ssg-fontawesome.png)
+![Gatsby, Next.js 등 SSR/SSG 지원 React 웹사이트에서 @fortawesome/react-fontawesome 패키지가 아이콘 크기를 조정하는 방식](../images/post/react-with-ssr-ssg-fontawesome.png)
 
 ---
 
@@ -206,7 +206,7 @@ React 웹사이트에서 **SSR, SSG를 설정하면 production 모드로 빌드*
     import '@fortawesome/fontawesome-svg-core/styles.css'
     ```
 
-![SSR, SSG 지원 React 웹사이트에서 Font Awesome 추가 설정 후 아이콘이 작동하는 방식](../images/post/spa-with-ssr-ssg-fontawesome-config.png)
+![Gatsby, Next.js 등 SSR/SSG 지원 React 웹사이트에서 추가 설정 후 아이콘 크기를 조정하는 방식](../images/post/react-with-ssr-ssg-fontawesome-config.png)
 
 ---
 
