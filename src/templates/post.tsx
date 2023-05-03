@@ -128,7 +128,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     <div className="sns-links">
                         <OutboundLink href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
                                       className="sns-link facebook" target="_blank" aria-label="facebook"
-                                      onClick={() => gaEvent('sns-link-fb', 'click', canonical)}
+                                      onClick={() => gaEvent('share', 'click_facebook', frontmatter.title)}
                         >
                             <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">facebook</span>
@@ -136,7 +136,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <OutboundLink href={`https://twitter.com/home?status=${canonical}`}
                                       className="sns-link twitter"
                                       target="_blank" aria-label="twitter"
-                                      onClick={() => gaEvent('sns-link-tw', 'click', canonical)}
+                                      onClick={() => gaEvent('share', 'click_twitter', frontmatter.title)}
                         >
                             <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">twitter</span>
@@ -157,7 +157,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     <div className="post-nav">
                         {next && <Link to={`/blog/${next.frontmatter.slug}`}
                                        className="post-next-link"
-                                       onClick={() => gaEvent('post-next-link', 'click', next.frontmatter.title)}>
+                                       onClick={() => gaEvent('navigation', 'click_next_post', next.frontmatter.title)}>
                             {next.frontmatter.title}
                             <span className="icon">
                                 <FontAwesomeIcon icon={faFaceGrinWide}/>
@@ -166,7 +166,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                         {previous && <Link to={`/blog/${previous.frontmatter.slug}`}
                                            className="post-prev-link"
-                                           onClick={() => gaEvent('post-prev-link', 'click', previous.frontmatter.title!)}>
+                                           onClick={() => gaEvent('navigation', 'click_prev_post', previous.frontmatter.title!)}>
                             <span className="icon">
                                 <FontAwesomeIcon icon={faArrowLeftLong}/>
                                 <FontAwesomeIcon icon={faFaceGrinWide}/>

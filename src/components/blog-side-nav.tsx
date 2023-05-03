@@ -48,7 +48,7 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
                                 <Link to={`/blog/` + post.frontmatter.slug}
                                       className="sub-link"
                                       activeClassName="active"
-                                      onClick={() => gaEvent('post-nav-link', 'click', post.frontmatter.title)}
+                                      onClick={() => gaEvent('navigation', 'click_post_in_sidebar', post.frontmatter.title)}
                                 >{post.frontmatter.title}</Link>
                             </li>
                         )) : <li>작성 중 ✍️</li>}
