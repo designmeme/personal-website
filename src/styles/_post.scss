@@ -258,18 +258,6 @@ $sns-link-width: 3.3rem;
   }
 }
 
-// header original link
-//
-.original-link {
-  @extend .p-smaller;
-  font-weight: 400;
-
-  &:after {
-    content: ' \f08e';
-    font-family: FontAwesome;
-  }
-}
-
 // header anchor
 .anchor.before {
   font-size: 22px;
