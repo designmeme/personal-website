@@ -16,14 +16,13 @@
   &.featured {
     position: relative;
     font-weight: 700;
-    &:before {
+    .icon {
       position: absolute;
       right: 100%;
-      top: 0;
+      top: 0.3em;
       margin-right: .5em;
-      content: '\f005'; // star
-      font-family: FontAwesome;
-      font-size: .75em;
+      font-size: 0.8em;
+      line-height: inherit;
       color: $brand-primary;
     }
   }

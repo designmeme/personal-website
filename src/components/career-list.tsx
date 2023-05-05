@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faDisplay,
     faMobileScreenButton,
+    faStar,
     faTabletScreenButton,
     faUniversalAccess
 } from "@fortawesome/free-solid-svg-icons";
@@ -36,6 +37,7 @@ const CareerList: React.FC<Props> = ({data}) => {
                 <React.Fragment key={index.toString()}>
                     <dt className={`career-title ${career.featured && 'featured'}`}>
                         {career.title}
+                        {career.featured && <FontAwesomeIcon icon={faStar} className={'icon'}/>}
                     </dt>
                     <dd className="career-meta">
                         <span className="career-date">
