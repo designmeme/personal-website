@@ -29,12 +29,12 @@ export const googleAdsenseScripts =
                 fetch(test)
                     .then(res => {
                         if (window.gtag) {
-                            window.gtag('event', {'event_category': 'ad', 'event_label': 'load_adsense_js'});
+                            window.gtag('event', 'load_adsense_js', {'event_category': 'ad'});
                           }
                       })
                     .catch(err => {
                         if (window.gtag) {
-                            window.gtag('event', {'event_category': 'ad', 'event_label': 'error_adsense_js'})
+                            window.gtag('event', 'error_adsense_js', {'event_category': 'ad'})
                         }
                     })
                 });
