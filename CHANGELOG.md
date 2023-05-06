@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.21.0](https://github.com/designmeme/personal-website/compare/v1.20.0...v1.21.0) (2023-05-06)
+
+
+### Features
+
+* **contents:** 새 포스트 "Gatsby 웹사이트에서 Font Awesome 6 사용하기" 추가 ([e6e1446](https://github.com/designmeme/personal-website/commit/e6e1446814490a5d4ef9b5347bdfb8729feff3c8))
+* **contents:** 참고 자료 섹션에 공통 문구 추가 ([dd6907a](https://github.com/designmeme/personal-website/commit/dd6907a0a233afcfa975d1df841ed68f80d268f1))
+* **contents:** 포스트 링크 변경 ([14f1f79](https://github.com/designmeme/personal-website/commit/14f1f7962b026af46177f39c4ff1e7b1db0a3085))
+* **post:** code labe 언어에 json 추가 ([568dc9e](https://github.com/designmeme/personal-website/commit/568dc9e9e4fb9ecbb0c7d70be782ecaebebaa27e))
+* **ui:** 외부 링크에 새창 아이콘 표시 ([5551667](https://github.com/designmeme/personal-website/commit/55516671140486ec8f34c476da450c818e0440a2))
+
+
+### Bug Fixes
+
+* **analytics:** 구글 애드센스 로딩시 이벤트명 누락분 추가 ([a2b3a3b](https://github.com/designmeme/personal-website/commit/a2b3a3be7e22b44dfee8eb1ce7d380631b2bc218))
+* **contents:** 이미지 설명 변경 ([eb5af2c](https://github.com/designmeme/personal-website/commit/eb5af2c91c96cd06c778c221d706bea359d79179))
+* **post:** p 자식 요소로 div 가 생성되는 문제 해결 ([5c88e94](https://github.com/designmeme/personal-website/commit/5c88e94416febcfa9a18c6a42dd8f08e26a4435b))
+* **ui:** rss.xml 링크 요소를 Link 에서 a 로 변경 ([7af89d1](https://github.com/designmeme/personal-website/commit/7af89d107cc0cadfe8cb293f30299926687b5078))
+* **ui:** 원문 링크 아이콘이 표시되지 않는 문제 해결 ([257053d](https://github.com/designmeme/personal-website/commit/257053d1e44da23f7eaa96fcac4ea6eb2a2d1606))
+* **ui:** 주석의 아이콘이 표시되지 않는 문제 해결 ([03dc953](https://github.com/designmeme/personal-website/commit/03dc953fc1491fa54fba7b313e5cd1c4bbf08c27))
+* **ui:** 주요 이력의 별표가 표시되지 않는 문제 해결 ([453459e](https://github.com/designmeme/personal-website/commit/453459e6bab13ced48853b21d349723df0f021dd))
+* **ui:** 헤더 로고 클릭시 /blog 로 이동하기 ([11bc338](https://github.com/designmeme/personal-website/commit/11bc3388cac875160c4b0c589dd6c3457983b848))
+* 루트용 index.tsx 파일 삭제 ([e003be4](https://github.com/designmeme/personal-website/commit/e003be4db9238535254bc303109a03d6f24c6c39))
+* 애드센스 정보를 gatsby-config.ts 에서 가져오지 않기 ([82dff3c](https://github.com/designmeme/personal-website/commit/82dff3c3d2e88cb1bf3d1bb918173f3742ffba3f))
+
 ## [1.20.0](https://github.com/designmeme/personal-website/compare/v1.19.1...v1.20.0) (2023-05-03)
 
 

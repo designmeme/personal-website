@@ -258,18 +258,6 @@ $sns-link-width: 3.3rem;
   }
 }
 
-// header original link
-//
-.original-link {
-  @extend .p-smaller;
-  font-weight: 400;
-
-  &:after {
-    content: ' \f08e';
-    font-family: FontAwesome;
-  }
-}
-
 // header anchor
 .anchor.before {
   font-size: 22px;
@@ -278,5 +266,12 @@ $sns-link-width: 3.3rem;
     path {
       fill: $brand-primary;
     }
+  }
+}
+
+a.outbound {
+  .icon {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
   }
 }

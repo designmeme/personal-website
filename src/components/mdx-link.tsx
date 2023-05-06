@@ -15,16 +15,19 @@
  *   참고 소스 출처: https://zslabs.com/articles/mdx-link-routing-in-gatsby
  */
 
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Link} from 'gatsby'
 import {OutboundLink} from "gatsby-plugin-google-gtag";
 import {gaEvent} from "../hooks/analytics";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
     href: string
+    children: ReactNode
 }
 
-const MdxLink: React.FC<Props> = ({ href, ...rest }: Props) => {
+const MdxLink: React.FC<Props> = ({ href, children, ...rest }: Props) => {
     const externalProtocols = ['http', 'https', 'mailto']
     const protocol = href.slice(0, href.indexOf(':'))
 
@@ -34,6 +37,7 @@ const MdxLink: React.FC<Props> = ({ href, ...rest }: Props) => {
             data-link={`internal`}
             to={href}
             onClick={() => gaEvent('navigation', 'click_link_in_post', href)}
+            children={children}
             {...rest}
             />
     }
@@ -42,12 +46,17 @@ const MdxLink: React.FC<Props> = ({ href, ...rest }: Props) => {
     if (externalProtocols.includes(protocol)) {
         // OutboundLink 자동으로 이벤트 트리거됨.
         // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/index.js
-        return <OutboundLink data-link={`external`} href={href} rel="nofollow" target={'_blank'} {...rest} />
-        // return <a data-link={`external`} href={href} rel="nofollow" target={'_blank'} {...rest} />
+        return <OutboundLink className='outbound' href={href} rel="nofollow" target={'_blank'} {...rest}>
+            {children}
+            <span className="icon">
+                <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" transform={'down-1'} />
+                <span className="sr-only">(새창)</span>
+            </span>
+        </OutboundLink>
     }
 
     // 기타 경로
-    return <a data-link={`etc`} href={href} {...rest} />
+    return <a data-link={`etc`} href={href} children={children} {...rest} />
 }
 
 export default MdxLink

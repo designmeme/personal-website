@@ -17,8 +17,7 @@ import SassCommentsTable from "../components/posts/sass-comments-table";
 
 <div className="lead">
     Sass의 기본 CSS 출력 스타일인 중첩 스타일은 문서의 구조를 잘 반영한 매우 뛰어난 양식이지만,
-    사용자의 취향과 필요에 맞춰 Sass는 다양한 출력 스타일을 지원합니다.
-    <a className="original-link" target="_blank" href="https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Output_Style">원문</a>
+    사용자의 취향과 필요에 맞춰 Sass는 다양한 출력 스타일을 지원합니다.[^reference]
 </div>
 
 ***
@@ -127,6 +126,7 @@ sass --watch style.scss:style.css --style compressed
 
 이외에도 개발 환경에 따라 각기 다른 방법으로 출력 스타일 옵션을 지정할 수 있습니다.
 
+[^reference]: [원문](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Output_Style)
 [^compact]: 여러 줄로 작성한 주석도 모두 한 줄로 표시합니다.
 [^compressed]: 여러 줄 주석도 모두 삭제합니다. 하지만 주석의 첫 글자로 느낌표 `!`를 써넣으면 삭제하지 않고 출력물에 그대로 표시합니다.
 [^option]: 루비 온 레일즈 <SideBySide>Ruby on Rails</SideBySide> 나 랙 <SideBySide>Rack</SideBySide>등 루비 기반 환경설정 파일에서 [옵션](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Options)을 설정할 수 있습니다.

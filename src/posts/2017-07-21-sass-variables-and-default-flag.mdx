@@ -12,8 +12,7 @@ updatedAt: 2017-07-24T22:23:00+09:00
 ---
 
 <div className="lead">
-    변수를 정의할 때 `!default` 플래그를 함께 작성하면 조건부로 변수를 정의할 수 있습니다. 변수 사용자화를 제공하는 라이브러리를 작성할 때 많이 사용합니다.
-    <a className="original-link" target="_blank" href="https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Variable_Defaults___default">원문</a>
+    변수를 정의할 때 `!default` 플래그를 함께 작성하면 조건부로 변수를 정의할 수 있습니다. 변수 사용자화를 제공하는 라이브러리를 작성할 때 많이 사용합니다.[^reference]
 </div>
 
 `!default` 플래그를 알아보기 전에 변수를 재정의하는 기본 방식부터 알아보도록 하겠습니다.
@@ -116,6 +115,6 @@ $gray-400: #ced4da !default;
 @import "~bootstrap/scss/bootstrap";
 ```
 
+[^reference]: [원문](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Variable_Defaults___default)
 [^reassign]: 변수를 재정의하려면 변수가 최초로 정의된 범위와 같은 범위에서 이루어져야 합니다. 즉 전역 변수는 전역 범위에서 재정의해야 값이 재할당 됩니다. 만약 전역 변수를 어떤 규칙 내부에서 다시 정의하면, 이는 같은 이름의 지역 변수를 새로 만든 것입니다. 자세한 내용은 [변수 범위](/blog/sass-variables/#변수-범위)에서 확인하세요.
 [^bootstrap]: 부트스트랩 3 버전은 Less를 사용했지만 4 버전부터는 Sass를 사용합니다.
-

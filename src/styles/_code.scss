@@ -17,7 +17,7 @@
     color: $brand-primary;
     font-weight: 700;
   }
-  @each $code in (HTML, CSS, SCSS, Sass, JavaScript, JS, jQuery, Ruby, Markdown, XML, Shell, MDX, TypeScript, TS, TXT, JSX, TSX) {
+  @each $code in (HTML, CSS, SCSS, Sass, JavaScript, JS, jQuery, Ruby, Markdown, XML, Shell, MDX, TypeScript, TS, TXT, JSX, TSX, JSON) {
     &.code-label-#{to-lower-case($code)}:before {
       content: "#{$code}";
     }
