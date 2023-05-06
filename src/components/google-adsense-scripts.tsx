@@ -1,17 +1,19 @@
 import React from 'react';
-import config from "../../gatsby-config";
 
 // 구글 애드센스 관련 스크립트
 // note: Head API 내부에 사용할 경우 페이지가 변경될 때 마다 다시 스크립트를 불러와서 gatsby-ssr.tsx 에서 설정함.
+
+const googleAdsense: string = `ca-pub-3088246349891349`
+
 export const googleAdsenseScripts =
-    !(config.siteMetadata?.googleAdsense && process.env.NODE_ENV == 'production')
+    !(googleAdsense && process.env.NODE_ENV == 'production')
     ? []
     : [
     // onLoad 작동하지 않음. React.createElement 방식도 마찬가지.
     // js 파일이 로딩 되었는지 확인하기 위해 스크립트 요소를 동적으로 생성해서 추가하도록 작성함.
     <script
         key={`google-adsense`}
-        data-ad-client={config.siteMetadata.googleAdsense}
+        data-ad-client={googleAdsense}
         src={"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
         onLoad={() => console.log('ad load')}  // not working!
         onError={() => console.log('ad blocked')}  // not working!
