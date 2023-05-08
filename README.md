@@ -1,6 +1,6 @@
 # 👋 heyjihye
 
-[Gatsby](https://www.gatsbyjs.com)를 바탕으로 만든 [개인 웹사이트](https://heyjihye.com)의 소스 코드를 담고 있어요
+[Gatsby](https://www.gatsbyjs.com)를 바탕으로 만든 [개인 웹사이트](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)의 소스 코드를 담고 있어요
 
 [//]: # ([![Gatsby]&#40;https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white&#41;]&#40;https://gatsbyjs.com&#41;)
 [![Gatsby](https://img.shields.io/github/package-json/dependency-version/designmeme/personal-website/gatsby?logo=gatsby&labelColor=%23663399&color=%23663399&style=for-the-badge)](https://gatsbyjs.com)
@@ -49,12 +49,12 @@ npm run develop
 
 ### 도메인 연결 및 관리
 
-* URL: https://heyjihye.com
+* URL: [https://heyjihye.com](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)
 * 커스텀 도메인 설정: Gatsby Cloud 사이트 설정 페이지 > Hosting > Domains
 * 도메인 구매: [가비아](https://www.gabia.com/)
 * DNS 설정: [가비아 DNS 관리](https://dns.gabia.com/)
     * heyjihye.com 연결: DNS A 타입 레코드 추가 완료
-    * www.heyjihye.com 연결: DNS CNAME 타입 레코드 추가 완료
+    * [www.heyjihye.com](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile) 연결: DNS CNAME 타입 레코드 추가 완료
 
 ## 🚀 Integrations
 
