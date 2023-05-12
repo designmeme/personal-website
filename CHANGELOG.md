@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.0](https://github.com/designmeme/personal-website/compare/v1.21.0...v1.22.0) (2023-05-12)
+
+
+### Features
+
+* **ui:** 포스트 페이지에서 gif 이미지를 figure 구조로 개선 ([a494861](https://github.com/designmeme/personal-website/commit/a494861cd3aa3de28b6b3fd7b0a526117be836cd)), closes [#86](https://github.com/designmeme/personal-website/issues/86)
+
 ## [1.21.0](https://github.com/designmeme/personal-website/compare/v1.20.0...v1.21.0) (2023-05-06)
 
 

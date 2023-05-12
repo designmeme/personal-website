@@ -22,6 +22,7 @@ import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
 import MdxLink from '../components/mdx-link';
+import MdxImg from '../components/mdx-img';
 import MdxFixSpan from '../components/mdx-fix-span';
 import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
@@ -38,6 +39,7 @@ const shortcodes = {
     GoogleAdPostMiddle,
     a: (props: any) => <MdxLink {...props} />,
     span: (props: any) => <MdxFixSpan {...props} />,
+    img: (props: any) => <MdxImg {...props} />,
 }
 
 type PageContextType = {
