@@ -17,7 +17,6 @@
 
 import React, {ReactNode} from 'react';
 import {Link} from 'gatsby'
-import {OutboundLink} from "gatsby-plugin-google-gtag";
 import {gaEvent} from "../hooks/analytics";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
@@ -44,15 +43,13 @@ const MdxLink: React.FC<Props> = ({ href, children, ...rest }: Props) => {
 
     // 외부 프로토콜 경로
     if (externalProtocols.includes(protocol)) {
-        // OutboundLink 자동으로 이벤트 트리거됨.
-        // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-gtag/src/index.js
-        return <OutboundLink className='outbound' href={href} rel="nofollow" target={'_blank'} {...rest}>
+        return <a className='outbound' href={href} rel="nofollow" target={'_blank'} {...rest}>
             {children}
             <span className="icon">
                 <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" transform={'down-1'} />
                 <span className="sr-only">(새창)</span>
             </span>
-        </OutboundLink>
+        </a>
     }
 
     // 기타 경로
