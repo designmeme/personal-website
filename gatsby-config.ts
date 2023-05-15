@@ -79,13 +79,6 @@ const config: GatsbyConfig = {
                 },
             },
         },
-        // https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/
-        {
-            resolve: "gatsby-plugin-google-gtag",
-            options: {
-                trackingIds: [`G-FNDEZBX8ME`]
-            }
-        },
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
