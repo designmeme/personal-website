@@ -35,18 +35,18 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
     `)
 
     return (
-        <nav className="sub-nav">
+        <nav className="post-side-nav">
             {allSubjectJson.nodes.map(node => (
                 <div key={node.id}>
-                    <h6 className={"sub-nav-title" + (subject.id == node.id ? " active" : "")}>
+                    <h6 className={"post-side-nav-title" + (subject.id == node.id ? " active" : "")}>
                         {node.title!} ({node.posts.length})
                     </h6>
 
-                    <ul className={`sub-link-list ${!node.posts.length ? 'empty' : ''}`}>
+                    <ul className={`post-side-nav-list ${!node.posts.length ? 'empty' : ''}`}>
                         {node.posts.length ? node.posts.map(post => (
                             <li key={post.id}>
                                 <Link to={`/blog/` + post.frontmatter.slug}
-                                      className="sub-link"
+                                      className="post-side-nav-link"
                                       activeClassName="active"
                                       onClick={() => gaEvent('navigation', 'click_post_in_sidebar', post.frontmatter.title)}
                                 >{post.frontmatter.title}</Link>
