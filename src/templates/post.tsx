@@ -132,7 +132,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                             <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">facebook</span>
                         </a>
-                        <a href={`https://twitter.com/home?status=${canonical}`}
+                        <a href={`https://twitter.com/intent/tweet?url=${canonical}`}
                            className="sns-link twitter"
                            target="_blank" aria-label="twitter"
                         >
