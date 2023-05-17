@@ -1,6 +1,5 @@
 import React from 'react';
 import {graphql, Link, useStaticQuery} from "gatsby";
-import {gaEvent} from "../hooks/analytics";
 
 
 export const query = graphql`
@@ -48,7 +47,6 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
                                 <Link to={`/blog/` + post.frontmatter.slug}
                                       className="post-side-nav-link"
                                       activeClassName="active"
-                                      onClick={() => gaEvent('navigation', 'click_post_in_sidebar', post.frontmatter.title)}
                                 >{post.frontmatter.title}</Link>
                             </li>
                         )) : <li>작성 중 ✍️</li>}

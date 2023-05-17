@@ -17,7 +17,6 @@
 
 import React, {ReactNode} from 'react';
 import {Link} from 'gatsby'
-import {gaEvent} from "../hooks/analytics";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
@@ -33,9 +32,8 @@ const MdxLink: React.FC<Props> = ({ href, children, ...rest }: Props) => {
     // 내부 경로
     if (href.startsWith('/')) {
         return <Link
-            data-link={`internal`}
             to={href}
-            onClick={() => gaEvent('navigation', 'click_link_in_post', href)}
+            className="link-internal"
             children={children}
             {...rest}
             />
@@ -53,7 +51,7 @@ const MdxLink: React.FC<Props> = ({ href, children, ...rest }: Props) => {
     }
 
     // 기타 경로
-    return <a data-link={`etc`} href={href} children={children} {...rest} />
+    return <a className="link-etc" href={href} children={children} {...rest} />
 }
 
 export default MdxLink
