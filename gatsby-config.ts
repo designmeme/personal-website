@@ -31,6 +31,7 @@ const config: GatsbyConfig = {
             app_id: `127116027879734`
         },
         googleAdsense: `ca-pub-3088246349891349`,
+        gtm: 'GTM-PB88GKL',
         webmaster_verifications: {
             google: `google2bfa19f4f3a8a8ee`,
         }

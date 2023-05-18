@@ -23,6 +23,7 @@ export const useSiteMetadata = () => {
                         app_id
                     }
                     googleAdsense
+                    gtm
                     webmaster_verifications {
                         google
                     }
