@@ -1,12 +1,13 @@
 import React from 'react';
+import {useSiteMetadata} from "../hooks/use-site-metadata";
 
 // 구글 애드센스 관련 스크립트
 // note: Head API 내부에 사용할 경우 페이지가 변경될 때 마다 다시 스크립트를 불러와서 gatsby-ssr.tsx 에서 설정함.
 
-const googleAdsense: string = `ca-pub-3088246349891349`
+const {googleAdsense} = useSiteMetadata()
 
 export const googleAdsenseScripts =
-    !(googleAdsense && process.env.NODE_ENV == 'production')
+    !(googleAdsense)
     ? []
     : [
     // onLoad 작동하지 않음. React.createElement 방식도 마찬가지.
