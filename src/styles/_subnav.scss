@@ -5,7 +5,7 @@
 $li-margin: 1rem;
 $div-margin: 1.5rem;
 
-.sub-nav {
+.post-side-nav {
   @extend .p-smaller;
   max-height: calc(100vh - 100px);
   padding-top: .75em;
@@ -23,7 +23,7 @@ $div-margin: 1.5rem;
     text-decoration: none;
   }
 
-  .sub-nav-title {
+  .post-side-nav-title {
     margin-bottom: 1.11rem;
     color: $text-color-muted;
     font-weight: 400;
@@ -38,14 +38,14 @@ $div-margin: 1.5rem;
       color: inherit;
     }
   }
-  .sub-link-list {
+  .post-side-nav-list {
     list-style: none;
     padding: 0 0 0 1em;
     margin: 0;
     li {
       margin-bottom: $li-margin;
     }
-    .sub-link {
+    .post-side-nav-link {
       display: block;
       color: $text-color-gray;
 

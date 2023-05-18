@@ -2,7 +2,6 @@ import React from 'react';
 import {graphql, HeadFC, Link, PageProps} from "gatsby";
 import SeoHead from '../../components/seo-head'
 import PageLayout, {PageFrontmatter} from "../../components/page-layout";
-import {gaEvent} from "../../hooks/analytics";
 import GoogleAdsense from "../../components/google-adsense";
 
 export const frontmatter: PageFrontmatter = {
@@ -50,7 +49,6 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                                         <li key={post.id}>
                                             <Link to={`/blog/${post.frontmatter.slug}`}
                                                   className="post-link"
-                                                  onClick={() => gaEvent('navigation', 'click_post_in_blog', post.frontmatter.title)}
                                             >
                                                 <span className={'link-title'}>{post.frontmatter.title}</span>
                                                 {post.frontmatter.subtitle && (

@@ -5,8 +5,6 @@ import SeoHead from '../components/seo-head'
 import {GatsbyImage} from "gatsby-plugin-image";
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {MDXProvider} from "@mdx-js/react"
-import {gaEvent} from "../hooks/analytics";
-import {OutboundLink} from "gatsby-plugin-google-gtag";
 import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -130,15 +128,13 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     <div className="sns-links">
                         <a href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
                            className="sns-link facebook" target="_blank" aria-label="facebook"
-                           onClick={() => gaEvent('share', 'click_facebook', frontmatter.title)}
                         >
                             <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">facebook</span>
                         </a>
-                        <a href={`https://twitter.com/home?status=${canonical}`}
+                        <a href={`https://twitter.com/intent/tweet?url=${canonical}`}
                            className="sns-link twitter"
                            target="_blank" aria-label="twitter"
-                           onClick={() => gaEvent('share', 'click_twitter', frontmatter.title)}
                         >
                             <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/>
                             <span className="sr-only">twitter</span>
@@ -152,14 +148,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNc}/>
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNd}/>
                         </div>
-                        블로그 글의 내용은 <OutboundLink href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank">크리에이티브
-                        커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</OutboundLink>에 따라 이용하실 수 있습니다.
+                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank">크리에이티브
+                        커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
                     </div>
 
                     <div className="post-nav">
                         {next && <Link to={`/blog/${next.frontmatter.slug}`}
                                        className="post-next-link"
-                                       onClick={() => gaEvent('navigation', 'click_next_post', next.frontmatter.title)}>
+                                       >
                             {next.frontmatter.title}
                             <span className="icon">
                                 <FontAwesomeIcon icon={faFaceGrinWide}/>
@@ -168,7 +164,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                         {previous && <Link to={`/blog/${previous.frontmatter.slug}`}
                                            className="post-prev-link"
-                                           onClick={() => gaEvent('navigation', 'click_prev_post', previous.frontmatter.title!)}>
+                                           >
                             <span className="icon">
                                 <FontAwesomeIcon icon={faArrowLeftLong}/>
                                 <FontAwesomeIcon icon={faFaceGrinWide}/>
@@ -177,7 +173,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    {!isDesktop && <RssFeedInfo postTitle={title}/>}
+                    {!isDesktop && <RssFeedInfo/>}
                 </footer>
 
             </article>
@@ -190,7 +186,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                                   readMinutes={readMinutes}
                                   tags={tags}
                         />
-                        <RssFeedInfo postTitle={title}/>
+                        <RssFeedInfo/>
                         <Toc toc={data.mdx?.tableOfContents!} title={title}/>
                     </>
                 )}
