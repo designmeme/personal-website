@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.23.0](https://github.com/designmeme/personal-website/compare/v1.22.0...v1.23.0) (2023-05-18)
+
+
+### Features
+
+* Google Tag Manager 설치 코드 추가 ([a3be5c4](https://github.com/designmeme/personal-website/commit/a3be5c49a5e4089dd8c2160c5d0f9701afa0e5e2))
+* gtag 이벤트 호출 코드 삭제 ([224e25b](https://github.com/designmeme/personal-website/commit/224e25bc563aea4f388e60eb8f6c73b9d23ccea8))
+* OutboundLink 요소를 a 요소로 변경 ([dc8a6af](https://github.com/designmeme/personal-website/commit/dc8a6afdd5ce36164bb8ad347b44bd93a1636a48))
+* RSS 링크에 클래스 추가 ([8277b42](https://github.com/designmeme/personal-website/commit/8277b4249e352a9f95c38e2d7d95ae706423d596))
+* 포스트 페이지의 사이드 네비게이션의 클래스명 변경 ([ee802cc](https://github.com/designmeme/personal-website/commit/ee802cc6c43e36221229bb72e5dd4eff8f272582))
+
+
+### Bug Fixes
+
+* **ui:** 트위터 공유하기 링크 재연결 ([42dd8e1](https://github.com/designmeme/personal-website/commit/42dd8e1a7643374ce23e1c72e169468753ea6e60))
+
 ## [1.22.0](https://github.com/designmeme/personal-website/compare/v1.21.0...v1.22.0) (2023-05-12)
 
 
