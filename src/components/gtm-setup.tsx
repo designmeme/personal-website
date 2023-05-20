@@ -1,8 +1,7 @@
 import React from "react"
 import {oneLine} from "common-tags";
-import {useSiteMetadata} from "../hooks/use-site-metadata";
 
-const {gtm} = useSiteMetadata()
+const gtm: string = 'GTM-PB88GKL'
 
 // Google Tag Manager
 export const gtmScript = <script
