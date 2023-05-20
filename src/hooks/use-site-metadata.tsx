@@ -31,5 +31,5 @@ export const useSiteMetadata = () => {
         }
     `)
 
-    return site?.siteMetadata!
+    return site!.siteMetadata!
 }
