@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/designmeme/personal-website/compare/v1.23.0...v1.24.0) (2023-05-20)
+
+
+### Features
+
+* **contents:** 새 포스트 "Gatsby 웹사이트에서 구글 애널리틱스 설정하기" 추가 ([c285ced](https://github.com/designmeme/personal-website/commit/c285ceda5cc5fdb006a91665425167b0a5eed275))
+
 ## [1.23.0](https://github.com/designmeme/personal-website/compare/v1.22.0...v1.23.0) (2023-05-18)
 
 
