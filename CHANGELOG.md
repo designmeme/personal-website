@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.24.1](https://github.com/designmeme/personal-website/compare/v1.24.0...v1.24.1) (2023-05-20)
+
+
+### Bug Fixes
+
+* **contents:** GTM 컨테이너 ID 값을 하드코딩으로 변경 ([0417984](https://github.com/designmeme/personal-website/commit/0417984a9bec1234b2df4d56138072cd6fad8ef0))
+* GTM 컨테이너 ID 값을 하드코딩으로 변경 ([78e62d3](https://github.com/designmeme/personal-website/commit/78e62d3fb34fec73622930bf1ea42d7acf834e6c))
+
 ## [1.24.0](https://github.com/designmeme/personal-website/compare/v1.23.0...v1.24.0) (2023-05-20)
 
 
