@@ -8,7 +8,7 @@ categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, Gatsby, Web Analytics, GTM, GA4]
 image: ../images/post/gatsby-google-tagmanager.png
 createdAt: 2023-05-20T18:00:00+09:00
-updatedAt: 2023-05-20T18:00:00+09:00
+updatedAt: 2023-05-20T17:00:00+09:00
 ---
 
 <div className="lead">
@@ -83,52 +83,7 @@ gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법
 ---
 ### Gatsby 웹사이트에 GTM 스니펫 추가하기
 
-1. Gatsby `siteMetadata`에 컨테이너 ID 값을 담을 `gtm` 속성 추가하기
-
-    각종 설정값을 `siteMetadata`에 모아 관리하면 유지보수하기 쉬워요. 👍 GTM 컨테이너 ID 값도 여기에 추가해요.
-
-    <p className="code-label code-label-typescript">gatsby-config.ts</p>
-
-    ```typescript
-    import type {GatsbyConfig} from 'gatsby';
-
-    const config: GatsbyConfig = {
-        siteMetadata: {
-            gtm: 'GTM-XXXXXXX', // 컨테이너 ID
-        },
-    };
-    ```
-
-2. `useSiteMetadata` 함수 내부 쿼리문에 `gtm` 필드 추가하기
-
-    웹사이트 메타 정보를 GraphQL 쿼리로 읽어와서 데이터를 쉽게 사용할 수 있는 함수를 대부분 Gatsby 웹사이트에서 이미 사용하고 있을 거예요.
-    여기에 1)에서 만든 `gtm` 필드를 추가해요.
-
-    <p className="code-label code-label-tsx">src/hooks/use-site-metadata.tsx</p>
-
-    ```tsx{numberLines: true}
-    import {graphql, useStaticQuery} from "gatsby"
-
-    export const useSiteMetadata = () => {
-        const {site} = useStaticQuery<Queries.siteMetadataQuery>(graphql`
-            query siteMetadata {
-                site {
-                    siteMetadata {
-                        title
-                        description
-                        image
-                        siteUrl
-                        author
-                        gtm
-                    }
-                }
-            }
-        `)
-        return site!.siteMetadata!
-    }
-    ```
-
-3. Google 태그 관리자 설치 코드 얻기
+1. Google 태그 관리자 설치 코드 얻기
 
     **설치 코드**는 선택한 컨테이너 페이지의 아래 두 위치에서 찾을 수 있어요.
 
@@ -140,19 +95,18 @@ gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법
 
     ![Google 태그 관리자 설치 화면에서 GTM 설치 코드를 얻을 수 있어요.](../images/post/google-tagmanager-gtm-setup-code-popup.png)
 
-4. 셋업용 컴포넌트 만들기
+2. 셋업용 컴포넌트 만들기
 
-    GTM 설치 코드를 담을 파일을 생성하고 3)에서 얻은 두 개의 요소를 추가해요.
-    하드코딩 되어 있는 컨테이너 ID를 1,2)에서 얻은 `gtm` 변수로 대체해요.
+    GTM 설치 코드를 담을 파일을 생성하고 1)에서 얻은 두 개의 요소를 추가해요.
+    컨테이너 ID(GTM-XXXXXXX)를 본인 것으로 수정하세요.
 
     <p className="code-label code-label-tsx">src/components/gtm-setup.tsx</p>
 
     ```tsx{numberLines: true}
     import React from "react"
     import {oneLine} from "common-tags";
-    import {useSiteMetadata} from "../hooks/use-site-metadata";
 
-    const {gtm} = useSiteMetadata()
+    const gtm: string = 'GTM-XXXXXXX'
 
     // Google Tag Manager
     export const gtmScript = <script
@@ -173,9 +127,9 @@ gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법
     `}}/>
     ```
 
-5. `onRenderBody` 설정하기
+3. `onRenderBody` 설정하기
 
-    4)에서 만든 설치 코드를 불러와서 `gatsby-ssr.tsx` 파일의 `onRenderBody` 함수 내용에 추가하면 끝이에요. 🎉
+    2)에서 만든 설치 코드를 불러와서 `gatsby-ssr.tsx` 파일의 `onRenderBody` 함수 내용에 추가하면 끝이에요. 🎉
 
     <p className="code-label code-label-tsx">gatsby-ssr.tsx</p>
 
