@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/designmeme/personal-website/compare/v1.24.1...v1.25.0) (2023-06-03)
+
+
+### Features
+
+* **contents:** 새 포스트 "Crontab UI 사용법" 추가 ([c4025e9](https://github.com/designmeme/personal-website/commit/c4025e9fb70a65c2efcfffa40dd0f6dfff39011a))
+
 ## [1.24.1](https://github.com/designmeme/personal-website/compare/v1.24.0...v1.24.1) (2023-05-20)
 
 
