@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSiteMetadata} from "../hooks/use-site-metadata";
+import {Script} from "gatsby";
 
 interface GoogleAdsenseProps {
     slot: string
@@ -36,11 +37,20 @@ const GoogleAdsense = ({
         );
     }
 
+    React.useEffect(() => {
+        try {
+            ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        } catch (error) {
+            console.log(error, "AdSense error");
+        }
+    }, []);
+
     return (
         <>
-            <script async
+            <Script async
+                    id={`adsense-${Math.random()}`}
                     src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsense}`}
-                    crossOrigin="anonymous"></script>
+                    crossOrigin="anonymous"></Script>
             <ins className="adsbygoogle"
                  data-ad-client={googleAdsense}
                  style={style}
@@ -49,9 +59,7 @@ const GoogleAdsense = ({
                  data-ad-slot={slot}
                  data-full-width-responsive={responsive}
             ></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            {/*<Script id={`adsense-push-${Math.random()}`}>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</Script>*/}
         </>
     );
 };
