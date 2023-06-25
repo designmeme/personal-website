@@ -36,23 +36,23 @@ const GoogleAdsense = ({
         );
     }
 
-    React.useEffect(() => {
-        try {
-            ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
-        } catch (error) {
-            console.log(error, "AdSense error");
-        }
-    }, []);
-
     return (
-        <ins className="adsbygoogle"
-             data-ad-client={googleAdsense}
-             style={style}
-             data-ad-format={format}
-             data-ad-layout-key={layoutKey}
-             data-ad-slot={slot}
-             data-full-width-responsive={responsive}
-        ></ins>
+        <>
+            <script async
+                    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsense}`}
+                    crossOrigin="anonymous"></script>
+            <ins className="adsbygoogle"
+                 data-ad-client={googleAdsense}
+                 style={style}
+                 data-ad-format={format}
+                 data-ad-layout-key={layoutKey}
+                 data-ad-slot={slot}
+                 data-full-width-responsive={responsive}
+            ></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </>
     );
 };
 
