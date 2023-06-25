@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.1](https://github.com/designmeme/personal-website/compare/v1.26.0...v1.26.1) (2023-06-25)
+
+
+### Bug Fixes
+
+* 애드센스 광고에 스크립트 추가 ([47e245c](https://github.com/designmeme/personal-website/commit/47e245c90207da2976f58888f5da4a1153f14db4))
+
 ## [1.26.0](https://github.com/designmeme/personal-website/compare/v1.25.0...v1.26.0) (2023-06-25)
 
 
