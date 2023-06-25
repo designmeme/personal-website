@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.0](https://github.com/designmeme/personal-website/compare/v1.25.0...v1.26.0) (2023-06-25)
+
+
+### Features
+
+* 구글 애스센스 설치 및 광고 차단 회복 스크립트 비활성화 (구글태그매니저로 이전) ([6d02bfa](https://github.com/designmeme/personal-website/commit/6d02bfae711e51613e6d24f7ae670257668d65b5))
+
 ## [1.25.0](https://github.com/designmeme/personal-website/compare/v1.24.1...v1.25.0) (2023-06-03)
 
 
