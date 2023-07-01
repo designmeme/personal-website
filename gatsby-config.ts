@@ -257,7 +257,7 @@ const config: GatsbyConfig = {
                             // 블로그 포스트만 RSS 피드 아이템으로 생성한다.
                             return Object.assign({}, node.frontmatter, {
                                 // item options: https://www.npmjs.com/package/rss#itemoptions
-                                title: `${node.frontmatter.title} — ${node.frontmatter.subtitle}`,
+                                title: `${node.frontmatter.title}${node.frontmatter.subtitle ? ` — ${node.frontmatter.subtitle}` : ''}`,
                                 description: node.excerpt,
                                 url: `${siteMetadata.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
