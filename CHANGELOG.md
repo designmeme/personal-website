@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.27.0](https://github.com/designmeme/personal-website/compare/v1.26.2...v1.27.0) (2023-07-08)
+
+
+### Features
+
+* **contents:** 새 포스트 "명령어 기초" 추가 ([e00b708](https://github.com/designmeme/personal-website/commit/e00b7086ca915d81c1fb50f4dc66ae33246f9096))
+
+
+### Bug Fixes
+
+* RSS 피드 부제목 오류 수정 [#117](https://github.com/designmeme/personal-website/issues/117) ([f2100c0](https://github.com/designmeme/personal-website/commit/f2100c06c3a4749b69a0c017641af4c774c80dc1))
+
 ## [1.26.2](https://github.com/designmeme/personal-website/compare/v1.26.1...v1.26.2) (2023-06-25)
 
 
