@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.28.0](https://github.com/designmeme/personal-website/compare/v1.27.0...v1.28.0) (2023-07-29)
+
+
+### Features
+
+* **contents:** 새 포스트 "업비트 웹사이트에서 자동으로 로그인을 연장하는 북마클릿 사용법" 추가 ([a559a33](https://github.com/designmeme/personal-website/commit/a559a3309f12ff84bdb88467708adf686e772585))
+
+
+### Bug Fixes
+
+* **contents:** 잘못된 excerpt 내용 수정 ([c505534](https://github.com/designmeme/personal-website/commit/c50553459e1debf488a9e996e72e3ff3b5bbef38))
+
 ## [1.27.0](https://github.com/designmeme/personal-website/compare/v1.26.2...v1.27.0) (2023-07-08)
 
 
