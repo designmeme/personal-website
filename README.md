@@ -55,7 +55,7 @@ npm run develop
 ### 도메인 연결 및 관리
 
 * URL: [https://heyjihye.com](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)
-* 커스텀 도메인 설정: Gatsby Cloud 사이트 설정 페이지 > Hosting > Domains
+* 커스텀 도메인 설정: Netlify 사이트 설정 페이지 > Domain management
 * 도메인 구매: [가비아](https://www.gabia.com/)
 * DNS 설정: [가비아 DNS 관리](https://dns.gabia.com/)
     * heyjihye.com 연결: DNS A 타입 레코드 추가 완료
