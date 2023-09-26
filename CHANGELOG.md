@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.29.0](https://github.com/designmeme/personal-website/compare/v1.28.0...v1.29.0) (2023-09-26)
+
+
+### Features
+
+* gatsby-adapter-netlify 사용 설정 ([be32bfd](https://github.com/designmeme/personal-website/commit/be32bfd44ccd3707a0ec9a6b87fa71211d0008d4))
+
 ## [1.28.0](https://github.com/designmeme/personal-website/compare/v1.27.0...v1.28.0) (2023-07-29)
 
 

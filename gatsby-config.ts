@@ -1,5 +1,6 @@
 import type {GatsbyConfig} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
+import adapter from "gatsby-adapter-netlify"
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 dotenv.config({
@@ -10,6 +11,7 @@ const siteUrl: string = `https://heyjihye.com`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
 
 const config: GatsbyConfig = {
+    adapter: adapter(),
     siteMetadata: {
         title,
         description: `Freelance Front-end Web Developer`,

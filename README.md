@@ -4,10 +4,12 @@
 
 [//]: # ([![Gatsby]&#40;https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white&#41;]&#40;https://gatsbyjs.com&#41;)
 [![Gatsby](https://img.shields.io/github/package-json/dependency-version/designmeme/personal-website/gatsby?logo=gatsby&labelColor=%23663399&color=%23663399&style=for-the-badge)](https://gatsbyjs.com)
+[![Netlify Status](https://img.shields.io/netlify/101225b5-7387-48e9-b17a-c351d1d65a4c?logo=netlify&style=for-the-badge)](https://app.netlify.com/sites/rad-alpaca-81e1b1/deploys)
+<br>
 [![GitHub Workflow Release Please Status](https://img.shields.io/github/actions/workflow/status/designmeme/personal-website/release-please.yml?label=Release%20Please&logo=github&style=for-the-badge)](https://github.com/designmeme/personal-website/actions/workflows/release-please.yml)
-[![GitHub](https://img.shields.io/github/license/designmeme/personal-website?style=for-the-badge)](./LICENSE.md)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196.svg?logo=conventionalcommits&style=for-the-badge)](https://conventionalcommits.org)
 [![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://heyjihye.com/rss.xml)
+[![GitHub](https://img.shields.io/github/license/designmeme/personal-website?style=for-the-badge)](./LICENSE.md)
 
 ## 👩‍💻 Develop
 
@@ -43,14 +45,17 @@ npm run develop
     * 구현: GitHub Action > [Release Please Action](https://github.com/google-github-actions/release-please-action)
     * 설정 파일: `/.github/workflows/release-please.yml`
 
-## 🚀 Hosting
+## 🚀 Deploy & Hosting
 
-[Gatsby Cloud Hosting](https://www.gatsbyjs.com/dashboard) 서비스를 이용하며, [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
+* Platform: [Netlify](https://www.netlify.com/)
+* [Gatsby Adapter](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/adapters/) 기능 사용
+* 관련 설정: [gatsby-config.ts](./gatsby-config.ts)
+* [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
 
 ### 도메인 연결 및 관리
 
 * URL: [https://heyjihye.com](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)
-* 커스텀 도메인 설정: Gatsby Cloud 사이트 설정 페이지 > Hosting > Domains
+* 커스텀 도메인 설정: Netlify 사이트 설정 페이지 > Domain management
 * 도메인 구매: [가비아](https://www.gabia.com/)
 * DNS 설정: [가비아 DNS 관리](https://dns.gabia.com/)
     * heyjihye.com 연결: DNS A 타입 레코드 추가 완료
