@@ -13,6 +13,7 @@
     "slug": "gatsby-website",
     "title": "Gatsby 웹사이트 개발",
     "sort": [
+      "deploy-to-netlify-from-gatsby-cloud",
       "gatsby-google-tagmanager",
       "gatsby-rss",
       "gatsby-fontawesome",
