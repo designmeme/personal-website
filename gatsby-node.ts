@@ -2,8 +2,8 @@ import type {GatsbyNode} from "gatsby"
 import fs from "fs";
 import {IGatsbyResolverContext} from "gatsby/dist/schema/type-definitions";
 
-const path = require(`path`)
-const readingTime = require(`reading-time`)
+import path from "path"
+import readingTime from "reading-time"
 
 export const createPages: GatsbyNode["createPages"] = async ({actions, graphql}) => {
     const {createPage, createRedirect} = actions
@@ -65,6 +65,10 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
         fromPath: `/`,
         toPath: `/blog`,
         // isPermanent: false,
+    })
+    createRedirect({
+        fromPath: `https://heyjihye.netlify.app/*`,
+        toPath: `/*`,
     })
 }
 

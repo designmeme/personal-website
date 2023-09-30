@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.30.0](https://github.com/designmeme/personal-website/compare/v1.29.0...v1.30.0) (2023-09-30)
+
+
+### Features
+
+* https://heyjihye.netlify.app 리다이렉트 설정 ([60c5530](https://github.com/designmeme/personal-website/commit/60c55303eb5662454917149d6eb5c4f5f5a032a7))
+
 ## [1.29.0](https://github.com/designmeme/personal-website/compare/v1.28.0...v1.29.0) (2023-09-26)
 
 
