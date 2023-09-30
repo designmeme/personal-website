@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.30.2](https://github.com/designmeme/personal-website/compare/v1.30.1...v1.30.2) (2023-09-30)
+
+
+### Bug Fixes
+
+* https://heyjihye.netlify.app 리다이렉트 재설정(:splat) ([edabd07](https://github.com/designmeme/personal-website/commit/edabd07dc2378078094eb6bfaed084238b550f63))
+
 ## [1.30.1](https://github.com/designmeme/personal-website/compare/v1.30.0...v1.30.1) (2023-09-30)
 
 
