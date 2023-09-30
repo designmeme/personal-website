@@ -66,6 +66,10 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
         toPath: `/blog`,
         // isPermanent: false,
     })
+    createRedirect({
+        fromPath: `https://heyjihye.netlify.app/*`,
+        toPath: `/*`,
+    })
 }
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({node, actions, createNodeId, getNode}) => {
