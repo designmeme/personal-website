@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.31.0](https://github.com/designmeme/personal-website/compare/v1.30.4...v1.31.0) (2023-10-01)
+
+
+### Features
+
+* **contents:** 새 포스트 "Gatsby Cloud에서 Netlify로 배포 플랫폼 변경하기" 추가 ([c8fc02a](https://github.com/designmeme/personal-website/commit/c8fc02a7e3d3b692917db00b8691c5babb9a13e7))
+
 ## [1.30.4](https://github.com/designmeme/personal-website/compare/v1.30.3...v1.30.4) (2023-10-01)
 
 
