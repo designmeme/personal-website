@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.30.4](https://github.com/designmeme/personal-website/compare/v1.30.3...v1.30.4) (2023-10-01)
+
+
+### Bug Fixes
+
+* https://heyjihye.netlify.app 리다이렉트 재설정(_redirects force) ([e2c25a8](https://github.com/designmeme/personal-website/commit/e2c25a86ee36d671f84c2289201472dbfc4bf988))
+* https://heyjihye.netlify.app 리다이렉트 파일 삭제(불가능) ([9e4a9b0](https://github.com/designmeme/personal-website/commit/9e4a9b05f303db18ec97a006b5a209a0b33a12de))
+
 ## [1.30.3](https://github.com/designmeme/personal-website/compare/v1.30.2...v1.30.3) (2023-09-30)
 
 
