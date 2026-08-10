@@ -2,7 +2,7 @@ import type {GatsbyConfig} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
 
 const siteUrl: string = `https://heyjihye.netlify.app`
-const title: string = `이지혜, 프론트엔드 웹 개발자`
+const title: string = `이지혜, 프론트엔드 개발자`
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -57,16 +57,16 @@ const config: GatsbyConfig = {
                     {
                         // 필수
                         // link 요소가 html head에 추가됨.
-                        // <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="이지혜, 프론트엔드 웹 개발자">
+                        // <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="이지혜, 프론트엔드 개발자">
                         output: "/rss.xml",
 
                         // 필수
-                        title: "이지혜, 프론트엔드 웹 개발자",
+                        title: "이지혜, 프론트엔드 개발자",
 
                         // match: "^/blog/",
 
                         // 만들어진 /rss.xml 파일 대신 외부 주소를 사용해 link 요소가 html head에 추가됨.
-                        // <link rel="alternate" type="application/rss+xml" href="https://feeds.feedburner.com/heyjihye/feed" title="이지혜, 프론트엔드 웹 개발자">
+                        // <link rel="alternate" type="application/rss+xml" href="https://feeds.feedburner.com/heyjihye/feed" title="이지혜, 프론트엔드 개발자">
                         // link: "https://feeds.feedburner.com/heyjihye/feed",
 
                         // feed options: https://www.npmjs.com/package/rss#feedoptions

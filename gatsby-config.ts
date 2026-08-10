@@ -9,7 +9,7 @@ dotenv.config({
 })
 
 const siteUrl: string = `https://heyjihye.netlify.app`
-const title: string = `이지혜, 프론트엔드 웹 개발자`
+const title: string = `이지혜, 프론트엔드 개발자`
 
 const config: GatsbyConfig = {
     adapter: adapter(),

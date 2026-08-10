@@ -7,7 +7,7 @@
      version="2.0"
 >
     <channel>
-        <title><![CDATA[이지혜, 프론트엔드 웹 개발자]]></title>
+        <title><![CDATA[이지혜, 프론트엔드 개발자]]></title>
         <description><![CDATA[Freelance Front-end Web Developer]]></description>
         <link>https://heyjihye.netlify.app/blog/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
         <generator>GatsbyJS</generator>
