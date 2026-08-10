@@ -1,7 +1,7 @@
 import type {GatsbyConfig} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
 
-const siteUrl: string = `https://heyjihye.com`
+const siteUrl: string = `https://heyjihye.netlify.app`
 const title: string = `이지혜, 프론트엔드 웹 개발자`
 
 const config: GatsbyConfig = {

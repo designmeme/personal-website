@@ -30,7 +30,7 @@ const ResumePage: React.FC<PageProps> = () => {
                 <dt className="profile-title">이메일</dt>
                 <dd className="profile-description">ghe.lee19@gmail.com</dd>
                 <dt className="profile-title">홈페이지</dt>
-                <dd className="profile-description"><Link to={'/'}>https://heyjihye.com</Link></dd>
+                <dd className="profile-description"><Link to={'/'}>https://heyjihye.netlify.app</Link></dd>
             </dl>
 
             <hr/>
