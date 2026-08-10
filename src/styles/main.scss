@@ -3,27 +3,20 @@
 
 // todo CSS Modules
 
-@import "variables";
-@import "mixins";
-
-@import "reset";
-
-@import "typography";
-@import "image";
-@import "table";
-@import "prism-light";
-@import "code";
-@import "utilities";
-
-@import "layout";
-@import "header";
-@import "footer";
-
-@import "page";
-@import "blog";
-@import "post";
-@import "subnav";
-@import "footnotes";
-@import "career";
-
-@import "print";
+@use "reset";
+@use "typography";
+@use "image";
+@use "table";
+@use "prism-light";
+@use "code";
+@use "utilities";
+@use "layout";
+@use "header";
+@use "footer";
+@use "page";
+@use "blog";
+@use "post";
+@use "subnav";
+@use "footnotes";
+@use "career";
+@use "print";

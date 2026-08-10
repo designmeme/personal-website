@@ -3,6 +3,10 @@
 //
 
 
+@use "sass:color";
+@use "shared" as *;
+@use "typography";
+
 img {
   max-width: 100%;
 }
@@ -23,6 +27,6 @@ figure {
   div[data-placeholder-image] {
     position: absolute;
     inset: 0;
-    background-color: transparentize($brand-primary, 0.1);
+    background-color: color.adjust($brand-primary, $alpha: -0.1);
   }
 }

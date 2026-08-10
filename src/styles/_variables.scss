@@ -2,12 +2,14 @@
 //
 //
 
+@use "sass:color";
+
 
 //
 // Color
 //
 $brand-primary:         #FC4A1A;
-$brand-primary-dark:    darken($brand-primary, 15%);
+$brand-primary-dark:    color.adjust($brand-primary, $lightness: -15%);
 $brand-primary-light:   #ffe0d8;
 $brand-primary-lighter: #ffeeea;
 

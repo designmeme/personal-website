@@ -2,6 +2,8 @@
 //
 //
 
+@use "sass:color";
+
 $hl-lighter:#eceeed !default;
 $hl-light:  #dadbdd !default;
 $hl-muted:  #929292 !default;
@@ -30,11 +32,11 @@ $hl-purple: #8959A8 !default;
   .err   { color: #fff; background-color: $hl-error; } // Error
 
   .gd    { color: $hl-error; } // Generic.Deleted
-  .gd .x { color: #000; background-color: lighten($hl-error, 35%); } // Generic.Deleted.Specific
+  .gd .x { color: #000; background-color: color.adjust($hl-error, $lightness: 35%); } // Generic.Deleted.Specific
   .ge    { font-style: italic; } // Generic.Emph
   .gh    { color: $hl-gray; font-weight: bold; } // Generic.Heading
-  .gi    { color: $hl-green; background-color: lighten($hl-green, 65%); } // Generic.Inserted
-  .gi .x { color: $hl-green; background-color: lighten($hl-green, 50%); } // Generic.Inserted.Specific
+  .gi    { color: $hl-green; background-color: color.adjust($hl-green, $lightness: 65%); } // Generic.Inserted
+  .gi .x { color: $hl-green; background-color: color.adjust($hl-green, $lightness: 50%); } // Generic.Inserted.Specific
   .go    { color: #888; } // Generic.Output
   .gp    { color: $hl-green; font-weight: bold; } // Generic.Prompt
   .gr    { color: $hl-error; } // Generic.Error

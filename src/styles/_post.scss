@@ -3,6 +3,10 @@
 //
 
 
+@use "shared" as *;
+@use "typography";
+@use "utilities";
+
 // post meta data
 //
 .post-meta {

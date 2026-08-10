@@ -3,6 +3,9 @@
 //
 
 
+@use "shared" as *;
+@use "typography";
+
 .site-footer {
   background: $brand-primary;
   color: #fff;

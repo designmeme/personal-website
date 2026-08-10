@@ -2,6 +2,9 @@
 //
 //
 
+@use "shared" as *;
+@use "typography";
+
 .career-list {
   dd {
     margin-left: 1rem;

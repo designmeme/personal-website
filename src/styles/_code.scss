@@ -2,6 +2,8 @@
 //
 //
 
+@use "shared" as *;
+
 .code-label {
   margin: 0;
   padding: 0 .5em;
@@ -23,5 +25,4 @@
     }
   }
 }
-
 
