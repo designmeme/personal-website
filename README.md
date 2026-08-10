@@ -17,6 +17,7 @@
 
 ```shell
 npm run develop
+npm run develop -- --port 8001
 ```
 
 ### Gatsby 참고

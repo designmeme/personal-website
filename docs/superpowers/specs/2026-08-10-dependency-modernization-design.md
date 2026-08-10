@@ -3,7 +3,7 @@
 ## Goal
 
 Modernize the personal Gatsby site to the latest compatible stable direct
-dependencies, including Gatsby 5, React 19, MDX 3, Font Awesome 7, and the
+dependencies, including Gatsby 5, React 19, MDX 2.3, Font Awesome 7, and the
 current TypeScript toolchain. Preserve the current site behavior and Netlify
 deployment configuration while making local development work reliably on the
 current Node runtime.
@@ -42,8 +42,9 @@ from `gatsby/dist`. Resolver inputs will be typed at the public boundary and
 the queried sort and slug values will be narrowed before string operations.
 
 The post template's MDX component map will use the types exported by the
-current MDX runtime. Local components will accept the component-compatible
-props expected by MDX, avoiding casts that conceal React 19 incompatibilities.
+current Gatsby 5-compatible MDX runtime (MDX 2.3). Local components will
+accept the component-compatible props expected by MDX, avoiding casts that
+conceal React 19 incompatibilities.
 
 The README will describe normal local startup and include an explicit optional
 port-override command for cases where another local service uses port 8000.

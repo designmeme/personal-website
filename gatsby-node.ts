@@ -1,9 +1,18 @@
 import type {GatsbyNode} from "gatsby"
 import fs from "fs";
-import {IGatsbyResolverContext} from "gatsby/dist/schema/type-definitions";
 
 import path from "path"
 import readingTime from "reading-time"
+import {getPostOrder} from "./src/lib/post-order"
+
+type GatsbyNodeModel = {
+    findAll: (input: object) => Promise<{entries: Queries.Mdx[]}>
+    findOne: (input: object) => Promise<Queries.SubjectJson>
+}
+
+type GatsbyResolverContext = {
+    nodeModel: GatsbyNodeModel
+}
 
 export const createPages: GatsbyNode["createPages"] = async ({actions, graphql}) => {
     const {createPage, createRedirect} = actions
@@ -71,6 +80,10 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({node, actions, createNodeId, getNode}) => {
     const {createNodeField, createNode, createParentChildLink} = actions
     if (node.internal.type === `Mdx`) {
+        if (typeof node.body !== "string") {
+            return
+        }
+
         // MDX Subset 만들기
         // 참고: https://github.com/gatsbyjs/gatsby/discussions/34881
         // const fileNode = getNode(node.parent!);
@@ -128,7 +141,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
         MdxFrontmatter: {
             order: {
                 type: "Int",
-                resolve: async (source: Queries.MdxFrontmatter, args: object, context: IGatsbyResolverContext<Queries.MdxFrontmatter, undefined>) => {
+            resolve: async (source: Queries.MdxFrontmatter, args: object, context: GatsbyResolverContext) => {
                     // 주제별 포스트 순서값 지정 - SubjectJson 데이터를 기반으로 order 값을 반환한다.
                     if (!source.subject) {
                         return null
@@ -137,7 +150,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
                         type: 'SubjectJson',
                         query: {filter: {slug: {eq: source.subject}}}
                     })
-                    return subject.sort.indexOf(source.slug) + 1 || null
+                    return getPostOrder(subject.sort, source.slug)
                 },
             },
         },
@@ -146,7 +159,7 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
             // todo posts 에 sort 기능 넣을수 없나?
             posts: {
                 type: "[Mdx!]!",
-                resolve: async (source: Queries.SubjectJson, args: object, context: IGatsbyResolverContext<Queries.MdxFrontmatter, undefined>) => {
+                resolve: async (source: Queries.SubjectJson, args: object, context: GatsbyResolverContext) => {
                     const {entries} = await context.nodeModel.findAll({
                         type: 'Mdx',
                         query: {
