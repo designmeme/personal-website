@@ -3,55 +3,64 @@
     {
       "title": "프리랜서 프론트엔드 개발자",
       "date": [
-        "2021-01",
-        "present"
+        "2011-08",
+        null,
+        "15년+"
       ],
-      "description": "3년의 띵스플로우 서비스 개발을 마무리하고 다시 프리랜서로 일하고 있습니다."
+      "description": "다양한 규모의 30개 이상 프로젝트에 참여"
     },
     {
-      "title": "띵스플로우 프론트엔드 개발자",
+      "title": "띵스플로우 프론트엔드 개발자 (정규)",
       "date": [
         "2017-12",
-        "2020-12"
+        "2020-12",
+        "3년"
       ],
-      "description": "하우투메리에서 함께 일한 인연을 이어 띵스플로우에서 챗봇 빌더 및 챗봇 대화 서비스의 프론트엔드 웹 개발을 전담했습니다."
+      "description": "챗봇 빌더 '헬로우봇 스튜디오' 및 '헬로우봇 스킬스토어'의 프론트엔드 개발 전담 및 지속적인 개선 작업 진행"
     },
     {
-      "title": "하우투메리 프론트엔드 개발자",
+      "title": "하우투메리 프론트엔드 개발자 (계약)",
       "date": [
         "2014-08",
-        "2017-01"
+        "2017-01",
+        "2.5년"
       ],
-      "description": "웨딩 스타트업 하우투메리에서 프론트엔드 웹 개발을 담당하여 웨딩업체용 웹 ERP를 개발하였습니다."
+      "description": "스타트업 하우투메리(현 웨딩북)에서 웨딩 업체를 위한 웹 솔루션 '웨딩마루', '스튜디온', '웨딩북' 개발 전담 및 지속적인 개선 작업 진행"
     },
     {
-      "title": "프리랜서 프론트엔드 개발자",
-      "date": [
-        "2011-08",
-        "2017-09"
-      ],
-      "description": "2011년, 프리랜서로서 시작하여 띵스플로우 입사 전까지 프리랜서로 일했습니다."
-    },
-    {
-      "title": "디자인하우스 월간디자인 편집부 기자 인턴",
+      "title": "디자인하우스 월간디자인 편집부 기자 (인턴)",
       "date": [
         "2010-04",
-        "2010-09"
+        "2010-09",
+        "6개월"
       ],
-      "description": "디자인 잡지사에서 인턴 기자로서 5월호부터 10월호까지 참여했습니다."
+      "description": "잡지 월간디자인 2020년 5월호부터 10월호까지 기자로 참여"
     }
   ],
   "education": [
     {
-      "title": "홍익대학교 산업디자인과 학사",
+      "title": "홍익대학교 산업디자인과 학사 졸업",
       "date": [
         "2005-02",
         "2010-08"
       ],
-      "description": null
+      "description": "제품디자인전공 | 학점 3.83/4.5 | 장학금 6회 수여\n삼성물산 래미안 산학협동 2009 - Fresh Hands, Reddot award-design concept Interior Accessories 부문 Winner 수상\nMIT xD.24h Project 2009 - Inclusive Design Workshop 2위 선정\n옴니시스템 산학협동 2008 - 우수학생 6인 선정 및 장학금 수여"
     }
   ],
   "projects": [
+    {
+      "title": "Alchemist 프로그램 매매 시스템",
+      "date": [
+        "2021-09",
+        null
+      ],
+      "description": "개인적으로 자동매매 프로그램을 개발하여 운용하고 있습니다.\n대시보드 웹: Angular, React/Next.js, TradingView Advanced Charts, Lightweight Charts, AG Grid, Websocket\n서버: Python, Django, MySQL, ClickHouse, Django Ninja, Websocket\nBacktest: Pandas, Plotly, Jupyter Notebook, backtrader, zipline",
+      "client": "개인",
+      "tags": [
+        "desktop"
+      ],
+      "featured": false
+    },
     {
       "title": "엑심베이 반응형 전자결제 모듈",
       "date": [
@@ -65,7 +74,7 @@
         "tablet",
         "desktop"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "엑심베이 반응형 웹사이트",
@@ -91,7 +100,7 @@
         "2020-03",
         "2020-12"
       ],
-      "description": "기존 헬로우봇앱 서비스의 웹 전용 서비스로, 채팅방 등 채팅 인터페이스와 스킬 소비를 위한 다양한 기능을 제공합니다. 일본 서비스를 위해 다국어로 구조를 변경하는 등 지속적으로 기능을 추가하고 개선하였습니다. \nAngular5-10, RxJS, TypeScript, Sass / Angular Universal(SSR), Serverless(AWS) / SEO, 다국어",
+      "description": "기존 헬로우봇앱 서비스의 웹 전용 서비스로, 채팅방 등 채팅 인터페이스와 스킬 소비를 위한 다양한 기능을 제공합니다. 일본 서비스를 위해 다국어로 구조를 변경하는 등 지속적으로 기능을 추가하고 개선하였습니다. \nAngular5-10, RxJS, TypeScript, Sass / Angular Universal(SSR), Serverless(AWS) / SEO, 다국어, 결제연동",
       "client": "띵스플로우",
       "urls": [
         "https://hellobot.co"
@@ -136,7 +145,7 @@
         "tablet",
         "desktop"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "이노베이션랩 네이티브애드 웹사이트 및 모바일사이트",
@@ -164,7 +173,7 @@
         "2017-01"
       ],
       "description": "웨딩 스드메 견적 비교 사이트로 오픈 이후에 개선 작업도 몇 주간 진행하였습니다.\n사용자 및 판매자 웹사이트 / 모바일 우선 반응형 / Sass 사용 / typeahead.js를 활용한 업체 검색 UI / 이미지 레이지 로딩 처리 / 사진 슬라이더 적용 / SEO",
-      "client": "김메리",
+      "client": "하우투메리",
       "tags": [
         "mobile",
         "tablet",
@@ -239,7 +248,7 @@
         "tablet",
         "desktop"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "D&G 컴퍼니 반응형 웹사이트",
@@ -406,7 +415,7 @@
       "tags": [
         "mobile"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "KB국민은행 희망별 웹사이트 및 모바일사이트 (웹 접근성)",
@@ -557,20 +566,18 @@
     }
   ],
   "skills": [
-    "웹 표준, 브라우저 호환성, 반응형 웹, 웹 접근성, SEO, PWA",
-    "SPA, Angular",
-    "JavaScript(ES6), TypeScript, RxJS, jQuery",
-    "HTML5, Jekyll, Liquid, Nunjucks",
-    "CSS3, Sass",
-    "Bootstrap, Material",
-    "Git, npm, Gulp, Browsersync, Chrome DevTools, VirtualBox, WebStorm",
-    "AWS(S3, Lambda), Firebase(Hosting, Functions), Travis CI",
-    "Google Analytics, Google Tag Manager, Google Optimize, Amplitude, Airbridge, Facebook Pixel, Kakao Pixel"
+    "웹 표준, 브라우저 호환성, 반응형 웹, 웹 접근성, SEO, SPA, SSR, PWA",
+    "React/Next.js, Angular, JavaScript(ES6+), TypeScript, RxJS, Gatsby",
+    "HTML5/CSS3, Tailwind CSS, shadcn/ui, Bootstrap, Material, Sass",
+    "Git, pnpm, npm, Chrome DevTools",
+    "AWS(S3, Lambda), Firebase(Hosting, Functions), Vercel, Netlify",
+    "Google Analytics, Google Tag Manager, Google Optimize, Amplitude, Airbridge, Facebook Pixel, Kakao Pixel, Lighthouse",
+    "Vibe coding, AI Coding Agents(ChatGPT, Claude), OpenRouter"
   ],
   "tools": [
-    "Slack, Email",
-    "프로젝트 및 이슈 관리: Google Drive, GitHub, GitLab, Bitbucket, JIRA, Redmine, Notion, Wrike, Trello",
+    "커뮤니케이션: Slack, Email",
+    "프로젝트 및 이슈 관리: Notion, GitHub, Bitbucket, JIRA, Redmine, Wrike, Trello",
     "기획: Oven, AXURE, Balsamiq Mockups, PowerPoint",
-    "디자인: Zeplin, InVision, Sketch"
+    "디자인: Figma, Zeplin, InVision, Sketch"
   ]
 }
