@@ -43,8 +43,10 @@ npm run develop -- --port 8001
 
 2. Auto Release:
     * 사용 기술: [Release Please](https://github.com/googleapis/release-please)
-    * 구현: GitHub Action > [Release Please Action](https://github.com/google-github-actions/release-please-action)
+    * 구현: GitHub Action > [Release Please Action v5](https://github.com/googleapis/release-please-action)
     * 설정 파일: `/.github/workflows/release-please.yml`
+    * `main` 브랜치에 변경 사항이 반영되면 Release PR이 자동으로 생성되거나 갱신됩니다.
+    * Release PR을 병합하면 CHANGELOG와 프로젝트 버전이 갱신되고 태그와 GitHub Release가 생성됩니다.
 
 ## 🚀 Deploy & Hosting
 
