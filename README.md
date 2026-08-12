@@ -50,7 +50,7 @@ npm run develop -- --port 8001
 
 * Platform: [Netlify](https://www.netlify.com/)
 * [Gatsby Adapter](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/adapters/) 기능 사용
-* 관련 설정: [gatsby-config.ts](./gatsby-config.ts)
+* 관련 설정: [gatsby-config.ts](./gatsby-config.ts) - `gatsby-adapter-netlify`
 * [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
 
 
