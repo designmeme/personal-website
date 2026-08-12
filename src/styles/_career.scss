@@ -41,6 +41,10 @@
   }
 }
 
+.career-date .duration {
+  margin-left: 0.25rem;
+}
+
 .career-description {
   @extend .p-small;
   white-space: pre-wrap;

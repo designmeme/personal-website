@@ -23,7 +23,7 @@ type Props = {
 }
 
 const dateToText = (date: string): string => {
-    if (date === 'present') {
+    if (null == date) {
         return '현재'
     }
     const [year, month] = date.split('-').map(d => +d)
@@ -44,6 +44,7 @@ const CareerList: React.FC<Props> = ({data}) => {
                             <time dateTime={career.date[0] + '-01'}>{dateToText(career.date[0])}</time>
                             {" - "}
                             <time dateTime={career.date[1] + '-01'}>{dateToText(career.date[1])}</time>
+                            {career.date.length >= 3 && <span className="duration">· {career.date[2]}</span>}
                         </span>
 
                         {career.client && (
