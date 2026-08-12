@@ -7,12 +7,12 @@
      version="2.0"
 >
     <channel>
-        <title><![CDATA[이지혜, 프론트엔드 웹 개발자]]></title>
+        <title><![CDATA[이지혜, 프론트엔드 개발자]]></title>
         <description><![CDATA[Freelance Front-end Web Developer]]></description>
-        <link>https://heyjihye.com/blog/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+        <link>https://heyjihye.netlify.app/blog/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
         <generator>GatsbyJS</generator>
         <lastBuildDate>Fri, 21 Apr 2023 12:26:22 GMT</lastBuildDate>
-        <atom:link href="https://heyjihye.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <atom:link href="https://heyjihye.netlify.app/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[이지혜]]></author>
         <copyright><![CDATA[© 2017-2023 이지혜 All rights reserved.]]></copyright>
         <language><![CDATA[ko]]></language>
@@ -33,14 +33,14 @@
 Gatsby 웹사이트에 RSS 피드 추가하기
 
 기능을 추가하기 위해 Gatsby…]]></description>
-            <link>https://heyjihye.com/blog/gatsby-rss/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed
+            <link>https://heyjihye.netlify.app/blog/gatsby-rss/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed
             </link>
             <guid isPermaLink="false">blog-gatsby-rss</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Sat, 15 Apr 2023 15:00:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/ed2feabf18834a391cd166f4fa104c2a/0d4d1/gatsby-rss.webp"
+            <media:content url="https://heyjihye.netlify.app/static/ed2feabf18834a391cd166f4fa104c2a/0d4d1/gatsby-rss.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ RSS 피드 추가하기 ]]&gt;</media:title>
             </media:content>
@@ -52,14 +52,14 @@ Gatsby 웹사이트에 RSS 피드 추가하기
 웹 콘텐츠를 구독하기 위한 표준 웹 피드
 
 웹 피드는 뉴스 기사처럼 자주 발행되는 콘텐츠를 사용자에게 제공(=웹…]]></description>
-            <link>https://heyjihye.com/blog/rss-feed/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed
+            <link>https://heyjihye.netlify.app/blog/rss-feed/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed
             </link>
             <guid isPermaLink="false">blog-rss-feed</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Sat, 15 Apr 2023 15:00:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/d0356a6b78bb413eee6115e68474a5d6/0d4d1/rss-feed.webp"
+            <media:content url="https://heyjihye.netlify.app/static/d0356a6b78bb413eee6115e68474a5d6/0d4d1/rss-feed.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ RSS 피드 ]]&gt;</media:title>
             </media:content>
@@ -73,13 +73,13 @@ Sass에서도 식별자 이름에 따른 규칙이 강제로 정해진 것은 �
 하이픈과 밑줄
 
 Sass 식별자 이름에서…]]></description>
-            <link>https://heyjihye.com/blog/sass-identifiers/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-identifiers/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-identifiers</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Fri, 28 Jul 2017 07:33:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 식별자 이름 ]]&gt;</media:title>
             </media:content>
@@ -93,13 +93,13 @@ Sass 식별자 이름에서…]]></description>
 변수 기본값 정의 
 
 이렇듯 변수를 재정의할 때 작성 순서가 아주 중요하다는 것을 알았습니다. 그런데 Sass에는 이런 값 할당의 우선순위를 바꿀 방법이 있습니다. 바로  플래그입니다. 이 플래그는 변수값과 세미콜론  사이에 작성합니다. CSS에서  플…]]></description>
-            <link>https://heyjihye.com/blog/sass-variables-default-flag/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-variables-default-flag/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-variables-default-flag</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Thu, 20 Jul 2017 08:44:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 변수와 !default 플래그 ]]&gt;</media:title>
             </media:content>
@@ -114,13 +114,13 @@ Sass 식별자 이름에서…]]></description>
 변수 사용하기
 
 변수는 다양한 곳에서 사용할 수 있지만 가장 기본적인 사용법은 속성값으로 할당하는 것입니다.]]></description>
-            <link>https://heyjihye.com/blog/sass-variables/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-variables/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-variables</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Thu, 20 Jul 2017 07:42:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 변수 $ ]]&gt;</media:title>
             </media:content>
@@ -129,13 +129,13 @@ Sass 식별자 이름에서…]]></description>
             <title><![CDATA[Sass 대화형 셸 — SassScript 간편 실험실]]></title>
             <description><![CDATA[SassScript 표현식을 스타일시트에서 작성하기 전에 대화형 셸을 이용하여 헷갈리는 데이터 유형이나, 애매하고 복잡한 변수, 함수 연산의 결과를 미리 확인하면 표현식의 결과를 명확히 할 수 있습니다. 또한, Sass 파일을 생성하지 않고 SassScript 표현식을 직접 작성하고 결과를 바로 얻을 수 있으므로 문법을 배우는 단계에서 실습하기에 좋습니다. 대화형 셸 사용법
 맥의 '터미널'이나 윈도우의 '명령 프롬프트' 등 운영체제가 제공하는 기본 커맨드라인 인터페이스나, IDE가 내장한 커맨드라인 인터페이스를 엽니다. 를 입력한 후  혹은 을 누릅니다.1 가…]]></description>
-            <link>https://heyjihye.com/blog/sass-interactive-shell/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-interactive-shell/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-interactive-shell</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Wed, 19 Jul 2017 08:56:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 대화형 셸 ]]&gt;</media:title>
             </media:content>
@@ -149,13 +149,13 @@ SassScript를 사용하는 활용 범위를 크게 두 가지로 나누어 정�
 직접 사용
 
 변수, 연산, 함수를 값으로 직접…]]></description>
-            <link>https://heyjihye.com/blog/sass-sassscript/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-sassscript/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-sassscript</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Wed, 19 Jul 2017 04:36:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ SassScript ]]&gt;</media:title>
             </media:content>
@@ -167,13 +167,13 @@ SassScript를 사용하는 활용 범위를 크게 두 가지로 나누어 정�
 블록 주석 
 
 블록 주석은 출력 스타일에 따라 CSS 출력물에 다양하게 표시됩니다. (1)기본 스타일인 'nested'와 'expanded'에서는 그대로 출력되며, (2)출력 스타일이 'compatible'이면 여러 줄에 작성한 주석을 모두 한 줄로 표시합니다. (3)출력 스타일이 'compressed'이면 블록 주석은 삭제됩니다.…]]></description>
-            <link>https://heyjihye.com/blog/sass-comments/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-comments/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-comments</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Mon, 17 Jul 2017 09:01:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 인라인 주석과 블록 주석 ]]&gt;</media:title>
             </media:content>
@@ -185,13 +185,13 @@ SassScript를 사용하는 활용 범위를 크게 두 가지로 나누어 정�
 규칙 중첩
 
 CSS 규칙을 중첩하여 작성할 수 있습니다. 규칙 중첩 은 부모 선택자를 계속 반복하지 않게 해줍니다. 특히 하위 선택자를 많이 사용하는 복잡한 CSS 규칙을 간단하게 작성할 수 있으며, 그 구조를 한눈에 볼 수 있습니다.]]></description>
-            <link>https://heyjihye.com/blog/sass-css-extensions/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-css-extensions/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-css-extensions</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Fri, 14 Jul 2017 08:07:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass CSS 확장 기능 ]]&gt;</media:title>
             </media:content>
@@ -201,13 +201,13 @@ CSS 규칙을 중첩하여 작성할 수 있습니다. 규칙 중첩 은 부모 
             <description><![CDATA[Sass를 작성하는 문법은 두 가지입니다. 처음 Sass가 만들어질 때 함께 탄생한 Sass 문법과 대대적인 문법 개선으로 새로 추가된 SCSS 문법이 있습니다. 둘은 기능은 같지만, 문법적으로 모양새가 아주 다릅니다. 각 문법의 특징을 알아보면서 이유를 함께 살펴봅시다. CSS 호환성을 갖춘 SCSS 문법
 
 SCSS는 2010년 5월 버전 3으로 업그레이드하면서 갖춰진 새로운 문법 체계입니다. Sassy CSS 의미를 함축한 SCSS를 영어 그대로 번역하면 '멋진 CSS'라고 할 수 있지만, 기존 Sass 문법은 줄이고 CS…]]></description>
-            <link>https://heyjihye.com/blog/write-sass-with-scss/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/write-sass-with-scss/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-write-sass-with-scss</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Thu, 13 Jul 2017 13:30:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass는 SCSS로 쓰세요 ]]&gt;</media:title>
             </media:content>
@@ -216,13 +216,13 @@ SCSS는 2010년 5월 버전 3으로 업그레이드하면서 갖춰진 새로운
             <title><![CDATA[Sass 시작하기 — 스타일시트를 작성하는 멋진 방법]]></title>
             <description><![CDATA[CSS의 모든 문법과 함께 변수 , 중첩 규칙 , 믹스인 , 인라인 불러오기  등 다양한 기능을 지원합니다. Sass는 내용이 많은 스타일시트를 잘 정리하게 도와주며, (특히 컴퍼스 스타일 라이브러리1를 사용하면) 스타일시트를 빠르게 작성할 수 있게 해줍니다. 특징
 CSS의 모든 문법을 지원하는 CSS 완전 호환성2 변수, 중첩, 믹스인 등 사용으로 언어 확장 색상 등 값을 처리하는 다수의 유용한 함수 라이브러리를…]]></description>
-            <link>https://heyjihye.com/blog/make-awesome-stylesheets-with-sass/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/make-awesome-stylesheets-with-sass/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-make-awesome-stylesheets-with-sass</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Thu, 13 Jul 2017 08:03:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 시작하기 ]]&gt;</media:title>
             </media:content>
@@ -232,13 +232,13 @@ CSS의 모든 문법을 지원하는 CSS 완전 호환성2 변수, 중첩, 믹�
             <description><![CDATA[Sass 공식 참고문서는 Sass의 모든 기능1과 문법을 예시와 함께 자세히 설명하고 있습니다. 하지만 함축적으로 표현하여 쉽게 이해가 안 되는 부분도 있고 내용 자체가 어려운 부분도 있습니다. 이 글 시리즈는 공식 참고문서를 바탕으로 딱딱한 문장을 풀어서 설명합니다. 예시가 없이 문장으로만 작성하여 이해하기 어려운 부분은 내용에 따라 목록으로 정리하거나 예시 코드를 함께 보여줍니다. 나아가 서로 연관된 내용은 링크로 연결하여 연결성을 높이고 새로운 내용도 추가해 원문보다 넓은 범위의 내용을 담고 있습니다. 용어
 
 Sas…]]></description>
-            <link>https://heyjihye.com/blog/sass-awesome-docs/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-awesome-docs/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-awesome-docs</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Mon, 10 Jul 2017 09:00:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ 친절한 Sass 설명서 ]]&gt;</media:title>
             </media:content>
@@ -254,13 +254,13 @@ Sas…]]></description>
 확장 
 
 확장 스타일은 사람이 작성한 CSS 스타일과 거의 같다고 할 수 있습니다. 속성은 규칙 안에서 들여쓰기하여 각 한 줄에 작성하고, 규칙은 들여쓰기하지 않습니다.]]></description>
-            <link>https://heyjihye.com/blog/sass-css-output-style/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
+            <link>https://heyjihye.netlify.app/blog/sass-css-output-style/?utm_source=blog-feed&amp;utm_medium=feed&amp;utm_campaign=feed</link>
             <guid isPermaLink="false">blog-sass-css-output-style</guid>
             <category><![CDATA[Web Dev]]></category>
             <category><![CDATA[웹개발]]></category>
             <category><![CDATA[Programming]]></category>
             <pubDate>Fri, 07 Jul 2017 01:23:00 GMT</pubDate>
-            <media:content url="https://heyjihye.com/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
+            <media:content url="https://heyjihye.netlify.app/static/f4f4f83cbbed17f9390854c1a45d869f/0d4d1/sass-docs.webp"
                            type="image/webp" width="1200" height="630">
                 <media:title type="plain">&lt;![CDATA[ Sass 출력 스타일 ]]&gt;</media:title>
             </media:content>

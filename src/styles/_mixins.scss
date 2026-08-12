@@ -2,10 +2,13 @@
 //
 //
 
+@use "sass:map";
+@use "variables" as *;
+
 
 @mixin responsive-font-size() {
   @each $breakpoint-name, $font-size in $font-sizes {
-    $breakpoint: map_get($breakpoints, $breakpoint-name);
+    $breakpoint: map.get($breakpoints, $breakpoint-name);
 
     @if $breakpoint == 0 {
       font-size: $font-size;
@@ -19,15 +22,15 @@
 
 @mixin text-hierarchy() {
   @each $map in $text-hierarchy {
-    #{map-get($map, selectors)} {
-      font-size: map-get($map, font-size);
-      line-height: map-get($map, line-height);
+    #{map.get($map, selectors)} {
+      font-size: map.get($map, font-size);
+      line-height: map.get($map, line-height);
     }
   }
 }
 
 @mixin media-breakpoint-up($name) {
-  $min: map_get($breakpoints, $name);
+  $min: map.get($breakpoints, $name);
   @if $min {
     @if $min == 0 {
       @content
@@ -42,7 +45,7 @@
 }
 
 @mixin media-breakpoint-down($name) {
-  $max: map_get($breakpoints, $name);
+  $max: map.get($breakpoints, $name);
   @if $max {
     @if $max == 0 {
       @content

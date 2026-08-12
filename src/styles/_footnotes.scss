@@ -3,6 +3,9 @@
 //
 
 
+@use "shared" as *;
+@use "typography";
+
 .footnote,
 a[data-footnote-ref="true"] {
   &:after {

@@ -3,6 +3,9 @@
 //
 
 
+@use "shared" as *;
+@use "typography";
+
 .blog {
   margin-top: $section-margin;
 }

@@ -1,6 +1,6 @@
 # 👋 heyjihye
 
-[Gatsby](https://www.gatsbyjs.com)를 바탕으로 만든 [개인 웹사이트](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)의 소스 코드를 담고 있어요
+[Gatsby](https://www.gatsbyjs.com)를 바탕으로 만든 [개인 웹사이트](https://heyjihye.netlify.app/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)의 소스 코드를 담고 있어요
 
 [//]: # ([![Gatsby]&#40;https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white&#41;]&#40;https://gatsbyjs.com&#41;)
 [![Gatsby](https://img.shields.io/github/package-json/dependency-version/designmeme/personal-website/gatsby?logo=gatsby&labelColor=%23663399&color=%23663399&style=for-the-badge)](https://gatsbyjs.com)
@@ -8,7 +8,7 @@
 <br>
 [![GitHub Workflow Release Please Status](https://img.shields.io/github/actions/workflow/status/designmeme/personal-website/release-please.yml?label=Release%20Please&logo=github&style=for-the-badge)](https://github.com/designmeme/personal-website/actions/workflows/release-please.yml)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196.svg?logo=conventionalcommits&style=for-the-badge)](https://conventionalcommits.org)
-[![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://heyjihye.com/rss.xml)
+[![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://heyjihye.netlify.app/rss.xml)
 [![GitHub](https://img.shields.io/github/license/designmeme/personal-website?style=for-the-badge)](./LICENSE.md)
 
 ## 👩‍💻 Develop
@@ -17,6 +17,7 @@
 
 ```shell
 npm run develop
+npm run develop -- --port 8001
 ```
 
 ### Gatsby 참고
@@ -42,30 +43,28 @@ npm run develop
 
 2. Auto Release:
     * 사용 기술: [Release Please](https://github.com/googleapis/release-please)
-    * 구현: GitHub Action > [Release Please Action](https://github.com/google-github-actions/release-please-action)
+    * 구현: GitHub Action > [Release Please Action v5](https://github.com/googleapis/release-please-action)
     * 설정 파일: `/.github/workflows/release-please.yml`
+    * `main` 브랜치에 변경 사항이 반영되면 Release PR이 자동으로 생성되거나 갱신됩니다.
+    * Release PR을 병합하면 CHANGELOG와 프로젝트 버전이 갱신되고 태그와 GitHub Release가 생성됩니다.
 
 ## 🚀 Deploy & Hosting
 
 * Platform: [Netlify](https://www.netlify.com/)
 * [Gatsby Adapter](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/adapters/) 기능 사용
-* 관련 설정: [gatsby-config.ts](./gatsby-config.ts)
+* 관련 설정: [gatsby-config.ts](./gatsby-config.ts) - `gatsby-adapter-netlify`
 * [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
 
-### 도메인 연결 및 관리
-
-* URL: [https://heyjihye.com](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)
-* 커스텀 도메인 설정: Netlify 사이트 설정 페이지 > Domain management
-* 도메인 구매: [가비아](https://www.gabia.com/)
-* DNS 설정: [가비아 DNS 관리](https://dns.gabia.com/)
-    * heyjihye.com 연결: DNS A 타입 레코드 추가 완료
-    * [www.heyjihye.com](https://heyjihye.com/?utm_source=github&utm_medium=referral&utm_campaign=github_profile) 연결: DNS CNAME 타입 레코드 추가 완료
 
 ## 🚀 Integrations
 
 ### SEO
 
-작성전
+- [`SeoHead`](./src/components/seo-head.tsx): 페이지별 제목, 설명, canonical URL과 Open Graph·Twitter Card 메타 태그를 설정.
+- 사용 플러그인
+  - [`gatsby-config.ts`](./gatsby-config.ts) 설정 참고
+  - `gatsby-plugin-sitemap` 
+  - `gatsby-plugin-robots-txt`
 
 ### Analytics
 

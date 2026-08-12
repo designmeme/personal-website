@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.32.0](https://github.com/designmeme/personal-website/compare/v1.31.0...v1.32.0) (2026-08-12)
+
+
+### Features
+
+* update and expand content across profile, about, and resume pages ([a7d626f](https://github.com/designmeme/personal-website/commit/a7d626f04de8ffa1026787cd6552b3bcd73200e3))
+
+
+### Bug Fixes
+
+* handle null values in career dates and display duration if available ([a2f4a02](https://github.com/designmeme/personal-website/commit/a2f4a022c9a61f34b46966af53c44ff82f9a1121))
+* load styles through Sass modules ([23e1281](https://github.com/designmeme/personal-website/commit/23e128141ba8d13fe8437ae2b159fa88b8c8bae2))
+
 ## [1.31.0](https://github.com/designmeme/personal-website/compare/v1.30.4...v1.31.0) (2023-10-01)
 
 

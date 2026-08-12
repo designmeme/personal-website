@@ -1,14 +1,15 @@
 import type {GatsbyConfig} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
+import remarkGfm from "remark-gfm";
 import adapter from "gatsby-adapter-netlify"
-import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
-const siteUrl: string = `https://heyjihye.com`
-const title: string = `이지혜, 프론트엔드 웹 개발자`
+const siteUrl: string = `https://heyjihye.netlify.app`
+const title: string = `이지혜, 프론트엔드 개발자`
 
 const config: GatsbyConfig = {
     adapter: adapter(),
@@ -336,10 +337,8 @@ const config: GatsbyConfig = {
                 mdxOptions: {
                     remarkPlugins: [
                         // Add GitHub Flavored Markdown (GFM) support
-                        // v1 사용 - 참고 https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx#mdxoptions
-                        require(`remark-gfm`),
-                        // v3 사용 - remark-gfm v1 사용시 footnote 만 미지원해서 추가로 설치함.
-                        require(`remark-footnotes`),
+                        // 참고 https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx#mdxoptions
+                        remarkGfm,
                     ],
                 },
             },

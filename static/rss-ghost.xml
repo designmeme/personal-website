@@ -6,10 +6,10 @@
     <channel>
         <title><![CDATA[나를 구독하지 말아요 👻]]></title>
         <description><![CDATA[왜냐하면 이건 피드 리더 테스트용이거든요]]></description>
-        <link>https://heyjihye.com</link>
+        <link>https://heyjihye.netlify.app</link>
         <generator>GatsbyJS</generator>
         <lastBuildDate>Thu, 13 Apr 2023 09:10:23 GMT</lastBuildDate>
-        <atom:link href="https://heyjihye.com/rss-ghost.xml" rel="self" type="application/rss+xml"/>
+        <atom:link href="https://heyjihye.netlify.app/rss-ghost.xml" rel="self" type="application/rss+xml"/>
         <copyright><![CDATA[© 2017-2023 이지혜 All rights reserved.]]></copyright>
         <language><![CDATA[ko]]></language>
         <category><![CDATA[Tech]]></category>
@@ -20,8 +20,8 @@
         <item>
             <title><![CDATA[제목]]></title>
             <description><![CDATA[내용]]></description>
-            <link>https://heyjihye.com/blog/rss-feed/</link>
-            <guid isPermaLink="false">https://heyjihye.com/blog/rss-feed/</guid>
+            <link>https://heyjihye.netlify.app/blog/rss-feed/</link>
+            <guid isPermaLink="false">https://heyjihye.netlify.app/blog/rss-feed/</guid>
         </item>
     </channel>
 </rss>

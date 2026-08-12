@@ -2,6 +2,9 @@
 //
 //
 
+@use "shared" as *;
+@use "typography";
+
 .career-list {
   dd {
     margin-left: 1rem;
@@ -36,6 +39,10 @@
       margin-right: 0.2rem;
     }
   }
+}
+
+.career-date .duration {
+  margin-left: 0.25rem;
 }
 
 .career-description {

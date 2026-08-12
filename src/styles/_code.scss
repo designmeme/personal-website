@@ -2,6 +2,9 @@
 //
 //
 
+@use "sass:string";
+@use "shared" as *;
+
 .code-label {
   margin: 0;
   padding: 0 .5em;
@@ -18,10 +21,8 @@
     font-weight: 700;
   }
   @each $code in (HTML, CSS, SCSS, Sass, JavaScript, JS, jQuery, Ruby, Markdown, XML, Shell, MDX, TypeScript, TS, TXT, JSX, TSX, JSON) {
-    &.code-label-#{to-lower-case($code)}:before {
+    &.code-label-#{string.to-lower-case($code)}:before {
       content: "#{$code}";
     }
   }
 }
-
-

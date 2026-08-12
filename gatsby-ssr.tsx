@@ -5,7 +5,14 @@ import {gtmNoscript, gtmScript} from "./src/components/gtm-setup";
 
 
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents, setPreBodyComponents }) => {
-    setHeadComponents([gtmScript])
+    setHeadComponents([
+        <link
+            href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+            key="spoqa-han-sans"
+            rel="stylesheet"
+        />,
+        gtmScript,
+    ])
     // setHeadComponents([gtmScript, ...googleAdsenseScripts])
     setPreBodyComponents([gtmNoscript])
 }
