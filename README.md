@@ -58,7 +58,11 @@ npm run develop -- --port 8001
 
 ### SEO
 
-작성전
+- [`SeoHead`](./src/components/seo-head.tsx): 페이지별 제목, 설명, canonical URL과 Open Graph·Twitter Card 메타 태그를 설정.
+- 사용 플러그인
+  - [`gatsby-config.ts`](./gatsby-config.ts) 설정 참고
+  - `gatsby-plugin-sitemap` 
+  - `gatsby-plugin-robots-txt`
 
 ### Analytics
 
