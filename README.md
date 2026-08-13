@@ -91,6 +91,9 @@ npm run develop -- --port 8001
   - 속성 생성(GTM 활용해 인증) 및 사이트맵 제출 완료
   - 속성 생성 후 도메인이 변경되면 속성이 변경되기 때문에 새로 생성해야 함. 사이트 인증은 GTM 으로 자동 연결됨.
 
+### Advertising
+- [Google AdSense](https://adsense.google.com/)
+
 ## License
 
 Code released under [MIT License](./LICENSE.md)
