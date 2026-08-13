@@ -47,6 +47,7 @@ npm run develop -- --port 8001
 /rss.xml  # Auto Generated
 /rss-ghosts.xml  # rss feed to test
 /ads.txt  # Google AdSense
+/naver08346ecd0f9b1019b6fce83369a2ac95.html  # Naver Serach Advisor
 
 ```
 
@@ -90,6 +91,10 @@ npm run develop -- --port 8001
 - [Google Search Console](https://search.google.com/search-console/)
   - 속성 생성(GTM 활용해 인증) 및 사이트맵 제출 완료
   - 속성 생성 후 도메인이 변경되면 속성이 변경되기 때문에 새로 생성해야 함. 사이트 인증은 GTM 으로 자동 연결됨.
+- [Naver Search Advisor](https://searchadvisor.naver.com/)
+  - 현재 미사용
+  - 이전 커스텀 도메인(heyjihye.com)으로 생성
+  - 새 주소(heyjihye.netlify.app) 변경 후 네이버 검색 지원은 필요성이 떨어텨서 새로 만들지 않음. 
 
 ### Advertising
 - [Google AdSense](https://adsense.google.com/)
