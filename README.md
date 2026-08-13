@@ -34,6 +34,22 @@ npm run develop -- --port 8001
 - RSS Feed: [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) 플러그인 사용. 
   - 플러그인 설정 참고: [gatsby-config.ts](./gatsby-config.ts)
 
+### Sitemap
+```
+/about
+/about/resume
+/blog
+/blog/*
+/design-guide
+
+/sitemap-index.xml  # Auto Generated
+/robots.txt  # Auto Generated
+/rss.xml  # Auto Generated
+/rss-ghosts.xml  # rss feed to test
+/ads.txt  # Google AdSense
+
+```
+
 ## 🤖 Release
 
 [Release Please](https://github.com/googleapis/release-please)를 사용해 CHANGELOG, 깃헙 릴리즈, 프로젝트 버전 등을 자동으로 처리합니다.
