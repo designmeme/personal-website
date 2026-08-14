@@ -72,7 +72,7 @@ export const createPages: GatsbyNode["createPages"] = async ({actions, graphql})
     // Redirects 설정
     createRedirect({
         fromPath: `/`,
-        toPath: `/blog`,
+        toPath: `/about`,
         // isPermanent: false,
     })
 }

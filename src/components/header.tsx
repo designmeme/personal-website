@@ -12,7 +12,7 @@ const Header: React.FC = () => {
 
             <div className="wrapper">
                 <Link
-                    to="/blog"
+                    to="/about"
                     className="site-title"
                 >
                     <img src={logoImage} alt={title || ''} className="logo"/>
