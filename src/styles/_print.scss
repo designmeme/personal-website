@@ -37,6 +37,16 @@
     page-break-after: always;
   }
 
+  /* href 속성을 가진 <a> 태그 뒤에 URL을 표시 */
+  a[href].print-url {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    &::after {
+      content: ": " attr(href);
+    }
+  }
+
   .profile-list {
     dt, dd {
       margin-bottom: .5em;

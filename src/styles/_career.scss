@@ -61,4 +61,12 @@
   dt, dd {
     margin-bottom: 1.5em;
   }
+  .profile-description {
+    a {
+      display: inline-block;
+      &:not(:first-child) {
+        margin-left: 0.75em;
+      }
+    }
+  }
 }
