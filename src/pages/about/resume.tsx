@@ -9,7 +9,7 @@ import {Link} from "gatsby";
 
 export const frontmatter: PageFrontmatter = {
     title: `이력서 및 경력기술서`,
-    subtitle: `프론트엔드 개발자 이지혜`,
+    subtitle: `이지혜, 프론트엔드 개발자`,
     excerpt: `15년 이상 경력의 프론트엔드 개발자로 다수의 프로젝트 개발 경험을 보유하고 있습니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
     updatedAt: `2026-08-11T12:00:00+09:00`,
