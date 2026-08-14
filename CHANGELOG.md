@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.32.1](https://github.com/designmeme/personal-website/compare/v1.32.0...v1.32.1) (2026-08-14)
+
+
+### Bug Fixes
+
+* adjust resume subtitle format for consistency ([28992dd](https://github.com/designmeme/personal-website/commit/28992dd35763f23d5c1d9ebbc6a3371f461a864b))
+* enhance resume links formatting for print usability ([f04bea0](https://github.com/designmeme/personal-website/commit/f04bea0d2526581122a9b824ae37c8045713d499))
+* hide post meta in print stylesheet ([faadcaf](https://github.com/designmeme/personal-website/commit/faadcaf4de3bb790a1e5e3c27dc938d21d825997))
+* update links and redirects from `/blog` to `/about` ([163c5fb](https://github.com/designmeme/personal-website/commit/163c5fba053617d8c2ba00147350ebf1224829b2))
+
 ## [1.32.0](https://github.com/designmeme/personal-website/compare/v1.31.0...v1.32.0) (2026-08-12)
 
 
