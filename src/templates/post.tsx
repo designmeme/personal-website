@@ -88,11 +88,11 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    {!isDesktop && <PageMeta createdAt={createdAt}
+                    <PageMeta createdAt={createdAt}
                                              updatedAt={updatedAt}
                                              readMinutes={readMinutes}
                                              tags={tags}
-                    />}
+                    />
 
                 </header>
 
@@ -152,7 +152,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         </Link>}
                     </div>
 
-                    {!isDesktop && <RssFeedInfo/>}
+                    <RssFeedInfo/>
                 </footer>
 
             </article>
@@ -160,12 +160,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
             <aside className="sidebar-right">
                 {isDesktop && (
                     <>
-                        <PageMeta createdAt={createdAt}
-                                  updatedAt={updatedAt}
-                                  readMinutes={readMinutes}
-                                  tags={tags}
-                        />
-                        <RssFeedInfo/>
                         <Toc toc={data.mdx?.tableOfContents!} title={title}/>
                     </>
                 )}

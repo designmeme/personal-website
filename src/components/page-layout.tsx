@@ -32,9 +32,7 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
                     {
                         frontmatter.subtitle && <p className="page-subtitle"> {frontmatter.subtitle}</p>
                     }
-
-                    {!isDesktop &&
-                        <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>}
+                    <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
                 </header>
 
                 <div className="page-content">
@@ -43,9 +41,6 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
 
             </article>
 
-            <aside className="sidebar-right">
-                {isDesktop && <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>}
-            </aside>
         </Layout>
     )
 }
