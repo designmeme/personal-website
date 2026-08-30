@@ -25,6 +25,12 @@ npm run develop
 npm run develop -- --port 8001
 ```
 
+### 색상 테마
+
+색상 테마는 기본적으로 운영체제 설정을 따릅니다. 헤더의 테마 선택 메뉴에서
+라이트 또는 다크 테마를 고정할 수 있고, 시스템을 선택하면 운영체제 설정으로
+다시 돌아갑니다. 선택한 테마는 브라우저에 저장되어 다음 방문에도 유지됩니다.
+
 ### Gatsby 참고
 
 - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)

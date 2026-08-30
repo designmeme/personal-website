@@ -10,10 +10,10 @@
   margin-bottom: 2rem;
   border-collapse: collapse;
   thead {
-    background-color: $gray-n0;
+    background-color: $surface-muted;
   }
   td, th {
-    border: 1px solid $gray-n3;
+    border: 1px solid $border-color;
     padding: .25em .5em;
   }
 }

@@ -42,6 +42,70 @@ $link-color:          $brand-primary;
 $link-color-hover:    $text-color;
 $link-color-visited:  $brand-primary-dark;
 
+// Runtime theme tokens. Sass variables below point at these values so the
+// existing component styles can switch themes without a class rewrite.
+:root {
+  color-scheme: light;
+  --color-bg: #ffffff;
+  --color-text: #312f30;
+  --color-text-gray: #636466;
+  --color-text-muted: #949599;
+  --color-text-silver: #bcbdc1;
+  --color-surface-muted: #eceeed;
+  --color-border: #d1d2d4;
+  --color-code-bg: #ffeeea;
+  --color-code-border: #ffe0d8;
+  --color-code-text: #d23c14;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #171717;
+  --color-text: #f2f0ee;
+  --color-text-gray: #c6c2bf;
+  --color-text-muted: #9d9894;
+  --color-text-silver: #77716d;
+  --color-surface-muted: #2a2928;
+  --color-border: #4a4745;
+  --color-code-bg: #38231f;
+  --color-code-border: #713b2e;
+  --color-code-text: #ffad96;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-bg: #171717;
+    --color-text: #f2f0ee;
+    --color-text-gray: #c6c2bf;
+    --color-text-muted: #9d9894;
+    --color-text-silver: #77716d;
+    --color-surface-muted: #2a2928;
+    --color-border: #4a4745;
+    --color-code-bg: #38231f;
+    --color-code-border: #713b2e;
+    --color-code-text: #ffad96;
+  }
+}
+
+$body-color:        var(--color-bg);
+$text-color:        var(--color-text);
+$text-color-gray:   var(--color-text-gray);
+$text-color-muted:  var(--color-text-muted);
+$text-color-silver: var(--color-text-silver);
+$link-color:        $brand-primary;
+$link-color-hover:  var(--color-text);
+$link-color-visited: $brand-primary-dark;
+$surface-muted:     var(--color-surface-muted);
+$border-color:      var(--color-border);
+$code-background:   var(--color-code-bg);
+$code-border:       var(--color-code-border);
+$code-text:         var(--color-code-text);
+
 // Spoqa Han Sans https://github.com/spoqa/spoqa-han-sans
 $font-family:  'Spoqa Han Sans Neo', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
 //$font-size:    18px;

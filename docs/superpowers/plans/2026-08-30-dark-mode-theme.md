@@ -29,9 +29,9 @@
 - `resolveTheme(preference, systemIsDark): "light" | "dark"`
 - `getStoredTheme(storage): ThemePreference`
 
-- [ ] Write tests for explicit light/dark, system resolution, invalid storage, and missing storage.
-- [ ] Implement pure utilities and a namespaced storage key.
-- [ ] Run `npm run test -- src/lib/theme.test.ts`.
+- [x] Write tests for explicit light/dark, system resolution, invalid storage, and missing storage.
+- [x] Implement pure utilities and a namespaced storage key.
+- [x] Run `npm run test -- src/lib/theme.test.ts`.
 
 ### Task 2: Add SSR-safe theme initialization and React toggle
 
@@ -45,10 +45,10 @@
 - `ThemeToggle` renders an accessible control for the three preferences.
 - SSR initialization runs before body paint and never throws when browser APIs are unavailable.
 
-- [ ] Add a defensive inline initialization script to `onRenderBody`.
-- [ ] Implement client state synchronization with `localStorage` and `matchMedia`.
-- [ ] Add the toggle to the site header without changing existing navigation.
-- [ ] Test initial rendering and preference changes.
+- [x] Add a defensive inline initialization script to `onRenderBody`.
+- [x] Implement client state synchronization with `localStorage` and `matchMedia`.
+- [x] Add the toggle to the site header without changing existing navigation.
+- [x] Test initial rendering and preference changes.
 
 ### Task 3: Convert semantic colors to theme tokens
 
@@ -67,17 +67,17 @@
 - Modify: `src/styles/_layout.scss`
 - Modify: `src/styles/_print.scss`
 
-- [ ] Define light defaults and dark overrides for page, text, muted, border, surface, link, and code surfaces.
-- [ ] Replace runtime semantic color declarations with `var(--color-...)` while retaining Sass-only values for color math.
-- [ ] Add `color-scheme` and transitions that respect `prefers-reduced-motion`.
-- [ ] Ensure print output uses light paper/background tokens.
+- [x] Define light defaults and dark overrides for page, text, muted, border, surface, link, and code surfaces.
+- [x] Replace runtime semantic color declarations with `var(--color-...)` while retaining Sass-only values for color math.
+- [x] Add `color-scheme` and transitions that respect `prefers-reduced-motion`.
+- [x] Ensure print output uses light paper/background tokens.
 
 ### Task 4: Verify the theme across Gatsby output
 
 **Files:**
 - Modify: `README.md`
 
-- [ ] Document system default, manual toggle, and reset-to-system behavior.
-- [ ] Run `npm run test && npm run typecheck && npm run build`.
-- [ ] Start `npm run develop -- --port 8001` and verify `curl --fail http://localhost:8001/blog/`.
-- [ ] Run `git diff --check` and inspect generated page output for hydration/build errors.
+- [x] Document system default, manual toggle, and reset-to-system behavior.
+- [x] Run `npm run test && npm run typecheck && npm run build`.
+- [x] Start `npm run develop -- --port 8001` and verify `curl --fail http://localhost:8001/blog/`.
+- [x] Run `git diff --check` and inspect generated page output for hydration/build errors.

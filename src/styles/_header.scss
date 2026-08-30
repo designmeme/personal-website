@@ -87,4 +87,18 @@
       }
     }
   }
+  .theme-toggle {
+    align-self: flex-start;
+    margin-left: .75em;
+
+    select {
+      padding: .25em .4em;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+      background: $body-color;
+      color: $text-color;
+      font: inherit;
+      font-size: .72em;
+    }
+  }
 }

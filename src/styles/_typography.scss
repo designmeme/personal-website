@@ -69,6 +69,13 @@ body {
   color: $text-color;
   font-family: $font-family;
   font-weight: $font-weight;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
 }
 
 .p-small {

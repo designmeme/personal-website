@@ -9,6 +9,15 @@
 }
 
 @media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
   html {
     font-size: 9pt;
   }
@@ -53,4 +62,3 @@
     }
   }
 }
-

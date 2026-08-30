@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "gatsby";
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import logoImage from '../images/common/logo.svg'
+import ThemeToggle from './theme-toggle'
 
 
 const Header: React.FC = () => {
@@ -33,6 +34,8 @@ const Header: React.FC = () => {
                         >Blog</Link>
                     </div>
                 </nav>
+
+                <ThemeToggle/>
 
             </div>
 

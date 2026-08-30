@@ -51,7 +51,7 @@
 .cc-info {
   margin: $section-margin 0;
   padding: calc($section-margin / 4);
-  background-color: $gray-n0;
+  background-color: $surface-muted;
   @extend .clearfix;
   @extend .p-smaller;
 
@@ -69,7 +69,7 @@
 .rss-feed-info {
   margin: $section-margin 0;
   padding: calc($section-margin / 2) 0;
-  border-top: 1px solid $gray-n0;
+  border-top: 1px solid $border-color;
   @extend .p-smaller;
 
   @at-root .page-footer & {
