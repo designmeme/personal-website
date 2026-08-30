@@ -56,6 +56,8 @@ $link-color-visited:  $brand-primary-dark;
   --color-code-bg: #ffeeea;
   --color-code-border: #ffe0d8;
   --color-code-text: #d23c14;
+  --color-code-block-bg: #ffffff;
+  --color-code-block-text: #312f30;
 }
 
 [data-theme='light'] {
@@ -74,6 +76,8 @@ $link-color-visited:  $brand-primary-dark;
   --color-code-bg: #38231f;
   --color-code-border: #713b2e;
   --color-code-text: #ffad96;
+  --color-code-block-bg: #2b2b2b;
+  --color-code-block-text: #d7e0ea;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -89,6 +93,8 @@ $link-color-visited:  $brand-primary-dark;
     --color-code-bg: #38231f;
     --color-code-border: #713b2e;
     --color-code-text: #ffad96;
+    --color-code-block-bg: #2b2b2b;
+    --color-code-block-text: #d7e0ea;
   }
 }
 
