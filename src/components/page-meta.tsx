@@ -4,22 +4,15 @@ import {faBook, faTags} from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 
 type Props = {
-    createdAt?: string | null
     updatedAt?: string | null
     readMinutes?: number | null
     tags?: readonly string[] | null
 }
 
-const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes, tags}) => {
+const PageMeta: React.FC<Props> = ({updatedAt, readMinutes, tags}) => {
     return (
         <>
             <p className="post-meta">
-                {createdAt && <span className="date">
-                    <time dateTime={createdAt}>
-                        {moment(createdAt).format('LL')}
-                    </time> 작성
-                    {!updatedAt && '함'}
-                </span>}
                 {updatedAt && (
                     <span className="modified">
                         <time dateTime={updatedAt}>
@@ -29,7 +22,6 @@ const PageMeta: React.FC<Props> = ({createdAt, updatedAt, readMinutes, tags}) =>
                 )}
 
                 {readMinutes && <span className="reading-time">
-                    <FontAwesomeIcon icon={faBook}/>
                     {readMinutes}-{Math.ceil(readMinutes * 1.3)}분 읽기
                 </span>}
             </p>

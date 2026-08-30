@@ -88,10 +88,9 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                         <p className="page-subtitle"> {subtitle}</p>
                     )}
 
-                    <PageMeta createdAt={createdAt}
-                                             updatedAt={updatedAt}
-                                             readMinutes={readMinutes}
-                                             tags={tags}
+                    <PageMeta updatedAt={updatedAt}
+                              readMinutes={readMinutes}
+                              tags={tags}
                     />
 
                 </header>

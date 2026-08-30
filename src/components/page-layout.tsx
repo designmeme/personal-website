@@ -32,7 +32,7 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
                     {
                         frontmatter.subtitle && <p className="page-subtitle"> {frontmatter.subtitle}</p>
                     }
-                    <PageMeta createdAt={frontmatter.createdAt} updatedAt={frontmatter.updatedAt}></PageMeta>
+                    <PageMeta updatedAt={frontmatter.updatedAt}></PageMeta>
                 </header>
 
                 <div className="page-content">

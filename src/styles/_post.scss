@@ -10,8 +10,8 @@
 // post meta data
 //
 .post-meta {
-  text-align: right;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+  margin-left: 2px; // 시각적 조정
   @extend .p-smaller;
   @at-root .page-header & {
     margin-top: 1em;
@@ -20,20 +20,22 @@
     margin-top: 0.5em;
   }
   span {
-    display: block;
+    display: inline;
 
-    .svg-inline--fa {
-      margin-right: .25em;
+    + span {
+      margin-left: .75em;
+      &::before {
+        content: '|';
+        display: inline-block;
+        margin-right: .75em;
+        opacity: 0.5;
+      }
     }
-  }
-
-  .date {
-    color: $text-color-silver;
   }
 }
 
 .post-tags {
-  text-align: right;
+  margin-left: 1px; // 시각적 조정
   @extend .p-smaller;
   @at-root .sidebar-right & {
     margin-left: 50px;
