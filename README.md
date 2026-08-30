@@ -17,6 +17,11 @@
 
 ```shell
 npm run develop
+```
+
+기본 포트(8000)를 다른 로컬 서비스가 사용 중이면 다음처럼 포트를 지정해 실행할 수 있습니다.
+
+```shell
 npm run develop -- --port 8001
 ```
 

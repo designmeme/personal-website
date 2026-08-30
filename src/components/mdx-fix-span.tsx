@@ -15,15 +15,11 @@
 
 import React from 'react';
 
-interface Props {
-    dangerouslySetInnerHTML: {
-        __html: string
-    }
-}
+type Props = React.ComponentPropsWithoutRef<'span'>
 
 const MdxFixSpan: React.FC<Props> = (props) => {
-    if (props.dangerouslySetInnerHTML && props.dangerouslySetInnerHTML.__html) {
-        const html = props.dangerouslySetInnerHTML.__html
+    const html = props.dangerouslySetInnerHTML?.__html
+    if (typeof html === 'string' && html) {
 
         // gatsby-remark-images 설정 -> wrapperStyle 에서 이미지 비율대로 높이를 잡음.
         // 피겨 이미지의 부모 요소에 flex 설정이 필요함.

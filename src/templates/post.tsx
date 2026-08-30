@@ -5,6 +5,7 @@ import SeoHead from '../components/seo-head'
 import {GatsbyImage} from "gatsby-plugin-image";
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {MDXProvider} from "@mdx-js/react"
+import type {MDXComponents} from "mdx/types.js"
 import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -28,14 +29,14 @@ import RssFeedInfo from "../components/rss-feed-info";
 import GoogleAdPostMiddle from "../components/google-ad-post-middle";
 
 
-const shortcodes = {
+const shortcodes: MDXComponents = {
     Link,
     SideBySide,
     FontAwesomeIcon,
     GoogleAdPostMiddle,
-    a: (props: any) => <MdxLink {...props} />,
-    span: (props: any) => <MdxFixSpan {...props} />,
-    img: (props: any) => <MdxImg {...props} />,
+    a: MdxLink,
+    span: MdxFixSpan,
+    img: MdxImg,
 }
 
 type PageContextType = {

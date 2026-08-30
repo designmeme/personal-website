@@ -15,17 +15,14 @@
  *   참고 소스 출처: https://zslabs.com/articles/mdx-link-routing-in-gatsby
  */
 
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {Link} from 'gatsby'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
 
-interface Props {
-    href: string
-    children: ReactNode
-}
+type Props = React.ComponentPropsWithoutRef<'a'>
 
-const MdxLink: React.FC<Props> = ({ href, children, ...rest }: Props) => {
+const MdxLink: React.FC<Props> = ({ href = '', children, ...rest }) => {
     const externalProtocols = ['http', 'https', 'mailto']
     const protocol = href.slice(0, href.indexOf(':'))
 

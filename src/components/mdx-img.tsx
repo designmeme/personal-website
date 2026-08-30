@@ -1,12 +1,6 @@
 import React from 'react'
 
-type Props = {
-    src: string
-    alt: string
-    dangerouslySetInnerHTML: {
-        __html: string
-    }
-}
+type Props = React.ComponentPropsWithoutRef<'img'>
 
 /**
  * gatsby-remark-images 플러그인이 처리하지 않는 gif 이미지를 figure 구조로 변환하는 컴포넌트
@@ -15,7 +9,7 @@ type Props = {
  * @param props
  * @constructor
  */
-const MdxImg:React.FC<Props> = ({src, alt, ...props}) => {
+const MdxImg: React.FC<Props> = ({src = '', alt = '', ...props}) => {
     return (
         <figure>
             <a href={src} target="_blank" rel="noopener" style={{display: 'block'}}>
