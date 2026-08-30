@@ -93,38 +93,6 @@
   }
 }
 
-// post sns links
-//
-$sns-link-width: 3.3rem;
-.sns-links {
-  display: flex;
-  justify-content: center;
-  margin: $section-margin 0;
-  text-align: center;
-
-  .sns-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.3rem;
-    color: $brand-primary;
-    transition: all 400ms;
-
-    &:not(:first-child) {
-      margin-left: 1em;
-    }
-
-    @media (pointer: fine) {
-      &.facebook:hover {
-        color: $facebook-color;
-      }
-      &.twitter:hover {
-        color: $twitter-color;
-      }
-    }
-  }
-}
-
 // post next, prev links
 //
 .post-nav {

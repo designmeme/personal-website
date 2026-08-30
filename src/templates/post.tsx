@@ -12,10 +12,8 @@ import {
     faCreativeCommonsBy,
     faCreativeCommonsNc,
     faCreativeCommonsNd,
-    faFacebookF,
-    faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import {faArrowLeftLong, faArrowRightLong, faCircle} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
 import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import Toc from "../components/toc";
 import SideBySide from '../components/side-by-side';
@@ -48,9 +46,8 @@ type PageContextType = {
 
 
 const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
-    = ({data, children, path, pageContext}) => {
+    = ({data, children, pageContext}) => {
     const {previous, next} = pageContext
-    const {siteUrl} = useSiteMetadata()
     const {frontmatter} = data.mdx!
     const {
         subject,
@@ -63,8 +60,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     } = frontmatter!
 
     const readMinutes = Math.ceil(data.mdx?.fields?.timeToRead?.minutes!)
-    const canonical = siteUrl + path
-
     // SSR 결과에 isDesktop이 아닌 경우 포함됨.
     const isDesktop = useMediaQuery({
         query: '(min-width: 1024px)'
@@ -125,22 +120,6 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 </div>
 
                 <footer className="page-footer">
-                    <div className="sns-links">
-                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${canonical}`}
-                           className="sns-link facebook" target="_blank" aria-label="facebook"
-                        >
-                            <FontAwesomeIcon icon={faFacebookF} transform={'shrink-8'} mask={faCircle}/>
-                            <span className="sr-only">facebook</span>
-                        </a>
-                        <a href={`https://twitter.com/intent/tweet?url=${canonical}`}
-                           className="sns-link twitter"
-                           target="_blank" aria-label="twitter"
-                        >
-                            <FontAwesomeIcon icon={faTwitter} transform={'shrink-8'} mask={faCircle}/>
-                            <span className="sr-only">twitter</span>
-                        </a>
-                    </div>
-
                     <div className="cc-info">
                         <div className="cc-icons">
                             <FontAwesomeIcon className="cc-icon" icon={faCreativeCommons}/>
