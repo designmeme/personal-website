@@ -31,8 +31,10 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents, set
             key="spoqa-han-sans"
             rel="stylesheet"
         />,
-        gtmScript,
     ])
-    // setHeadComponents([gtmScript, ...googleAdsenseScripts])
-    setPreBodyComponents([gtmNoscript])
+
+    if (process.env.NODE_ENV === "production") {
+        setHeadComponents([gtmScript])
+        setPreBodyComponents([gtmNoscript])
+    }
 }
