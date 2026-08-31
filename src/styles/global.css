@@ -142,10 +142,6 @@ h5, .h5 {
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-weight: 400;
   transition: background-color 200ms ease, color 200ms ease;
 }
 
@@ -165,6 +161,9 @@ body {
 
 ol, ul {
   padding-left: 2em;
+}
+ul {
+  list-style: disc;
 }
 
 dt {
