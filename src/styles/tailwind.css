@@ -3,4 +3,6 @@
 
 @theme {
   --color-brand: #FC4A1A;
+  --font-sans: "Spoqa Han Sans Neo", "맑은 고딕", "Malgun Gothic",
+    "Apple SD Gothic Neo", sans-serif;
 }

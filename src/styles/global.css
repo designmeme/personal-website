@@ -144,7 +144,7 @@ h5, .h5 {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: "Spoqa Han Sans Neo", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
   transition: background-color 200ms ease, color 200ms ease;
 }

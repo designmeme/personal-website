@@ -2,6 +2,7 @@ import type {GatsbyConfig} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
 import remarkGfm from "remark-gfm";
 import adapter from "gatsby-adapter-netlify"
+import tailwindcss from "@tailwindcss/postcss"
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 dotenv.config({
@@ -74,7 +75,12 @@ const config: GatsbyConfig = {
                 "path": `./src/data/`
             },
         },
-        `gatsby-plugin-postcss`,
+        {
+            resolve: `gatsby-plugin-postcss`,
+            options: {
+                postCssPlugins: [tailwindcss()],
+            },
+        },
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
