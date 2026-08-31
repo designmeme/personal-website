@@ -14,7 +14,7 @@ import SeoHead from "../components/seo-head"
 
 export default function Layout({children, pageContext}) {
     return (
-        <PageLayout frontmatter={pageContext.frontmatter}>
+        <PageLayout frontmatter={pageContext.frontmatter} contentClassName="prose max-w-none">
             {children}
         </PageLayout>
     );

@@ -110,7 +110,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                     <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                 </div>
 
-                <div className="page-content heading-number">
+                <div className="page-content heading-number prose max-w-none">
                     <MDXProvider components={shortcodes}>{children}</MDXProvider>
                 </div>
 
