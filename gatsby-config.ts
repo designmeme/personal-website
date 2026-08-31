@@ -74,14 +74,7 @@ const config: GatsbyConfig = {
                 "path": `./src/data/`
             },
         },
-        {
-            resolve: `gatsby-plugin-sass`,
-            options: {
-                sassOptions: {
-                    includePaths: ["src/styles"],
-                },
-            },
-        },
+        `gatsby-plugin-postcss`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {

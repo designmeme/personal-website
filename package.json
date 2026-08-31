@@ -34,7 +34,6 @@
     "gatsby-plugin-manifest": "^5.16.0",
     "gatsby-plugin-mdx": "^5.16.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
-    "gatsby-plugin-sass": "^6.16.0",
     "gatsby-plugin-sharp": "^5.16.0",
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-remark-autolink-headers": "^6.16.0",
@@ -49,13 +48,16 @@
     "react-responsive": "^10.0.1",
     "reading-time": "^1.5.0",
     "remark-gfm": "^3.0.1",
-    "sass": "^1.102.0",
     "schema-dts": "^2.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
+    "gatsby-plugin-postcss": "^6.16.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   }

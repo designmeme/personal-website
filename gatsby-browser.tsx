@@ -1,4 +1,5 @@
-import './src/styles/main.scss'
+import './src/styles/tailwind.css'
+import './src/styles/global.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import {config} from '@fortawesome/fontawesome-svg-core'
