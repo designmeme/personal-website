@@ -17,7 +17,7 @@ type Props = {
     contentClassName?: string
 }
 
-const PageLayout: React.FC<Props> = ({children, frontmatter, contentClassName}) => {
+const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
     // SSR 결과에 isDesktop이 아닌 경우 포함됨.
     const isDesktop = useMediaQuery({
         query: '(min-width: 1024px)'
@@ -25,18 +25,17 @@ const PageLayout: React.FC<Props> = ({children, frontmatter, contentClassName}) 
 
     return (
         <Layout>
-            <aside className="sidebar-left"></aside>
-            <article className="page">
+            <article className="max-w-[680px] mx-auto px-10 mb-20 prose dark:prose-invert">
 
-                <header className="page-header">
-                    <h1 className="page-title">{frontmatter.title}</h1>
+                <header className="mb-10">
+                    <h1>{frontmatter.title}</h1>
                     {
-                        frontmatter.subtitle && <p className="page-subtitle"> {frontmatter.subtitle}</p>
+                        frontmatter.subtitle && <p className="text-lg"> {frontmatter.subtitle}</p>
                     }
                     <PageMeta updatedAt={frontmatter.updatedAt}></PageMeta>
                 </header>
 
-                <div className={`page-content${contentClassName ? ` ${contentClassName}` : ''}`}>
+                <div>
                     {children}
                 </div>
 

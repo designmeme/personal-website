@@ -38,7 +38,6 @@
     "gatsby-plugin-sitemap": "^6.16.0",
     "gatsby-remark-autolink-headers": "^6.16.0",
     "gatsby-remark-images": "^7.16.0",
-    "gatsby-remark-prismjs": "^7.16.0",
     "gatsby-source-filesystem": "^5.16.0",
     "gatsby-transformer-javascript-frontmatter": "^5.16.0",
     "gatsby-transformer-json": "^5.16.0",
@@ -47,8 +46,10 @@
     "react-dom": "^19.2.8",
     "react-responsive": "^10.0.1",
     "reading-time": "^1.5.0",
+    "rehype-pretty-code": "^0.14.5",
     "remark-gfm": "^3.0.1",
-    "schema-dts": "^2.0.0"
+    "schema-dts": "^2.0.0",
+    "shiki": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

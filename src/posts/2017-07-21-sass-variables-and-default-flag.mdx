@@ -22,9 +22,7 @@ updatedAt: 2017-07-24T22:23:00+09:00
 ## 변수 재정의
 모든 프로그래밍 언어에서 변수가 그렇듯이 Sass에서도 변수에 값을 다시 정의[^reassign]할 수 있습니다. 즉 변수에 값을 재할당할 수 있는데, 변수를 참조하기 전 가장 나중에 작성한 값이 변수의 값입니다.
 
-<p className="code-label code-label-scss">변수 재정의 예시</p>
-
-```scss{numberLines: true}
+```scss title="변수 재정의 예시" showLineNumbers
 $content: "환영합니다";
 $content: "안녕하세요"; // 변수 재정의
 
@@ -46,10 +44,7 @@ $content: "또 봅시다"; // 다시 변수 재정의
 그런데 Sass에는 이런 값 할당의 우선순위를 바꿀 방법이 있습니다. 바로 `!default` 플래그입니다.
 이 플래그는 변수값과 세미콜론 `;` 사이에 작성합니다. CSS에서 `!important` 플래그를 작성하는 것과 같은 문법입니다.
 
-
-<p className="code-label code-label-scss">변수 재정의 구문</p>
-
-```scss{numberLines: true}
+```scss title="변수 재정의 구문" showLineNumbers
 $content: "안녕하세요" !default;
 ```
 
@@ -57,9 +52,7 @@ $content: "안녕하세요" !default;
 이것은 `$content` 변수에 (a)**값이 이미 있다면 무시**하고, (b)**값이 없다면 작성한 값을 할당**하라는 의미입니다.
 뒤에 작성하는데도 정의의 우선순위가 가장 낮아지는 것입니다.
 
-<p className="code-label code-label-scss">변수 재정의 예시 - (a)값이 이미 있으므로 무시한 경우</p>
-
-```scss{numberLines: true}
+```scss title="변수 재정의 예시 - (a)값이 이미 있으므로 무시한 경우" showLineNumbers
 $content: "Hello World!";
 $content: "환영합니다";
 $content: "안녕하세요" !default; // 재할당 무시
@@ -72,9 +65,7 @@ $content: "안녕하세요" !default; // 재할당 무시
 (1)이전에 **변수를 정의하지 않았거나**, (2)변수를 정의했지만 **값이 `null`인 경우**, 이 변수의 값이 없다고 판단합니다.
 이렇듯 변수의 값의 사전정의 여부에 따라 조건부로 값을 할당할 수 있습니다.
 
-<p className="code-label code-label-scss">변수 재정의 예시 - (b)값이 없으므로 값을 할당한 경우</p>
-
-```scss{numberLines: true}
+```scss title="변수 재정의 예시 - (b)값이 없으므로 값을 할당한 경우" showLineNumbers
 $content: null;
 $content: "안녕하세요" !default; // 기본값 할당
 
@@ -93,9 +84,7 @@ $content: "안녕하세요" !default; // 기본값 할당
 하지만 부트스트랩과 같은 **라이브러리 Sass**를 작성하는 경우라면 `!default` 사용은 거의 필수라 할 수 있습니다.
 예를 들어 부트스트랩[^bootstrap]은 아주 많은 변수를 갖고 있는데, [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)에 정의한 모든 변수는 `!default` 플래그를 가지고 있습니다.
 
-<p className="code-label code-label-scss">부트스트랩 _variables.scss 일부</p>
-
-```scss{numberLines: true}
+```scss title="부트스트랩 _variables.scss 일부" showLineNumbers
 $white:  #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
@@ -108,9 +97,7 @@ $gray-400: #ced4da !default;
 
 다음 예시처럼 _custom.scss 파일에 값을 변경하고 싶은 변수를 정의하고, 부트스트랩을 이어서 불러오면 됩니다. 그러면 부트스트랩 내부의 조건부 변수 정의는 무시하므로, 사용자가 정의한 변수 값을 대신 사용하게 됩니다.
 
-<p className="code-label code-label-scss">변수 사용자화 예시</p>
-
-```scss{numberLines: true}
+```scss title="변수 사용자화 예시" showLineNumbers
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 ```

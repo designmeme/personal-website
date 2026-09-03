@@ -30,16 +30,14 @@ CSS 문법을 SCSS 문법 안에서 사용할 수 있으므로 CSS 호환성을 
 
 이런 완전 호환성 덕분에 모든 CSS 라이브러리를 그대로 이어서 사용할 수 있고, 기존 CSS를 SCSS로 전환하는 작업을 쉽게 시작할 수 있습니다.
 
-<p className="code-label code-label-scss">SCSS 문법으로 작성한 CSS 규칙</p>
-
-```scss{numberLines: true}
+```scss title="SCSS 문법으로 작성한 CSS 규칙" showLineNumbers
 #main p {
   color: #00ff00;
   width: 97%;
 }
 ```
 
-<div className="p-small">
+<div className="text-sm">
     [Sass 공식 사이트](https://sass-lang.com/)에 나온 예시는 우선으로 혹은 단독으로 SCSS 문법을 사용합니다.
     또한, 이 글 시리즈의 모든 예시도 SCSS 문법을 따릅니다. SCSS 문법으로 작성한 Sass 파일은 `.scss` 확장자를 사용합니다.
 </div>
@@ -48,21 +46,19 @@ CSS 문법을 SCSS 문법 안에서 사용할 수 있으므로 CSS 호환성을 
 
 ## 들여쓰기 기반 Sass 문법
 
-[들여쓰기 문법](https://sass-lang.com/documentation/file.INDENTED_SYNTAX.html) <SideBySide>Sass Indented Syntax</SideBySide>으로 부르는 예전 문법은 Sass[^sass]라고도 합니다.
+[들여쓰기 문법](https://sass-lang.com/documentation/file.INDENTED_SYNTAX.html) <sup>Sass Indented Syntax</sup>으로 부르는 예전 문법은 Sass[^sass]라고도 합니다.
 이 문법은 CSS를 좀 더 **간편히 작성**하는 데 초점을 둡니다.
 
 - 규칙 중첩을 나타내기 위해 중괄호 `{}`가 아니라 들여쓰기로 대신함.
 - 속성을 구분하기 위해 세미콜론 `;` 대신 줄 바꿈을 사용함.
 
-<p className="code-label code-label-sass">Sass 문법으로 작성한 CSS 규칙</p>
-
-```sass{numberLines: true}
+```sass title="Sass 문법으로 작성한 CSS 규칙" showLineNumbers
 #main p
   color: #00ff00
   width: 97%
 ```
 
-<div className="p-small">
+<div className="text-sm">
     Sass 문법으로 작성한 Sass 파일은 `.sass` 확장자를 사용합니다.
 </div>
 
@@ -77,9 +73,7 @@ CSS 문법을 SCSS 문법 안에서 사용할 수 있으므로 CSS 호환성을 
 - **CSS 호환성**: 친근한 CSS 문법은 Sass와 CSS 사이의 심리적 틈을 줄여주고, 기능적으로도 확장성을 높입니다.
 - **여러 줄 쓰기 지원**: Sass 문법은 들여쓰기와 줄 바꿈이 문법의 중요한 요소이기 때문에, 반대로 여러 줄 쓰기를 지원하지 않습니다.[^multiline]
 
-<p className="code-label code-label-sass">Sass 문법은 멀티라인 작성 시 컴파일 에러가 발생합니다.</p>
-
-```sass{numberLines: true}
+```sass title="Sass 문법은 멀티라인 작성 시 컴파일 에러가 발생합니다." showLineNumbers
 // 컴파일 에러 발생
 $breakpoints: (
   sm: 480px,
@@ -103,9 +97,7 @@ Sass에서 SCSS로 문법을 바꾸려는 분들은 참고해주세요.
 
 `sass-convert` 커맨드라인 도구를 사용해서 한 문법에서 다른 문법으로 자동으로 파일을 변환할 수 있습니다.
 
-<p className="code-label">Sass 문법을 SCSS 문법으로 변환하기</p>
-
-```
+```text title="Sass 문법을 SCSS 문법으로 변환하기"
 $ sass-convert style.sass style.scss
 ```
 

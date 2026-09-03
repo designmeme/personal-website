@@ -14,13 +14,15 @@ const themeInitializationScript = `
         }
     } catch (_) {}
 
-    if (preference !== 'system') {
-        document.documentElement.dataset.theme = preference;
-    }
+    const systemIsDark = typeof window.matchMedia === 'function'
+        && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = preference === 'system' ? (systemIsDark ? 'dark' : 'light') : preference;
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    document.documentElement.style.colorScheme = theme;
 })();
 `
 
-export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents, setPreBodyComponents }) => {
+export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents, setPreBodyComponents, setHtmlAttributes }) => {
     setHeadComponents([
         <script
             key="theme-initialization"

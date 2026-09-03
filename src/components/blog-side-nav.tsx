@@ -34,19 +34,19 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
     `)
 
     return (
-        <nav className="post-side-nav">
+        <nav className="text-xs sticky top-[50px] h-[calc(100vh-100px)] overflow-y-auto">
             {allSubjectJson.nodes.map(node => (
-                <div key={node.id}>
-                    <h6 className={"post-side-nav-title" + (subject.id == node.id ? " active" : "")}>
+                <div key={node.id} className="mb-6">
+                    <h6 className={"mb-4 font-normal text-xs" + (subject.id == node.id ? " text-inherit" : " text-secondary")}>
                         {node.title!} ({node.posts.length})
                     </h6>
 
-                    <ul className={`post-side-nav-list ${!node.posts.length ? 'empty' : ''}`}>
+                    <ul className="pl-3">
                         {node.posts.length ? node.posts.map(post => (
-                            <li key={post.id}>
+                            <li key={post.id} className="mb-3">
                                 <Link to={`/blog/` + post.frontmatter.slug}
-                                      className="post-side-nav-link"
-                                      activeClassName="active"
+                                      className="block text-muted hover:text-inherit"
+                                      activeClassName="text-brand!"
                                 >{post.frontmatter.title}</Link>
                             </li>
                         )) : <li>작성 중 ✍️</li>}

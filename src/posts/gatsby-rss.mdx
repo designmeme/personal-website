@@ -61,8 +61,6 @@ Gatsby 웹사이트에 블로그 페이지가 있나요? 그렇다면 RSS 피드
 
 사용할 플러그인을 정했으니, 본격적으로 작업을 시작할게요. 먼저 플러그인을 설치해요.
 
-<p className="code-label code-label-shell"></p>
-
 ```shell
 npm install gatsby-plugin-feed
 ```
@@ -73,9 +71,7 @@ npm install gatsby-plugin-feed
 
 플러그인이 설치되었다면 `gatsby-config.ts` 파일에 플러그인 이름과 옵션을 함께 추가해요.
 
-<p className="code-label code-label-typescript">gatsby-config.ts</p>
-
-```typescript
+```typescript title="gatsby-config.ts"
 import type {GatsbyConfig} from 'gatsby';
 
 const config: GatsbyConfig = {
@@ -108,8 +104,7 @@ Gatsby 웹사이트에 블로그를 아래와 같은 스펙으로 개발했을 �
 
 1. 블로그 포스트 파일은 **파일시스템**으로 읽어와요.
 
-    <p className="code-label code-label-typescript">gatsby-config.ts 파일에서 plugins 배열에 설정 추가</p>
-    ```typescript
+    ```typescript title="gatsby-config.ts 파일에서 plugins 배열에 설정 추가"
     {
         resolve: 'gatsby-source-filesystem',
         options: {
@@ -121,8 +116,7 @@ Gatsby 웹사이트에 블로그를 아래와 같은 스펙으로 개발했을 �
 
 2. 블로그 포스트 파일은 **MDX** 포맷을 사용해요.
 
-    <p className="code-label code-label-typescript">gatsby-config.ts 파일에서 plugins 배열에 설정 추가</p>
-    ```typescript
+    ```typescript title="gatsby-config.ts 파일에서 plugins 배열에 설정 추가"
     {
         resolve: 'gatsby-plugin-mdx',
         options: {},
@@ -131,9 +125,7 @@ Gatsby 웹사이트에 블로그를 아래와 같은 스펙으로 개발했을 �
 
 3. 블로그 포스트는 아래와 같은 **frontmatter** 정보를 가져요.
 
-    <p className="code-label code-label-mdx">각 포스트의 MDX 파일의 frontmatter 예시</p>
-
-    ```mdx
+    ```mdx title="각 포스트의 MDX 파일의 frontmatter 예시"
     ---
     slug: gatsby-rss
     title: RSS 피드 추가하기
@@ -154,9 +146,7 @@ Gatsby 웹사이트에 블로그를 아래와 같은 스펙으로 개발했을 �
 
 **기본 쿼리문**을 작성해요. 각 피드에서 공통으로 사용할 데이터를 얻기 위해 사용할 수 있어요.
 
-<p className="code-label code-label-typescript">gatsby-config.ts query 설정 예시</p>
-
-```typescript
+```typescript title="gatsby-config.ts query 설정 예시"
 import type {GatsbyConfig} from 'gatsby';
 
 const siteUrl: string = `https://heyjihye.netlify.app`
@@ -223,9 +213,7 @@ export default config;
 여러 피드에 공통으로 사용할 채널 정보를 설정할 수 있어요.<br/>
 [defaultOptions](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-feed/src/internals.js)으로 지정된 함수를 사용하지 않는 경우만 작성하면 돼요.
 
-<p className="code-label code-label-typescript">gatsby-config.ts setup 설정 예시</p>
-
-```typescript
+```typescript title="gatsby-config.ts setup 설정 예시"
 import type {GatsbyConfig} from 'gatsby';
 
 const config: GatsbyConfig = {
@@ -269,9 +257,7 @@ export default config;
 
 한 개 혹은 그 이상의 **피드 객체를 배열**에 담아요. 피드는 각각 RSS XML 파일로 만들어져요.
 
-<p className="code-label code-label-typescript">gatsby-config.ts feeds 설정 예시</p>
-
-```typescript
+```typescript title="gatsby-config.ts feeds 설정 예시"
 import type {GatsbyConfig} from 'gatsby';
 
 const config: GatsbyConfig = {
@@ -395,8 +381,6 @@ export default config;
 
 설정한 결과물을 확인하기 위해 아래 스크립트를 실행해요.
 
-<p className="code-label code-label-shell"></p>
-
 ```shell
 gatsby build && gatsby serve
 ```
@@ -404,9 +388,7 @@ gatsby build && gatsby serve
 브라우저에서 `localhost:9000/rss.xml`에 접속하면 피드 파일을 확인할 수 있어요.<br/>
 전체 코드는 [여기](https://github.com/designmeme/personal-website/blob/main/samples/rss-sample.xml)서 볼 수 있어요.
 
-<p className="code-label code-label-xml">rss.xml</p>
-
-```xml
+```xml title="rss.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -460,9 +442,7 @@ Gatsby 웹사이트에 RSS 피드 추가하기
 
 모든 HTML 파일의 `head` 요소에 피드 파일을 가리키는 `link` 요소가 추가된 걸 확인할 수 있어요.
 
-<p className="code-label code-label-html">index.html</p>
-
-```html
+```html title="index.html"
 <!DOCTYPE html>
 <html lang="ko">
     <head>

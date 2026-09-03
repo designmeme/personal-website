@@ -2,32 +2,32 @@ import React from 'react';
 
 const SassCommentsTable = () => {
     return (
-        <div className="table-responsive">
+        <div className="table-container">
             <table className="table">
                 <thead>
                 <tr>
-                    <th className="align-right"></th>
-                    <th className="align-center">nested</th>
-                    <th className="align-center">expanded</th>
-                    <th className="align-center">compact</th>
-                    <th className="align-center">compressed</th>
+                    <th className="text-right"></th>
+                    <th className="text-center">nested</th>
+                    <th className="text-center">expanded</th>
+                    <th className="text-center">compact</th>
+                    <th className="text-center">compressed</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th className="align-right">인라인 주석 <code className="language-css">//</code></th>
-                    <td className="align-center"><span className="monospace">X</span></td>
-                    <td className="align-center"><span className="monospace">X</span></td>
-                    <td className="align-center"><span className="monospace">X</span></td>
-                    <td className="align-center"><span className="monospace">X</span></td>
+                    <th className="text-right">인라인 주석 <code className="language-css">//</code></th>
+                    <td className="text-center"><span className="font-mono">X</span></td>
+                    <td className="text-center"><span className="font-mono">X</span></td>
+                    <td className="text-center"><span className="font-mono">X</span></td>
+                    <td className="text-center"><span className="font-mono">X</span></td>
                 </tr>
                 <tr>
-                    <th className="align-right">블록 주석 <code className="language-css">/* */</code></th>
-                    <td className="align-center"><span className="monospace">O</span></td>
-                    <td className="align-center"><span className="monospace">O</span></td>
-                    <td className="align-center"><span className="monospace">O</span><p className="p-smaller">한 줄로
+                    <th className="text-right">블록 주석 <code className="language-css">/* */</code></th>
+                    <td className="text-center"><span className="font-mono">O</span></td>
+                    <td className="text-center"><span className="font-mono">O</span></td>
+                    <td className="text-center"><span className="font-mono">O</span><p className="text-sm">한 줄로
                         출력</p></td>
-                    <td className="align-center"><span className="monospace">△</span><p className="p-smaller"><code
+                    <td className="text-center"><span className="font-mono">△</span><p className="text-sm"><code
                         className="language-css">!</code>로 시작할 경우에만 출력</p></td>
                 </tr>
                 </tbody>

@@ -37,11 +37,9 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 
 1. **`FontAwesomeIcon`** 컴포넌트를 페이지에 포함하고 있어야 해요.
 
-    <p className={'p-small'}>💁‍♀️ CSS `content`로 구현한 아이콘에는 발생하지 않는 버그에요.</p>
+    <p className={'text-sm'}>💁‍♀️ CSS `content`로 구현한 아이콘에는 발생하지 않는 버그에요.</p>
 
-    <p className="code-label code-label-tsx">src/pages/example.tsx</p>
-
-    ```tsx{numberLines: true}
+    ```tsx title="src/pages/example.tsx" showLineNumbers
     import React from 'react';
     import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
     import {faFaceGrinWide} from '@fortawesome/free-solid-svg-icons';
@@ -58,9 +56,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 
 2. **production 모드**로 빌드 후 서버를 실행해요.
 
-    <p className={'p-small'}>💁‍♀️ develop 모드에서는 확인할 수 없어요.</p>
-
-    <p className="code-label code-label-shell"></p>
+    <p className={'text-sm'}>💁‍♀️ develop 모드에서는 확인할 수 없어요.</p>
 
     ```shell
     gatsby build && gatsby serve
@@ -74,7 +70,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 4.  첫 페이지에 Font Awesome 아이콘이 있다면 현상을 바로 확인할 수 있어요. (=**첫 방문** 시 확인 가능)<br/>
     만약 다른 페이지에 아이콘이 있다면 그 페이지로 이동 후 **새로고침** 해요.
 
-    <p className={'p-small'}>💁‍♀️ 웹페이지가 로딩된 후 내부에서 링크로 이동하면 현상을 확인할 수 없어요.</p>
+    <p className={'text-sm'}>💁‍♀️ 웹페이지가 로딩된 후 내부에서 링크로 이동하면 현상을 확인할 수 없어요.</p>
 
 
 <GoogleAdPostMiddle/>
@@ -94,9 +90,7 @@ Gatsby 웹사이트에서 Font Awesome 아이콘을 사용할 때 필수로 설�
 
 React로 개발하고 Next.js 프레임워크를 사용한 경우 생기는 문제이며 이 경우에 아래의 간단한 설정으로 해결된다고 안내하고 있네요.
 
-<p className="code-label code-label-js">pages/_app.js에 위 3줄을 추가해 주세요</p>
-
-```js{numberLines: true}
+```js title="pages/_app.js에 위 3줄을 추가해 주세요" showLineNumbers
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
@@ -114,9 +108,7 @@ Gatsby 웹사이트에서 문제를 해결하는 방법은 Next.js 때와 동일
 1. 만약 프로젝트 루트에 `gatsby-browser.tsx` 파일이 없다면 만들고,
 2. 이 파일에 동일한 코드 3줄을 추가하면 됩니다.
 
-<p className="code-label code-label-tsx">gatsby-browser.tsx</p>
-
-```tsx{numberLines: true}
+```tsx title="gatsby-browser.tsx" showLineNumbers
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
@@ -129,7 +121,7 @@ config.autoAddCss = false
 Gatsby 프레임워크는 React 기반이죠.
 React 프로젝트에서 Font Awesome 아이콘을 사용하려면 `@fortawesome/react-fontawesome` 패키지를 사용해요.
 Next.js도 Gatsby와 같은 React 프레임워크이고요.
-둘 다 서버 측 랜더링(이하 SSR) <SideBySide>Server-side Rendering</SideBySide>과 정적 사이트 생성(이하 SSG) <SideBySide>Static Site Generation</SideBySide> 기능을 제공하는데 이것 때문에 문제가 발생해요.
+둘 다 서버 측 랜더링(이하 SSR) <sup>Server-side Rendering</sup>과 정적 사이트 생성(이하 SSG) <sup>Static Site Generation</sup> 기능을 제공하는데 이것 때문에 문제가 발생해요.
 하나씩 알아볼게요.하
 
 ---
@@ -146,9 +138,7 @@ Next.js도 Gatsby와 같은 React 프레임워크이고요.
 
 3. 아이콘의 크기는 `svg-inline--fa` 클래스 스타일에서 `height: 1em;`를 적용받아 부모 요소의 폰트 크기와 동일한 크기로 보여요.
 
-    <p className="code-label code-label-css">Font Awesome CSS 일부</p>
-
-    ```css{numberLines: true}
+    ```css title="Font Awesome CSS 일부" showLineNumbers
     .svg-inline--fa {
         display: var(--fa-display, inline-block);
         height: 1em;
@@ -190,9 +180,7 @@ React 웹사이트에서 **SSR, SSG를 설정하면 production 모드로 빌드*
 
 1. `config.autoAddCss` 설정값을 `false`로 하면 **브라우저에서 React 웹사이트가 초기화될 때 Font Awesome 스타일이 `head`에 추가되지 않아요.**
 
-    <p className="code-label code-label-tsx">gatsby-browser.tsx</p>
-
-    ```tsx{numberLines: true}
+    ```tsx title="gatsby-browser.tsx" showLineNumbers
     import { config } from '@fortawesome/fontawesome-svg-core'
     config.autoAddCss = false
     ```
@@ -200,9 +188,7 @@ React 웹사이트에서 **SSR, SSG를 설정하면 production 모드로 빌드*
 2. `@fortawesome/fontawesome-svg-core/styles.css` 파일을 직접 임포트하면 **빌드할 때 Font Awesome 스타일이 `head`에 추가돼요.**
     이 CSS 파일 내용은 `autoAddCss` 설정으로 추가되는 스타일과 동일한 내용이에요.
 
-    <p className="code-label code-label-tsx">gatsby-browser.tsx</p>
-
-    ```tsx{numberLines: true}
+    ```tsx title="gatsby-browser.tsx" showLineNumbers
     import '@fortawesome/fontawesome-svg-core/styles.css'
     ```
 
@@ -224,9 +210,7 @@ Gatsby Plugins 사이트에 따르면 1만 7천 번 이상 다운로드된 인�
 2. 이 플러그인은 Gatsby 5 버전 이상 환경에 설치 시 **의존성 버전이 맞지 않아**서 `--force` 옵션으로 설치해야 해요.
 3. 플러그인 내용을 보면 공식 문서의 해결 방법보다 **훨씬 복잡**하게 Font Awesome 스타일을 추가하고 있어요.
 
-    <p className="code-label code-label-js">[gatsby-ssr.js](https://github.com/jzabala/gatsby-plugin-fontawesome-css/blob/master/gatsby-ssr.js) + [utils.js](https://github.com/jzabala/gatsby-plugin-fontawesome-css/blob/master/utils.js)</p>
-
-    ```js
+    ```js title="gatsby-ssr.js + utils.js"
     // import '@fortawesome/fontawesome-svg-core/styles.css'
     // 위 코드와 동일한 효과를 위해 아래의 코드를 사용한다.
 

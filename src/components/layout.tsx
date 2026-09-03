@@ -16,10 +16,8 @@ const Layout: React.FC<Props> = ({children}) => {
     return (
         <>
             <Header/>
-            <main className="site-main">
-                <div className="wrapper">
-                    {children}
-                </div>
+            <main>
+                {children}
             </main>
             <Footer/>
         </>

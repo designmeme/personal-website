@@ -31,28 +31,26 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
             </p>
 
             {/*블로그 상단용(인피드)*/}
-            <div className="blog-top-ad">
+            <div className="my-10">
                 <GoogleAdsense layoutKey="-gu-3+1f-3d+2z" slot="6555927968"/>
             </div>
 
-            <div className="blog">
+            <div className="mt-50">
                 {blogSubjects.map(subject => (
                     <div key={subject.id}>
-                        <h2 id={subject.slug} className="post-subject-title">
+                        <h2 id={subject.slug} className="mb-4 text-lg font-medium">
                             {subject.title} ({subject.posts?.length || 0})
                         </h2>
-                        <ul className={`post-list ${!subject.posts?.length ? 'empty' : ''}`}>
+                        <ul className="mb-10 text-sm">
                             {subject.posts.length ?
                                 subject.posts
                                     .filter(post => process.env.NODE_ENV != 'production' || !!post.frontmatter.createdAt)
                                     .map(post => (
-                                        <li key={post.id}>
-                                            <Link to={`/blog/${post.frontmatter.slug}`}
-                                                  className="post-link"
-                                            >
-                                                <span className={'link-title'}>{post.frontmatter.title}</span>
+                                        <li key={post.id} className="mb-4">
+                                            <Link to={`/blog/${post.frontmatter.slug}`}>
+                                                <span className="underline">{post.frontmatter.title}</span>
                                                 {post.frontmatter.subtitle && (
-                                                    <span className={'link-subtitle'}>
+                                                    <span className="text-muted">
                                                         {' '}&mdash;{' '}
                                                         {post.frontmatter.subtitle}
                                                     </span>
@@ -66,7 +64,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                 ))}
             </div>
 
-            <div className="blog-bottom-ad">
+            <div className="my-10">
                 {/*블로그 하단용(디스플레이)*/}
                 <GoogleAdsense format="auto" slot="2345060685" responsive={true}/>
             </div>

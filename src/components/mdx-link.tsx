@@ -29,8 +29,8 @@ const MdxLink: React.FC<Props> = ({ href = '', children, ...rest }) => {
     // 내부 경로
     if (href.startsWith('/')) {
         return <Link
+            data-link-internal
             to={href}
-            className="link-internal"
             children={children}
             {...rest}
             />
@@ -38,17 +38,16 @@ const MdxLink: React.FC<Props> = ({ href = '', children, ...rest }) => {
 
     // 외부 프로토콜 경로
     if (externalProtocols.includes(protocol)) {
-        return <a className='outbound' href={href} rel="nofollow" target={'_blank'} {...rest}>
+        return <a href={href} data-link-external rel="nofollow" target={'_blank'} {...rest}>
             {children}
-            <span className="icon">
+            <span className="mx-0.5">
                 <FontAwesomeIcon icon={faUpRightFromSquare} size="xs" transform={'down-1'} />
-                <span className="sr-only">(새창)</span>
             </span>
         </a>
     }
 
     // 기타 경로
-    return <a className="link-etc" href={href} children={children} {...rest} />
+    return <a href={href} children={children} {...rest} />
 }
 
 export default MdxLink

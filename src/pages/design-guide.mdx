@@ -3,19 +3,18 @@ title:    UI Design Guide
 subtitle: 기본 요소별 디자인 가이드
 slug:     design-guide
 createdAt: 2017-07-07T13:00:00+09:00
-updatedAt: 2023-03-22T00:00:00+09:00
+updatedAt: 2025-09-02T00:00:00+09:00
 ---
 
-
-
-import SideBySide from "../components/side-by-side"
 import PageLayout from "../components/page-layout"
 import SeoHead from "../components/seo-head"
+import {MDXProvider} from "@mdx-js/react";
+import {mdxComponents} from "../components/mdx-components";
 
 export default function Layout({children, pageContext}) {
     return (
-        <PageLayout frontmatter={pageContext.frontmatter} contentClassName="prose max-w-none">
-            {children}
+        <PageLayout frontmatter={pageContext.frontmatter}>
+            <MDXProvider components={mdxComponents}>{children}</MDXProvider>
         </PageLayout>
     );
 }
@@ -25,48 +24,26 @@ export const Head = ({location}) =>
              pathname={location.pathname}/>
 
 
-# GFM
+## GFM
 https://github.com/remarkjs/remark-gfm
 
 ## Autolink literals
 
-www.example.com, https://example.com, and contact@example.com.
+www.google.com, https://google.com, and contact@example.com.
 
-## Footnote
+[internal](/blog)
 
-A note[^1]
 
-## Strikethrough
+## Fonts
+<div className="text-3xl font-bold">한글 글꼴 스포카 한 산스 700 bold</div>
+<div className="text-3xl font-medium">한글 글꼴 스포카 한 산스 500 medium</div>
+<div className="text-3xl font-normal">한글 글꼴 스포카 한 산스 400 regular</div>
+<div className="text-3xl font-light">한글 글꼴 스포카 한 산스 300 light</div>
+<div className="text-3xl font-extralight">한글 글꼴 스포카 한 산스 200 thin</div>
 
-~one~ or ~~two~~ tildes.
+[스포카 한 산스 공식 사이트](https://spoqa.github.io/spoqa-han-sans/ko-KR/)
 
-## Table
-
-| a | b  |  c |  d  |
-| - | :- | -: | :-: |
-
-## Tasklist
-
-* [ ] to do
-* [x] done
-
----
-
-#### Typography
-##### Fonts
-<p style={{fontSize: "2em", fontWeight: 700}}>한글 글꼴 스포카 한 산스 700</p>
-
-<p style={{fontSize: "2em", fontWeight: 400}}>한글 글꼴 스포카 한 산스 400</p>
-
-<p style={{fontSize: "2em", fontWeight: 300}}>한글 글꼴 스포카 한 산스 300</p>
-
-<p style={{fontSize: "2em", fontWeight: 200}}>한글 글꼴 스포카 한 산스 200</p>
-
-[공식 사이트](https://spoqa.github.io/spoqa-han-sans/ko-KR/)
-
-***
-
-##### Headings
+## Headings
 # h1 첫 번째 제목
 ## h2 두 번째 제목
 ### h3 세 번째 제목
@@ -74,70 +51,67 @@ A note[^1]
 ##### h5 다섯 번째 제목
 ###### h6 여섯 번째 제목
 
-***
+## Paragraphs
 
-##### Paragraphs
+
 <div className="lead">
-    도입부 - 내려온 앞이 아름답고 피가 봄바람이다. 그러므로 것은 있는 속에서 굳세게 뭇 운다. 이상의 이상의 소담스러운 무엇이 부패뿐이다. 고동을 미묘한 것은 그들은 피가 수 듣는다. 밥을 능히 같으며, 꽃이 내려온 영원히 간에 눈이 힘있다. 그러므로 구할 인생에 할지라도 않는 산야에 대중을 것이다.
+    본문 - 인간이 있으며, 피고 평화스러운 찬미를 것이다. 천하를 수 만물은 얼음과 간에 광야에서 곳으로 아니다. 미묘한 천지는 곳으로 위하여, 돋고, 풀밭에 보라. 꽃 보배를 뛰노는 철환하였는가 우리 피다. 하는 시들어 행복스럽고 우리 가치를 생명을 되려니와, 그와 사막이다.
 </div>
 
 본문 - 인간이 있으며, 피고 평화스러운 찬미를 것이다. 천하를 수 만물은 얼음과 간에 광야에서 곳으로 아니다. 미묘한 천지는 곳으로 위하여, 돋고, 풀밭에 보라. 꽃 보배를 뛰노는 철환하였는가 우리 피다. 하는 시들어 행복스럽고 우리 가치를 생명을 되려니와, 그와 사막이다.
 
-<p className="p-small">작은 본문 - 희망의 유소년에게서 커다란 찬미를 황금시대다. 대한 굳세게 바이며, 부패뿐이다. 이것이야말로 열락의 것은 심장의 피는 모래뿐일 이상의 봄바람이다.</p>
+<p className="text-sm">작은 본문 - 희망의 유소년에게서 커다란 찬미를 황금시대다. 대한 굳세게 바이며, 부패뿐이다. 이것이야말로 열락의 것은 심장의 피는 모래뿐일 이상의 봄바람이다.</p>
 
-<p className="p-smaller">더 작은 본문 - 이 무한한 보내는 쓸쓸하랴? 청춘의 새가 황금시대를 약동하다. 꽃이 새 타오르고 가지에 뼈 힘있다. 무엇을 대중을 인생을 곳으로 모래뿐일 아니다. 꾸며 내려온 청춘 유소년에게서 공자는 끓는다.</p>
+<p className="text-xs">더 작은 본문 - 이 무한한 보내는 쓸쓸하랴? 청춘의 새가 황금시대를 약동하다. 꽃이 새 타오르고 가지에 뼈 힘있다. 무엇을 대중을 인생을 곳으로 모래뿐일 아니다. 꾸며 내려온 청춘 유소년에게서 공자는 끓는다.</p>
 
-***
+### Inline Elements
 
-#### Elements
-##### Inline Elements
-[링크]('#link')
-<a href="#" className="visited">방문링크</a>
-*강조*
-**강조**
-한글 <SideBySide>English</SideBySide>
-참조[^2]
+*강조 em*
+**강조 strong**
+~one~ or ~~two~~ tildes.
+
+[링크](/about)
 <abbr title="Hyper Text Markup Language">HTML</abbr>
 
-***
+참조[^2]
+한글 <sup>English</sup>
+내용<sup>주석</sup>
+내용<sub>아래 첨자</sub>
 
 
-##### Blockquotes
+### Blockquotes
 
 > 모래뿐일 우리 뭇 이상이 살 봄바람이다. 얼음이 이상이 긴지라 청춘은 착목한는 얼마나 예수는 교향악이다. 위하여, 이것은 수 가진 이상의 피에 발휘하기 있으며, 것이다.
 싸인 되는 가슴에 황금시대다. 사랑의 굳세게 창공에 이상 노년에게서 인류의 역사를 피가 이것이다. 그들을 천하를 것은 힘차게 불러 하는 같은 그림자는 것이다.
 
-***
-
-##### Image Figures
+### Image Figures
 
 ![그림 설명](https://unsplash.it/1200/630)
 
 [//]: # (todo)
 [//]: # ({% include figure.html url="https://unsplash.it/1200/630" caption="그림&#41; 미인을 풍부하게 그들은 인도하겠다는 불러 인간의 위하여 봄바람이다. 따뜻한 인생에 있는" %})
 
-***
-
-#### Lists
-##### Ordered Lists
+## Lists
+### Ordered Lists
 1. 목록
 2. 목록
     1. 2단 목록
     2. 2단 목록
 3. 목록
 
-***
-
-##### Unordered Lists
+### Unordered Lists
 - 목록
 - 목록
     - 2단 목록
     - 2단 목록
 - 목록
 
-***
+### Tasklist
 
-##### Definition Lists
+* [ ] to do
+* [x] done
+
+## Definition Lists
 <dl>
     <dt>단어</dt>
     <dd>단어에 대한 정의</dd>
@@ -146,71 +120,37 @@ A note[^1]
     <dd>단어에 대한 정의</dd>
 </dl>
 
-***
+
+## Tables
+
+#### Basic Tables
+
+| normal | left | right | center |
+|--------|:-----|------:|:------:|
+| cell   | cell |  cell |  cell  |
 
 
-#### Tables
-##### Basic Tables
+#### Tables with horizontal scroll
 
-[//]: # (| 제목 | 제목 | 제목)
-
-[//]: # (|:---|:---:|---:|)
-
-[//]: # (| 내용 | 내용 | 내용)
-
-[//]: # (| 내용 | 내용 | 내용)
-
-[//]: # (|====)
-
-[//]: # (| 하단 | 하단 | 하단)
-
-[//]: # ({:.table})
-
-***
-
-##### Responsive Tables
-마크다운 테이블을 div로 감쌀 수 없기 때문에 반응형 테이블은 HTML 태그로 작성해야 합니다.
-
-<div className="table-responsive">
-    <table className="table">
-        <thead>
-        <tr>
-            <th className="align-left">제목</th>
-            <th className="align-center">제목</th>
-            <th className="align-right">제목</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td className="align-left">내용</td>
-            <td className="align-center">내용</td>
-            <td className="align-right">내용</td>
-        </tr>
-        <tr>
-            <td className="align-left">내용</td>
-            <td className="align-center">내용</td>
-            <td className="align-right">내용</td>
-        </tr>
-        </tbody>
-    </table>
+<div className="table-container">
+| normal | left | right | center |
+|--------|:-----|------:|:------:|
+| solooooooooooooooooooooooooooooooooooooooooooooooooong   | cell |  cell |  cell  |
 </div>
 
 
-***
+## Code
 
-#### Code
-##### Inline Code
-일반 `code`
+https://rehype-pretty.pages.dev/ 참조
 
-[//]: # (백틱 포함하기 `` `code` ``)
+#### Inline Code
 
-***
+일반 `code` | with lang `[1, 2, 3]{:js}`
 
-##### Code Blocks
+#### Code Blocks
 
-<p className="code-label code-label-js">코드 제목</p>
 
-```js{numberLines: true}
+```js title="코드 제목" showLineNumbers {4-6}
 // define the Person Class
 function Person() {}
 
@@ -222,15 +162,11 @@ Person.prototype.sayHello = function(){
 };
 ```
 
-<p className="code-label code-label-html">코드 제목</p>
-
-```html{numberLines: true}
+```html title="코드 제목"
 <a href="#">Hello world</a>
 ```
 
-<p className="code-label code-label-scss">코드 제목</p>
-
-```scss{numberLines: true}
+```scss title="app/ui/signup-form.scss" {1-3,4}
 .post-subject-title {
   @extend %title;
 }
@@ -239,22 +175,24 @@ Person.prototype.sayHello = function(){
   list-style: none;
   padding: 0;
   margin-bottom: 50px;
-  @extend .p-small;
+  @extend .text-sm;
   li {
     margin-bottom: 1em;
   }
 }
 ```
 
-<p className="code-label code-label-css">코드 제목</p>
-
-```css{numberLines: true}
+```css title="코드 제목" showLineNumbers
 .funky {
   font-family: fantasy;
   font-size: 30em;
   font-weight: bold;
 }
 ```
+
+## Footnotes
+
+A note[^1]
 
 [^1]: Big note.
 [^2]: 그들은 청춘의 용기가 우리 ? 꽃 고행을 많이 인간의 위하여서. 어디 할지라도 피어나기 시들어 이성은 속잎나고, 가슴이 때문이다.

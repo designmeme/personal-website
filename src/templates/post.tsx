@@ -5,7 +5,6 @@ import SeoHead from '../components/seo-head'
 import {GatsbyImage} from "gatsby-plugin-image";
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {MDXProvider} from "@mdx-js/react"
-import type {MDXComponents} from "mdx/types.js"
 import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -17,27 +16,13 @@ import {
 import {faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
 import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
 import Toc from "../components/toc";
-import SideBySide from '../components/side-by-side';
-import MdxLink from '../components/mdx-link';
-import MdxImg from '../components/mdx-img';
-import MdxFixSpan from '../components/mdx-fix-span';
 import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";
 import {useMediaQuery} from 'react-responsive'
 import PageMeta from "../components/page-meta";
 import RssFeedInfo from "../components/rss-feed-info";
-import GoogleAdPostMiddle from "../components/google-ad-post-middle";
+import {mdxComponents} from "../components/mdx-components";
 
-
-const shortcodes: MDXComponents = {
-    Link,
-    SideBySide,
-    FontAwesomeIcon,
-    GoogleAdPostMiddle,
-    a: MdxLink,
-    span: MdxFixSpan,
-    img: MdxImg,
-}
 
 type PageContextType = {
     id: String
@@ -69,101 +54,94 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     return (
         <Layout>
 
-            <aside className="sidebar-left">
-                <BlogSideNav subject={subject}></BlogSideNav>
-            </aside>
+            <div className="lg:flex mx-auto justify-center gap-[100px]">
 
-            <article className="page">
-                <header className="page-header">
-                    <nav aria-label="breadcrumb" className="breadcrumb">
-                        <ol>
-                            <li><Link to={'/blog'}>블로그</Link></li>
-                            <li><Link to={`/blog/#${subject.slug}`}>{subject.title}</Link></li>
-                        </ol>
-                    </nav>
+                <aside className="hidden lg:block w-[300px]">
+                    <BlogSideNav subject={subject}></BlogSideNav>
+                </aside>
 
-                    <h1 className="page-title">
-                        {title}
-                    </h1>
-                    {subtitle && (
-                        <p className="page-subtitle"> {subtitle}</p>
-                    )}
+                <article className="min-w-0 max-w-none lg:max-w-[680px] prose dark:prose-invert mb-20">
+                    <header className="mb-10">
+                        <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-2 text-sm mb-8">
+                            <Link to={'/blog'} className="not-hover:text-secondary">블로그</Link>
+                            <span className="text-muted">{'>'}</span>
+                            <Link to={`/blog/#${subject.slug}`} className="not-hover:text-secondary">{subject.title}</Link>
+                        </nav>
 
-                    <PageMeta updatedAt={updatedAt}
-                              readMinutes={readMinutes}
-                              tags={tags}
-                    />
+                        <h1>{title}</h1>
 
-                </header>
+                        {subtitle && (
+                            <p className="text-xl mb-6 -mt-4">{subtitle}</p>
+                        )}
 
-                {image && (
-                    <GatsbyImage
-                        class={'page-image hero-image'}
-                        image={image.childImageSharp?.gatsbyImageData!}
-                        alt={`${title}${subtitle ? ` — ${subtitle}` : ''}`}/>
-                )}
+                        <PageMeta updatedAt={updatedAt} readMinutes={readMinutes} tags={tags} />
 
-                {!isDesktop && <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>}
+                    </header>
 
-                <div className="post-top-ad">
-                    {/*포스트 상단용(인피드)*/}
-                    <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
-                </div>
+                    {/*{image && (*/}
+                    {/*    <GatsbyImage*/}
+                    {/*        class={'-mx-10 mb-10 md:-mx-20'}*/}
+                    {/*        image={image.childImageSharp?.gatsbyImageData!}*/}
+                    {/*        alt={`${title}${subtitle ? ` — ${subtitle}` : ''}`}/>*/}
+                    {/*)}*/}
 
-                <div className="page-content heading-number prose max-w-none">
-                    <MDXProvider components={shortcodes}>{children}</MDXProvider>
-                </div>
+                    {/*{!isDesktop && <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>}*/}
 
-                <div className="post-bottom-ad">
-                    {/*포스트 하단용(디스플레이)*/}
-                    <GoogleAdsense format="auto" slot="6926754782" responsive={true}/>
-                </div>
+                    <div className="mb-12">
+                        {/*포스트 상단용(인피드)*/}
+                        <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
+                    </div>
 
-                <footer className="page-footer">
-                    <div className="cc-info">
-                        <div className="cc-icons">
-                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommons}/>
-                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsBy}/>
-                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNc}/>
-                            <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNd}/>
+                    <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+
+                    <div className="my-12">
+                        {/*포스트 하단용(디스플레이)*/}
+                        <GoogleAdsense format="auto" slot="6926754782" responsive={true}/>
+                    </div>
+
+                    <footer className="mt-20">
+                        <div className="text-xs bg-gray-100 dark:bg-gray-800 mb-20 p-6">
+                            <div className="text-xl mb-2">
+                                <FontAwesomeIcon className="cc-icon" icon={faCreativeCommons}/>
+                                <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsBy}/>
+                                <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNc}/>
+                                <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsNd}/>
+                            </div>
+                            <div className="text-secondary">
+                                블로그 글의 내용은 <a className="text-inherit" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank" rel="nofollow">크리에이티브
+                                커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
+                            </div>
                         </div>
-                        블로그 글의 내용은 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank">크리에이티브
-                        커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스</a>에 따라 이용하실 수 있습니다.
-                    </div>
 
-                    <div className="post-nav">
-                        {next && <Link to={`/blog/${next.frontmatter.slug}`}
-                                       className="post-next-link"
-                                       >
-                            {next.frontmatter.title}
-                            <span className="icon">
-                                <FontAwesomeIcon icon={faFaceGrinWide}/>
-                                <FontAwesomeIcon icon={faArrowRightLong}/>
-                            </span>
-                        </Link>}
-                        {previous && <Link to={`/blog/${previous.frontmatter.slug}`}
-                                           className="post-prev-link"
-                                           >
-                            <span className="icon">
-                                <FontAwesomeIcon icon={faArrowLeftLong}/>
-                                <FontAwesomeIcon icon={faFaceGrinWide}/>
-                            </span>
-                            {previous.frontmatter.title}
-                        </Link>}
-                    </div>
+                        <div className="text-lg flex flex-row gap-4 justify-between flex-wrap">
+                            {previous && <div className="grow"><Link to={`/blog/${previous.frontmatter.slug}`}>
+                                <span className="text-xl mr-2">
+                                    <FontAwesomeIcon icon={faArrowLeftLong}/>
+                                    <FontAwesomeIcon icon={faFaceGrinWide}/>
+                                </span>
+                                {previous.frontmatter.title}
+                            </Link></div>}
+                            {next && <div className="text-right grow">
+                                <Link to={`/blog/${next.frontmatter.slug}`}>
+                                {next.frontmatter.title}
+                                <span className="text-xl ml-2">
+                                    <FontAwesomeIcon icon={faFaceGrinWide}/>
+                                    <FontAwesomeIcon icon={faArrowRightLong}/>
+                                </span>
+                            </Link></div>}
+                        </div>
 
-                    <RssFeedInfo/>
-                </footer>
+                    </footer>
 
-            </article>
+                </article>
 
-            <aside className="sidebar-right">
-                {isDesktop && (
-                    <>
+                <aside className="hidden 2xl:block w-[280px] shrink-0">
+                    <div className="sticky top-[50px] h-[calc(100vh-100px)] overflow-y-auto">
                         <Toc toc={data.mdx?.tableOfContents!} title={title}/>
-                    </>
-                )}
-            </aside>
+                        <RssFeedInfo/>
+                    </div>
+                </aside>
+            </div>
         </Layout>
     )
 }

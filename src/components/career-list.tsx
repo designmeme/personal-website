@@ -32,30 +32,30 @@ const dateToText = (date: string): string => {
 
 const CareerList: React.FC<Props> = ({data}) => {
     return (
-        <dl className="career-list">
+        <ol className="text-sm">
             {data.map((career, index) => (
-                <React.Fragment key={index.toString()}>
-                    <dt className={`career-title ${career.featured && 'featured'}`}>
+                <li key={index.toString()} className="mb-6 pl-4">
+                    <div className={`text-base -ml-4 font-medium ${career.featured && 'relative'}`}>
                         {career.title}
-                        {career.featured && <FontAwesomeIcon icon={faStar} className={'icon'}/>}
-                    </dt>
-                    <dd className="career-meta">
+                        {career.featured && <FontAwesomeIcon icon={faStar} className="absolute right-full top-1 mr-2 text-sm text-[var(--color-brand)]"/>}
+                    </div>
+                    <div className="mt-1 text-xs font-extralight text-secondary">
                         <span className="career-date">
                             <time dateTime={career.date[0] + '-01'}>{dateToText(career.date[0])}</time>
                             {" - "}
                             <time dateTime={career.date[1] + '-01'}>{dateToText(career.date[1])}</time>
-                            {career.date.length >= 3 && <span className="duration">· {career.date[2]}</span>}
+                            {career.date.length >= 3 && <span className="ml-1">· {career.date[2]}</span>}
                         </span>
 
                         {career.client && (
                             <>
-                                &middot; <span className="career-client" title="Client">{career.client}</span>
+                                &middot; <span title="Client">{career.client}</span>
                             </>
                         )}
 
                         {career.tags && (
                             <>
-                                &middot; <span className="career-tags">
+                                &middot; <span>
                                 {career.tags.map((tag: string, j: number) => (
                                     <React.Fragment key={j.toString()}>
                                         {tag === 'mobile' &&
@@ -72,17 +72,17 @@ const CareerList: React.FC<Props> = ({data}) => {
                                 </span>
                             </>
                         )}
-                    </dd>
+                    </div>
 
-                    {career.description && <dd className="career-description" dangerouslySetInnerHTML={{__html: career.description}}></dd>}
+                    {career.description && <div className="text-sm whitespace-pre-wrap mt-1.5" dangerouslySetInnerHTML={{__html: career.description}}></div>}
 
-                    {career.urls?.map((url: string) =>
-                        <dd className="career-url" key={url}>
+                    {career.urls?.map((url: string, i: number) =>
+                        <div className={`text-xs ${!i && 'mt-1.5'}`} key={i}>
                             <a href={url} target="_blank" title="새창">{url}</a>
-                        </dd>)}
-                </React.Fragment>
+                        </div>)}
+                </li>
             ))}
-        </dl>
+        </ol>
     );
 };
 

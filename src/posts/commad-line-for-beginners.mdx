@@ -11,11 +11,6 @@ createdAt: 2023-07-08T18:30:00+09:00
 updatedAt: 2023-07-08T18:30:00+09:00
 ---
 
-<div className="lead">
-
-</div>
-
----
 ## 준비물
 
 * 🍏 **맥OS**: 맥OS가 설치된 개발 환경이 필요해요. 이 글은 운영체제에 따라 매우 달라지는 내용을 다루며, 맥OS 기준으로만 설명해요.
@@ -30,7 +25,7 @@ updatedAt: 2023-07-08T18:30:00+09:00
 
 명령행 프로그램을 실행하면 터미털 창이 나타나요. **셸 프롬프트**에 명령행을 입력하여 특정 프로그램을 실행할 수 있어요.
 
-명령행 프로그램은 본 셸 <SideBySide>Bourne Shell, sh</SideBySide>, 본 어게인 셸 <SideBySide>Bourne-Again Shell, bash</SideBySide>, 지셸 <SideBySide>Z Shell, zsh</SideBySide>, 명령 프롬프트 <SideBySide>Command Prompt</SideBySide> 등 다양한 셸 프로그램이 있으며 운영체제마다 기본 프로그램이 달라요.
+명령행 프로그램은 본 셸 <sup>Bourne Shell, sh</sup>, 본 어게인 셸 <sup>Bourne-Again Shell, bash</sup>, 지셸 <sup>Z Shell, zsh</sup>, 명령 프롬프트 <sup>Command Prompt</sup> 등 다양한 셸 프로그램이 있으며 운영체제마다 기본 프로그램이 달라요.
 
 ---
 ## 맥OS에서 사용하는 기본 명령행 프로그램 종류
@@ -58,9 +53,7 @@ updatedAt: 2023-07-08T18:30:00+09:00
 * **현재 작업 디렉터리**: 홈 폴더를 의미하는 물결(~) 기호가 표시돼요. 다른 디렉터리로 이동하면 해당 디렉터리 이름이 표시돼요.
 * **사용자명**: 현재 로그인한 사용자명이 표시돼요. 뒤에 달러 기호($)가 붙어요.
 
-<p className="code-label">셸 프롬프트 예시</p>
-
-```shell{numberLines: false}
+```shell title="셸 프롬프트 예시"
 jihye-MacBookPro2020:~ jihye$
 ```
 
@@ -70,9 +63,7 @@ jihye-MacBookPro2020:~ jihye$
 * **인수**: 프로그램에 전달할 옵션이나 값으로 공백으로 구분하여 여러 개를 전달 할 수 있어요. 인수값에 공백이 있다면 큰 따옴표(")로 묶어서 써야 제대로 전달돼요.
 * **옵션**: 대시(-) 또는 이중 대시(--)로 시작하는 인수로 플래그라고도 해요.
 
-<p className="code-label">명령행 예시</p>
-
-```shell{numberLines: false}
+```shell title="명령행 예시"
 cd ~
 open .bashrc
 python3.11
@@ -86,26 +77,20 @@ pip install requests
 
 1. **절대경로 + 프로그램 파일명**: 셸이 실행되는 작업경로에 구애받지 않고 절대경로를 포함해서 쓸 수 있어요.
 
-    <p className="code-label">절대경로를 포함한 명령어 예시</p>
-
-    ```shell{numberLines: false}
+    ```shell title="절대경로를 포함한 명령어 예시"
     /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 --version
     ```
 
 2. **PATH 환경변수 설정 + 프로그램 파일명**: PATH 환경변수에 프로그램 파일이 위치한 경로를 등록하면 프로그램 이름만 입력해서 사용할 수 있어요.
 
-    <p className="code-label">PATH 환경변수 설정 및 명령어 예시</p>
-
-    ```shell{numberLines: false}
+    ```shell title="PATH 환경변수 설정 및 명령어 예시"
     export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
     python3 --version
     ```
 
 3. **경로 이동 + 프로그램 파일명**: 프로그램 파일이 위치한 경로로 이동 후 프로그램 이름만 입력해서 사용할 수 있어요.
 
-    <p className="code-label">경로 이동 및 명령어 예시</p>
-
-    ```shell{numberLines: false}
+    ```shell title="경로 이동 및 명령어 예시"
     cd /Library/Frameworks/Python.framework/Versions/3.11/bin
     python3 --version
     ```
@@ -118,9 +103,7 @@ pip install requests
 터미널에서 `echo $PATH` 명령행을 실행하면 등록된 디렉터리를 확인 할 수 있어요. 콜론 기호(:)로 구분된 여러 디렉터리가 문자열로 등록되어 있을 거에요.
 셸 프로그램은 이 값에서 **앞에 위치한 디렉터리부터 확인**하며 명령어에 맞는 프로그램이 있는지 검색해요.
 
-<p className="code-label">PATH 환경변수 값 얻기 예시</p>
-
-```shell{numberLines: false}
+```shell title="PATH 환경변수 값 얻기 예시"
 jihye-MacBookPro2020:personal-website jihye$ echo $PATH
 /Library/Frameworks/Python.framework/Versions/3.8/bin:/Users/jihye/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jihye/.gem/ruby/2.7.0/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/jihye/WebstormProjects/personal-website/node_modules/.bin:/usr/local/mongodb/bin
 ```
@@ -128,9 +111,7 @@ jihye-MacBookPro2020:personal-website jihye$ echo $PATH
 **임시로 PATH 값에 경로를 추가**하려면 아래와 같이 할 수 있어요.
 이 방식은 현재 프로세스에서만 유효하기 때문에 터미널 창을 닫고 다시 열면 효능이 사라져요.
 
-<p className="code-label">현재 프로세스에만 PATH 환경변수 설정하기 예시</p>
-
-```shell{numberLines: false}
+```shell title="현재 프로세스에만 PATH 환경변수 설정하기 예시"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
 ```
 
@@ -138,17 +119,13 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH"
 배시를 사용한다면 `~/.bashrc` 파일이나 `~/.bash_profile` 파일에, 지셸을 사용한다면 `~/.zshrc` 파일에 설정값을 추가하면 돼요.
 `open ~/.bashrc` 명령행을 입력해 파일을 열고 직접 내용을 추가하거나 터미널에서 아래 명령어를 입력해요.
 
-<p className="code-label">셸 설정 파일에 PATH 환경변수 설정하기 예시</p>
-
-```shell{numberLines: false}
+```shell title="셸 설정 파일에 PATH 환경변수 설정하기 예시"
 echo "export PATH=/Library/Frameworks/Python.framework/Versions/3.11/bin:$PATH" >> ~/.bashrc
 ```
 
 환경변수 설정 후에 터미널을 재시작해요. `which` 명령어로 어떤 프로그램을 사용하는지 전체 경로와 파일명을 알 수 있어요.
 
-<p className="code-label">which 사용 예시</p>
-
-```shell{numberLines: false}
+```shell title="which 사용 예시"
 jihye-MacBookPro2020:personal-website jihye$ which python3.11
 /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11
 ```

@@ -25,17 +25,17 @@ const TocList: React.FC<TocListProps> = ({toc, activeId, depth = 0}) => {
     return (
         <>
             {toc.items?.length && toc.items[0].url ? (
-                <ol>
+                <ol className="pl-3">
                     {toc.items?.map((item, index) => {
                         // 현재 화면에 보이는 헤딩과 동일한 목차 앵커에 활성화 클래스를 추가한다.
                         const tocId = item.url?.slice(1)  // 맨앞 # 제외한 id만 추출
-                        const activeClass = tocId === activeId ? ' active' : ''
+                        const activeClass = tocId === activeId ? ' text-brand! font-medium' : ''
 
                         return (
                             <li key={index}>
                                 {item.url && <Link
                                     to={item.url}
-                                    className={`toc-link${activeClass}`}
+                                    className={`block mb-2 not-hover:text-muted ${activeClass}`}
                                 >{item.title}</Link>}
                                 {item.items && <TocList toc={item} activeId={activeId} depth={depth}/>}
                             </li>
@@ -94,11 +94,11 @@ const Toc: React.FC<Props> = ({toc, title, useScrollActive = true}) => {
     return (
         <>
             {toc.items && (
-                <div className={`markdown-toc`}>
+                <div className="break-all text-xs">
                     <Link
                         to={'.'}
-                        className={`toc-title ${activeId == '' ? 'active': ''}`}
-                    >목차: {title}</Link>
+                        className={`block mb-2 ${activeId == '' ? 'font-medium': ''}`}
+                    >{title}</Link>
                     <TocList toc={toc} activeId={activeId}/>
                 </div>
             )}

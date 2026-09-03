@@ -1,8 +1,8 @@
 import type {GatsbyConfig} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
 import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
 import adapter from "gatsby-adapter-netlify"
-import tailwindcss from "@tailwindcss/postcss"
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 
 dotenv.config({
@@ -75,12 +75,7 @@ const config: GatsbyConfig = {
                 "path": `./src/data/`
             },
         },
-        {
-            resolve: `gatsby-plugin-postcss`,
-            options: {
-                postCssPlugins: [tailwindcss()],
-            },
-        },
+        `gatsby-plugin-postcss`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -293,20 +288,6 @@ const config: GatsbyConfig = {
             options: {
                 extensions: [`.mdx`],
                 gatsbyRemarkPlugins: [
-                    // https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
-                    {
-                        resolve: `gatsby-remark-prismjs`,
-                        options: {
-                            // bug: showLineNumbers: true 설정후 mdx 에서 개별적으로 numberLines: false 설정해도 계속 숫자가 생김.
-                            // {numberLines: true} or {numberLines: 10}
-                            showLineNumbers: false,
-                            aliases: {
-                                // mdx 지정시 아래 경고 문구 발생 방지용.
-                                // warn unable to find prism language 'mdx' for highlighting. applying generic code block
-                                mdx: 'md',
-                            }
-                        }
-                    },
                     // https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers
                     {
                         resolve: `gatsby-remark-autolink-headers`,
@@ -338,6 +319,17 @@ const config: GatsbyConfig = {
                         // Add GitHub Flavored Markdown (GFM) support
                         // 참고 https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx#mdxoptions
                         remarkGfm,
+                    ],
+                    rehypePlugins: [
+                        [
+                            rehypePrettyCode,
+                            {
+                                theme: 'github-dark',
+                                defaultLang: {
+                                    inline: 'plaintext',
+                                },
+                            },
+                        ],
                     ],
                 },
             },

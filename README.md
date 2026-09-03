@@ -40,10 +40,14 @@ npm run develop -- --port 8001
 - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-### 구현 기능
+### Tech stacks
 
+- React/[Gatsby](https://www.gatsbyjs.com)
 - RSS Feed: [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) 플러그인 사용. 
   - 플러그인 설정 참고: [gatsby-config.ts](./gatsby-config.ts)
+- [Rehype Pretty Code](https://rehype-pretty.pages.dev/): Code blocks for MDX
+- [TailwindCSS v4](https://tailwindcss.com/)
+- [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography)
 
 ### Sitemap
 ```

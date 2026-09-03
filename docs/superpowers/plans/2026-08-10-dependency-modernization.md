@@ -138,7 +138,7 @@ import { MDXProvider, type MDXComponents } from "@mdx-js/react"
 
 const shortcodes: MDXComponents = {
   Link,
-  SideBySide,
+  sup,
   FontAwesomeIcon,
   GoogleAdPostMiddle,
   a: MdxLink,

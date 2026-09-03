@@ -27,9 +27,7 @@ import SassCommentsTable from "../components/posts/sass-comments-table";
 **중첩 스타일**은 Sass의 기본 출력 스타일로, CSS 스타일과 HTML 문서의 구조를 잘 보여줍니다.
 각 속성은 한 줄에 작성하고, 각 규칙은 중첩 정도에 따라 **들여쓰기**합니다.
 
-<p className="code-label code-label-css">중첩 스타일로 출력한 CSS</p>
-
-```css{numberLines: true}
+```css title="중첩 스타일로 출력한 CSS" showLineNumbers
 #main {
   color: #fff;
   background-color: #000; }
@@ -50,10 +48,7 @@ text-decoration: underline; }
 **확장 스타일**은 **사람**이 작성한 CSS 스타일과 거의 같다고 할 수 있습니다.
 속성은 규칙 안에서 들여쓰기하여 각 한 줄에 작성하고, 규칙은 들여쓰기하지 않습니다.
 
-
-<p className="code-label code-label-css">확장 스타일로 출력한 CSS</p>
-
-``` css{numberLines: true}
+```css title="확장 스타일로 출력한 CSS" showLineNumbers
 #main {
   color: #fff;
   background-color: #000;
@@ -77,10 +72,7 @@ text-decoration: underline; }
 각 CSS 규칙을 단 한 줄에 표시하며 속한 모든 속성도 같은 줄에 작성합니다.[^compact]
 줄마다 선택자가 앞에 있어서 속성보다 **선택자**에 더욱 집중하게 합니다.
 
-
-<p className="code-label code-label-css">축약 스타일로 출력한 CSS</p>
-
-``` css{numberLines: true}
+```css title="축약 스타일로 출력한 CSS" showLineNumbers
 #main { color: #fff; background-color: #000; }
 #main p { width: 10em; }
 
@@ -94,9 +86,7 @@ text-decoration: underline; }
 선택자를 구분하는 공백처럼 꼭 필요한 공백이나, 파일 끝에 하나의 새 줄 밖의 공백은 모두 삭제합니다.[^compressed]
 또 다른 소소한 압축도 실행하는데, 색상 값을 **최소 표현**으로 변경합니다.
 
-<p className="code-label code-label-css">압축 스타일로 출력한 CSS</p>
-
-``` css{numberLines: true}
+```css title="압축 스타일로 출력한 CSS" showLineNumbers
 #main{color:#fff;background-color:#000}#main p{width:10em}.huge{font-size:10em;font-weight:bold;text-decoration:underline}
 ```
 
@@ -112,15 +102,11 @@ text-decoration: underline; }
 
 4가지 출력 스타일 중 하나를 선택해서 `:style` 옵션[^option] 값으로 설정하거나, 커맨드라인에서 `--style` 플래그와 함께 값을 입력합니다.
 
-<p className="code-label code-label-ruby">루비 온 레일즈 설정 예시</p>
-
-```ruby{numberLines: true}
+```ruby title="루비 온 레일즈 설정 예시" showLineNumbers
 Sass::Plugin.options[:style] = :compressed
 ```
 
-<p className="code-label">커맨드라인 설정 예시</p>
-
-```shell{numberLines: false}
+```shell title="커맨드라인 설정 예시"
 sass --watch style.scss:style.css --style compressed
 ```
 
@@ -129,4 +115,4 @@ sass --watch style.scss:style.css --style compressed
 [^reference]: [원문](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Output_Style)
 [^compact]: 여러 줄로 작성한 주석도 모두 한 줄로 표시합니다.
 [^compressed]: 여러 줄 주석도 모두 삭제합니다. 하지만 주석의 첫 글자로 느낌표 `!`를 써넣으면 삭제하지 않고 출력물에 그대로 표시합니다.
-[^option]: 루비 온 레일즈 <SideBySide>Ruby on Rails</SideBySide> 나 랙 <SideBySide>Rack</SideBySide>등 루비 기반 환경설정 파일에서 [옵션](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Options)을 설정할 수 있습니다.
+[^option]: 루비 온 레일즈 <sup>Ruby on Rails</sup> 나 랙 <sup>Rack</sup>등 루비 기반 환경설정 파일에서 [옵션](https://sass-lang.com/documentation/file.SASS_REFERENCE.html#Options)을 설정할 수 있습니다.

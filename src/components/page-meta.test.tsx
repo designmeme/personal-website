@@ -14,7 +14,6 @@ describe("PageMeta", () => {
             <PageMeta {...legacyProps}/>
         )
 
-        expect(markup).toContain('class="post-meta"')
         expect(markup).toContain('dateTime="2024-01-02T00:00:00+09:00"')
         expect(markup).toContain("3-4분 읽기")
         expect(markup).not.toContain('dateTime="2020-01-01T00:00:00+09:00"')

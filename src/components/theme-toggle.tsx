@@ -8,14 +8,10 @@ import {
 
 function applyTheme(preference: ThemePreference, systemIsDark: boolean): void {
     const root = document.documentElement
+    const theme = resolveTheme(preference, systemIsDark)
 
-    if (preference === 'system') {
-        root.removeAttribute('data-theme')
-    } else {
-        root.dataset.theme = preference
-    }
-
-    root.style.colorScheme = resolveTheme(preference, systemIsDark)
+    root.classList.toggle('dark', theme === 'dark')
+    root.style.colorScheme = theme
 }
 
 const ThemeToggle: React.FC = () => {
@@ -49,12 +45,13 @@ const ThemeToggle: React.FC = () => {
     }
 
     return (
-        <label className="theme-toggle">
+        <label>
             <span className="sr-only">색상 테마</span>
             <select
                 aria-label="색상 테마 선택"
                 value={preference}
                 onChange={handleChange}
+                className="text-xs rounded-sm border py-0.5 px-1"
             >
                 <option value="system">시스템</option>
                 <option value="light">라이트</option>

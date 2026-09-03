@@ -53,7 +53,7 @@ RSS 대안으로 2005년 만들어진 [Atom](https://datatracker.ietf.org/doc/ht
 [//]: # (![웹 피드 - 피드 리더가 읽는다]&#40;&#41;)
 
 웹 피드를 구독하고 내용을 확인할 수 있는 앱을 피드 리더라고 해요.
-어그리게이터 <SideBySide>Aggregator</SideBySide>, 뉴스 리더 모두 같은 말이라고 보면 됩니다.
+어그리게이터 <sup>Aggregator</sup>, 뉴스 리더 모두 같은 말이라고 보면 됩니다.
 피드 리더는 피드 검색, 구독, 콘텐츠 읽기, 저장하기 등 기능을 제공해요.
 
 사용자가 구독한 피드 문서를 정기적으로 확인하면서 사용자가 읽은 콘텐츠 외에 새 콘텐츠가 있는지 확인해 보여줘요.
@@ -89,9 +89,7 @@ RSS 대안으로 2005년 만들어진 [Atom](https://datatracker.ietf.org/doc/ht
 RSS 피드인 XML 파일을 만들어 봅시다. 파일명은 알맞게 지어주세요.
 최상위 태그는 1개의 `rss` 요소입니다. `version` 속성값으로 사용하려는 RSS 버전을 넣어줍니다.
 
-<p className="code-label code-label-xml">rss.xml</p>
-
-```xml
+```xml title="rss.xml"
 <rss version="2.0">
     ...
 </rss>
@@ -104,9 +102,7 @@ RSS 피드인 XML 파일을 만들어 봅시다. 파일명은 알맞게 지어�
 여러 채널로 콘텐츠를 분리하고 싶다면 여러 RSS 피드 파일로 분할해야 해요.
 `channel`은 콘텐츠 발행 채널을 의미하며 채널 정보 및 채널이 발행한 콘텐츠 정보를 포함해요.
 
-<p className="code-label code-label-xml">rss.xml</p>
-
-```xml
+```xml title="rss.xml"
 <rss version="2.0">
     <channel>...</channel>
 </rss>
@@ -158,7 +154,7 @@ RSS 피드인 XML 파일을 만들어 봅시다. 파일명은 알맞게 지어�
 
 <dt>`category`</dt>
 <dd>채널이 속한 카테고리로 여러 개를 작성할 수 있어요. 피드 리더에서 이 값을 사용하는 방식은 불분명합니다.</dd>
-<dd className={'p-small'}>
+<dd className={'text-sm'}>
 추가로 `domain` 속성을 작성해 카테고리 분류법을 지정할 수 있어요.
 1998년에 시작된 인터넷 디렉터리 프로젝트인 [DMOZ](https://dmoz-odp.org/) (Directory Mozilla)를 예로 들면
 `<category domain="dmoz">News/Newspapers/Regional/United_States/Texas</category>`처럼 쓸 수 있어요.
@@ -258,9 +254,7 @@ PICS는 아이들이 인터넷 콘텐츠를 선택할 때 도움이 되려고 �
 
 #### 채널 작성 예시
 
-<p className="code-label code-label-xml">rss.xml 채널 작성 예시</p>
-
-```xml
+```xml title="rss.xml 채널 작성 예시"
 <rss version="2.0">
     <channel>
         <title>이지혜, 프론트엔드 개발자</title>
@@ -363,7 +357,7 @@ PICS는 아이들이 인터넷 콘텐츠를 선택할 때 도움이 되려고 �
     <dd>
         이미지 파일 정보를 작성할 경우 **피드 리더에서 대표 이미지**로 보여줄 수 있어요.
     </dd>
-    <dd className={'p-small'}>
+    <dd className={'text-sm'}>
         💪 [**Media RSS 네임스페이스**](#media-rss-네임스페이스)를 사용해서 더 나은 정보를 표시할 수 있어요.
     </dd>
     <dt>`comments`</dt>
@@ -379,9 +373,7 @@ PICS는 아이들이 인터넷 콘텐츠를 선택할 때 도움이 되려고 �
 
 #### 아이템 작성 예시
 
-<p className="code-label code-label-xml">rss.xml 아이템 작성 예시</p>
-
-```xml
+```xml title="rss.xml 아이템 작성 예시"
 <rss version="2.0">
     <channel>
         ...
@@ -425,9 +417,7 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 
 아래 예시와 같이 `atom:link` 요소로 피드 자체 URL 주소를 표기하는 것은 **RSS 피드의 정보 완결성을 높이고 캐시를 쉽게** 하므로 추천해요.
 
-<p className="code-label code-label-xml">rss.xml Atom 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml Atom 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         ...
@@ -446,9 +436,7 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 
 하지만 두 요소가 모두 제공되는 경우 피드 리더에서 의도에 맞게 처리하는지 확인이 필요해요.
 
-<p className="code-label code-label-xml">rss.xml Content 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml Content 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         ...
@@ -470,9 +458,7 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 아이템의 `author`, 채널의 `managingEditor`, `webMaster` 요소는 이메일 주소를 필수로 작성하고 이름을 추가로 작성할 수 있죠.
 만약 **이메일 주소를 노출하고 싶지 않다면** 아래 예시와 같이 `dc:creator` 요소를 대신 사용할 수 있어요.
 
-<p className="code-label code-label-xml">rss.xml Dublin Core 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml Dublin Core 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         ...
@@ -496,9 +482,7 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 아이템의 `comments` 요소를 보완하기 위해 `slash:comments` 요소에 **댓글 수**를 작성할 수 있어요.
 댓글 수는 자주 변경되지만, 이 값은 피드 생성 시점의 숫자이기 때문에 유용하지 않은 정보일 수 있어요.
 
-<p className="code-label code-label-xml">rss.xml Slash 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml Slash 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
     <channel>
         ...
@@ -518,9 +502,7 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 
 채널과 아이템에 `creativeCommons:license` 요소를 추가해서 **콘텐츠 저작권 라이선스 정보를 명확히** 할 수 있어요.
 
-<p className="code-label code-label-xml">rss.xml creativeCommons 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml creativeCommons 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule">
     <channel>
         ...
@@ -549,9 +531,7 @@ RSS 피드에 [Atom 네임스페이스](https://www.rssboard.org/rss-profile#nam
 
 자세한 문법과 예시는 [공식 문서](https://www.rssboard.org/media-rss)를 참고해 주세요.
 
-<p className="code-label code-label-xml">rss.xml Media RSS 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml Media RSS 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
     <channel>
         ...
@@ -573,9 +553,7 @@ itunes 네임스페이스를 추가하면
 
 자세한 스펙과 RSS 피드 샘플은 [공식 문서](https://help.apple.com/itc/podcasts_connect/#/itcb54353390)를 참고하세요.
 
-<p className="code-label code-label-xml">rss.xml itunes 네임스페이스 활용 예시</p>
-
-```xml
+```xml title="rss.xml itunes 네임스페이스 활용 예시"
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
     <channel>
         ...
@@ -623,9 +601,7 @@ itunes 네임스페이스를 추가하면
 [RSS 2.0 명세](#rss-20-명세) 섹션 내용을 참고해서 필요한 요소만 골라 사용하세요.
 아래에 제가 만든 피드 파일처럼요.
 
-<p className="code-label code-label-xml">https://heyjihye.netlify.app/rss.xml 예시</p>
-
-```xml
+```xml title="https://heyjihye.netlify.app/rss.xml 예시"
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:atom="http://www.w3.org/2005/Atom"
@@ -670,9 +646,7 @@ itunes 네임스페이스를 추가하면
 그리고 모든 웹페이지의 `head` 요소에 피드 파일을 가리키는 `link` 요소를 추가해요.
 그러면 피드 리더에 구독하고 싶은 웹페이지 주소만 입력해도 피드 주소를 가져올 수 있어요.
 
-<p className="code-label code-label-html">https://heyjihye.netlify.app/blog/index.html 예시</p>
-
-```html
+```html title="https://heyjihye.netlify.app/blog/index.html 예시"
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -726,9 +700,7 @@ itunes 네임스페이스를 추가하면
 
 저는 상단에 **RSS 배지**를 달고 **구현 기능** 섹션에 관련 내용을 간단하게 작성했어요.
 
-<p className="code-label code-label-markdown">[README.md](https://github.com/designmeme/personal-website/blob/main/README.md) 일부</p>
-
-```markdown
+```markdown title="README.md 일부"
 [![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://heyjihye.netlify.app/rss.xml)
 
 (생략)

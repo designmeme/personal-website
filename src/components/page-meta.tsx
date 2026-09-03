@@ -12,34 +12,40 @@ type Props = {
 const PageMeta: React.FC<Props> = ({updatedAt, readMinutes, tags}) => {
     return (
         <>
-            <p className="post-meta">
+            <p className="ml-[2px] flex gap-2 text-secondary text-xs">
                 {updatedAt && (
-                    <span className="modified">
+                    <span>
                         <time dateTime={updatedAt}>
                             {moment(updatedAt).format('LL')}
                         </time> 수정
                     </span>
                 )}
 
-                {readMinutes && <span className="reading-time">
+                {updatedAt && readMinutes != null && readMinutes > 0 && <span aria-hidden="true" className="opacity-50">|</span>}
+
+                {readMinutes != null && readMinutes > 0 && <span>
                     {readMinutes}-{Math.ceil(readMinutes * 1.3)}분 읽기
                 </span>}
+
+                {tags && tags.length > 0 && (
+                    <>
+                    <span aria-hidden="true" className="opacity-50">|</span>
+
+                    <span>
+                        태그:{' '}
+                        {
+                            // todo Link to Tag page
+                            tags.map((tag, index) =>
+                                <span key={`tag-${index}`}>
+                                    {tag}
+                                    {index + 1 != tags.length && ", "}
+                                </span>)
+                        }
+                    </span>
+                    </>
+                )}
             </p>
 
-            {tags && (
-                <p className="post-tags">
-                    <FontAwesomeIcon icon={faTags}/>{' '}
-                    Tags:{' '}
-                    {
-                        // todo Link to Tag page
-                        tags.map((tag, index) =>
-                            <span key={`tag-${index}`}>
-                                <span className={"tag"}>{tag}</span>
-                                {index + 1 != tags.length && ", "}
-                            </span>)
-                    }
-                </p>
-            )}
         </>
     );
 };
