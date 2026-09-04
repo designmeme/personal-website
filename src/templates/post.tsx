@@ -54,13 +54,13 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
     return (
         <Layout>
 
-            <div className="lg:flex mx-auto justify-center gap-[100px]">
+            <div className="flex mx-auto justify-center gap-[100px]">
 
-                <aside className="hidden lg:block w-[300px]">
+                <aside className="hidden lg:block w-[300px] shrink-0">
                     <BlogSideNav subject={subject}></BlogSideNav>
                 </aside>
 
-                <article className="min-w-0 max-w-none lg:max-w-[680px] prose dark:prose-invert mb-20">
+                <article className="min-w-0 max-w-none md:max-w-[680px] prose dark:prose-invert">
                     <header className="mb-10">
                         <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-2 text-sm mb-8">
                             <Link to={'/blog'} className="not-hover:text-secondary">블로그</Link>
@@ -87,20 +87,20 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                     {/*{!isDesktop && <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>}*/}
 
-                    <div className="mb-12">
+                    <div className="mb-10">
                         {/*포스트 상단용(인피드)*/}
                         <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                     </div>
 
                     <MDXProvider components={mdxComponents}>{children}</MDXProvider>
 
-                    <div className="my-12">
+                    <div className="my-10">
                         {/*포스트 하단용(디스플레이)*/}
                         <GoogleAdsense format="auto" slot="6926754782" responsive={true}/>
                     </div>
 
                     <footer className="mt-20">
-                        <div className="text-xs bg-gray-100 dark:bg-gray-800 mb-20 p-6">
+                        <div className="text-xs bg-gray-200 dark:bg-gray-800 mb-20 p-6">
                             <div className="text-xl mb-2">
                                 <FontAwesomeIcon className="cc-icon" icon={faCreativeCommons}/>
                                 <FontAwesomeIcon className="cc-icon" icon={faCreativeCommonsBy}/>

@@ -54,7 +54,7 @@
         "2021-09",
         null
       ],
-      "description": "개인적으로 자동매매 프로그램을 개발하여 운용하고 있습니다.\n대시보드 웹: Angular, React/Next.js, TradingView Advanced Charts, Lightweight Charts, AG Grid, Websocket\n서버: Python, Django, MySQL, ClickHouse, Django Ninja, Websocket\nBacktest: Pandas, Plotly, Jupyter Notebook, backtrader, zipline",
+      "description": "개인적으로 자동매매 프로그램을 개발하여 운용하고 있습니다.\n대시보드 웹: Angular, React/Next.js, TradingView Advanced Charts, Lightweight Charts, AG Grid, Websocket\n서버: Python, Django, MySQL, ClickHouse, Django Ninja, Websocket, Docker\nBacktest: Pandas, Plotly, Jupyter Notebook, backtrader, zipline",
       "client": "개인",
       "tags": [
         "desktop"
@@ -100,7 +100,7 @@
         "2020-03",
         "2020-12"
       ],
-      "description": "기존 헬로우봇앱 서비스의 웹 전용 서비스로, 채팅방 등 채팅 인터페이스와 스킬 소비를 위한 다양한 기능을 제공합니다. 일본 서비스를 위해 다국어로 구조를 변경하는 등 지속적으로 기능을 추가하고 개선하였습니다. \nAngular5-10, RxJS, TypeScript, Sass / Angular Universal(SSR), Serverless(AWS) / SEO, 다국어, 결제연동",
+      "description": "기존 헬로우봇앱 서비스의 웹 전용 서비스로, 채팅방 등 채팅 인터페이스와 스킬 소비를 위한 다양한 기능을 제공합니다. 일본 서비스를 위해 다국어로 구조를 변경하는 등 지속적으로 기능을 추가하고 개선하였습니다. \nAngular5-10, RxJS, TypeScript, Sass / Angular Universal(SSR), Serverless(AWS) / SEO, GA, GTM / 다국어(한국어, 일본어), 아임포트 결제연동",
       "client": "띵스플로우",
       "urls": [
         "https://hellobot.co"
@@ -118,7 +118,7 @@
         "2017-12",
         "2020-12"
       ],
-      "description": "챗봇 생성하고 관리하며, 다양한 유형의 메세지를 작성하고 대화 흐름을 구성할 수 있는 UI를 구현하였습니다. \nAngular7-10, RxJS, TypeScript, Sass / PWA(Service Worker)",
+      "description": "챗봇 생성하고 관리하며, 다양한 유형의 메세지를 작성하고 대화 흐름을 구성할 수 있는 UI를 구현하였습니다. \nAngular7-10, RxJS, TypeScript, Sass / PWA(Service Worker), SEO, GA, GTM / AWS S3, Travis CI / 다국어(한국어, 일본어)",
       "client": "띵스플로우",
       "urls": [
         "https://hellobotstudio.com"
@@ -134,7 +134,7 @@
         "2017-12",
         "2020-12"
       ],
-      "description": "<b>띵스플로우 반응형 웹사이트</b> - 회사 소개 웹사이트로 ngx-translate 라이브러리를 기반으로 한국어, 일본어를 지원하는 다국어 웹사이트를 구현하였습니다.\n<b>헬로우봇 반응형 웹사이트</b> - 헬로우봇 서비스 소개 웹사이트입니다.\nAngular7-10, RxJS, TypeScript, Sass / PWA(Service Worker) / Angular Universal(Prerendering 적용) / SEO, 다국어",
+      "description": "<b>띵스플로우 반응형 웹사이트</b> - 회사 소개 웹사이트로 ngx-translate 라이브러리를 기반으로 한국어, 일본어를 지원하는 다국어 웹사이트를 구현하였습니다.\n<b>헬로우봇 반응형 웹사이트</b> - 헬로우봇 서비스 소개 웹사이트입니다.\nAngular7-10, RxJS, TypeScript, Sass / Angular Universal(Prerendering 적용) / PWA(Service Worker), SEO / AWS S3, Travis CI / 다국어 / ScrollMagic, GSAP(TimelineMax, TweenMax)",
       "client": "띵스플로우",
       "urls": [
         "https://thingsflow.com",
@@ -564,20 +564,5 @@
       ],
       "featured": false
     }
-  ],
-  "skills": [
-    "웹 표준, 브라우저 호환성, 반응형 웹, 웹 접근성, SEO, SPA, SSR, PWA",
-    "React/Next.js, Angular, JavaScript(ES6+), TypeScript, RxJS, Gatsby",
-    "HTML5/CSS3, Tailwind CSS, shadcn/ui, Bootstrap, Material, Sass",
-    "Git, pnpm, npm, Chrome DevTools",
-    "AWS(S3, Lambda), Firebase(Hosting, Functions), Vercel, Netlify",
-    "Google Analytics, Google Tag Manager, Google Optimize, Amplitude, Airbridge, Facebook Pixel, Kakao Pixel, Lighthouse",
-    "Vibe coding, AI Coding Agents(ChatGPT, Claude), OpenRouter"
-  ],
-  "tools": [
-    "커뮤니케이션: Slack, Email",
-    "프로젝트 및 이슈 관리: Notion, GitHub, Bitbucket, JIRA, Redmine, Wrike, Trello",
-    "기획: Oven, AXURE, Balsamiq Mockups, PowerPoint",
-    "디자인: Figma, Zeplin, InVision, Sketch"
   ]
 }

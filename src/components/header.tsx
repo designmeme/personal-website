@@ -1,29 +1,38 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "gatsby";
-import {useSiteMetadata} from "../hooks/use-site-metadata";
-import logoImage from '../images/common/logo.svg'
-import ThemeToggle from './theme-toggle'
+import Symbol from "./symbol";
 
 
 const Header: React.FC = () => {
-    const {title} = useSiteMetadata()
+    const [isCompact, setIsCompact] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsCompact(window.scrollY > 0)
+        }
+
+        handleScroll()
+        window.addEventListener('scroll', handleScroll, {passive: true})
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     const navs = [
         {text: "About", path: "/about" },
         {text: "Blog", path: "/blog", partiallyActive: true },
     ]
 
     return (
-        <header>
+        <header className={`sticky top-0 z-40 bg-stone-100/60 dark:bg-stone-900/60 backdrop-blur-sm ${isCompact ? 'border-b' : ''} border-brand`}>
 
-            <div className="py-20 mx-[12.5%] md:mx-20 flex md:items-top gap-2">
+            <div className={`${isCompact ? 'py-2' : 'py-10'} transition-[padding] duration-200 ease-in-out motion-reduce:transition-none md:mx-20 flex items-center justify-center gap-2`}>
                 <Link
                     to="/about"
-                    className="min-w-[80px] max-w-[240px] w-[30%] mr-6 md:mr-16 lg:mr-20"
+                    className="shrink-0 mr-6 md:mr-16 lg:mr-20"
                 >
-                    <img src={logoImage} alt={title || ''} className="logo"/>
+                    <Symbol className={`text-2xl lg:text-3xl origin-right transition-transform duration-200 ease-in-out motion-reduce:transition-none ${isCompact ? 'scale-75 lg:scale-60' : 'scale-100'}`}/>
                 </Link>
 
-                <nav className="flex flex-col gap-1 flex-1">
+                <nav className={`mb-[-1px] flex gap-4 origin-left transition-transform duration-200 ease-in-out motion-reduce:transition-none ${isCompact ? 'scale-[0.875]' : 'scale-100'}`}>
                     {navs.map((item) => (
                         <Link
                             key={item.path}
@@ -34,10 +43,6 @@ const Header: React.FC = () => {
                         >{item.text}</Link>
                     ))}
                 </nav>
-
-                <div className="fixed top-10 right-10 z-50">
-                    <ThemeToggle />
-                </div>
 
             </div>
 

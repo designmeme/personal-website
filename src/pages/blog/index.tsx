@@ -6,10 +6,10 @@ import GoogleAdsense from "../../components/google-adsense";
 
 export const frontmatter: PageFrontmatter = {
     title: `블로그`,
-    subtitle: `👩‍💻 🎮 🚴 ️🚀 `,
-    excerpt: `이 블로그는 👩‍💻 프론트엔드 개발자인 제가 꾹꾹 눌러 담아 정리한 글 모음집이에요. 개발 경험 일지보다는 시행착오를 바탕으로 만든 지름길 안내서를 지향해요.`,
+    subtitle: `👩‍💻 🎮 🚴 ️🚀 🏊🏼‍♀️`,
+    excerpt: `웹 개발, 사이드 프로젝트, 프리랜서 구인구직, 취미 등 글 모음집입니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
-    updatedAt: `2023-03-28T00:00:00+09:00`,
+    updatedAt: `2026-09-04T00:00:00+09:00`,
 }
 
 const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
@@ -18,16 +18,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
     return (
         <PageLayout frontmatter={frontmatter}>
             <p>
-                이 블로그는 👩‍💻 프론트엔드 개발자인 제가 꾹꾹 눌러 담아 정리한 글 모음집이에요.
-                개발 경험 일지보다는 시행착오를 바탕으로 만든 지름길 안내서를 지향해요.
-            </p>
-            <p>
-                빠르게 변하고 넘쳐나는 개발 지식을 배우고 다양한 기능을 구현하다 보면 전에 뚝딱 처리했던 내용을 까먹고 😅 또다시 실수하고 배우기를 반복하잖아요?
-                그래서 며칠, 몇 개월, 길면 1년이 넘어서 내가 다시 봐도 가장 빠른 시간에 다시 목적지에 도착할 수 있게 개인 노트에 정리하곤 했는데요.
-                그 내용에 조금 더 친절함을 더해서 초보 개발자가 봐도 찰떡같이 이해하도록 쓰고, 누구나 볼 수 있게 세상에 내놓으려고 해요.
-            </p>
-            <p>
-                그럼, 시-작 🤓
+               웹 개발, 사이드 프로젝트, 프리랜서 구인구직, 취미 등 글 모음집입니다.
             </p>
 
             {/*블로그 상단용(인피드)*/}
@@ -35,7 +26,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                 <GoogleAdsense layoutKey="-gu-3+1f-3d+2z" slot="6555927968"/>
             </div>
 
-            <div className="mt-50">
+            <div className="mt-20">
                 {blogSubjects.map(subject => (
                     <div key={subject.id}>
                         <h2 id={subject.slug} className="mb-4 text-lg font-medium">
@@ -47,10 +38,10 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                                     .filter(post => process.env.NODE_ENV != 'production' || !!post.frontmatter.createdAt)
                                     .map(post => (
                                         <li key={post.id} className="mb-4">
-                                            <Link to={`/blog/${post.frontmatter.slug}`}>
+                                            <Link to={`/blog/${post.frontmatter.slug}`} className="no-underline">
                                                 <span className="underline">{post.frontmatter.title}</span>
                                                 {post.frontmatter.subtitle && (
-                                                    <span className="text-muted">
+                                                    <span className="text-secondary">
                                                         {' '}&mdash;{' '}
                                                         {post.frontmatter.subtitle}
                                                     </span>

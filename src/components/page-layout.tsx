@@ -25,7 +25,7 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
 
     return (
         <Layout>
-            <article className="max-w-[680px] mx-auto px-10 mb-20 prose dark:prose-invert">
+            <article className="max-w-[680px] mx-auto prose dark:prose-invert">
 
                 <header className="mb-10">
                     <h1>{frontmatter.title}</h1>

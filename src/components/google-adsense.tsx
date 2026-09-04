@@ -27,11 +27,7 @@ const GoogleAdsense = ({
 
     if (process.env.NODE_ENV !== "production") {
         return (
-            <div style={{
-                background: "lightgray",
-                textAlign: "center",
-                padding: "2rem 1rem"
-            }}>
+            <div className="text-center py-10 bg-gray-500 text-gray-300">
                 Google Ads
             </div>
         );

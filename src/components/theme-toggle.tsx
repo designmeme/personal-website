@@ -1,10 +1,18 @@
 import React, {useEffect, useState} from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faDisplay, faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
 import {
     getStoredTheme,
     resolveTheme,
     storeTheme,
     type ThemePreference,
 } from '../lib/theme'
+
+const themeOptions = [
+    {value: 'system', label: '시스템', icon: faDisplay},
+    {value: 'light', label: '라이트', icon: faSun},
+    {value: 'dark', label: '다크', icon: faMoon},
+] as const
 
 function applyTheme(preference: ThemePreference, systemIsDark: boolean): void {
     const root = document.documentElement
@@ -37,27 +45,32 @@ const ThemeToggle: React.FC = () => {
         return () => mediaQuery.removeEventListener('change', handleSystemThemeChange)
     }, [])
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const nextPreference = event.target.value as ThemePreference
+    const handleChange = (nextPreference: ThemePreference) => {
         setPreference(nextPreference)
         storeTheme(window.localStorage, nextPreference)
         applyTheme(nextPreference, systemIsDark)
     }
 
     return (
-        <label>
-            <span className="sr-only">색상 테마</span>
-            <select
-                aria-label="색상 테마 선택"
-                value={preference}
-                onChange={handleChange}
-                className="text-xs rounded-sm border py-0.5 px-1"
-            >
-                <option value="system">시스템</option>
-                <option value="light">라이트</option>
-                <option value="dark">다크</option>
-            </select>
-        </label>
+        <div role="group" aria-label="색상 테마 선택" className="flex items-center gap-3">
+            {themeOptions.map(({value, label, icon}) => {
+                const isActive = preference === value
+
+                return (
+                    <button
+                        key={value}
+                        type="button"
+                        aria-label={`${label} 테마`}
+                        aria-pressed={isActive}
+                        title={`${label} 테마`}
+                        onClick={() => handleChange(value)}
+                        className={`cursor-pointer transition-colors ${isActive ? 'text-inherit' : 'not-hover:text-muted/80'}`}
+                    >
+                        <FontAwesomeIcon icon={icon}/>
+                    </button>
+                )
+            })}
+        </div>
     )
 }
 

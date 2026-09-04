@@ -20,13 +20,13 @@
 }
 
 :root {
-  /*--text-brand: #FC4A1A;*/
-  --text-brand: var(--color-green-500);
+  --text-brand: var(--color-green-600);
   --text-secondary: var(--color-gray-600);
   --text-muted: var(--color-gray-400);
 }
 
 .dark {
+  --text-brand: var(--color-green-500);
   --text-secondary: var(--color-gray-400);
   --text-muted: var(--color-gray-500);
 }
@@ -38,7 +38,17 @@
   --color-brand: var(--text-brand);
 }
 
+/*
+tailwindcss-typography theme color
+https://github.com/tailwindlabs/tailwindcss-typography#adding-custom-color-themes
+*/
 @utility prose {
+  --tw-prose-counters: inherit;
+  --tw-prose-bullets: inherit;
+  --tw-prose-invert-counters: inherit;
+  --tw-prose-invert-bullets: inherit;
+  --tw-prose-invert-body: var(--color-gray-300);
+  --tw-prose-invert-headings: var(--color-gray-200);
   --tw-prose-links: var(--text-brand);
   --tw-prose-invert-links: var(--text-brand);
 }
@@ -130,28 +140,11 @@
 }
 
 @media print {
-  :root {
-    color-scheme: light;
-  }
-  body {
-    background: var(--color-white);
-    color: var(--color-black);
-  }
   html {
     font-size: 9pt;
   }
   a[data-footnote-backref=true] {
     display: none;
-  }
-  .page-header {
-    margin-bottom: 3rem;
-  }
-  hr {
-    margin-top: 5.5rem;
-    margin-bottom: 0;
-  }
-  .print-hr {
-    page-break-after: always;
   }
   /* href 속성을 가진 <a> 태그 뒤에 URL을 표시 */
   a[href].print-url {

@@ -3,25 +3,23 @@ import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {faCircle, faEnvelope, faRss} from "@fortawesome/free-solid-svg-icons";
-import logoImage from "../images/common/logo-footer.svg";
-import {Link} from "gatsby";
+import ThemeToggle from "./theme-toggle";
+import Symbol from "./symbol";
 
 
 const Footer: React.FC = () => {
-    const {title, email, github_username, copyright} = useSiteMetadata()
+    const {email, github_username, copyright} = useSiteMetadata()
 
     return (
-        <footer className="bg-[var(--color-brand)] text-zinc-200 font-light">
+        <footer className="border-t-10 border-brand font-light">
 
-            <div className="py-20 px-[12.5%] md:px-20 flex flex-col lg:flex-row items-center ali gap-4 lg:gap-8 lg:justify-between">
+            <div className="py-10 lg:pb-40 md:px-20 flex flex-col lg:flex-row items-center gap-6 lg:gap-6 lg:justify-between text-secondary">
 
-                <div className="text-center leading-0 hidden md:block lg:order-1">
-                    <img src={logoImage} alt={title || ''} className="logo"/>
-                </div>
+                <Symbol className="text-base"/>
 
-                <div className="flex flex-row order-2 gap-2">
+                <div className="flex flex-row gap-2 text-3xl">
                     <a href="/rss.xml"
-                       className="text-3xl leading-none text-inherit align-middle"
+                       className="leading-none text-inherit align-middle"
                        title="RSS 피드로 웹사이트 구독하기 📮"
                     >
                         <FontAwesomeIcon icon={faRss} transform={'shrink-6 right-0.7 up-0.5'} mask={faCircle}/>
@@ -29,7 +27,7 @@ const Footer: React.FC = () => {
                     </a>
 
                     <a href={"https://github.com/" + github_username}
-                       className="text-3xl leading-none text-inherit align-middle"
+                       className="leading-none text-inherit align-middle"
                        title="GitHub 방문하기(새창)"
                        target="_blank"
                     >
@@ -38,7 +36,7 @@ const Footer: React.FC = () => {
                     </a>
 
                     <a href={"mailto:" + email}
-                       className="text-3xl leading-none text-inherit align-middle"
+                       className="leading-none text-inherit align-middle"
                        title="이메일 보내기(새창)"
                        target="_blank"
                     >
@@ -47,7 +45,9 @@ const Footer: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="text-inherit text-xs">{copyright}</div>
+                <div className="text-xs lg:flex-1">{copyright}</div>
+
+                <ThemeToggle />
 
             </div>
 

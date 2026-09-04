@@ -35,9 +35,9 @@ const CareerList: React.FC<Props> = ({data}) => {
         <ol className="text-sm">
             {data.map((career, index) => (
                 <li key={index.toString()} className="mb-6 pl-4">
-                    <div className={`text-base -ml-4 font-medium ${career.featured && 'relative'}`}>
+                    <div className={`text-base -ml-4 font-medium`}>
+                        {career.featured && <FontAwesomeIcon icon={faStar} className="mr-1 text-sm text-brand"/>}
                         {career.title}
-                        {career.featured && <FontAwesomeIcon icon={faStar} className="absolute right-full top-1 mr-2 text-sm text-[var(--color-brand)]"/>}
                     </div>
                     <div className="mt-1 text-xs font-extralight text-secondary">
                         <span className="career-date">
@@ -55,18 +55,14 @@ const CareerList: React.FC<Props> = ({data}) => {
 
                         {career.tags && (
                             <>
-                                &middot; <span>
+                                &middot; <span className="*:text-muted">
                                 {career.tags.map((tag: string, j: number) => (
                                     <React.Fragment key={j.toString()}>
-                                        {tag === 'mobile' &&
-                                            <FontAwesomeIcon className="icon" icon={faMobileScreenButton}/>}
-                                        {tag === 'tablet' &&
-                                            <FontAwesomeIcon className="icon" icon={faTabletScreenButton}/>}
-                                        {tag === 'desktop' && <FontAwesomeIcon className="icon" icon={faDisplay}/>}
-                                        {tag === 'universal-access' &&
-                                            <FontAwesomeIcon className="icon" icon={faUniversalAccess}/>}
-                                        <span
-                                            className="sr-only">{tag == "universal-access" ? 'web accessibility' : tag}</span>
+                                        {tag === 'mobile' && <FontAwesomeIcon icon={faMobileScreenButton}/>}
+                                        {tag === 'tablet' && <FontAwesomeIcon icon={faTabletScreenButton}/>}
+                                        {tag === 'desktop' && <FontAwesomeIcon icon={faDisplay}/>}
+                                        {tag === 'universal-access' && <FontAwesomeIcon icon={faUniversalAccess}/>}
+                                        <span className="sr-only">{tag == "universal-access" ? 'web accessibility' : tag}</span>
                                     </React.Fragment>
                                 ))}
                                 </span>
@@ -77,7 +73,7 @@ const CareerList: React.FC<Props> = ({data}) => {
                     {career.description && <div className="text-sm whitespace-pre-wrap mt-1.5" dangerouslySetInnerHTML={{__html: career.description}}></div>}
 
                     {career.urls?.map((url: string, i: number) =>
-                        <div className={`text-xs ${!i && 'mt-1.5'}`} key={i}>
+                        <div className={`break-all text-xs ${!i && 'mt-1.5'}`} key={i}>
                             <a href={url} target="_blank" title="새창">{url}</a>
                         </div>)}
                 </li>
