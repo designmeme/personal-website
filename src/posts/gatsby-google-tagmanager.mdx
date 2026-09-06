@@ -3,7 +3,7 @@ subject:  gatsby-website
 slug:     gatsby-google-tagmanager
 title:    Google 태그 관리자(GTM) 설치하기
 subtitle:
-excerpt: Google 애널리틱스 설치가 필요한가요? gtag.js 로 직접 설치하지 말고 Google 태그 관리자를 이용해 설치하면 더 좋아요.
+excerpt: Google 태그 관리자를 이용해 Google 애널리틱스와 외부 태그를 설치하고 관리하는 방법을 설명한다.
 categories: [Web Dev, 웹개발, Programming]
 tags: [Web Dev, Gatsby, Web Analytics, GTM, GA4]
 createdAt: 2023-05-20T18:00:00+09:00
@@ -11,93 +11,93 @@ updatedAt: 2023-05-20T17:00:00+09:00
 ---
 
 <div className="lead">
-Google 애널리틱스 설치가 필요한가요? `gtag.js` 로 직접 설치하지 말고 Google 태그 관리자를 이용해 설치하면 더 좋아요.
-**Google 태그 관리자를 웹사이트에 한 번 설치**하면 이후에는 GA4 등 Google 태그뿐만 아니라 다른 외부 태그도 **웹에서 쉽게 설치하고 관리**할 수 있어요.
+Google 태그 관리자를 이용하면 `gtag.js`를 직접 추가하지 않고 Google 애널리틱스를 설치할 수 있다.
+**Google 태그 관리자를 웹사이트에 한 번 설치**하면 이후에는 GA4 등 Google 태그뿐만 아니라 다른 외부 태그도 **웹에서 쉽게 설치하고 관리**할 수 있다.
 </div>
 
 ---
 ## 준비물
 
-* 💜 **Gatsby v5 웹사이트**: Gatsby로 만든 웹사이트가 필요해요. 없다면 먼저 Gatsby 웹사이트를 만들어 보세요. → [Gatsby Quick Start](https://www.gatsbyjs.com/docs/quick-start/)
-* 👩‍🎓 **Google 태그 관리자에 대한 지식**: Google 태그 관리자(GTM)에 대해 알고 있어야 해요. → [Google 태그 관리자][tagmanager]
+* **Gatsby v5 웹사이트**: Gatsby로 만든 웹사이트가 필요하다. 프로젝트 생성 방법은 다음 문서를 참고한다. → [Gatsby Quick Start](https://www.gatsbyjs.com/docs/quick-start/)
+* **Google 태그 관리자에 대한 지식**: Google 태그 관리자(GTM)에 대해 알고 있어야 한다. → [Google 태그 관리자][tagmanager]
 
 ---
-## Google 태그 관리자를 왜 사용 하나요?
-웹사이트를 개발하면 웹 분석을 위해 Google 애널리틱스, 카카오 픽셀, 페이스북 픽셀 등 각종 외부 서비스를 많이 사용해요.
-이를 위해 각 서비스에서 제공하는 코드 스니펫(태그)를 웹사이트 코드에 추가해야 하죠.
-**Google 태그 관리자 <sup>Google Tag Manager, GTM</sup>를 이용하면 이런 태그를 웹 코드에 직접 작성하지 않고 태그 관리자 웹사이트에서 설정할 수 있어요.**
+## Google 태그 관리자의 역할
+웹사이트를 개발하면 웹 분석을 위해 Google 애널리틱스, 카카오 픽셀, 페이스북 픽셀 등 각종 외부 서비스를 많이 사용한다.
+이를 위해 각 서비스에서 제공하는 코드 스니펫(태그)를 웹사이트 코드에 추가해야 한다.
+**Google 태그 관리자 <sup>Google Tag Manager, GTM</sup>를 이용하면 이런 태그를 웹 코드에 직접 작성하지 않고 태그 관리자 웹사이트에서 설정할 수 있다.**
 
-Google 태그 관리자를 사용하면 아래와 같은 **장점**이 있어요.
-- 각종 태그 설치 및 수정을 **웹 UI**로 편하게 관리 🏷️
-- 웹 개발 소스 코드와 외부 서비스 코드를 **분리** 👩‍💻
-- **버전** 관리 및 쉬운 **복구** 기능 😅
-- **미리보기** 및 **디버깅**의 편리성 🔍
-- 퍼포먼스 마케터 등 웹 개발자가 아닌 사람이 태그를 직접 관리 가능 👩‍💻🧑🏻‍💼👨🏽‍💼
+Google 태그 관리자를 사용하면 아래와 같은 **장점**이 있다.
+- 각종 태그 설치 및 수정을 **웹 UI**로 편하게 관리
+- 웹 개발 소스 코드와 외부 서비스 코드를 **분리**
+- **버전** 관리 및 쉬운 **복구** 기능
+- **미리보기** 및 **디버깅**의 편리성
+- 퍼포먼스 마케터 등 웹 개발자가 아닌 사람이 태그를 직접 관리 가능
 
 ---
 
 ## Google 태그 관리자에서 컨테이너 만들기
-Gatsby 웹사이트에 Google 태그 관리자를 설치하려면 먼저 **컨테이너**를 만들어야 해요.
-컨테이너는 **각종 태그를 묶어주는 관리 단위**에요.
-보통 웹사이트라면 **웹사이트 당 1개 컨테이너**를 만들면 돼요.
+Gatsby 웹사이트에 Google 태그 관리자를 설치하려면 먼저 **컨테이너**를 만들어야 한다.
+컨테이너는 **각종 태그를 묶어주는 관리 단위**이다.
+보통 웹사이트라면 **웹사이트 당 1개 컨테이너**를 만들면 된다.
 
-컨테이너는 **계정에 속해야** 해요. a)새 계정에 새 컨테이너를 만들거나, b)기존 계정에 새 컨테이너를 만들 수 있어요.
-브라우저에서 [Google 태그 관리자 홈페이지][tagmanager]로 이동 후 계정 생성 여부에 따라 아래 내용을 따라 하세요.
+컨테이너는 **계정에 속해야** 한다. a)새 계정에 새 컨테이너를 만들거나, b)기존 계정에 새 컨테이너를 만들 수 있다.
+브라우저에서 [Google 태그 관리자 홈페이지][tagmanager]로 이동 후 계정 생성 여부에 따라 아래 절차를 진행한다.
 
 ### 새 계정에 새 컨테이너 만들기
 
-새 컨테이너가 속할 계정이 없다면 **새 계정**을 함께 만들어요. **계정 만들기 버튼**은 아래 두 화면에서 찾을 수 있어요.
+새 컨테이너가 속할 계정이 없다면 **새 계정**을 함께 만든다. **계정 만들기 버튼**은 아래 두 화면에서 찾을 수 있다.
 
 ![Google 태그 관리자 > 홈(모든 계정) 페이지 > 계정 만들기](../images/post/google-tagmanager-create-account-home.png)
 ![Google 태그 관리자 > 다른 계정의 컨테이너 관리 페이지 > 관리자 > 계정 만들기](../images/post/google-tagmanager-create-account-container.png)
 
-계정 만들기 화면에서 **계정 설정 정보를 입력**해요.
-회사 프로젝트라면 회사 이름으로 만들면 돼요. 저는 개인용 웹사이트를 관리하려고 '개인' 이름으로 계정을 만들었어요.
+계정 만들기 화면에서 **계정 설정 정보를 입력**한다.
+회사 프로젝트라면 회사 이름으로 만들면 된다. 개인용 웹사이트를 관리하려고 '개인' 이름으로 계정을 만들었다.
 
-![Google 태그 관리자 > 새 계정 추가 > 계정 설정 섹션에 이름, 국가 등 정보를 입력해요](../images/post/google-tagnamager-create-account-example.png)
+![Google 태그 관리자 > 새 계정 추가 > 계정 설정 섹션에 이름, 국가 등 정보를 입력한다](../images/post/google-tagnamager-create-account-example.png)
 
-계정 만들기 화면에서 **컨테이너 설정 정보도 함께 입력**해요. 이름을 입력하고 플랫폼을 웹으로 선택했어요.
+계정 만들기 화면에서 **컨테이너 설정 정보도 함께 입력**한다. 이름을 입력하고 플랫폼을 웹으로 선택했다.
 
-![Google 태그 관리자 > 새 계정 추가 > 컨테이너 설정 섹션에 이름 등 정보를 입력해요](../images/post/google-tagnamager-create-account-example2.png)
+![Google 태그 관리자 > 새 계정 추가 > 컨테이너 설정 섹션에 이름 등 정보를 입력한다](../images/post/google-tagnamager-create-account-example2.png)
 
 ### 기존 계정에 새 컨테이너 만들기
-이미 새 컨테이너가 속할 계정이 있다면 바로 새 컨테이너를 만들 수 있어요.
-**컨테이너 만들기 버튼**은 아래 두 화면에서 찾을 수 있어요.
+이미 새 컨테이너가 속할 계정이 있다면 바로 새 컨테이너를 만들 수 있다.
+**컨테이너 만들기 버튼**은 아래 두 화면에서 찾을 수 있다.
 
 ![Google 태그 관리자 > 홈(모든 계정) 페이지 > 기존 계정 > 설정 버튼 > 컨테이너 만들기](../images/post/google-tagmanager-create-container-home.png)
 ![Google 태그 관리자 > 기존 계정의 컨테이너 관리 페이지 > 관리자 > 컨테이너 만들기](../images/post/google-tagmanager-create-container-container.png)
 
-컨테이너 만들기 화면에서 **컨테이너 설정 정보를 입력**해요.
-이름을 입력하고 플랫폼을 웹으로 선택했어요.
+컨테이너 만들기 화면에서 **컨테이너 설정 정보를 입력**한다.
+이름을 입력하고 플랫폼을 웹으로 선택했다.
 
 ![Google 태그 관리자 > 기존 계정 > 컨테이너 만들기](../images/post/google-tagmanager-create-container-popup.png)
 
 ---
 
 ## Gatsby 웹사이트에 Google 태그 관리자 설치하기
-컨테이너를 만들었다면 Gatsby 웹사이트에 **GMT 설치 코드**를 `<head>` 요소와 `<body>` 요소에 추가해야 해요.
-설정 방식이 단순하기 때문에 **의존성을 줄이기 위해 직접 추가하는 것을 추천**해요. ⭐️
-gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법도 소개할게요.
+컨테이너를 만들었다면 Gatsby 웹사이트에 **GMT 설치 코드**를 `<head>` 요소와 `<body>` 요소에 추가해야 한다.
+설정이 단순하므로 **설치 코드를 직접 추가하면 의존성을 줄일 수 있다.**
+gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법도 소개한다.
 
 ---
 ### Gatsby 웹사이트에 GTM 스니펫 추가하기
 
 1. Google 태그 관리자 설치 코드 얻기
 
-    **설치 코드**는 선택한 컨테이너 페이지의 아래 두 위치에서 찾을 수 있어요.
+    **설치 코드**는 선택한 컨테이너 페이지의 아래 두 위치에서 찾을 수 있다.
 
     ![Google 태그 관리자 > 컨테이너 관리 페이지 > 작업공간 > 컨테이너 ID](../images/post/google-tagmanager-gtm-setup-code.png)
     ![Google 태그 관리자 > 컨테이너 관리 페이지 > 관리자 > Google 태그 관리자 설치](../images/post/google-tagmanager-gtm-setup-code2.png)
 
-    Google 태그 관리자 설치 코드를 확인해요.
-    `<head>` 요소에 GTM `<script>` 요소를 추가하고 `<body>` 요소에 `<noscript>` 요소를 추가해야 해요.
+    Google 태그 관리자 설치 코드를 확인한다.
+    `<head>` 요소에 GTM `<script>` 요소를 추가하고 `<body>` 요소에 `<noscript>` 요소를 추가해야 한다.
 
-    ![Google 태그 관리자 설치 화면에서 GTM 설치 코드를 얻을 수 있어요.](../images/post/google-tagmanager-gtm-setup-code-popup.png)
+    ![Google 태그 관리자 설치 화면에서 GTM 설치 코드를 얻을 수 있다.](../images/post/google-tagmanager-gtm-setup-code-popup.png)
 
 2. 셋업용 컴포넌트 만들기
 
-    GTM 설치 코드를 담을 파일을 생성하고 1)에서 얻은 두 개의 요소를 추가해요.
-    컨테이너 ID(GTM-XXXXXXX)를 본인 것으로 수정하세요.
+    GTM 설치 코드를 담을 파일을 생성하고 1)에서 얻은 두 개의 요소를 추가한다.
+    컨테이너 ID(GTM-XXXXXXX)를 본인 것으로 수정한다.
 
     ```tsx title="src/components/gtm-setup.tsx" showLineNumbers
     import React from "react"
@@ -126,7 +126,7 @@ gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법
 
 3. `onRenderBody` 설정하기
 
-    2)에서 만든 설치 코드를 불러와서 `gatsby-ssr.tsx` 파일의 `onRenderBody` 함수 내용에 추가하면 끝이에요. 🎉
+    2)에서 만든 설치 코드를 불러와서 `gatsby-ssr.tsx` 파일의 `onRenderBody` 함수 내용에 추가하면 설정이 완료된다.
 
     ```tsx title="gatsby-ssr.tsx" showLineNumbers
     import * as React from "react"
@@ -144,18 +144,18 @@ gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법
 
 ### gatsby-plugin-google-tagmanager 플러그인 사용하기
 
-[Gatsby Plugins][gatsby plugin] 페이지에서 `google`로 검색하면 공식 플러그인 3개가 상단에 나와요.
-이 중 Google 태그 관리자를 설치하는 [`gatsby-plugin-google-tagmanager`][tagmanager plugin] 플러그인이 가장 인기가 많네요.
+[Gatsby Plugins][gatsby plugin] 페이지에서 `google`로 검색하면 공식 플러그인 3개가 상단에 나온다.
+이 중 Google 태그 관리자를 설치하는 [`gatsby-plugin-google-tagmanager`][tagmanager plugin] 플러그인이 검색 결과 상단에 표시된다.
 
-![Gatsby Plugins 페이지에서 'google'으로 검색하면 가장 위에 gatsby-plugin-google-tagmanager 플러그인이 나와요. (2023.5.20 기준)](../images/post/gatsby-plugins-search-google.png)
+![Gatsby Plugins 페이지에서 'google'으로 검색하면 가장 위에 gatsby-plugin-google-tagmanager 플러그인이 나온다. (2023.5.20 기준)](../images/post/gatsby-plugins-search-google.png)
 
-1. 먼저 플러그인을 설치해요.
+1. 먼저 플러그인을 설치한다.
 
     ```shell
     npm install gatsby-plugin-google-tagmanager
     ```
 
-2. 플러그인이 설치되었다면 `gatsby-config.ts` 파일에 플러그인 이름과 옵션을 함께 추가해요.
+2. 플러그인이 설치되었다면 `gatsby-config.ts` 파일에 플러그인 이름과 옵션을 함께 추가한다.
 
     ```typescript title="gatsby-config.ts"
     import type {GatsbyConfig} from 'gatsby';
@@ -179,30 +179,30 @@ gatsby-plugin-google-tagmanager 플러그인을 사용해서 설치하는 방법
 
 ## Google Tag Assistant 미리보기로 GTM 설치 확인하기
 
-어떤 방식으로든 Google 태그 관리자 코드를 추가했다면 Google 태그 관리자 웹사이트에서 바로 확인해 봐요.
+어떤 방식으로든 Google 태그 관리자 코드를 추가했다면 Google 태그 관리자 웹사이트에서 설치 결과를 확인한다.
 
-1. **로컬 개발 서버**를 실행해요.
+1. **로컬 개발 서버**를 실행한다.
 
      ```shell
     gatsby develop
     ```
 
-2. Google 태그 관리자 웹사이트의 해당 컨테이너 페이지에서 **미리보기** 버튼을 눌러요.
+2. Google 태그 관리자 웹사이트의 해당 컨테이너 페이지에서 **미리보기** 버튼을 누른다.
 
-    ![컨테이너 작업공간 페이지에서 '미리보기' 버튼을 클릭해요.](../images/post/google-tagmanager-preview-button.png)
+    ![컨테이너 작업공간 페이지에서 '미리보기' 버튼을 클릭한다.](../images/post/google-tagmanager-preview-button.png)
 
-3. **Google Tag Assistant** 페이지에서 `http://localhost:8000` 개발 서버 주소를 입력하고 `Connect` 버튼을 눌러요.
+3. **Google Tag Assistant** 페이지에서 `http://localhost:8000` 개발 서버 주소를 입력하고 `Connect` 버튼을 누른다.
 
-    ![Google Tag Assistant 페이지에서 `http://localhost:8000` 개발 서버 주소를 입력해요.](../images/post/google-tag-assistant-url.png)
+    ![Google Tag Assistant 페이지에서 `http://localhost:8000` 개발 서버 주소를 입력한다.](../images/post/google-tag-assistant-url.png)
 
-4. 웹페이지가 **디버그 UI**로 변경돼요. Summary에서 `1 Initialization` 영역을 클릭하면 GTM 코드가 초기화된 것을 확인할 수 있어요. 🎉
+4. 웹페이지가 **디버그 UI**로 변경된다. Summary에서 `1 Initialization` 영역을 클릭하면 GTM 코드가 초기화된 것을 확인할 수 있다.
 
-    ![Google Tag Assistant 디버그 화면에서 GTM이 설치되어 초기화 된 내용을 단계별로 확인할 수 있어요.](../images/post/google-tag-asistant-debug-init.png)
+    ![Google Tag Assistant 디버그 화면에서 GTM이 설치되어 초기화 된 내용을 단계별로 확인할 수 있다.](../images/post/google-tag-asistant-debug-init.png)
 ---
 
 ## 참고 자료
 
-이 글을 쓰기 위해 참고한 자료는 아래와 같아요. 📚🤓🕯️
+이 글에서 참고한 자료는 다음과 같다.
 
 * [Google Tag Manager Help Center](https://support.google.com/tagmanager)
 * Gatsby Plugins: [gatsby-plugin-google-tagmanager][tagmanager plugin]
