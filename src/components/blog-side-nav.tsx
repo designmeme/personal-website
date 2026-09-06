@@ -34,7 +34,7 @@ const BlogSideNav: React.FC<Queries.BlogSideNavSubjectFragment> = ({subject}) =>
     `)
 
     return (
-        <nav className="text-xs sticky top-[50px] h-[calc(100vh-100px)] overflow-y-auto">
+        <nav className="text-xs sticky top-[130px] h-[calc(100vh-180px)] overflow-y-auto">
             {allSubjectJson.nodes.map(node => (
                 <div key={node.id} className="mb-6">
                     <h6 className={"mb-4 font-normal text-xs" + (subject.id == node.id ? " text-inherit" : " text-secondary")}>

@@ -136,7 +136,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 </article>
 
                 <aside className="hidden 2xl:block w-[280px] shrink-0">
-                    <div className="sticky top-[50px] h-[calc(100vh-100px)] overflow-y-auto">
+                    <div className="sticky top-[130px] h-[calc(100vh-180px)] overflow-y-auto">
                         <Toc toc={data.mdx?.tableOfContents!} title={title}/>
                         <RssFeedInfo/>
                     </div>
