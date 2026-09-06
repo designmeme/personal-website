@@ -1,5 +1,34 @@
 # Changelog
 
+## [2.0.0](https://github.com/designmeme/personal-website/compare/v1.32.1...v2.0.0) (2026-09-06)
+
+
+### Features
+
+* add system-aware dark mode ([4f4a31e](https://github.com/designmeme/personal-website/commit/4f4a31e5f841b529c0b12e520a5df1ec0138e127))
+* **blog:** show optional post cover images ([f17f8f3](https://github.com/designmeme/personal-website/commit/f17f8f306f66c5571b26e3f2129d94d24507c378))
+* **brand:** refresh site identity and metadata ([ed37423](https://github.com/designmeme/personal-website/commit/ed37423d2eb94ba40fba5ad2c5c245cf33edead0))
+* **content:** style MDX with typography plugin ([6f6668e](https://github.com/designmeme/personal-website/commit/6f6668ee8e8fd1dc5c0037e4e9e979c67286a4be))
+
+
+### Bug Fixes
+
+* **analytics:** disable GTM in development ([0b4c50d](https://github.com/designmeme/personal-website/commit/0b4c50df53b659cf2127cf4dab6ce868cf960c5b))
+* **blog:** correct broken Sass article links ([3526be9](https://github.com/designmeme/personal-website/commit/3526be9d4ccebc65e9ed712c84a5d33e1aabab9a))
+* **blog:** offset sidebars below the header ([f86e7dd](https://github.com/designmeme/personal-website/commit/f86e7ddbf7877000b251085c2d56d832a0f0676b))
+* **css:** apply Tailwind font variables ([6bb0b4f](https://github.com/designmeme/personal-website/commit/6bb0b4f13bebad6259723a150f00c83c31ed432f))
+* **header:** prevent layout shifts on scroll ([c9f7a35](https://github.com/designmeme/personal-website/commit/c9f7a35d2033cd2aa59a6e2819a5436a82e034b1))
+* **post:** show updated metadata inline ([024a088](https://github.com/designmeme/personal-website/commit/024a0884a82a48227a8f18eb327e50997fc0b68a))
+* **print:** simplify page and resume layouts ([1742744](https://github.com/designmeme/personal-website/commit/17427443d7ea1d7c30350d3a88d8d40debc51d8b))
+* **seo:** remove duplicate RSS discovery link ([75d2d7e](https://github.com/designmeme/personal-website/commit/75d2d7eaab97a9d11420db002ba3d40e1a5adea3))
+* simplify PageMeta layout ([79f52b6](https://github.com/designmeme/personal-website/commit/79f52b69ea1538cd27a99cb7a86f17044c8e6ae0))
+* theme Prism code blocks ([ab14065](https://github.com/designmeme/personal-website/commit/ab14065b7aad8abc5d0f095bbc7a2c211073cf40))
+
+
+### Miscellaneous Chores
+
+* release 2.0.0 ([4694e43](https://github.com/designmeme/personal-website/commit/4694e43485d49cee49e8d5504456e8152b94d620))
+
 ## [1.32.1](https://github.com/designmeme/personal-website/compare/v1.32.0...v1.32.1) (2026-08-14)
 
 
