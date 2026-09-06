@@ -131,8 +131,6 @@ const SeoHead: React.FC<Props> = (
             <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f4"/>
             <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917"/>
 
-            <link rel="alternate" type="application/rss+xml" title="hey jihye · RSS" href="/rss.xml"/>
-
             {children}
         </>
     )
