@@ -4,15 +4,24 @@ import {describe, expect, it} from 'vitest'
 import ThemeToggle from './theme-toggle'
 
 describe('ThemeToggle', () => {
-    it('renders an accessible theme preference select', () => {
+    it('renders accessible theme buttons with system selected initially', () => {
         const markup = renderToStaticMarkup(<ThemeToggle/>)
+        const buttons = markup.match(/<button\b[^>]*>/g) ?? []
 
+        expect(markup).toContain('role="group"')
         expect(markup).toContain('aria-label="색상 테마 선택"')
-        expect(markup).toContain('value="system"')
-        expect(markup).toContain('value="light"')
-        expect(markup).toContain('value="dark"')
-        expect(markup).toContain('시스템')
-        expect(markup).toContain('라이트')
-        expect(markup).toContain('다크')
+        expect(buttons).toHaveLength(3)
+
+        for (const [label, pressed] of [
+            ['시스템 테마', 'true'],
+            ['라이트 테마', 'false'],
+            ['다크 테마', 'false'],
+        ]) {
+            const button = buttons.find(tag => tag.includes(`aria-label="${label}"`))
+
+            expect(button).toBeDefined()
+            expect(button).toContain('type="button"')
+            expect(button).toContain(`aria-pressed="${pressed}"`)
+        }
     })
 })

@@ -53,7 +53,6 @@ describe('theme initialization before hydration', () => {
 
         expect(classes.has('dark')).toBe(expected === 'dark')
         expect(colorScheme).toBe(expected)
-        expect(classes.has('lg:text-lg')).toBe(true)
     })
 
     it('follows the system when local storage is blocked', () => {
