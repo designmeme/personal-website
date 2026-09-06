@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
     adapter: adapter(),
     siteMetadata: {
         title,
-        description: `Freelance Front-end Developer`,
+        description: `15년 이상 경력의 프론트엔드 개발자로 다수의 프로젝트 개발 경험을 보유하고 있습니다.`,
         image: `/images/common/feature.png`,
         siteUrl,
         author: `이지혜`,

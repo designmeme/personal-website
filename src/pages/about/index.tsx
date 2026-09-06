@@ -9,7 +9,7 @@ import {useSiteMetadata} from "../../hooks/use-site-metadata";
 export const frontmatter: PageFrontmatter = {
     title: `안녕하세요, 이지혜입니다`,
     subtitle: `👩‍🎨 👩‍💻 🚀 📈`,
-    excerpt: `시니어 프론트엔드 개발자이며 주체적으로 개발 기술을 사용하며 재밌게 살고 있어요`,
+    excerpt: `15년 이상 경력의 프론트엔드 개발자로 다수의 프로젝트 개발 경험을 보유하고 있습니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
     updatedAt: `2026-09-04T00:00:00+09:00`,
 }
