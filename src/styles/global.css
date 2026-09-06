@@ -142,15 +142,11 @@ https://github.com/tailwindlabs/tailwindcss-typography#adding-custom-color-theme
 @media print {
   html {
     font-size: 9pt;
+    @apply bg-transparent;
   }
+
   a[data-footnote-backref=true] {
     display: none;
   }
-  /* href 속성을 가진 <a> 태그 뒤에 URL을 표시 */
-  a[href].print-url {
-    @apply text-inherit no-underline block;
-  }
-  a[href].print-url::after {
-    content: ": " attr(href);
-  }
+
 }

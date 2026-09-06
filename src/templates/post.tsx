@@ -61,7 +61,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 </aside>
 
                 <article className="min-w-0 max-w-none md:max-w-[680px] prose dark:prose-invert">
-                    <header className="mb-10">
+                    <header className="mb-10 print:hidden">
                         <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-2 text-sm mb-8">
                             <Link to={'/blog'} className="not-hover:text-secondary">블로그</Link>
                             <span className="text-muted">{'>'}</span>
@@ -87,14 +87,14 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                     {/*{!isDesktop && <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>}*/}
 
-                    <div className="mb-10">
+                    <div className="mb-10 print:hidden">
                         {/*포스트 상단용(인피드)*/}
                         <GoogleAdsense layoutKey="-f9+5v+4m-d8+7b" slot="9726040265"/>
                     </div>
 
                     <MDXProvider components={mdxComponents}>{children}</MDXProvider>
 
-                    <div className="my-10">
+                    <div className="my-10 print:hidden">
                         {/*포스트 하단용(디스플레이)*/}
                         <GoogleAdsense format="auto" slot="6926754782" responsive={true}/>
                     </div>
@@ -113,7 +113,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                             </div>
                         </div>
 
-                        <div className="text-lg flex flex-row gap-4 justify-between flex-wrap">
+                        <div className="text-lg flex flex-row gap-4 justify-between flex-wrap print:hidden">
                             {previous && <div className="grow"><Link to={`/blog/${previous.frontmatter.slug}`}>
                                 <span className="text-xl mr-2">
                                     <FontAwesomeIcon icon={faArrowLeftLong}/>

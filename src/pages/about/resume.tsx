@@ -27,9 +27,15 @@ const ResumePage: React.FC<PageProps> = () => {
                 <dt className="font-medium mt-0">연락처</dt>
                 <dd className="mt-0">ghe.lee19@gmail.com</dd>
                 <dt className="font-medium mt-0">링크</dt>
-                <dd className="flex gap-4 mt-0">
-                    <Link to={'https://www.linkedin.com/in/heyjihye'} className="print-url">LinkedIn</Link>
-                    <Link to={'https://github.com/designmeme'} className="print-url">GitHub</Link>
+                <dd className="mt-0">
+                    <div className="not-print:hidden">
+                        <div>https://www.linkedin.com/in/heyjihye</div>
+                        <div>https://github.com/designmeme</div>
+                    </div>
+                    <div className="print:hidden flex gap-4">
+                        <Link to={'https://www.linkedin.com/in/heyjihye'}>LinkedIn</Link>
+                        <Link to={'https://github.com/designmeme'} className="print-url print:text-inherit print:no-underline">GitHub</Link>
+                    </div>
                 </dd>
             </dl>
 

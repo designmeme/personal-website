@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
     const {email, github_username, copyright} = useSiteMetadata()
 
     return (
-        <footer className="border-t-10 border-brand font-light">
+        <footer className="print:hidden border-t-10 border-brand font-light">
 
             <div className="py-10 lg:pb-40 md:px-20 flex flex-col lg:flex-row items-center gap-6 lg:gap-6 lg:justify-between text-secondary">
 

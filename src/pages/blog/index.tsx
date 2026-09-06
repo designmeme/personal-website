@@ -22,7 +22,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
             </p>
 
             {/*블로그 상단용(인피드)*/}
-            <div className="my-10">
+            <div className="my-10 print:hidden">
                 <GoogleAdsense layoutKey="-gu-3+1f-3d+2z" slot="6555927968"/>
             </div>
 
@@ -55,7 +55,7 @@ const BlogPage: React.FC<PageProps<Queries.BlogPageQuery>> = ({data}) => {
                 ))}
             </div>
 
-            <div className="my-10">
+            <div className="my-10 print:hidden">
                 {/*블로그 하단용(디스플레이)*/}
                 <GoogleAdsense format="auto" slot="2345060685" responsive={true}/>
             </div>

@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({children}) => {
     return (
         <>
             <Header/>
-            <main className="mt-10 mb-30 px-8">
+            <main className="mt-10 mb-30 px-8 print:m-0 print:p-0">
                 {children}
             </main>
             <Footer/>

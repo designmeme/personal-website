@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     ]
 
     return (
-        <header className={`sticky top-0 z-40 bg-stone-100/60 dark:bg-stone-900/60 backdrop-blur-sm ${isCompact ? 'border-b' : ''} border-brand`}>
+        <header className={`print:hidden sticky top-0 z-40 bg-stone-100/60 dark:bg-stone-900/60 backdrop-blur-sm ${isCompact ? 'border-b' : ''} border-brand`}>
 
             <div className={`${isCompact ? 'py-2' : 'py-10'} transition-[padding] duration-200 ease-in-out motion-reduce:transition-none md:mx-20 flex items-center justify-center gap-2`}>
                 <Link
