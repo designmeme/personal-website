@@ -61,7 +61,7 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
                 </aside>
 
                 <article className="min-w-0 max-w-none md:max-w-[680px] prose dark:prose-invert">
-                    <header className="mb-10 print:hidden">
+                    <header className="mb-10">
                         <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-2 text-sm mb-8">
                             <Link to={'/blog'} className="not-hover:text-secondary">블로그</Link>
                             <span className="text-muted">{'>'}</span>
@@ -78,12 +78,12 @@ const PostPage: React.FC<PageProps<Queries.PostPageQuery, PageContextType>>
 
                     </header>
 
-                    {/*{image && (*/}
-                    {/*    <GatsbyImage*/}
-                    {/*        class={'-mx-10 mb-10 md:-mx-20'}*/}
-                    {/*        image={image.childImageSharp?.gatsbyImageData!}*/}
-                    {/*        alt={`${title}${subtitle ? ` — ${subtitle}` : ''}`}/>*/}
-                    {/*)}*/}
+                    {image && (
+                        <GatsbyImage
+                            class={'-mx-10 mb-10 md:-mx-20'}
+                            image={image.childImageSharp?.gatsbyImageData!}
+                            alt={`${title}${subtitle ? ` — ${subtitle}` : ''}`}/>
+                    )}
 
                     {/*{!isDesktop && <Toc toc={data.mdx?.tableOfContents!} title={title} useScrollActive={false}/>}*/}
 
