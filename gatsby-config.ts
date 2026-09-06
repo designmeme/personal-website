@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
     adapter: adapter(),
     siteMetadata: {
         title,
-        description: `Freelance Front-end Web Developer`,
+        description: `Freelance Front-end Developer`,
         image: `/images/common/feature.png`,
         siteUrl,
         author: `이지혜`,
@@ -171,7 +171,16 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                "icon": "src/images/favicon/favicon.png"
+                name: "hey jihye",
+                short_name: "hey jihye",
+                description: "Freelance Front-end Developer",
+                lang: "ko",
+                start_url: "/about/",
+                display: "standalone",
+                background_color: "#1c1917",
+                theme_color: "#00a63e",
+                theme_color_in_head: false,
+                icon: "src/images/favicon/favicon.png"
             }
         },
         // https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/

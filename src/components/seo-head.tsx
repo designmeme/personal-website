@@ -128,10 +128,10 @@ const SeoHead: React.FC<Props> = (
             {schema.length && <Script type="application/ld+json" key={`ld-json`}>{JSON.stringify(schema)}</Script>}
 
             {/*todo etc*/}
-            <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FC4A1A"/>
-            <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black"/>
+            <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f4"/>
+            <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1c1917"/>
 
-            <link rel="alternate" type="application/rss+xml" title="나를 구독하지 말아요 👻" href="/rss-ghost.xml"/>
+            <link rel="alternate" type="application/rss+xml" title="hey jihye · RSS" href="/rss.xml"/>
 
             {children}
         </>
