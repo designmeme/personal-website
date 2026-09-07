@@ -239,11 +239,11 @@ const config: GatsbyConfig = {
                               limit: 1000,
                             ) {
                               nodes {
-                                excerpt(pruneLength: 400)
                                 frontmatter {
                                   slug
                                   title
                                   subtitle
+                                  excerpt
                                   categories
                                   date: createdAt
                                   image {
@@ -265,7 +265,7 @@ const config: GatsbyConfig = {
                             return Object.assign({}, node.frontmatter, {
                                 // item options: https://www.npmjs.com/package/rss#itemoptions
                                 title: `${node.frontmatter.title}${node.frontmatter.subtitle ? ` — ${node.frontmatter.subtitle}` : ''}`,
-                                description: node.excerpt,
+                                description: node.frontmatter.excerpt,
                                 url: `${siteMetadata.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 // - node.id 를 사용할 수 없음. 참고) https://github.com/gatsbyjs/gatsby/issues/19323
