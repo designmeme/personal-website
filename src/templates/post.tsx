@@ -181,7 +181,6 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
     const meta = useSiteMetadata()
     const {
         title,
-        subtitle,
         subject,
         excerpt,
         image,
@@ -190,15 +189,13 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
         updatedAt,
     } = data.mdx!.frontmatter!
 
-    const fullTitle = `${title}${(subtitle ? ` — ${subtitle}` : '')} | ${subject.title}`
-
     const schema: Array<WithContext<BlogPosting | BreadcrumbList>> = [
         // 구조화된 기사(Article, NewsArticle, BlogPosting) 데이터
         // https://developers.google.com/search/docs/appearance/structured-data/article?hl=ko
         {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            headline: fullTitle!,
+            headline: title!,
             image: image ? [image.publicURL!] : undefined,
             datePublished: createdAt!,
             dateModified: updatedAt!,
@@ -240,8 +237,8 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({data, location}) => {
         },
     ];
 
-    return <SeoHead title={fullTitle}
-                    useSiteTitle={false}
+    return <SeoHead title={title}
+                    useSiteTitle={true}
                     description={excerpt}
                     image={image?.publicURL}
                     pathname={location.pathname}
