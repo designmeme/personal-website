@@ -79,6 +79,7 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
+                excludes: ['/design-guide/'],
                 // TypeGen 적용 안됨.
                 query: `query Sitemap {
                   site {
