@@ -1,4 +1,4 @@
-import React, {useEffect, useInsertionEffect, useState} from 'react';
+import React, {useEffect, useInsertionEffect, useRef, useState} from 'react';
 import {Link} from "gatsby";
 
 interface Item {
@@ -19,6 +19,15 @@ type Props = {
     useScrollActive?: boolean
 }
 
+export const scrollActiveTocItem = (element: HTMLElement | null, enabled: boolean) => {
+    if (!element || !enabled) return
+
+    element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+    })
+}
+
 const TocList: React.FC<TocListProps> = ({toc, activeId, depth = 0}) => {
     depth++
 
@@ -34,6 +43,7 @@ const TocList: React.FC<TocListProps> = ({toc, activeId, depth = 0}) => {
                         return (
                             <li key={index}>
                                 {item.url && <Link
+                                    aria-current={tocId === activeId ? 'location' : undefined}
                                     to={item.url}
                                     className={`block mb-2 not-hover:text-muted ${activeClass}`}
                                 >{item.title}</Link>}
@@ -53,6 +63,7 @@ const Toc: React.FC<Props> = ({toc, title, useScrollActive = true}) => {
 
     // 본문 헤딩이 화면에 표시된 경우 해당 ToC 앵커에 active 클래스를 추가한다.
     const [activeId, setActiveId] = useState('')
+    const tocRef = useRef<HTMLDivElement>(null)
 
     // useScrollActive가 true인 경우만 - 본문 상단에 ToC가 노출되는 좁은 화면에서는 불필요하다.
     useScrollActive && useEffect(() => {
@@ -91,10 +102,15 @@ const Toc: React.FC<Props> = ({toc, title, useScrollActive = true}) => {
         }
     }, [toc]);
 
+    useEffect(() => {
+        const activeLink = tocRef.current?.querySelector<HTMLAnchorElement>('a[aria-current="location"]') ?? null
+        scrollActiveTocItem(activeLink, useScrollActive && activeId !== '')
+    }, [activeId, useScrollActive])
+
     return (
         <>
             {toc.items && (
-                <div className="break-all text-xs">
+                <div ref={tocRef} className="break-all text-xs">
                     <Link
                         to={'.'}
                         className={`block mb-2 ${activeId == '' ? 'font-medium': ''}`}

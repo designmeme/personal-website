@@ -19,10 +19,10 @@
 
 ## 구현 구조
 
-- `Toc`이 활성 링크의 DOM 요소를 저장할 ref를 소유한다.
-- 재귀 렌더링되는 `TocList`에 ref 등록 함수를 전달한다.
-- 각 링크는 자신의 ID가 `activeId`와 같을 때 DOM 요소를 등록한다.
-- `Toc`의 effect가 `activeId` 변경 후 등록된 요소를 스크롤한다.
+- `Toc`이 목차 루트 DOM 요소를 저장할 ref를 소유한다.
+- 각 링크는 자신의 ID가 `activeId`와 같을 때 `aria-current="location"`을
+  표시한다.
+- `Toc`의 effect가 `activeId` 변경 후 루트 안의 활성 링크를 찾아 스크롤한다.
 
 ## 오류 및 호환성
 
