@@ -9,7 +9,7 @@ dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
-const siteUrl: string = `https://heyjihye.netlify.app`
+const siteUrl: string = `https://jihye.dokkaebiclub.dev`
 const title: string = `이지혜, 프론트엔드 개발자`
 
 const config: GatsbyConfig = {
