@@ -9,7 +9,7 @@ dotenv.config({
     path: `.env.${process.env.NODE_ENV}`
 })
 
-const siteUrl: string = `https://heyjihye.netlify.app`
+const siteUrl: string = `https://jihye.dokkaebiclub.dev`
 const title: string = `이지혜, 프론트엔드 개발자`
 
 const config: GatsbyConfig = {
@@ -42,7 +42,9 @@ const config: GatsbyConfig = {
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
     // If you use VSCode you can also use the GraphQL plugin
     // Learn more at: https://gatsby.dev/graphql-typegen
-    graphqlTypegen: true,
+    graphqlTypegen: {
+        generateOnBuild: true,
+    },
     // todo 참고 https://github.com/tdudkowski/gatsby-homepage4/blob/main/gatsby-config.mjs
     plugins: [
         {
@@ -79,6 +81,7 @@ const config: GatsbyConfig = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
+                excludes: ['/design-guide/'],
                 // TypeGen 적용 안됨.
                 query: `query Sitemap {
                   site {
@@ -238,11 +241,11 @@ const config: GatsbyConfig = {
                               limit: 1000,
                             ) {
                               nodes {
-                                excerpt(pruneLength: 400)
                                 frontmatter {
                                   slug
                                   title
                                   subtitle
+                                  excerpt
                                   categories
                                   date: createdAt
                                   image {
@@ -264,7 +267,7 @@ const config: GatsbyConfig = {
                             return Object.assign({}, node.frontmatter, {
                                 // item options: https://www.npmjs.com/package/rss#itemoptions
                                 title: `${node.frontmatter.title}${node.frontmatter.subtitle ? ` — ${node.frontmatter.subtitle}` : ''}`,
-                                description: node.excerpt,
+                                description: node.frontmatter.excerpt,
                                 url: `${siteMetadata.siteUrl}/blog/${node.frontmatter.slug}/?utm_source=blog-feed&utm_medium=feed&utm_campaign=feed`,
                                 // url 이 바뀌어도 guid 형식은 바뀌면 안됨.
                                 // - node.id 를 사용할 수 없음. 참고) https://github.com/gatsbyjs/gatsby/issues/19323
