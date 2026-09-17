@@ -13,7 +13,25 @@ name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
-      - uses: googleapis/release-please-action@v5
+      - id: release
+        uses: googleapis/release-please-action@v5
         with:
           release-type: node
+
+  promote-production:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Promote the release commit
+        run: git push origin "${GITHUB_SHA}:refs/heads/production"
