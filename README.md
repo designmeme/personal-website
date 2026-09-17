@@ -81,12 +81,23 @@ npm run develop -- --port 8001
     * `main` 브랜치에 변경 사항이 반영되면 Release PR이 자동으로 생성되거나 갱신됩니다.
     * Release PR을 병합하면 CHANGELOG와 프로젝트 버전이 갱신되고 태그와 GitHub Release가 생성됩니다.
 
+### 품질 검사
+
+`main`을 대상으로 하는 모든 PR과 `main` 푸시는 GitHub Actions에서 아래 검사를 실행합니다.
+
+* `npm run typecheck`
+* `npm test`
+* `npm run build`
+
+PR에서는 Netlify Deploy Preview도 함께 생성되어, 운영 배포 전에 실제 결과를 확인할 수 있습니다.
+
 ## 🚀 Deploy & Hosting
 
 * Platform: [Netlify](https://www.netlify.com/)
 * [Gatsby Adapter](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/adapters/) 기능 사용
 * 관련 설정: [gatsby-config.ts](./gatsby-config.ts) - `gatsby-adapter-netlify`
-* [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
+* [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `main` 브랜치가 업데이트 되면 자동으로 빌드 후 운영 환경에 배포합니다.
+* `main` 대상 PR은 Netlify Deploy Preview URL을 생성합니다. 운영 배포 전 변경 사항을 확인할 때 사용합니다.
 
 ### Domain
 
