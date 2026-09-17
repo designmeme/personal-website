@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1](https://github.com/designmeme/personal-website/compare/v2.0.0...v2.0.1) (2026-09-17)
+
+
+### Bug Fixes
+
+* **rss:** use explicit post excerpts ([eee2ed5](https://github.com/designmeme/personal-website/commit/eee2ed50fe9e9190bd46dad4e822ac4245fa42f7)), closes [#45](https://github.com/designmeme/personal-website/issues/45)
+* **seo:** simplify post page titles ([a98d847](https://github.com/designmeme/personal-website/commit/a98d847c0ef874ff6dd00f756b8d508f11896646)), closes [#95](https://github.com/designmeme/personal-website/issues/95)
+* **seo:** use custom production domain ([93997b6](https://github.com/designmeme/personal-website/commit/93997b67ad4b52eb65ec678a6c01a3aa1142cc43))
+* **sitemap:** exclude design guide page ([98da020](https://github.com/designmeme/personal-website/commit/98da020183c2c9f6ae7ecdc994b680e2ea4ef230))
+
 ## [2.0.0](https://github.com/designmeme/personal-website/compare/v1.32.1...v2.0.0) (2026-09-06)
 
 
