@@ -14,10 +14,10 @@ export type PageFrontmatter = {
 type Props = {
     frontmatter: PageFrontmatter
     children: React.ReactNode
-    contentClassName?: string
+    showMeta?: boolean
 }
 
-const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
+const PageLayout: React.FC<Props> = ({children, frontmatter, showMeta=true}) => {
     // SSR 결과에 isDesktop이 아닌 경우 포함됨.
     const isDesktop = useMediaQuery({
         query: '(min-width: 1024px)'
@@ -32,7 +32,7 @@ const PageLayout: React.FC<Props> = ({children, frontmatter}) => {
                     {
                         frontmatter.subtitle && <p className="text-lg"> {frontmatter.subtitle}</p>
                     }
-                    <PageMeta updatedAt={frontmatter.updatedAt}></PageMeta>
+                    {showMeta && <PageMeta updatedAt={frontmatter.updatedAt}></PageMeta>}
                 </header>
 
                 <div>
