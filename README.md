@@ -80,6 +80,7 @@ npm run develop -- --port 8001
     * 설정 파일: `/.github/workflows/release-please.yml`
     * `main` 브랜치에 변경 사항이 반영되면 Release PR이 자동으로 생성되거나 갱신됩니다.
     * Release PR을 병합하면 CHANGELOG와 프로젝트 버전이 갱신되고 태그와 GitHub Release가 생성됩니다.
+    * 같은 릴리즈 커밋만 `production` 브랜치로 자동 승격되어 Netlify 운영 환경에 배포됩니다.
 
 ### 품질 검사
 
@@ -96,8 +97,8 @@ PR에서는 Netlify Deploy Preview도 함께 생성되어, 운영 배포 전에 
 * Platform: [Netlify](https://www.netlify.com/)
 * [Gatsby Adapter](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/adapters/) 기능 사용
 * 관련 설정: [gatsby-config.ts](./gatsby-config.ts) - `gatsby-adapter-netlify`
-* [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `main` 브랜치가 업데이트 되면 자동으로 빌드 후 운영 환경에 배포합니다.
-* `main` 대상 PR은 Netlify Deploy Preview URL을 생성합니다. 운영 배포 전 변경 사항을 확인할 때 사용합니다.
+* `production` 브랜치가 업데이트 되면 자동으로 빌드 후 운영 환경에 배포합니다. 이 브랜치는 Release Please workflow만 갱신합니다.
+* `main`은 릴리즈 전 통합 브랜치로 Netlify Branch Deploy를 생성하며, `main` 대상 PR은 Netlify Deploy Preview URL을 생성합니다.
 
 ### Domain
 
