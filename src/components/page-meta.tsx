@@ -1,6 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBook, faTags} from "@fortawesome/free-solid-svg-icons";
+import {faBook} from "@fortawesome/free-solid-svg-icons/faBook";
+import {faTags} from "@fortawesome/free-solid-svg-icons/faTags";
 import moment from "moment";
 
 type Props = {

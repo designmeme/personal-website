@@ -1,12 +1,10 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {
-    faDisplay,
-    faMobileScreenButton,
-    faStar,
-    faTabletScreenButton,
-    faUniversalAccess
-} from "@fortawesome/free-solid-svg-icons";
+import {faDisplay} from "@fortawesome/free-solid-svg-icons/faDisplay";
+import {faMobileScreenButton} from "@fortawesome/free-solid-svg-icons/faMobileScreenButton";
+import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";
+import {faTabletScreenButton} from "@fortawesome/free-solid-svg-icons/faTabletScreenButton";
+import {faUniversalAccess} from "@fortawesome/free-solid-svg-icons/faUniversalAccess";
 
 interface Career {
     title: string

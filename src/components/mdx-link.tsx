@@ -18,7 +18,7 @@
 import React from 'react';
 import {Link} from 'gatsby'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons";
+import {faUpRightFromSquare} from "@fortawesome/free-solid-svg-icons/faUpRightFromSquare";
 
 type Props = React.ComponentPropsWithoutRef<'a'>
 

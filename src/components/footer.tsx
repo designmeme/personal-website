@@ -1,8 +1,10 @@
 import React from 'react';
 import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
-import {faCircle, faEnvelope, faRss} from "@fortawesome/free-solid-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
+import {faCircle} from "@fortawesome/free-solid-svg-icons/faCircle";
+import {faEnvelope} from "@fortawesome/free-solid-svg-icons/faEnvelope";
+import {faRss} from "@fortawesome/free-solid-svg-icons/faRss";
 import ThemeToggle from "./theme-toggle";
 import Symbol from "./symbol";
 

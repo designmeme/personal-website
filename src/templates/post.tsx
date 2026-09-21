@@ -7,14 +7,13 @@ import {useSiteMetadata} from "../hooks/use-site-metadata";
 import {MDXProvider} from "@mdx-js/react"
 import GoogleAdsense from "../components/google-adsense";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {
-    faCreativeCommons,
-    faCreativeCommonsBy,
-    faCreativeCommonsNc,
-    faCreativeCommonsNd,
-} from "@fortawesome/free-brands-svg-icons";
-import {faArrowLeftLong, faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
-import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons";
+import {faCreativeCommons} from "@fortawesome/free-brands-svg-icons/faCreativeCommons";
+import {faCreativeCommonsBy} from "@fortawesome/free-brands-svg-icons/faCreativeCommonsBy";
+import {faCreativeCommonsNc} from "@fortawesome/free-brands-svg-icons/faCreativeCommonsNc";
+import {faCreativeCommonsNd} from "@fortawesome/free-brands-svg-icons/faCreativeCommonsNd";
+import {faArrowLeftLong} from "@fortawesome/free-solid-svg-icons/faArrowLeftLong";
+import {faArrowRightLong} from "@fortawesome/free-solid-svg-icons/faArrowRightLong";
+import {faFaceGrinWide} from "@fortawesome/free-regular-svg-icons/faFaceGrinWide";
 import Toc from "../components/toc";
 import {BlogPosting, BreadcrumbList, WithContext} from "schema-dts";
 import BlogSideNav from "../components/blog-side-nav";

@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faDisplay, faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
+import {faDisplay} from '@fortawesome/free-solid-svg-icons/faDisplay'
+import {faMoon} from '@fortawesome/free-solid-svg-icons/faMoon'
+import {faSun} from '@fortawesome/free-solid-svg-icons/faSun'
 import {
     getStoredTheme,
     resolveTheme,
