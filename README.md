@@ -16,13 +16,13 @@
 ### 로컬에서 개발하기
 
 ```shell
-npm run develop
+pnpm develop
 ```
 
 기본 포트(8000)를 다른 로컬 서비스가 사용 중이면 다음처럼 포트를 지정해 실행할 수 있습니다.
 
 ```shell
-npm run develop -- --port 8001
+pnpm develop -- --port 8001
 ```
 
 ### 색상 테마
@@ -42,6 +42,7 @@ npm run develop -- --port 8001
 
 ### Tech stacks
 
+- Package manager: [pnpm](https://pnpm.io/)
 - React/[Gatsby](https://www.gatsbyjs.com)
 - RSS Feed: [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) 플러그인 사용. 
   - 플러그인 설정 참고: [gatsby-config.ts](./gatsby-config.ts)
@@ -86,9 +87,9 @@ npm run develop -- --port 8001
 
 `main`을 대상으로 하는 모든 PR과 `main` 푸시는 GitHub Actions에서 아래 검사를 실행합니다.
 
-* `npm run typecheck`
-* `npm test`
-* `npm run build`
+* `pnpm typecheck`
+* `pnpm test`
+* `pnpm build`
 
 PR에서는 Netlify Deploy Preview도 함께 생성되어, 운영 배포 전에 실제 결과를 확인할 수 있습니다.
 
