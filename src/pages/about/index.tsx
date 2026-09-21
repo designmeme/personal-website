@@ -11,7 +11,7 @@ export const frontmatter: PageFrontmatter = {
     subtitle: `👩‍🎨 👩‍💻 🚀 📈`,
     excerpt: `15년 이상 경력의 프론트엔드 개발자로 다수의 프로젝트 개발 경험을 보유하고 있습니다.`,
     createdAt: `2017-07-07T00:00:00+09:00`,
-    updatedAt: `2026-09-04T00:00:00+09:00`,
+    updatedAt: `2026-09-21T00:00:00+09:00`,
 }
 
 const AboutPage: React.FC<PageProps> = () => {
@@ -53,6 +53,9 @@ const AboutPage: React.FC<PageProps> = () => {
 
             <p>참여한 주요 작업 목록입니다.</p>
             <p className="text-sm text-secondary">헬로우봇 스킬스토어 / 헬로우봇 스튜디오 / 김메리 / 웨딩마루, 스튜디온, 웨딩북 웹 ERP / 이디움펀딩 / 성호그룹 / 엑스타 슈퍼챌린지 / LG Artcool / 현대자동차 제네시스 이러닝 / 투어팁스 하이브리드앱 / KB국민은행 희망별 / 현대카드뮤직 2.0 / 현대자동차 일마일</p>
+            <p>
+                외주 개발 범위와 진행 방식, 견적 안내는 <Link to="/services/">웹 개발 외주 서비스</Link> 페이지에서 확인할 수 있습니다.
+            </p>
             <p>
                 저를 고용하는 데 관심이 간다면 <Link to="./resume">이력서 및 경력기술서</Link> 페이지를 봐주세요.
             </p>
