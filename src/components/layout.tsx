@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Header from './header'
 import Footer from './footer'
-import {gtmScript} from './gtm-setup'
 
 import moment from 'moment'
 import 'moment/locale/ko'
@@ -16,7 +15,6 @@ const Layout: React.FC<Props> = ({children}) => {
 
     return (
         <>
-            {process.env.NODE_ENV === 'production' && gtmScript}
             <Header/>
             <main className="mt-10 mb-30 px-8 print:m-0 print:p-0">
                 {children}

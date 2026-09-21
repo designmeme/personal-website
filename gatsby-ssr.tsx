@@ -1,7 +1,7 @@
 import * as React from "react"
 import {GatsbySSR} from "gatsby"
 // import {googleAdsenseScripts} from "./src/components/google-adsense-scripts";
-import {gtmNoscript} from "./src/components/gtm-setup";
+import {gtmNoscript, gtmScript} from "./src/components/gtm-setup";
 
 const themeInitializationScript = `
 (() => {
@@ -31,6 +31,7 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents, set
     ])
 
     if (process.env.NODE_ENV === "production") {
+        setHeadComponents([gtmScript])
         setPreBodyComponents([gtmNoscript])
     }
 }
