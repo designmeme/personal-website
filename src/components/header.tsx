@@ -19,6 +19,7 @@ const Header: React.FC = () => {
 
     const navs = [
         {text: "About", path: "/about" },
+        {text: "Services", path: "/services" },
         {text: "Blog", path: "/blog", partiallyActive: true },
     ]
 
