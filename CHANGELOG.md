@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.0](https://github.com/designmeme/personal-website/compare/v2.0.1...v2.1.0) (2026-09-21)
+
+
+### Features
+
+* **about:** link web development services ([75f6551](https://github.com/designmeme/personal-website/commit/75f65512b1ae43662d0770e322e21e3960e8bf51))
+* add service page ([b267695](https://github.com/designmeme/personal-website/commit/b267695e73b6a4bebb50b66249f88ecc67eb6ae2))
+* merge service page updates ([0fcd440](https://github.com/designmeme/personal-website/commit/0fcd440631a553c856e7201c2be3ea714aaa57e6))
+
+
+### Performance Improvements
+
+* avoid redundant about redirect ([339a9d9](https://github.com/designmeme/personal-website/commit/339a9d91265388b1c10a88321cb263c289d46e9e))
+* defer tag manager until idle ([d284b76](https://github.com/designmeme/personal-website/commit/d284b76c73d81c7e8be30d6597633752303c7264))
+* reduce Gatsby hot reload bundle ([18ad62b](https://github.com/designmeme/personal-website/commit/18ad62b2599c0aab5afbbaaa8983f495d7e1e710))
+* unblock web font rendering ([e622936](https://github.com/designmeme/personal-website/commit/e62293642c3934628fe50eaf8953f90cfb840801))
+
 ## [2.0.1](https://github.com/designmeme/personal-website/compare/v2.0.0...v2.0.1) (2026-09-17)
 
 
