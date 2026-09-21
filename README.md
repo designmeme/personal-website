@@ -1,6 +1,6 @@
 # 👋 heyjihye
 
-[Gatsby](https://www.gatsbyjs.com)를 바탕으로 만든 [개인 웹사이트](https://heyjihye.netlify.app/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)의 소스 코드를 담고 있어요
+[Gatsby](https://www.gatsbyjs.com)를 바탕으로 만든 [개인 웹사이트](https://jihye.dokkaebiclub.dev/?utm_source=github&utm_medium=referral&utm_campaign=github_profile)의 소스 코드를 담고 있어요
 
 [//]: # ([![Gatsby]&#40;https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white&#41;]&#40;https://gatsbyjs.com&#41;)
 [![Gatsby](https://img.shields.io/github/package-json/dependency-version/designmeme/personal-website/gatsby?logo=gatsby&labelColor=%23663399&color=%23663399&style=for-the-badge)](https://gatsbyjs.com)
@@ -8,7 +8,7 @@
 <br>
 [![GitHub Workflow Release Please Status](https://img.shields.io/github/actions/workflow/status/designmeme/personal-website/release-please.yml?label=Release%20Please&logo=github&style=for-the-badge)](https://github.com/designmeme/personal-website/actions/workflows/release-please.yml)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196.svg?logo=conventionalcommits&style=for-the-badge)](https://conventionalcommits.org)
-[![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://heyjihye.netlify.app/rss.xml)
+[![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white)](https://jihye.dokkaebiclub.dev/rss.xml)
 [![GitHub](https://img.shields.io/github/license/designmeme/personal-website?style=for-the-badge)](./LICENSE.md)
 
 ## 👩‍💻 Develop
@@ -60,9 +60,10 @@ npm run develop -- --port 8001
 /sitemap-index.xml  # Auto Generated
 /robots.txt  # Auto Generated
 /rss.xml  # Auto Generated
-/rss-ghosts.xml  # rss feed to test
+/rss-ghost.xml  # rss feed to test
 /ads.txt  # Google AdSense
-/naver08346ecd0f9b1019b6fce83369a2ac95.html  # Naver Serach Advisor
+/naverd849460eb9388f7c5265f4ac78dd5587.html  # Naver Serach Advisor
+/_redirects  # heyjihye.netlify.app에서 운영 도메인으로 301 리디렉션
 
 ```
 
@@ -79,13 +80,38 @@ npm run develop -- --port 8001
     * 설정 파일: `/.github/workflows/release-please.yml`
     * `main` 브랜치에 변경 사항이 반영되면 Release PR이 자동으로 생성되거나 갱신됩니다.
     * Release PR을 병합하면 CHANGELOG와 프로젝트 버전이 갱신되고 태그와 GitHub Release가 생성됩니다.
+    * 같은 릴리즈 커밋만 `production` 브랜치로 자동 승격되어 Netlify 운영 환경에 배포됩니다.
+
+### 품질 검사
+
+`main`을 대상으로 하는 모든 PR과 `main` 푸시는 GitHub Actions에서 아래 검사를 실행합니다.
+
+* `npm run typecheck`
+* `npm test`
+* `npm run build`
+
+PR에서는 Netlify Deploy Preview도 함께 생성되어, 운영 배포 전에 실제 결과를 확인할 수 있습니다.
 
 ## 🚀 Deploy & Hosting
 
 * Platform: [Netlify](https://www.netlify.com/)
 * [Gatsby Adapter](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/adapters/) 기능 사용
 * 관련 설정: [gatsby-config.ts](./gatsby-config.ts) - `gatsby-adapter-netlify`
-* [연결 깃헙 저장소](https://github.com/designmeme/personal-website)의 `deploy` 브랜치가 업데이트 되면 자동으로 빌드 후 배포합니다.
+* `production` 브랜치가 업데이트 되면 자동으로 빌드 후 운영 환경에 배포합니다. 이 브랜치는 Release Please workflow만 갱신합니다.
+* `main`은 릴리즈 전 통합 브랜치로 Netlify Branch Deploy를 생성하며, `main` 대상 PR은 Netlify Deploy Preview URL을 생성합니다.
+
+### Domain
+
+* 운영 주소: [jihye.dokkaebiclub.dev](https://jihye.dokkaebiclub.dev)
+* DNS: Porkbun에서 관리하며, `jihye` CNAME은 `heyjihye.netlify.app`을 가리킵니다.
+* 기존 Netlify 주소(`heyjihye.netlify.app`)는 운영 주소로 301 리디렉션됩니다.
+
+| 주소 | 사용 시작일 | 상태 | 설명 |
+| --- | --- | --- | --- |
+| `designmeme.github.io` | 2023-03-05 | 이전 | Git 이력상 초기 주소 |
+| `heyjihye.com` | 2023-03-23 | 이전 | 첫 번째 커스텀 도메인 |
+| `heyjihye.netlify.app` | 2026-08-10 | 이전 | Netlify 기본 주소, 현재 운영 주소로 301 리디렉션 |
+| `jihye.dokkaebiclub.dev` | 2026-09-17 | 현재 | Netlify 기본 도메인 |
 
 
 ## 🚀 Integrations
@@ -104,12 +130,10 @@ npm run develop -- --port 8001
 - [Google Analytics](https://analytics.google.com/)
   - GTM 활용해 연결 완료
 - [Google Search Console](https://search.google.com/search-console/)
-  - 속성 생성(GTM 활용해 인증) 및 사이트맵 제출 완료
-  - 속성 생성 후 도메인이 변경되면 속성이 변경되기 때문에 새로 생성해야 함. 사이트 인증은 GTM 으로 자동 연결됨.
+  - `dokkaebiclub.dev` 도메인 속성을 DNS TXT 레코드로 인증함.
+  - `https://jihye.dokkaebiclub.dev/sitemap-index.xml`을 제출함.
 - [Naver Search Advisor](https://searchadvisor.naver.com/)
-  - 현재 미사용
-  - 이전 커스텀 도메인(heyjihye.com)으로 생성
-  - 새 주소(heyjihye.netlify.app) 변경 후 네이버 검색 지원은 필요성이 떨어텨서 새로 만들지 않음. 
+  - `jihye.dokkaebiclub.dev` 사이트 등록 완료
 
 ### Advertising
 - [Google AdSense](https://adsense.google.com/)
