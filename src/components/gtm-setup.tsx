@@ -1,11 +1,13 @@
 import React from "react"
+import {Script} from "gatsby";
 import {oneLine} from "common-tags";
 
 const gtm: string = 'GTM-PB88GKL'
 
 // Google Tag Manager
-export const gtmScript = <script
-    key="gtm-js"
+export const gtmScript = <Script
+    id="gtm-js"
+    strategy="idle"
     dangerouslySetInnerHTML={{__html: oneLine`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
