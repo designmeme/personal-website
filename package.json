@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.7.1",
   "engines": {
-    "node": ">=22 <26"
+    "node": ">=24 <25"
   },
   "description": "personal-site",
   "author": "jihye",

@@ -13,6 +13,19 @@
 
 ## 👩‍💻 Develop
 
+### 요구 사항
+
+- Node.js 24.21.0
+- pnpm 10.7.1
+
+이 프로젝트는 `.nvmrc`로 Node.js 버전을 관리합니다. fnm을 사용하는 경우
+아래 명령으로 필요한 버전을 설치하고 활성화할 수 있습니다.
+
+```shell
+fnm install
+fnm use
+```
+
 ### 로컬에서 개발하기
 
 ```shell
