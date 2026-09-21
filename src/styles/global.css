@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  font-display: swap;
+  font-weight: 300;
+  src: local("Spoqa Han Sans Neo Light"),
+    url("https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  font-display: swap;
+  font-weight: 400;
+  src: local("Spoqa Han Sans Neo Regular"),
+    url("https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  font-display: swap;
+  font-weight: 500;
+  src: local("Spoqa Han Sans Neo Medium"),
+    url("https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  font-display: swap;
+  font-weight: 700;
+  src: local("Spoqa Han Sans Neo Bold"),
+    url("https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff2") format("woff2");
+}
+
 /*@import "tailwindcss";*/
 @import "tailwindcss" source(none);
 @source "../components";

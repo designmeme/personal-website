@@ -62,6 +62,8 @@ const SeoHead: React.FC<Props> = (
         <>
             <html lang={lang || undefined}/>
 
+            <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous"/>
+
             {/*검색엔진에서 페이지를 수집하지 않도록 설정: https://developers.google.com/search/docs/advanced/robots/robots_meta_tag?hl=ko#robotsmeta*/}
             {noindex && <meta name="robots" content="noindex, nofollow"/>}
 

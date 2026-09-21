@@ -28,11 +28,6 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({ setHeadComponents, set
             key="theme-initialization"
             dangerouslySetInnerHTML={{__html: themeInitializationScript}}
         />,
-        <link
-            href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
-            key="spoqa-han-sans"
-            rel="stylesheet"
-        />,
     ])
 
     if (process.env.NODE_ENV === "production") {
